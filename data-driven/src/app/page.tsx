@@ -6,7 +6,6 @@ import BackgroundLines from '@/components/BackgroundLines';
 import ContactForm from '@/components/ContactForm';
 import Section from '@/components/Section';
 import SiteFooter from '@/components/SiteFooter';
-import SiteHeader from '@/components/SiteHeader';
 
 const pains = [
   {
@@ -88,11 +87,9 @@ const objectives = [
 export default function Home() {
   return (
     <div className="min-h-screen bg-[#F5F5F7] text-[#0B0B0B]">
-      <SiteHeader />
-
       <main>
         {/* HERO - Fondo Blanco */}
-        <section id="hero" className="relative bg-white overflow-hidden">
+        <section id="quienes-somos" className="relative overflow-hidden bg-white">
           {/* Fondo geométrico con parallax suave */}
           <BackgroundLines tone="light" opacity={0.12} density={140} />
 
@@ -120,7 +117,7 @@ export default function Home() {
                   <span className="ml-2 inline-block translate-y-[1px]">→</span>
                 </button>
                 <button
-                  onClick={() => document.getElementById('propuesta')?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => document.getElementById('proyectos')?.scrollIntoView({ behavior: 'smooth' })}
                   className="inline-flex items-center rounded-full border border-[#E5E5EA] bg-white px-6 py-3 text-sm font-medium text-neutral-900 transition-all duration-500 ease-in-out hover:bg-[#F2F2F7] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10"
                 >
                   Conocer más
@@ -131,7 +128,7 @@ export default function Home() {
         </section>
 
         {/* PROPUESTA DE VALOR - Fondo Negro */}
-        <section id="propuesta" className="relative overflow-hidden bg-black py-20 text-white md:py-28">
+        <section id="proyectos" className="relative overflow-hidden bg-black py-20 text-white md:py-28">
           <BackgroundLines tone="dark" opacity={0.16} density={120} />
 
           <div className="container relative mx-auto max-w-6xl px-4">
@@ -177,7 +174,7 @@ export default function Home() {
         </section>
 
         {/* PLAN DE TRABAJO - Fondo Blanco */}
-        <section id="plan-de-trabajo" className="relative overflow-hidden bg-white py-20 md:py-28">
+        <section id="servicios" className="relative overflow-hidden bg-white py-20 md:py-28">
           <BackgroundLines tone="light" opacity={0.1} density={120} />
 
           <div className="container relative mx-auto max-w-6xl px-4">
@@ -254,7 +251,10 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="rounded-3xl border border-[#E5E5EA] bg-white/95 p-12 shadow-[0_1px_3px_rgba(0,0,0,0.08),0_4px_12px_rgba(0,0,0,0.05)]">
+            <div
+              id="agenda"
+              className="rounded-3xl border border-[#E5E5EA] bg-white/95 p-12 shadow-[0_1px_3px_rgba(0,0,0,0.08),0_4px_12px_rgba(0,0,0,0.05)]"
+            >
               <ContactForm />
             </div>
           </div>
