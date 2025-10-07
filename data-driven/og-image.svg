@@ -1,0 +1,41 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#0B0B0B"/>
+  
+  <!-- Grid pattern -->
+  <defs>
+    <pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse">
+      <path d="M 100 0 L 0 0 0 100" fill="none" stroke="#0EA5A0" stroke-width="0.5" opacity="0.1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  
+  <!-- Main content -->
+  <g transform="translate(100, 150)">
+    <!-- Logo/Title -->
+    <text x="0" y="80" font-family="Arial, sans-serif" font-size="72" font-weight="bold" fill="#0EA5A0">
+      Data Driven
+    </text>
+    
+    <!-- Subtitle -->
+    <text x="0" y="140" font-family="Arial, sans-serif" font-size="36" font-weight="normal" fill="#ffffff">
+      Transformamos Datos en Decisiones Estratégicas
+    </text>
+    
+    <!-- Key benefits -->
+    <g transform="translate(0, 200)">
+      <text x="0" y="30" font-family="Arial, sans-serif" font-size="24" fill="#6B7280">✓ ROI promedio del 300%</text>
+      <text x="0" y="60" font-family="Arial, sans-serif" font-size="24" fill="#6B7280">✓ 150+ proyectos exitosos</text>
+      <text x="0" y="90" font-family="Arial, sans-serif" font-size="24" fill="#6B7280">✓ Dashboards en tiempo real</text>
+    </g>
+    
+    <!-- Call to action -->
+    <text x="0" y="380" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#0EA5A0">
+      ¿Listo para revolucionar tus decisiones?
+    </text>
+  </g>
+  
+  <!-- Decorative elements -->
+  <circle cx="1050" cy="150" r="80" fill="#0EA5A0" opacity="0.1"/>
+  <circle cx="1100" cy="450" r="60" fill="#0EA5A0" opacity="0.15"/>
+</svg>

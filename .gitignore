@@ -1,0 +1,5 @@
+# System files
+.DS_Store
+.claude/
+
+# Dependencies and build files in subdirectories are handled by their own .gitignore files
