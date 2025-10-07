@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
+
 // Simple script to create a basic PNG for Open Graph
 const fs = require('fs');
 const path = require('path');

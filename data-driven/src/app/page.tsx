@@ -4,44 +4,7 @@ import { BarChart3, Compass, Layers, Sparkles } from 'lucide-react';
 
 import BackgroundLines from '@/components/BackgroundLines';
 import ContactForm from '@/components/ContactForm';
-import Section from '@/components/Section';
 import SiteFooter from '@/components/SiteFooter';
-
-const pains = [
-  {
-    title: 'Datos fragmentados',
-    description:
-      'Indicadores que viven en múltiples hojas y sistemas, dificultando construir una mirada única.'
-  },
-  {
-    title: 'Reportes tardíos',
-    description:
-      'Semanas para consolidar información que llega obsoleta a las reuniones clave.'
-  },
-  {
-    title: 'Narrativas inconexas',
-    description:
-      'Cada área interpreta los números a su manera, generando decisiones contradictorias.'
-  }
-];
-
-const benefits = [
-  {
-    title: 'Fuente única de verdad',
-    description:
-      'Un tablero central con métricas validadas y actualizadas para responder en segundos.'
-  },
-  {
-    title: 'Operación sin fricción',
-    description:
-      'Procesos automatizados de captura, limpieza y visualización que fluyen en segundo plano.'
-  },
-  {
-    title: 'Decisiones alineadas',
-    description:
-      'Una narrativa compartida que conecta objetivos, resultados y próximos pasos con claridad.'
-  }
-];
 
 const planSteps = [
   {
