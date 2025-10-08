@@ -176,7 +176,7 @@ export default function ContactForm() {
                 id="phone"
                 type="tel"
                 {...register('phone')}
-                placeholder="+1 (555) 123-4567"
+                placeholder="+52 (81) 1801 9331"
                 className="rounded-2xl border-[#E5E5EA] bg-white/95 px-4 py-3 text-base text-[#0B0B0B] transition-colors duration-200 focus:border-[#34C759] focus:ring-0"
                 disabled={isLoading}
               />
