@@ -172,7 +172,7 @@ export default function Header() {
   }, [menuOpen]);
 
   const headerClass = cn(
-    'sticky top-0 z-[70] w-full border-b border-transparent transition-[background-color,border-color,box-shadow,backdrop-filter,color] duration-300 ease-out',
+    'fixed top-0 left-0 right-0 z-[70] w-full border-b border-transparent transition-[background-color,border-color,box-shadow,backdrop-filter,color] duration-300 ease-out',
     isDark ? 'text-white' : 'text-neutral-900',
     scrolled
       ? isDark
