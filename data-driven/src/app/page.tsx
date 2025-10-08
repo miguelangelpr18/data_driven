@@ -225,16 +225,16 @@ export default function Home() {
           </div>
         </section>
 
-        {/* PLAN DE TRABAJO - Fondo Blanco */}
-        <section id="servicios" className="relative overflow-hidden bg-white py-20 md:py-28">
-          <BackgroundLines tone="light" opacity={0.1} density={120} />
+        {/* PLAN DE TRABAJO - Fondo Negro */}
+        <section id="servicios" className="relative overflow-hidden bg-black py-20 text-white md:py-28">
+          <BackgroundLines tone="dark" opacity={0.16} density={130} />
 
           <div className="container relative mx-auto max-w-6xl px-4">
             <div className="mb-16 space-y-6 text-left">
-              <h2 className="text-balance text-3xl font-semibold leading-tight tracking-tight text-[#0B0B0B] sm:text-4xl lg:text-[3.25rem]">
+              <h2 className="text-balance text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl lg:text-[3.25rem]">
                 Plan de Trabajo
               </h2>
-              <p className="max-w-3xl text-pretty text-lg leading-relaxed text-[#6E6E73] sm:text-xl">
+              <p className="max-w-3xl text-pretty text-lg leading-relaxed text-neutral-400 sm:text-xl">
                 Cuatro etapas con entregables claros y microinteracciones pensadas para tu equipo.
               </p>
             </div>
@@ -243,16 +243,16 @@ export default function Home() {
               {planSteps.map(({ title, description, Icon }) => (
                 <div
                   key={title}
-                  className="flex h-full flex-col gap-6 rounded-3xl border border-[#E5E5EA] bg-white/90 p-10 shadow-[0_1px_3px_rgba(0,0,0,0.08),0_4px_12px_rgba(0,0,0,0.05)] transition-transform duration-200 hover:-translate-y-1"
+                  className="flex h-full flex-col gap-6 rounded-3xl border border-white/10 bg-white/5 p-10 shadow-[0_1px_3px_rgba(0,0,0,0.3),0_4px_12px_rgba(0,0,0,0.2)] transition-transform duration-200 hover:-translate-y-1"
                 >
-                  <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#F5F5F7] text-[#0B0B0B]">
+                  <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 text-white">
                     <Icon className="size-6" strokeWidth={1.4} />
                   </span>
                   <div className="space-y-3">
-                    <h3 className="text-xl font-medium text-[#0B0B0B]">{title}</h3>
-                    <p className="text-base leading-relaxed text-[#6E6E73]">{description}</p>
+                    <h3 className="text-xl font-medium text-white">{title}</h3>
+                    <p className="text-base leading-relaxed text-neutral-300">{description}</p>
                   </div>
-                  <span className="mt-auto text-xs uppercase tracking-[0.3em] text-[#6E6E73]">
+                  <span className="mt-auto text-xs uppercase tracking-[0.3em] text-neutral-400">
                     Paso clave
                   </span>
                 </div>
