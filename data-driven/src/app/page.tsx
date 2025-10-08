@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { BarChart3, Compass, Layers, Sparkles } from 'lucide-react';
 
 import BackgroundLines from '@/components/BackgroundLines';
@@ -47,44 +48,103 @@ const objectives = [
   }
 ];
 
+const purposeTimeline = [
+  {
+    title: 'Entendemos tus datos',
+    description: 'Auditamos fuentes, objetivos y ritmos del negocio para revelar qué decisiones necesitan mejores señales.'
+  },
+  {
+    title: 'Diseñamos soluciones claras',
+    description:
+      'Prototipamos experiencias analíticas minimalistas que priorizan insights accionables y adopción real.'
+  },
+  {
+    title: 'Impulsamos decisiones estratégicas',
+    description: 'Conectamos equipos y rituales de seguimiento para que los hallazgos se traduzcan en momentum.'
+  }
+];
+
 export default function Home() {
+  const [introVisible, setIntroVisible] = useState(false);
+
+  useEffect(() => {
+    setIntroVisible(true);
+  }, []);
+
   return (
     <div className="min-h-screen bg-[#F5F5F7] text-[#0B0B0B]">
       <main>
         {/* HERO - Fondo Blanco */}
-        <section id="quienes-somos" className="relative overflow-hidden bg-white">
-          {/* Fondo geométrico con parallax suave */}
-          <BackgroundLines tone="light" opacity={0.12} density={140} />
+        <section id="quienes-somos" className="relative overflow-hidden bg-black text-white">
+          <BackgroundLines tone="dark" opacity={0.18} density={150} />
 
-          <div className="mx-auto max-w-6xl px-4">
-            <div className="max-w-3xl py-32 md:py-40">
-              <div className="inline-flex items-center gap-2 rounded-full border border-black/5 bg-white/80 px-4 py-2 text-xs tracking-[0.18em] text-neutral-600 shadow-[0_8px_24px_rgba(0,0,0,0.05)] backdrop-blur">
-                CONSULTORÍA DATA DRIVEN
+          <div className="mx-auto max-w-6xl px-4 py-24 sm:py-28 lg:py-32">
+            <div
+              className={`grid gap-16 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-center ${
+                introVisible ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
+              } transition-all duration-700 ease-out`}
+            >
+              <div className="relative z-10 max-w-5xl space-y-8">
+                <div className="space-y-4">
+                  <span className="text-xs uppercase tracking-[0.35em] text-neutral-500">Quiénes Somos</span>
+                  <h1 className="text-balance text-4xl font-semibold leading-tight text-white sm:text-5xl">
+                    Conectamos estrategia, diseño y datos para que tus decisiones respiren claridad.
+                  </h1>
+                </div>
+                <div className="space-y-5 text-base leading-relaxed text-neutral-300">
+                  <p>
+                    Somos un estudio boutique que traduce universos de métricas en historias sencillas y accionables. Unimos
+                    talento analítico con sensibilidad de producto para que cada dashboard sea un espacio de calma, no de ruido.
+                  </p>
+                  <p>
+                    Trabajamos como parte de tu equipo: entendemos los dolores clave, prototipamos rápido y acompañamos la
+                    adopción hasta ver a tus líderes tomar decisiones con confianza y precisión.
+                  </p>
+                </div>
+
+                <div className="mt-12 border-l border-white/10 pl-6">
+                  <div className="flex flex-col gap-6">
+                    {purposeTimeline.map((item, index) => (
+                      <div key={item.title} className="relative">
+                        <span className="absolute -left-[29px] top-1 flex h-4 w-4 items-center justify-center">
+                          <span className="h-2 w-2 rounded-full bg-white" />
+                        </span>
+                        <p className="text-xs uppercase tracking-[0.3em] text-neutral-500">Paso 0{index + 1}</p>
+                        <h2 className="mt-1 text-lg font-medium text-white">{item.title}</h2>
+                        <p className="mt-2 text-sm leading-relaxed text-neutral-400">{item.description}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
 
-              <h1 className="mt-6 md:mt-7 text-5xl font-semibold tracking-tight text-neutral-900 md:text-6xl">
-                Decisiones estratégicas con la <span className="whitespace-nowrap">calma de un dashboard Apple.</span>
-              </h1>
-
-              <p className="mt-6 max-w-2xl text-base leading-7 text-neutral-600">
-                Unimos datos, diseño y estrategia para construir experiencias analíticas minimalistas
-                que se sienten familiares, confiables y accionables.
-              </p>
-
-              <div className="mt-10 flex flex-wrap items-center gap-4">
-                <button
-                  onClick={() => document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="inline-flex items-center rounded-full bg-black px-6 py-3 text-sm font-medium text-white transition-all duration-500 ease-in-out hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20"
+              <div className="relative lg:ml-auto">
+                <div className="pointer-events-none absolute -inset-x-8 top-0 -bottom-10 -z-10 opacity-25 blur-3xl transition duration-700 lg:hidden">
+                  <div className="h-full w-full rounded-[40px] border border-white/10 bg-gradient-to-br from-white/10 via-white/0 to-white/10" />
+                </div>
+                <div className="absolute inset-x-0 top-12 flex justify-center lg:hidden" aria-hidden="true">
+                  <div className="relative h-56 w-56 rotate-6 overflow-hidden rounded-[36px] border border-white/10 opacity-25">
+                    <div className="absolute inset-4 rounded-3xl border border-white/15" />
+                    <div className="absolute left-1/2 top-1/2 h-40 w-40 -translate-x-1/2 -translate-y-1/2 -rotate-12 border border-white/10" />
+                    <div className="absolute left-1/2 top-1/2 h-24 w-24 -translate-x-1/2 -translate-y-1/2 border border-white/25" />
+                  </div>
+                </div>
+                <div
+                  className="relative mx-auto hidden w-full max-w-sm justify-center lg:flex"
+                  aria-hidden="true"
                 >
-                  Agenda una sesión
-                  <span className="ml-2 inline-block translate-y-[1px]">→</span>
-                </button>
-                <button
-                  onClick={() => document.getElementById('proyectos')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="inline-flex items-center rounded-full border border-[#E5E5EA] bg-white px-6 py-3 text-sm font-medium text-neutral-900 transition-all duration-500 ease-in-out hover:bg-[#F2F2F7] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10"
-                >
-                  Conocer más
-                </button>
+                  <div className="absolute -inset-16 rounded-full bg-white/10 blur-3xl" />
+                  <div className="relative h-[360px] w-full overflow-hidden rounded-[40px] border border-white/15 bg-gradient-to-br from-white/5 via-white/0 to-white/5">
+                    <div className="absolute inset-0 grid place-items-center">
+                      <div className="relative h-40 w-40 rotate-6 border border-white/20">
+                        <div className="absolute inset-6 rounded-2xl border border-white/10" />
+                      </div>
+                      <div className="absolute h-56 w-56 -rotate-12 border border-white/30" />
+                      <div className="absolute h-72 w-72 rotate-3 border border-white/10" />
+                    </div>
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.2),transparent_65%)]" />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
