@@ -212,12 +212,12 @@ export default function Header() {
             <Image
               src="/logoDataDriven.png"
               alt="Data Driven"
-              width={36}
-              height={36}
+              width={48}
+              height={48}
               priority
               className={cn(
-                'h-9 w-9 shrink-0 rounded-xl object-contain transition duration-300',
-                isDark ? 'bg-white/10 p-1 drop-shadow-[0_6px_18px_rgba(0,0,0,0.45)]' : ''
+                'h-11 w-11 shrink-0 object-contain transition duration-300',
+                isDark ? 'drop-shadow-[0_6px_18px_rgba(0,0,0,0.45)]' : ''
               )}
               onError={() => setLogoError(true)}
             />
