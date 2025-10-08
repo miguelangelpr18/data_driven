@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { BarChart3, Compass, Layers, Sparkles } from 'lucide-react';
+import { BarChart3, Compass, Layers, Sparkles, Briefcase, LineChart, Workflow, Waypoints } from 'lucide-react';
 
 import BackgroundLines from '@/components/BackgroundLines';
 import ContactForm from '@/components/ContactForm';
@@ -64,6 +64,33 @@ const purposeTimeline = [
     description: 'Conectamos equipos y rituales de seguimiento para que los hallazgos se traduzcan en momentum.'
   }
 ];
+
+const projects = [
+  {
+    title: 'Dashboard financiero integral',
+    description:
+      'Centralizamos KPIs críticos de ingresos, costos y rentabilidad en un tablero interactivo con escenarios y alertas tempranas.',
+    Icon: LineChart
+  },
+  {
+    title: 'Automatización de reportes operativos',
+    description:
+      'Conectamos fuentes dispersas y construimos pipelines que generan reportes diarios sin intervención manual.',
+    Icon: Workflow
+  },
+  {
+    title: 'Optimización de inventarios con análisis de datos',
+    description:
+      'Modelamos demanda, rotación y estacionalidad para definir niveles de stock que equilibran costo y disponibilidad.',
+    Icon: Waypoints
+  },
+  {
+    title: 'Diagnóstico Data-Driven para dirección general',
+    description:
+      'Mapeamos madurez analítica, procesos y cultura para priorizar iniciativas que habilitan decisiones estratégicas.',
+    Icon: Briefcase
+  }
+] as const;
 
 export default function Home() {
   const [introVisible, setIntroVisible] = useState(false);
@@ -153,48 +180,47 @@ export default function Home() {
           </div>
         </section>
 
-        {/* PROPUESTA DE VALOR - Fondo Negro */}
-        <section id="proyectos" className="relative overflow-hidden bg-black py-20 text-white md:py-28">
-          <BackgroundLines tone="dark" opacity={0.16} density={120} />
+        {/* PROYECTOS - Fondo Blanco */}
+        <section id="proyectos" className="relative overflow-hidden bg-white py-32 text-[#0B0B0B]">
+          <BackgroundLines tone="light" opacity={0.08} density={140} />
 
-          <div className="container relative mx-auto max-w-6xl px-4">
-            <div className="mb-16 space-y-6 text-left">
-              <h2 className="text-balance text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl lg:text-[3.25rem]">
-                Propuesta de Valor
+          <div className="relative mx-auto max-w-6xl px-4">
+            <div className="mx-auto max-w-3xl text-center">
+              <h2 className="text-balance text-3xl font-semibold leading-tight tracking-tight text-[#0B0B0B] sm:text-4xl lg:text-[3.25rem]">
+                Casos donde los datos se volvieron decisiones
               </h2>
-              <p className="max-w-3xl text-pretty text-lg leading-relaxed text-neutral-400 sm:text-xl">
-                Un acompañamiento modular y enfocado en resultados tangibles.
+              <p className="mt-6 text-base leading-relaxed text-neutral-600 sm:text-lg">
+                Cada proyecto nos ha enseñado a traducir la complejidad en claridad. Aquí algunos ejemplos de soluciones que
+                hemos implementado.
               </p>
             </div>
 
-            <div className="grid gap-8 md:grid-cols-3">
-              <div className="flex h-full flex-col justify-between rounded-3xl border border-white/10 bg-white/5 p-10 shadow-[0_1px_3px_rgba(0,0,0,0.3),0_4px_12px_rgba(0,0,0,0.2)]">
-                <div className="space-y-4">
-                  <p className="text-xs uppercase tracking-[0.3em] text-neutral-500">01 / Auditoría</p>
-                  <p className="text-lg leading-relaxed text-white">
-                    Mapeamos fuentes, calidad y frecuencia de datos para cimentar decisiones confiables.
-                  </p>
+            <div className="mt-20 grid gap-8 sm:grid-cols-2 xl:grid-cols-4">
+              {projects.map(({ title, description, Icon }) => (
+                <div
+                  key={title}
+                  className="group flex h-full flex-col gap-4 rounded-3xl border border-[#E5E5EA] bg-white p-8 shadow-[0_12px_24px_rgba(15,15,15,0.03)] transition hover:-translate-y-1 hover:shadow-[0_18px_32px_rgba(15,15,15,0.08)]"
+                >
+                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#F5F5F7] text-[#0B0B0B]">
+                    <Icon className="size-6" strokeWidth={1.4} />
+                  </span>
+                  <div className="space-y-3">
+                    <h3 className="text-xl font-medium text-[#0B0B0B]">{title}</h3>
+                    <p className="text-sm leading-relaxed text-neutral-600">{description}</p>
+                  </div>
                 </div>
-                <span className="mt-8 text-sm font-medium text-[#34C759]">Sesión kickoff</span>
-              </div>
-              <div className="flex h-full flex-col justify-between rounded-3xl border border-white/10 bg-white/5 p-10 shadow-[0_1px_3px_rgba(0,0,0,0.3),0_4px_12px_rgba(0,0,0,0.2)]">
-                <div className="space-y-4">
-                  <p className="text-xs uppercase tracking-[0.3em] text-neutral-500">02 / Storytelling</p>
-                  <p className="text-lg leading-relaxed text-white">
-                    Construimos visualizaciones limpias que revelan patrones, tendencias y oportunidades.
-                  </p>
-                </div>
-                <span className="mt-8 text-sm font-medium text-[#34C759]">Tableros iterativos</span>
-              </div>
-              <div className="flex h-full flex-col justify-between rounded-3xl border border-white/10 bg-white/5 p-10 shadow-[0_1px_3px_rgba(0,0,0,0.3),0_4px_12px_rgba(0,0,0,0.2)]">
-                <div className="space-y-4">
-                  <p className="text-xs uppercase tracking-[0.3em] text-neutral-500">03 / Activación</p>
-                  <p className="text-lg leading-relaxed text-white">
-                    Alineamos rituales y responsables para convertir hallazgos en acción sostenida.
-                  </p>
-                </div>
-                <span className="mt-8 text-sm font-medium text-[#34C759]">Cierre & roadmap</span>
-              </div>
+              ))}
+            </div>
+
+            <div className="mt-16 flex flex-col items-center gap-4 text-center">
+              <p className="text-base font-medium text-[#0B0B0B]">¿Quieres que te ayudemos a diseñar el tuyo?</p>
+              <button
+                type="button"
+                onClick={() => document.getElementById('agenda')?.scrollIntoView({ behavior: 'smooth' })}
+                className="inline-flex items-center rounded-full bg-black px-5 py-3 text-sm font-medium text-white transition hover:bg-neutral-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/30"
+              >
+                Agenda una sesión
+              </button>
             </div>
           </div>
         </section>
