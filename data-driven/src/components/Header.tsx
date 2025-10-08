@@ -73,7 +73,7 @@ function NavLink({
 
   const baseClass =
     variant === 'desktop'
-      ? 'relative inline-flex items-center justify-center rounded-full px-3 py-2 text-sm font-medium'
+      ? 'relative inline-flex items-center justify-center rounded-full px-3 py-2 text-sm font-medium tracking-tight'
       : 'relative w-full rounded-full px-4 py-3 text-left text-base font-medium';
 
   const colorClass = isActive
@@ -81,17 +81,17 @@ function NavLink({
       ? 'text-white'
       : 'text-neutral-900'
     : isDark
-      ? 'text-white/70 hover:text-white'
-      : 'text-neutral-600 hover:text-neutral-900';
+      ? 'text-white/65 hover:text-white'
+      : 'text-neutral-700 hover:text-neutral-950';
 
   const focusRing =
     variant === 'desktop'
       ? isDark
         ? 'focus-visible:ring-white/30'
-        : 'focus-visible:ring-neutral-400/60'
+        : 'focus-visible:ring-neutral-300/60'
       : isDark
         ? 'focus-visible:ring-white/30'
-        : 'focus-visible:ring-neutral-400/60';
+        : 'focus-visible:ring-neutral-300/60';
 
   return (
     <Link
@@ -100,7 +100,7 @@ function NavLink({
       className={cn(
         baseClass,
         colorClass,
-        'transition-colors duration-300 focus:outline-none focus-visible:ring-2',
+        'transition-colors duration-200 focus:outline-none focus-visible:ring-2',
         focusRing
       )}
       onClick={onNavigate}
@@ -171,24 +171,24 @@ export default function Header() {
     };
   }, [menuOpen]);
 
+  const baseBackground = isDark
+    ? 'bg-neutral-900/55 shadow-[0_1px_0_rgba(255,255,255,0.06)]'
+    : 'bg-white/65 shadow-[0_1px_0_rgba(0,0,0,0.06)]';
+  const scrolledBackground = isDark
+    ? 'bg-neutral-900/70 shadow-[0_12px_24px_rgba(0,0,0,0.22)]'
+    : 'bg-white/80 shadow-[0_12px_28px_rgba(15,15,15,0.12)]';
+
   const headerClass = cn(
-    'fixed top-0 left-0 right-0 z-[70] w-full border-b border-transparent transition-[background-color,border-color,box-shadow,backdrop-filter,color] duration-300 ease-out',
+    'fixed top-0 left-0 right-0 z-[70] w-full border-b border-transparent supports-[backdrop-filter]:backdrop-blur-md transition-[background-color,border-color,box-shadow,backdrop-filter,color] duration-300 ease-out',
     isDark ? 'text-white' : 'text-neutral-900',
-    scrolled
-      ? isDark
-        ? 'border-white/10 bg-black/25 backdrop-blur-md'
-        : 'border-black/10 bg-white/70 backdrop-blur-md shadow-[0_12px_28px_rgba(15,15,15,0.08)]'
-      : 'bg-transparent'
+    scrolled ? scrolledBackground : baseBackground
   );
 
-  const innerClass = cn(
-    'mx-auto flex w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 transition-[padding] duration-300 ease-out',
-    scrolled ? 'py-3 sm:py-3.5' : 'py-4 sm:py-5'
-  );
+  const innerClass = 'mx-auto flex h-[var(--nav-h)] w-full max-w-7xl items-center justify-between gap-5 px-4 sm:px-6 lg:gap-8 lg:px-8';
 
   const ctaClass = isDark
-    ? 'hidden sm:inline-flex items-center rounded-full border border-white/40 bg-white/10 px-4 py-2 text-sm font-medium text-white transition hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/30'
-    : 'hidden sm:inline-flex items-center rounded-full bg-black px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-neutral-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/30';
+    ? 'hidden sm:inline-flex items-center rounded-full border border-white/30 bg-white/15 px-5 py-2 text-sm font-medium text-white transition hover:bg-white/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/30'
+    : 'hidden sm:inline-flex items-center rounded-full bg-black px-5 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-neutral-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/30';
 
   const menuButtonClass = cn(
     'inline-flex items-center justify-center rounded-md p-2 transition focus:outline-none focus-visible:ring-2 lg:hidden',
@@ -215,10 +215,7 @@ export default function Header() {
               width={48}
               height={48}
               priority
-              className={cn(
-                'h-11 w-11 shrink-0 object-contain transition duration-300',
-                isDark ? 'drop-shadow-[0_6px_18px_rgba(0,0,0,0.45)]' : ''
-              )}
+              className={cn('h-10 w-auto shrink-0 object-contain transition duration-300 sm:h-11', isDark ? 'drop-shadow-[0_6px_18px_rgba(0,0,0,0.45)]' : '')}
               onError={() => setLogoError(true)}
             />
           ) : (
@@ -233,7 +230,7 @@ export default function Header() {
           )}
         </Link>
 
-        <nav className="hidden items-center gap-1 lg:flex" aria-label="Navegación principal">
+        <nav className="hidden items-center gap-2 lg:flex xl:gap-3" aria-label="Navegación principal">
           {NAV.map((item) => (
             <NavLink key={item.id} item={item} theme={theme} isActive={activeSection === item.id} />
           ))}

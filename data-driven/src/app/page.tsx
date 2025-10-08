@@ -128,7 +128,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#F5F5F7] text-[#0B0B0B]">
-      <main className="pt-24 sm:pt-28">
+      <main className="pt-[var(--nav-h)]">
         <Hero variant="technical" />
 
         {/* QUIÉNES SOMOS */}

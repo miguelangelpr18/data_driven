@@ -93,8 +93,9 @@
   --sidebar-accent-foreground: #0B0B0B;
   --sidebar-border: #E5E5EA;
   --sidebar-ring: rgba(0, 0, 0, 0.05);
-  --header-offset-mobile: 88px;
-  --header-offset-desktop: 112px;
+  --nav-h: 80px;
+  --header-offset-mobile: calc(var(--nav-h) + 12px);
+  --header-offset-desktop: calc(var(--nav-h) + 12px);
 }
 
 html,
