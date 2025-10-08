@@ -5,6 +5,7 @@ import { BarChart3, Compass, Layers, Sparkles } from 'lucide-react';
 
 import BackgroundLines from '@/components/BackgroundLines';
 import ContactForm from '@/components/ContactForm';
+import Hero from '@/components/Hero';
 import SiteFooter from '@/components/SiteFooter';
 
 const planSteps = [
@@ -74,7 +75,9 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-[#F5F5F7] text-[#0B0B0B]">
       <main>
-        {/* HERO - Fondo Blanco */}
+        <Hero variant="technical" />
+
+        {/* QUIÉNES SOMOS */}
         <section id="quienes-somos" className="relative overflow-hidden bg-black text-white">
           <BackgroundLines tone="dark" opacity={0.18} density={150} />
 
