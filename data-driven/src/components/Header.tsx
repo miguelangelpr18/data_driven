@@ -130,37 +130,33 @@ export default function Header() {
   const isDark = theme === 'dark';
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 12);
-
-    handleScroll();
-    window.addEventListener('scroll', handleScroll, { passive: true });
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  useEffect(() => {
     const sections = Array.from(document.querySelectorAll<HTMLElement>('section[data-theme]'));
-    if (!sections.length) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+    const updateState = () => {
+      const yOffset = window.scrollY;
+      const isScrolled = yOffset > 12;
+      setScrolled(isScrolled);
 
-        if (visible) {
-          const nextTheme: ThemeMode = visible.target.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
-          setTheme((prev) => (prev === nextTheme ? prev : nextTheme));
-        }
-      },
-      { threshold: [0.2, 0.4, 0.6], rootMargin: '-20% 0px -55% 0px' }
-    );
+      const sampleY = isScrolled ? 88 : 112;
+      const sampleElement = document.elementFromPoint(window.innerWidth / 2, sampleY);
+      const currentSection = sampleElement?.closest<HTMLElement>('section[data-theme]');
 
-    sections.forEach((section) => observer.observe(section));
+      if (currentSection) {
+        const nextTheme: ThemeMode = currentSection.dataset.theme === 'dark' ? 'dark' : 'light';
+        setTheme((prev) => (prev === nextTheme ? prev : nextTheme));
+      } else if (sections.length) {
+        const firstTheme: ThemeMode = sections[0].dataset.theme === 'dark' ? 'dark' : 'light';
+        setTheme(firstTheme);
+      }
+    };
+
+    updateState();
+    window.addEventListener('scroll', updateState, { passive: true });
+    window.addEventListener('resize', updateState);
 
     return () => {
-      sections.forEach((section) => observer.unobserve(section));
-      observer.disconnect();
+      window.removeEventListener('scroll', updateState);
+      window.removeEventListener('resize', updateState);
     };
   }, []);
 
