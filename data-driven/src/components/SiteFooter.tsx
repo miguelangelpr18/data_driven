@@ -26,18 +26,18 @@ export default function SiteFooter() {
               <h4 className="text-lg font-medium text-[#0B0B0B]">Contacto</h4>
               <div className="space-y-3 text-sm text-[#6E6E73]">
                 <a
-                  href="mailto:hola@datadriven.com"
+                  href="mailto:mauricio.barrera@datadriven.com.mx"
                   className="flex items-center gap-3 rounded-2xl border border-transparent px-3 py-2 transition-colors duration-200 hover:border-[#E5E5EA] hover:bg-[#F5F5F7] hover:text-[#0B0B0B]"
                 >
                   <Mail className="size-4 text-[#0B0B0B]" />
-                  hola@datadriven.com
+                  mauricio.barrera@datadriven.com.mx
                 </a>
                 <a
-                  href="tel:+1234567890"
+                  href="tel:+528118019331"
                   className="flex items-center gap-3 rounded-2xl border border-transparent px-3 py-2 transition-colors duration-200 hover:border-[#E5E5EA] hover:bg-[#F5F5F7] hover:text-[#0B0B0B]"
                 >
                   <Phone className="size-4 text-[#0B0B0B]" />
-                  +1 (234) 567-890
+                  +52 (81) 1801 9331
                 </a>
               </div>
             </div>
