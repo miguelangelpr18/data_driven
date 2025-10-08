@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { BarChart3, Compass, Layers, Sparkles, Briefcase, LineChart, Workflow, Waypoints } from 'lucide-react';
+import { BarChart3, Compass, Layers, Sparkles, Briefcase, LineChart, Workflow, Waypoints, Database, Target, Presentation, MessageSquare } from 'lucide-react';
 
 import BackgroundLines from '@/components/BackgroundLines';
 import ContactForm from '@/components/ContactForm';
@@ -89,6 +89,33 @@ const projects = [
     description:
       'Mapeamos madurez analítica, procesos y cultura para priorizar iniciativas que habilitan decisiones estratégicas.',
     Icon: Briefcase
+  }
+] as const;
+
+const services = [
+  {
+    title: 'Limpieza y optimización de bases de datos',
+    description:
+      'Transformamos tus datos en una base sólida y ordenada. Estandarizamos formatos, eliminamos duplicidades y aseguramos la integridad de la información.',
+    Icon: Database
+  },
+  {
+    title: 'Definición y medición de KPIs',
+    description:
+      'Diseñamos indicadores claros y accionables alineados a tus objetivos estratégicos, con criterios de medición y seguimiento continuo.',
+    Icon: Target
+  },
+  {
+    title: 'Implementación de reportes y dashboards',
+    description:
+      'Construimos dashboards intuitivos y reportes automáticos que convierten datos dispersos en insights visuales para tu equipo.',
+    Icon: Presentation
+  },
+  {
+    title: 'Consultoría personalizada',
+    description:
+      'Te acompañamos con asesorías a medida para acelerar la adopción del modelo Data Driven y asegurar el éxito del cambio.',
+    Icon: MessageSquare
   }
 ] as const;
 
@@ -218,6 +245,90 @@ export default function Home() {
                 type="button"
                 onClick={() => document.getElementById('agenda')?.scrollIntoView({ behavior: 'smooth' })}
                 className="inline-flex items-center rounded-full bg-black px-5 py-3 text-sm font-medium text-white transition hover:bg-neutral-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/30"
+              >
+                Agenda una sesión
+              </button>
+            </div>
+          </div>
+        </section>
+
+        {/* SERVICIOS - Fondo Blanco */}
+        <section className="relative overflow-hidden bg-white py-32 text-[#0B0B0B]">
+          <BackgroundLines tone="light" opacity={0.08} density={130} />
+
+          <div className="relative mx-auto max-w-6xl px-4">
+            <div className="mx-auto max-w-3xl text-center">
+              <h2 className="text-balance text-3xl font-semibold leading-tight tracking-tight text-[#0B0B0B] sm:text-4xl lg:text-[3.25rem]">
+                Servicios de consultoría en inteligencia de datos
+              </h2>
+              <p className="mt-6 text-base leading-relaxed text-neutral-600 sm:text-lg">
+                Acompañamos a tu empresa desde la limpieza de la información hasta la visualización ejecutiva. Nuestro objetivo:
+                que cada decisión esté respaldada por datos confiables y claros.
+              </p>
+            </div>
+
+            <div className="mt-20 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+              {services.map(({ title, description, Icon }) => (
+                <div
+                  key={title}
+                  className="flex h-full flex-col gap-4 rounded-2xl border border-[#E5E5EA] bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+                >
+                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#F5F5F7] text-[#0B0B0B]">
+                    <Icon className="size-6" strokeWidth={1.4} />
+                  </span>
+                  <div className="space-y-3">
+                    <h3 className="text-lg font-semibold text-[#0B0B0B]">{title}</h3>
+                    <p className="text-sm leading-relaxed text-neutral-600">{description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-20 grid gap-10 rounded-3xl border border-[#E5E5EA] bg-white/90 p-10 shadow-[0_1px_2px_rgba(15,15,15,0.05),0_6px_18px_rgba(15,15,15,0.05)] sm:grid-cols-2">
+              <div className="space-y-4">
+                <h3 className="text-xl font-semibold text-[#0B0B0B]">Dolores comunes en PYMES</h3>
+                <ul className="space-y-3 text-sm leading-relaxed text-neutral-600">
+                  {[
+                    'Datos dispersos en distintas fuentes.',
+                    'Decisiones basadas en intuición en lugar de evidencia.',
+                    'Información desaprovechada o difícil de acceder.',
+                    'Reportes tardíos o inconsistentes.',
+                    'Falta de visibilidad para detectar oportunidades.'
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <span aria-hidden="true" className="text-base text-red-500">❌</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="space-y-4">
+                <h3 className="text-xl font-semibold text-[#0B0B0B]">Beneficios de ser Data Driven</h3>
+                <ul className="space-y-3 text-sm leading-relaxed text-neutral-600">
+                  {[
+                    'Decisiones respaldadas por datos confiables.',
+                    'Información estructurada y fácil de interpretar.',
+                    'KPIs alineados a objetivos del negocio.',
+                    'Dashboards intuitivos que simplifican la gestión.',
+                    'Capacidad de anticipar riesgos y áreas de mejora.'
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <span aria-hidden="true" className="text-base text-emerald-500">✅</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <div className="mt-14 flex flex-col items-center gap-4 text-center">
+              <p className="text-base font-medium text-[#0B0B0B]">
+                ¿Quieres transformar la manera en que tu empresa usa los datos?
+              </p>
+              <button
+                type="button"
+                onClick={() => document.getElementById('agenda')?.scrollIntoView({ behavior: 'smooth' })}
+                className="inline-flex items-center rounded-full bg-black px-6 py-3 text-sm font-medium text-white transition hover:bg-neutral-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/30"
               >
                 Agenda una sesión
               </button>
