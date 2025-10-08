@@ -35,6 +35,7 @@ export default function Hero({ variant = 'technical', className }: HeroProps) {
     <section
       id="hero"
       aria-labelledby="hero-heading"
+      data-theme="light"
       className={cn('relative overflow-hidden bg-white text-neutral-900', className)}
     >
       <BackgroundLines tone="light" opacity={0.08} density={160} />

@@ -93,6 +93,8 @@
   --sidebar-accent-foreground: #0B0B0B;
   --sidebar-border: #E5E5EA;
   --sidebar-ring: rgba(0, 0, 0, 0.05);
+  --header-offset-mobile: 88px;
+  --header-offset-desktop: 112px;
 }
 
 html,
@@ -149,5 +151,15 @@ body {
   }
   .shadow-apple {
     box-shadow: var(--shadow-apple);
+  }
+  section[data-theme] {
+    scroll-margin-top: var(--header-offset-mobile);
+    transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease,
+      transform 0.3s ease;
+  }
+  @media (min-width: 1024px) {
+    section[data-theme] {
+      scroll-margin-top: var(--header-offset-desktop);
+    }
   }
 }

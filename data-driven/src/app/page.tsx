@@ -132,7 +132,7 @@ export default function Home() {
         <Hero variant="technical" />
 
         {/* QUIÉNES SOMOS */}
-        <section id="quienes-somos" className="relative overflow-hidden bg-black text-white">
+        <section id="quienes-somos" data-theme="dark" className="relative overflow-hidden bg-black text-white">
           <BackgroundLines tone="dark" opacity={0.18} density={150} />
 
           <div className="mx-auto max-w-6xl px-4 py-24 sm:py-28 lg:py-32">
@@ -208,7 +208,7 @@ export default function Home() {
         </section>
 
         {/* PROYECTOS - Fondo Blanco */}
-        <section id="proyectos" className="relative overflow-hidden bg-white py-32 text-[#0B0B0B]">
+        <section id="proyectos" data-theme="light" className="relative overflow-hidden bg-white py-32 text-[#0B0B0B]">
           <BackgroundLines tone="light" opacity={0.08} density={140} />
 
           <div className="relative mx-auto max-w-6xl px-4">
@@ -243,7 +243,7 @@ export default function Home() {
         </section>
 
         {/* SERVICIOS - Fondo Blanco */}
-        <section className="relative overflow-hidden bg-white py-32 text-[#0B0B0B]">
+        <section id="servicios" data-theme="light" className="relative overflow-hidden bg-white py-32 text-[#0B0B0B]">
           <BackgroundLines tone="light" opacity={0.08} density={130} />
 
           <div className="relative mx-auto max-w-6xl px-4">
@@ -327,7 +327,7 @@ export default function Home() {
         </section>
 
         {/* PLAN DE TRABAJO - Fondo Negro */}
-        <section id="servicios" className="relative overflow-hidden bg-black py-20 text-white md:py-28">
+        <section id="plan-de-trabajo" data-theme="dark" className="relative overflow-hidden bg-black py-20 text-white md:py-28">
           <BackgroundLines tone="dark" opacity={0.16} density={130} />
 
           <div className="container relative mx-auto max-w-6xl px-4">
@@ -363,7 +363,7 @@ export default function Home() {
         </section>
 
         {/* OBJETIVOS - Fondo Negro */}
-        <section id="objetivos" className="relative overflow-hidden bg-black py-20 text-white md:py-28">
+        <section id="objetivos" data-theme="dark" className="relative overflow-hidden bg-black py-20 text-white md:py-28">
           <BackgroundLines tone="dark" opacity={0.18} density={120} />
 
           <div className="container relative mx-auto max-w-6xl px-4">
@@ -391,7 +391,7 @@ export default function Home() {
         </section>
 
         {/* CONTACTO - Fondo Blanco */}
-        <section id="contacto" className="relative overflow-hidden bg-white py-20 md:py-28">
+        <section id="contacto" data-theme="light" className="relative overflow-hidden bg-white py-20 md:py-28">
           <BackgroundLines tone="light" opacity={0.08} density={140} />
 
           <div className="container relative mx-auto max-w-6xl px-4">
