@@ -239,16 +239,6 @@ export default function Home() {
               ))}
             </div>
 
-            <div className="mt-16 flex flex-col items-center gap-4 text-center">
-              <p className="text-base font-medium text-[#0B0B0B]">¿Quieres que te ayudemos a diseñar el tuyo?</p>
-              <button
-                type="button"
-                onClick={() => document.getElementById('agenda')?.scrollIntoView({ behavior: 'smooth' })}
-                className="inline-flex items-center rounded-full bg-black px-5 py-3 text-sm font-medium text-white transition hover:bg-neutral-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/30"
-              >
-                Agenda una sesión
-              </button>
-            </div>
           </div>
         </section>
 
