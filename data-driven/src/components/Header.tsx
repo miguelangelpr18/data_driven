@@ -104,7 +104,7 @@ export default function Header() {
         <Link href="/" className="flex items-center gap-3" aria-label="Inicio">
           {!logoError ? (
             <Image
-              src="/logo-dd.svg"
+              src="/logoDataDriven.png"
               alt="Data Driven"
               width={36}
               height={36}
