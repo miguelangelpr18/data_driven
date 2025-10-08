@@ -44,7 +44,7 @@ export default function SiteFooter() {
           </div>
 
           <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-[#E5E5EA] pt-8 text-xs text-[#6E6E73] md:flex-row">
-            <p>© 2024 Data Driven. Todos los derechos reservados.</p>
+            <p>© 2025 Data Driven. Todos los derechos reservados.</p>
             <div className="flex gap-6">
               <a href="#" className="transition-opacity duration-200 hover:opacity-70">
                 Política de Privacidad
