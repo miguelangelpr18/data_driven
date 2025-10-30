@@ -15,7 +15,7 @@ const COPY_VARIANTS: Record<HeroCopyVariant, { title: string; subtitle: string }
   },
   technical: {
     title: 'Estrategia, diseño y datos en perfecta sincronía.',
-    subtitle: 'Integramos auditoría, visualización y gobierno de datos para decisiones confiables.'
+    subtitle: 'Te ayudamos a implementar business intelligence para tu negocio'
   },
   commercial: {
     title: 'Menos ruido, más resultados.',

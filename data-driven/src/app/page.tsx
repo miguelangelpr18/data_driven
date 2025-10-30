@@ -49,22 +49,6 @@ const objectives = [
   }
 ];
 
-const purposeTimeline = [
-  {
-    title: 'Entendemos tus datos',
-    description: 'Auditamos fuentes, objetivos y ritmos del negocio para revelar qué decisiones necesitan mejores señales.'
-  },
-  {
-    title: 'Diseñamos soluciones claras',
-    description:
-      'Prototipamos experiencias analíticas minimalistas que priorizan insights accionables y adopción real.'
-  },
-  {
-    title: 'Impulsamos decisiones estratégicas',
-    description: 'Conectamos equipos y rituales de seguimiento para que los hallazgos se traduzcan en momentum.'
-  }
-];
-
 const projects = [
   {
     title: 'Dashboard financiero integral',
@@ -157,21 +141,6 @@ export default function Home() {
                     Trabajamos como parte de tu equipo: entendemos los dolores clave, prototipamos rápido y acompañamos la
                     adopción hasta ver a tus líderes tomar decisiones con confianza y precisión.
                   </p>
-                </div>
-
-                <div className="mt-12 border-l border-white/10 pl-6">
-                  <div className="flex flex-col gap-6">
-                    {purposeTimeline.map((item, index) => (
-                      <div key={item.title} className="relative">
-                        <span className="absolute -left-[29px] top-1 flex h-4 w-4 items-center justify-center">
-                          <span className="h-2 w-2 rounded-full bg-white" />
-                        </span>
-                        <p className="text-xs uppercase tracking-[0.3em] text-neutral-500">Paso 0{index + 1}</p>
-                        <h2 className="mt-1 text-lg font-medium text-white">{item.title}</h2>
-                        <p className="mt-2 text-sm leading-relaxed text-neutral-400">{item.description}</p>
-                      </div>
-                    ))}
-                  </div>
                 </div>
               </div>
 
