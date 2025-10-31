@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { BarChart3, Compass, Layers, Sparkles } from 'lucide-react';
+import { BarChart3, Database, RefreshCw, Target } from 'lucide-react';
 
 import BackgroundLines from '@/components/BackgroundLines';
 import ContactForm from '@/components/ContactForm';
@@ -10,26 +10,30 @@ import SiteFooter from '@/components/SiteFooter';
 
 const planSteps = [
   {
-    title: 'Diagnóstico',
-    description: 'Mapeamos objetivos, preguntas críticas y calidad de datos para definir el alcance.',
-    Icon: Compass
+    title: '1. Entendimiento y Optimización de Bases de Datos',
+    duration: '2–3 semanas',
+    description: 'Auditamos fuentes, limpiamos datos clave y homologamos estructuras para garantizar consistencia.',
+    Icon: Database
   },
   {
-    title: 'Arquitectura',
-    description: 'Diseñamos la estructura técnica y visual con foco minimalista y adopción rápida.',
-    Icon: Layers
+    title: '2. Definición de KPIs',
+    duration: '1–2 semanas',
+    description: 'Alineamos objetivos estratégicos, priorizamos indicadores y diseñamos métricas accionables.',
+    Icon: Target
   },
   {
-    title: 'Implementación',
-    description: 'Automatizamos flujos, construimos dashboards y documentamos cada entrega.',
+    title: '3. Creación de Reportes y Dashboards',
+    duration: '2–3 semanas',
+    description: 'Diseñamos dashboards intuitivos, automatizamos flujos y preparamos vistas para cada equipo.',
     Icon: BarChart3
   },
   {
-    title: 'Activación',
-    description: 'Entrenamos a los equipos, medimos adopción y abrimos ciclos de mejora continua.',
-    Icon: Sparkles
+    title: '4. Seguimiento y Ajustes Finales',
+    duration: '1–2 semanas',
+    description: 'Medimos adopción, afinamos reportes y documentamos aprendizajes para mantener la evolución.',
+    Icon: RefreshCw
   }
-];
+] as const;
 
 const objectives = [
   {
@@ -209,20 +213,20 @@ export default function Home() {
                 introVisible ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
               } transition-all duration-700 ease-out`}
             >
-              <div className="relative z-10 max-w-5xl space-y-8">
-                <div className="space-y-4">
+              <div className="relative z-10 max-w-4xl space-y-10">
+                <div className="space-y-3">
                   <span className="text-xs uppercase tracking-[0.35em] text-neutral-500">Quiénes Somos</span>
-                  <h1 className="text-balance text-4xl font-semibold leading-tight text-white sm:text-5xl">
-                    Somos una consultora especializada en inteligencia de negocios dedicada a apoyar a las pequeñas y medianas empresas que aún no han logrado implementar el análisis de datos.
-                  </h1>
-                </div>
-                <div className="space-y-5 text-base leading-relaxed text-neutral-300">
-                  <p>
-                    Nuestro objetivo es simplificar el proceso de análisis de datos, ayudándoles a organizar, extraer y visualizar su información de forma efectiva para que puedan tomar decisiones estratégicas basadas en hechos en lugar de suposiciones.
-                  </p>
-                  <p>
-                    Nos enfocamos en crear soluciones accesibles y personalizadas que integren el poder de los datos en sus procesos, impulsando el crecimiento y mejorando su competitividad.
-                  </p>
+                  <div className="space-y-6 text-pretty">
+                    <p className="text-lg font-medium leading-relaxed text-neutral-200 sm:text-xl">
+                      Somos una consultora especializada en inteligencia de negocios dedicada a apoyar a las pequeñas y medianas empresas que aún no han logrado implementar el análisis de datos.
+                    </p>
+                    <p className="text-lg font-medium leading-relaxed text-neutral-200 sm:text-xl">
+                      Nuestro objetivo es simplificar el proceso de análisis de datos, ayudándoles a organizar, extraer y visualizar su información de forma efectiva para que puedan tomar decisiones estratégicas basadas en hechos en lugar de suposiciones.
+                    </p>
+                    <p className="text-lg font-medium leading-relaxed text-neutral-200 sm:text-xl">
+                      Nos enfocamos en crear soluciones accesibles y personalizadas que integren el poder de los datos en sus procesos, impulsando el crecimiento y mejorando su competitividad.
+                    </p>
+                  </div>
                 </div>
               </div>
 
@@ -490,37 +494,39 @@ export default function Home() {
         </section>
         */}
 
-        {/* PLAN DE TRABAJO - Fondo Negro */}
-        <section id="plan-de-trabajo" data-theme="dark" className="relative overflow-hidden bg-black py-20 text-white md:py-28">
-          <BackgroundLines tone="dark" opacity={0.16} density={130} />
+        {/* PLAN DE TRABAJO - Fondo Blanco */}
+        <section
+          id="plan-de-trabajo"
+          data-theme="light"
+          className="relative overflow-hidden bg-white py-28 text-[#0B0B0B] sm:py-32"
+        >
+          <BackgroundLines tone="light" opacity={0.08} density={135} />
 
           <div className="container relative mx-auto max-w-6xl px-4">
-            <div className="mb-16 space-y-6 text-left">
-              <h2 className="text-balance text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl lg:text-[3.25rem]">
+            <div className="mx-auto max-w-3xl text-center">
+              <h2 className="text-balance text-3xl font-semibold leading-tight tracking-tight text-[#0B0B0B] sm:text-4xl lg:text-[3.25rem]">
                 Plan de Trabajo
               </h2>
-              <p className="max-w-3xl text-pretty text-lg leading-relaxed text-neutral-400 sm:text-xl">
-                Cuatro etapas con entregables claros y microinteracciones pensadas para tu equipo.
+              <p className="mt-6 text-base leading-relaxed text-neutral-600 sm:text-lg">
+                Acompañamos cada etapa con entregables claros, ritmos definidos y colaboración constante.
               </p>
             </div>
 
-            <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-4">
-              {planSteps.map(({ title, description, Icon }) => (
-                <div
+            <div className="mt-20 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+              {planSteps.map(({ title, duration, description, Icon }) => (
+                <article
                   key={title}
-                  className="flex h-full flex-col gap-6 rounded-3xl border border-white/10 bg-white/5 p-10 shadow-[0_1px_3px_rgba(0,0,0,0.3),0_4px_12px_rgba(0,0,0,0.2)] transition-transform duration-200 hover:-translate-y-1"
+                  className="group flex h-full flex-col items-center gap-5 rounded-[28px] border border-[#E5E5EA] bg-white p-8 text-center shadow-[0_12px_24px_rgba(15,15,15,0.05)] transition duration-200 hover:-translate-y-1 hover:shadow-[0_18px_32px_rgba(15,15,15,0.1)] sm:p-9"
                 >
-                  <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 text-white">
+                  <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#F5F5F7] text-[#0B0B0B] shadow-inner">
                     <Icon className="size-6" strokeWidth={1.4} />
                   </span>
-                  <div className="space-y-3">
-                    <h3 className="text-xl font-medium text-white">{title}</h3>
-                    <p className="text-base leading-relaxed text-neutral-300">{description}</p>
+                  <div className="space-y-2">
+                    <h3 className="text-lg font-semibold text-[#0B0B0B]">{title}</h3>
+                    <p className="text-xs uppercase tracking-[0.25em] text-neutral-500">{duration}</p>
                   </div>
-                  <span className="mt-auto text-xs uppercase tracking-[0.3em] text-neutral-400">
-                    Paso clave
-                  </span>
-                </div>
+                  <p className="text-sm leading-relaxed text-neutral-600">{description}</p>
+                </article>
               ))}
             </div>
           </div>
