@@ -151,14 +151,15 @@ export default function Home() {
                   <h1 className="text-balance text-4xl font-semibold leading-tight text-white sm:text-5xl">
                     Somos una consultora especializada en inteligencia de negocios dedicada a apoyar a las pequeñas y medianas empresas que aún no han logrado implementar el análisis de datos.
                   </h1>
-                   <h1 className="text-balance text-4xl font-semibold leading-tight text-white sm:text-5xl">
-                    Nuestro objetivo es simplificar el proceso de análisis de datos, ayudándoles a organizar, extraer y visualizar su información de forma efectiva para que puedan tomar decisiones estratégicas basadas en hechos en lugar de suposiciones.
-                   </h1>
-                    <h1 className="text-balance text-4xl font-semibold leading-tight text-white sm:text-5xl">
-                    Nos enfocamos en crear soluciones accesibles y personalizadas que integren el poder de los datos en sus procesos, impulsando el crecimiento y mejorando su competitividad.
-                    </h1>
                 </div>
-             
+                <div className="space-y-5 text-base leading-relaxed text-neutral-300">
+                  <p>
+                    Nuestro objetivo es simplificar el proceso de análisis de datos, ayudándoles a organizar, extraer y visualizar su información de forma efectiva para que puedan tomar decisiones estratégicas basadas en hechos en lugar de suposiciones.
+                  </p>
+                  <p>
+                    Nos enfocamos en crear soluciones accesibles y personalizadas que integren el poder de los datos en sus procesos, impulsando el crecimiento y mejorando su competitividad.
+                  </p>
+                </div>
               </div>
 
               <div className="relative lg:ml-auto">
