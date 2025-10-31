@@ -49,6 +49,25 @@ const objectives = [
   }
 ];
 
+// TODO: Restaurar la línea de tiempo de pasos cuando debamos comunicar el proceso nuevamente.
+// const purposeTimeline = [
+//   {
+//     title: 'Entendemos tus datos',
+//     description:
+//       'Auditamos fuentes, objetivos y ritmos del negocio para revelar qué decisiones necesitan mejores señales.'
+//   },
+//   {
+//     title: 'Diseñamos soluciones claras',
+//     description:
+//       'Prototipamos experiencias analíticas minimalistas que priorizan insights accionables y adopción real.'
+//   },
+//   {
+//     title: 'Impulsamos decisiones estratégicas',
+//     description:
+//       'Conectamos equipos y rituales de seguimiento para que los hallazgos se traduzcan en momentum.'
+//   }
+// ];
+
 const projects = [
   {
     title: 'Dashboard financiero integral',
@@ -76,32 +95,33 @@ const projects = [
   }
 ] as const;
 
-const services = [
-  {
-    title: 'Limpieza y optimización de bases de datos',
-    description:
-      'Transformamos tus datos en una base sólida y ordenada. Estandarizamos formatos, eliminamos duplicidades y aseguramos la integridad de la información.',
-    Icon: Database
-  },
-  {
-    title: 'Definición y medición de KPIs',
-    description:
-      'Diseñamos indicadores claros y accionables alineados a tus objetivos estratégicos, con criterios de medición y seguimiento continuo.',
-    Icon: Target
-  },
-  {
-    title: 'Implementación de reportes y dashboards',
-    description:
-      'Construimos dashboards intuitivos y reportes automáticos que convierten datos dispersos en insights visuales para tu equipo.',
-    Icon: Presentation
-  },
-  {
-    title: 'Consultoría personalizada',
-    description:
-      'Te acompañamos con asesorías a medida para acelerar la adopción del modelo Data Driven y asegurar el éxito del cambio.',
-    Icon: MessageSquare
-  }
-] as const;
+// TODO: Reactivar el listado de servicios cuando volvamos a detallar la oferta.
+// const services = [
+//   {
+//     title: 'Limpieza y optimización de bases de datos',
+//     description:
+//       'Transformamos tus datos en una base sólida y ordenada. Estandarizamos formatos, eliminamos duplicidades y aseguramos la integridad de la información.',
+//     Icon: Database
+//   },
+//   {
+//     title: 'Definición y medición de KPIs',
+//     description:
+//       'Diseñamos indicadores claros y accionables alineados a tus objetivos estratégicos, con criterios de medición y seguimiento continuo.',
+//     Icon: Target
+//   },
+//   {
+//     title: 'Implementación de reportes y dashboards',
+//     description:
+//       'Construimos dashboards intuitivos y reportes automáticos que convierten datos dispersos en insights visuales para tu equipo.',
+//     Icon: Presentation
+//   },
+//   {
+//     title: 'Consultoría personalizada',
+//     description:
+//       'Te acompañamos con asesorías a medida para acelerar la adopción del modelo Data Driven y asegurar el éxito del cambio.',
+//     Icon: MessageSquare
+//   }
+// ] as const;
 
 export default function Home() {
   const [introVisible, setIntroVisible] = useState(false);
@@ -129,19 +149,16 @@ export default function Home() {
                 <div className="space-y-4">
                   <span className="text-xs uppercase tracking-[0.35em] text-neutral-500">Quiénes Somos</span>
                   <h1 className="text-balance text-4xl font-semibold leading-tight text-white sm:text-5xl">
-                    Conectamos estrategia, diseño y datos para que tus decisiones respiren claridad.
+                    Somos una consultora especializada en inteligencia de negocios dedicada a apoyar a las pequeñas y medianas empresas que aún no han logrado implementar el análisis de datos.
                   </h1>
+                   <h1 className="text-balance text-4xl font-semibold leading-tight text-white sm:text-5xl">
+                    Nuestro objetivo es simplificar el proceso de análisis de datos, ayudándoles a organizar, extraer y visualizar su información de forma efectiva para que puedan tomar decisiones estratégicas basadas en hechos en lugar de suposiciones.
+                   </h1>
+                    <h1 className="text-balance text-4xl font-semibold leading-tight text-white sm:text-5xl">
+                    Nos enfocamos en crear soluciones accesibles y personalizadas que integren el poder de los datos en sus procesos, impulsando el crecimiento y mejorando su competitividad.
+                    </h1>
                 </div>
-                <div className="space-y-5 text-base leading-relaxed text-neutral-300">
-                  <p>
-                    Somos un estudio boutique que traduce universos de métricas en historias sencillas y accionables. Unimos
-                    talento analítico con sensibilidad de producto para que cada dashboard sea un espacio de calma, no de ruido.
-                  </p>
-                  <p>
-                    Trabajamos como parte de tu equipo: entendemos los dolores clave, prototipamos rápido y acompañamos la
-                    adopción hasta ver a tus líderes tomar decisiones con confianza y precisión.
-                  </p>
-                </div>
+             
               </div>
 
               <div className="relative lg:ml-auto">
@@ -155,6 +172,22 @@ export default function Home() {
                     <div className="absolute left-1/2 top-1/2 h-24 w-24 -translate-x-1/2 -translate-y-1/2 border border-white/25" />
                   </div>
                 </div>
+                {/* TODO: Rehabilitar el bloque de pasos cuando volvamos a contar el proceso.
+                <div className="mt-12 border-l border-white/10 pl-6">
+                  <div className="flex flex-col gap-6">
+                    {purposeTimeline.map((item, index) => (
+                      <div key={item.title} className="relative">
+                        <span className="absolute -left-[29px] top-1 flex h-4 w-4 items-center justify-center">
+                          <span className="h-2 w-2 rounded-full bg-white" />
+                        </span>
+                        <p className="text-xs uppercase tracking-[0.3em] text-neutral-500">Paso 0{index + 1}</p>
+                        <h2 className="mt-1 text-lg font-medium text-white">{item.title}</h2>
+                        <p className="mt-2 text-sm leading-relaxed text-neutral-400">{item.description}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                */}
                 <div
                   className="relative mx-auto hidden w-full max-w-sm justify-center lg:flex"
                   aria-hidden="true"
@@ -211,7 +244,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* SERVICIOS - Fondo Blanco */}
+        {/* TODO: Rehabilitar la sección de servicios cuando necesitemos mostrar la oferta completa.
         <section id="servicios" data-theme="light" className="relative overflow-hidden bg-white py-32 text-[#0B0B0B]">
           <BackgroundLines tone="light" opacity={0.08} density={130} />
 
@@ -294,6 +327,7 @@ export default function Home() {
             </div>
           </div>
         </section>
+        */}
 
         {/* PLAN DE TRABAJO - Fondo Negro */}
         <section id="plan-de-trabajo" data-theme="dark" className="relative overflow-hidden bg-black py-20 text-white md:py-28">
