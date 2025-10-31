@@ -146,6 +146,22 @@ const proposalColumns = [
   }
 ] as const;
 
+const pymesPainPoints = [
+  'Datos dispersos en distintas fuentes.',
+  'Decisiones basadas en intuición en lugar de evidencia.',
+  'Información desaprovechada o difícil de acceder.',
+  'Reportes tardíos o inconsistentes.',
+  'Falta de visibilidad para detectar oportunidades.'
+] as const;
+
+const dataDrivenBenefits = [
+  'Decisiones respaldadas por datos confiables.',
+  'Información estructurada y fácil de interpretar.',
+  'KPIs alineados a objetivos del negocio.',
+  'Dashboards intuitivos que simplifican la gestión.',
+  'Capacidad de anticipar riesgos y áreas de mejora.'
+] as const;
+
 export default function Home() {
   const [introVisible, setIntroVisible] = useState(false);
 
@@ -229,6 +245,56 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        <section
+          id="dolores-beneficios"
+          data-theme="light"
+          className="relative overflow-hidden bg-white py-24 text-[#0B0B0B] sm:py-28"
+        >
+          <BackgroundLines tone="light" opacity={0.08} density={125} />
+
+          <div className="relative mx-auto max-w-6xl px-4">
+            <div className="rounded-3xl border border-[#E5E5EA] bg-white/95 p-10 shadow-[0_1px_2px_rgba(15,15,15,0.05),0_10px_22px_rgba(15,15,15,0.05)] sm:p-12">
+              <div className="grid gap-12 sm:grid-cols-2">
+                <div className="space-y-6">
+                  <h3 className="text-xl font-semibold text-[#0B0B0B]">Dolores comunes en PYMES</h3>
+                  <ul className="space-y-3 text-sm leading-relaxed text-neutral-600">
+                    {pymesPainPoints.map((item) => (
+                      <li key={item} className="flex items-start gap-3">
+                        <span aria-hidden="true" className="mt-[3px] text-base text-red-500">❌</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="space-y-6">
+                  <h3 className="text-xl font-semibold text-[#0B0B0B]">Beneficios de ser Data Driven</h3>
+                  <ul className="space-y-3 text-sm leading-relaxed text-neutral-600">
+                    {dataDrivenBenefits.map((item) => (
+                      <li key={item} className="flex items-start gap-3">
+                        <span aria-hidden="true" className="mt-[3px] text-base text-emerald-500">✅</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-12 flex flex-col items-center gap-4 text-center">
+              <p className="text-base font-medium text-[#0B0B0B]">
+                ¿Quieres transformar la manera en que tu empresa usa los datos?
+              </p>
+              <button
+                type="button"
+                onClick={() => document.getElementById('agenda')?.scrollIntoView({ behavior: 'smooth' })}
+                className="inline-flex items-center rounded-full bg-black px-6 py-3 text-sm font-medium text-white transition hover:bg-neutral-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/30"
+              >
+                Agenda una sesión
+              </button>
             </div>
           </div>
         </section>
