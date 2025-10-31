@@ -68,32 +68,33 @@ const objectives = [
 //   }
 // ];
 
-const projects = [
-  {
-    title: 'Dashboard financiero integral',
-    description:
-      'Centralizamos KPIs críticos de ingresos, costos y rentabilidad en un tablero interactivo con escenarios y alertas tempranas.',
-    Icon: LineChart
-  },
-  {
-    title: 'Automatización de reportes operativos',
-    description:
-      'Conectamos fuentes dispersas y construimos pipelines que generan reportes diarios sin intervención manual.',
-    Icon: Workflow
-  },
-  {
-    title: 'Optimización de inventarios con análisis de datos',
-    description:
-      'Modelamos demanda, rotación y estacionalidad para definir niveles de stock que equilibran costo y disponibilidad.',
-    Icon: Waypoints
-  },
-  {
-    title: 'Diagnóstico Data-Driven para dirección general',
-    description:
-      'Mapeamos madurez analítica, procesos y cultura para priorizar iniciativas que habilitan decisiones estratégicas.',
-    Icon: Briefcase
-  }
-] as const;
+// TODO: Reactivar proyectos destacados cuando volvamos a mostrar casos de éxito.
+// const projects = [
+//   {
+//     title: 'Dashboard financiero integral',
+//     description:
+//       'Centralizamos KPIs críticos de ingresos, costos y rentabilidad en un tablero interactivo con escenarios y alertas tempranas.',
+//     Icon: LineChart
+//   },
+//   {
+//     title: 'Automatización de reportes operativos',
+//     description:
+//       'Conectamos fuentes dispersas y construimos pipelines que generan reportes diarios sin intervención manual.',
+//     Icon: Workflow
+//   },
+//   {
+//     title: 'Optimización de inventarios con análisis de datos',
+//     description:
+//       'Modelamos demanda, rotación y estacionalidad para definir niveles de stock que equilibran costo y disponibilidad.',
+//     Icon: Waypoints
+//   },
+//   {
+//     title: 'Diagnóstico Data-Driven para dirección general',
+//     description:
+//       'Mapeamos madurez analítica, procesos y cultura para priorizar iniciativas que habilitan decisiones estratégicas.',
+//     Icon: Briefcase
+//   }
+// ] as const;
 
 // TODO: Reactivar el listado de servicios cuando volvamos a detallar la oferta.
 // const services = [
@@ -122,6 +123,28 @@ const projects = [
 //     Icon: MessageSquare
 //   }
 // ] as const;
+
+const proposalColumns = [
+  {
+    title: 'Limpieza y optimización de bases de datos',
+    items: ['Identificar campos clave.', 'Organización de la información.', 'Homologación de formatos.']
+  },
+  {
+    title: 'Definición y medición de KPIs',
+    items: [
+      'Identificar el punto de partida de diferentes indicadores.',
+      'Establecer metas alcanzables.',
+      'Medición constante.'
+    ]
+  },
+  {
+    title: 'Implementación de reportes y dashboards',
+    items: [
+      'Implementación de dashboards interactivos.',
+      'Reportes estratégicos con hallazgos encontrados.'
+    ]
+  }
+] as const;
 
 export default function Home() {
   const [introVisible, setIntroVisible] = useState(false);
@@ -210,7 +233,35 @@ export default function Home() {
           </div>
         </section>
 
-        {/* PROYECTOS - Fondo Blanco */}
+        <section id="nuestra-propuesta" data-theme="light" className="relative overflow-hidden bg-white py-28 text-[#0B0B0B] sm:py-32">
+          <BackgroundLines tone="light" opacity={0.08} density={120} />
+
+          <div className="relative mx-auto max-w-6xl px-4">
+            <div className="mx-auto max-w-2xl text-center">
+              <h2 className="text-balance text-3xl font-semibold leading-tight tracking-tight text-[#0B0B0B] sm:text-4xl lg:text-[3rem]">
+                Nuestra propuesta
+              </h2>
+            </div>
+
+            <div className="mt-16 grid gap-8 rounded-3xl border border-[#E5E5EA] bg-white/95 p-10 shadow-[0_1px_2px_rgba(15,15,15,0.05),0_12px_24px_rgba(15,15,15,0.05)] sm:grid-cols-3">
+              {proposalColumns.map(({ title, items }) => (
+                <div key={title} className="text-left">
+                  <h3 className="text-sm font-semibold uppercase tracking-[0.25em] text-[#0B0B0B]">{title}</h3>
+                  <ul className="mt-6 space-y-3 text-sm leading-relaxed text-neutral-600">
+                    {items.map((item) => (
+                      <li key={item} className="flex gap-3">
+                        <span aria-hidden="true" className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#0B0B0B]" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* TODO: Restaurar la sección de proyectos cuando volvamos a mostrar casos recientes.
         <section id="proyectos" data-theme="light" className="relative overflow-hidden bg-white py-32 text-[#0B0B0B]">
           <BackgroundLines tone="light" opacity={0.08} density={140} />
 
@@ -244,6 +295,7 @@ export default function Home() {
 
           </div>
         </section>
+        */}
 
         {/* TODO: Rehabilitar la sección de servicios cuando necesitemos mostrar la oferta completa.
         <section id="servicios" data-theme="light" className="relative overflow-hidden bg-white py-32 text-[#0B0B0B]">
