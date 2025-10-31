@@ -1,7 +1,7 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { BarChart3, Compass, Layers, Sparkles, Briefcase, LineChart, Workflow, Waypoints, Database, Target, Presentation, MessageSquare } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+import { BarChart3, Compass, Layers, Sparkles } from 'lucide-react';
 
 import BackgroundLines from '@/components/BackgroundLines';
 import ContactForm from '@/components/ContactForm';
@@ -164,9 +164,34 @@ const dataDrivenBenefits = [
 
 export default function Home() {
   const [introVisible, setIntroVisible] = useState(false);
+  const [proposalVisible, setProposalVisible] = useState(false);
+  const proposalSectionRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     setIntroVisible(true);
+  }, []);
+
+  useEffect(() => {
+    const section = proposalSectionRef.current;
+    if (!section) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setProposalVisible(true);
+            observer.disconnect();
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    observer.observe(section);
+
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -299,29 +324,46 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="nuestra-propuesta" data-theme="light" className="relative overflow-hidden bg-white py-28 text-[#0B0B0B] sm:py-32">
-          <BackgroundLines tone="light" opacity={0.08} density={120} />
+        <section
+          id="nuestra-propuesta"
+          data-theme="dark"
+          className="relative overflow-hidden bg-black py-28 text-white sm:py-32"
+        >
+          <BackgroundLines tone="dark" opacity={0.2} density={160} />
 
-          <div className="relative mx-auto max-w-6xl px-4">
+          <div ref={proposalSectionRef} className="relative mx-auto max-w-6xl px-4">
             <div className="mx-auto max-w-2xl text-center">
-              <h2 className="text-balance text-3xl font-semibold leading-tight tracking-tight text-[#0B0B0B] sm:text-4xl lg:text-[3rem]">
+              <h2 className="text-balance text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl lg:text-[3rem]">
                 Nuestra propuesta
               </h2>
             </div>
 
-            <div className="mt-16 grid gap-8 rounded-3xl border border-[#E5E5EA] bg-white/95 p-10 shadow-[0_1px_2px_rgba(15,15,15,0.05),0_12px_24px_rgba(15,15,15,0.05)] sm:grid-cols-3">
-              {proposalColumns.map(({ title, items }) => (
-                <div key={title} className="text-left">
-                  <h3 className="text-sm font-semibold uppercase tracking-[0.25em] text-[#0B0B0B]">{title}</h3>
-                  <ul className="mt-6 space-y-3 text-sm leading-relaxed text-neutral-600">
+            <div className="mt-16 grid gap-6 sm:gap-8 sm:grid-cols-3">
+              {proposalColumns.map(({ title, items }, index) => (
+                <article
+                  key={title}
+                  className={`group relative flex h-full flex-col gap-6 overflow-hidden rounded-[30px] border border-white/10 bg-white/[0.05] p-8 shadow-[0_20px_40px_rgba(5,5,5,0.35)] transition-all duration-500 ease-out backdrop-blur-sm sm:p-9 ${
+                    proposalVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+                  }`}
+                  style={{ transitionDelay: `${index * 120}ms` }}
+                >
+                  <span
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-0 rounded-[30px] border border-white/5 opacity-0 transition duration-500 group-hover:opacity-100 group-hover:shadow-[0_28px_60px_rgba(0,0,0,0.5)]"
+                  />
+                  <div className="relative space-y-4">
+                    <h3 className="text-lg font-semibold text-white">{title}</h3>
+                    <div className="h-px w-12 rounded-full bg-white/25" aria-hidden="true" />
+                  </div>
+                  <ul className="relative space-y-3 text-sm leading-relaxed text-[#d1d1d1]">
                     {items.map((item) => (
                       <li key={item} className="flex gap-3">
-                        <span aria-hidden="true" className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#0B0B0B]" />
+                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-white/70" />
                         <span>{item}</span>
                       </li>
                     ))}
                   </ul>
-                </div>
+                </article>
               ))}
             </div>
           </div>
