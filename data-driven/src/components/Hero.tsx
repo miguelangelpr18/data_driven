@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { useMemo } from 'react';
 
@@ -42,36 +43,48 @@ export default function Hero({ variant = 'technical', className }: HeroProps) {
 
       <div className="relative z-10 mx-auto flex min-h-screen max-w-5xl flex-col items-center justify-center px-5 py-24 text-center sm:px-8">
         <div className="flex flex-col gap-7 sm:gap-8">
-          <div className="space-y-5 sm:space-y-6">
-            <span className="inline-flex items-center justify-center rounded-full border border-neutral-200/80 bg-white/90 px-4 py-1.5 text-xs uppercase tracking-[0.22em] text-neutral-500 shadow-[0_8px_24px_rgba(0,0,0,0.04)]">
-              Consultoría Data Driven
-            </span>
+          <div className="flex flex-col items-center text-center">
+            <Image
+              src="/logo1.png"
+              alt="Data Driven Consulting"
+              width={224}
+              height={224}
+              priority
+              className="w-28 drop-shadow-sm sm:w-32 md:w-40 lg:w-52 xl:w-56 motion-safe:animate-[fadeUp_400ms_ease-out_1] motion-safe:opacity-0 motion-reduce:animate-none motion-reduce:opacity-100"
+              style={{ animationDelay: '0ms', animationFillMode: 'forwards' }}
+            />
             <h1
               id="hero-heading"
-              className="text-balance text-4xl font-semibold leading-tight tracking-tight text-neutral-900 sm:text-5xl lg:text-[3.4rem]"
+              className="mt-5 text-2xl font-semibold tracking-tight text-neutral-900 sm:mt-6 sm:text-3xl lg:text-4xl motion-safe:animate-[fadeUp_400ms_ease-out_1] motion-safe:opacity-0 motion-reduce:animate-none motion-reduce:opacity-100"
+              style={{ animationDelay: '120ms', animationFillMode: 'forwards' }}
             >
-              {copy.title}
+              Data Driven Consulting
             </h1>
-            <p className="mx-auto max-w-2xl text-pretty text-base leading-7 text-neutral-600 sm:text-lg">
+            <p
+              className="mt-4 max-w-2xl text-pretty text-base leading-relaxed text-neutral-600 sm:text-lg motion-safe:animate-[fadeUp_400ms_ease-out_1] motion-safe:opacity-0 motion-reduce:animate-none motion-reduce:opacity-100"
+              style={{ animationDelay: '240ms', animationFillMode: 'forwards' }}
+            >
               {copy.subtitle}
             </p>
-          </div>
-
-          <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
-            <Link
-              href="#agenda"
-              aria-label="Agenda una sesión"
-              className="inline-flex items-center justify-center rounded-full bg-black px-6 py-3 text-sm font-medium text-white shadow-[0_12px_24px_rgba(15,15,15,0.12)] transition hover:bg-neutral-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-black/30"
+            <div
+              className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center sm:gap-5 motion-safe:animate-[fadeUp_400ms_ease-out_1] motion-safe:opacity-0 motion-reduce:animate-none motion-reduce:opacity-100"
+              style={{ animationDelay: '360ms', animationFillMode: 'forwards' }}
             >
-              Agenda una sesión
-            </Link>
-            <Link
-              href="#quienes-somos"
-              aria-label="Conoce más sobre quiénes somos"
-              className="inline-flex items-center justify-center rounded-full border border-neutral-300 bg-white px-6 py-3 text-sm font-medium text-neutral-900 transition hover:border-neutral-400 hover:bg-neutral-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-black/10"
-            >
-              Conoce más
-            </Link>
+              <Link
+                href="#agenda"
+                aria-label="Agenda una sesión"
+                className="inline-flex items-center justify-center rounded-full bg-black px-6 py-3 text-sm font-medium text-white shadow-[0_12px_24px_rgba(15,15,15,0.12)] transition hover:bg-neutral-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-black/30"
+              >
+                Agenda una sesión
+              </Link>
+              <Link
+                href="#quienes-somos"
+                aria-label="Conoce más sobre quiénes somos"
+                className="inline-flex items-center justify-center rounded-full border border-neutral-300 bg-white px-6 py-3 text-sm font-medium text-neutral-900 transition hover:border-neutral-400 hover:bg-neutral-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-black/10"
+              >
+                Conoce más
+              </Link>
+            </div>
           </div>
         </div>
       </div>
