@@ -75,6 +75,9 @@ export default function Hero({ variant = 'technical', className }: HeroProps) {
         </motion.div>
 
         <motion.div variants={itemVariants} className="mt-6 flex flex-col items-center">
+          <h1 id="hero-heading" className="sr-only">
+            Data Driven Consulting
+          </h1>
           {logoError ? (
             <div className="flex h-36 w-36 items-center justify-center rounded-full border border-white/30 bg-white/85 text-2xl font-semibold text-neutral-900 shadow-[0_20px_48px_rgba(15,15,15,0.15)] sm:h-40 sm:w-40 md:h-44 md:w-44">
               DD
@@ -97,17 +100,9 @@ export default function Hero({ variant = 'technical', className }: HeroProps) {
             </motion.div>
           )}
 
-          <motion.h1
-            id="hero-heading"
-            variants={itemVariants}
-            className="mt-4 text-3xl font-semibold tracking-tight text-[#0F172A] sm:text-4xl lg:text-5xl"
-          >
-            Data Driven Consulting
-          </motion.h1>
-
           <motion.p
             variants={itemVariants}
-            className="mt-4 max-w-2xl text-pretty text-base leading-relaxed text-neutral-600 sm:text-lg"
+            className="mt-6 max-w-2xl text-pretty text-base leading-relaxed text-neutral-600 sm:text-lg"
           >
             {copy.subtitle}
           </motion.p>
