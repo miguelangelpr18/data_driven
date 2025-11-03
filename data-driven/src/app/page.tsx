@@ -10,6 +10,7 @@ import WhatWeDoSection from '@/components/WhatWeDoSection';
 import OurPurpose from '@/components/sections/OurPurpose';
 import ForSMEs from '@/components/sections/ForSMEs';
 import SiteFooter from '@/components/SiteFooter';
+import { cn } from '@/lib/utils';
 
 const planSteps = [
   {
@@ -153,26 +154,12 @@ const proposalColumns = [
   }
 ] as const;
 
-const pymesPainPoints = [
-  'Datos dispersos en distintas fuentes.',
-  'Decisiones basadas en intuición en lugar de evidencia.',
-  'Información desaprovechada o difícil de acceder.',
-  'Reportes tardíos o inconsistentes.',
-  'Falta de visibilidad para detectar oportunidades.'
-] as const;
-
-const dataDrivenBenefits = [
-  'Decisiones respaldadas por datos confiables.',
-  'Información estructurada y fácil de interpretar.',
-  'KPIs alineados a objetivos del negocio.',
-  'Dashboards intuitivos que simplifican la gestión.',
-  'Capacidad de anticipar riesgos y áreas de mejora.'
-] as const;
-
 export default function Home() {
   const [introVisible, setIntroVisible] = useState(false);
   const [proposalVisible, setProposalVisible] = useState(false);
   const proposalSectionRef = useRef<HTMLDivElement | null>(null);
+  const [planCardsVisible, setPlanCardsVisible] = useState<boolean[]>(() => planSteps.map(() => false));
+  const planCardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     setIntroVisible(true);
@@ -197,6 +184,40 @@ export default function Home() {
     );
 
     observer.observe(section);
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const cards = planCardsRef.current;
+    if (!cards.length) return;
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+      setPlanCardsVisible(planSteps.map(() => true));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = cards.indexOf(entry.target as HTMLDivElement);
+            if (index !== -1) {
+              setPlanCardsVisible((previous) => {
+                if (previous[index]) return previous;
+                const next = [...previous];
+                next[index] = true;
+                return next;
+              });
+            }
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    cards.forEach((card) => card && observer.observe(card));
 
     return () => observer.disconnect();
   }, []);
@@ -388,27 +409,36 @@ export default function Home() {
 
         {/* PLAN DE TRABAJO - Fondo Blanco */}
         <section
-          id="plan-de-trabajo"
+          id="metodologia"
           data-theme="light"
           className="relative overflow-hidden bg-white py-28 text-[#0B0B0B] sm:py-32"
         >
+          <span id="plan-de-trabajo" className="sr-only" aria-hidden="true" />
           <BackgroundLines tone="light" opacity={0.08} density={135} />
 
           <div className="container relative mx-auto max-w-6xl px-4">
             <div className="mx-auto max-w-3xl text-center">
-              <h2 className="text-balance text-3xl font-semibold leading-tight tracking-tight text-[#0B0B0B] sm:text-4xl lg:text-[3.25rem]">
-                Plan de Trabajo
+              <h2 className="text-balance text-3xl font-semibold leading-tight tracking-tight text-[#0B0B0B] sm:text-4xl md:text-5xl">
+                Nuestra metodología
               </h2>
               <p className="mt-6 text-base leading-relaxed text-neutral-600 sm:text-lg">
-                Acompañamos cada etapa con entregables claros, ritmos definidos y colaboración constante.
+                Acompañamos cada etapa con entregables claros, ritmos definidos y adopción sin fricción.
               </p>
             </div>
 
             <div className="mt-20 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
-              {planSteps.map(({ title, duration, description, Icon }) => (
+              {planSteps.map(({ title, duration, description, Icon }, index) => (
                 <article
                   key={title}
-                  className="group flex h-full flex-col items-center gap-5 rounded-[28px] border border-[#E5E5EA] bg-white p-8 text-center shadow-[0_12px_24px_rgba(15,15,15,0.05)] transition duration-200 hover:-translate-y-1 hover:shadow-[0_18px_32px_rgba(15,15,15,0.1)] sm:p-9"
+                  ref={(element) => {
+                    planCardsRef.current[index] = element;
+                  }}
+                  style={{ transitionDelay: `${index * 100}ms` }}
+                  className={cn(
+                    'group flex h-full flex-col items-center gap-5 rounded-[28px] border border-[#E5E5EA] bg-white p-8 text-center shadow-[0_12px_24px_rgba(15,15,15,0.05)] will-change-transform transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/5 focus-visible:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 sm:p-9',
+                    'motion-safe:transition-all motion-safe:duration-700 motion-safe:ease-out motion-reduce:transition-none motion-reduce:transform-none motion-reduce:opacity-100',
+                    planCardsVisible[index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                  )}
                 >
                   <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#F5F5F7] text-[#0B0B0B] shadow-inner">
                     <Icon className="size-6" strokeWidth={1.4} />
