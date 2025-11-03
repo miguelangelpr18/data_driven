@@ -7,7 +7,6 @@ import BackgroundLines from '@/components/BackgroundLines';
 import ContactForm from '@/components/ContactForm';
 import Hero from '@/components/Hero';
 import WhatWeDoSection from '@/components/WhatWeDoSection';
-import OurPurpose from '@/components/sections/OurPurpose';
 import SiteFooter from '@/components/SiteFooter';
 import { cn } from '@/lib/utils';
 
@@ -230,45 +229,6 @@ export default function Home() {
       <main className="pt-[var(--nav-h)]">
         <Hero variant="technical" />
         <WhatWeDoSection />
-        <OurPurpose />
-
-
-        {/* OBJETIVOS - Fondo Negro */}
-        <section id="objetivos" data-theme="dark" className="relative overflow-hidden bg-black py-24 text-white sm:py-28 lg:py-32">
-          <BackgroundLines tone="dark" opacity={0.18} density={120} />
-
-          <div className="container relative mx-auto max-w-6xl px-4">
-            <div className="mb-16 space-y-6 text-left sm:text-center">
-              <h2 className="text-balance text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl lg:text-[3.25rem]">
-                Objetivos del proyecto
-              </h2>
-              <p className="max-w-3xl text-pretty text-lg leading-relaxed text-neutral-300 sm:mx-auto sm:text-xl">
-                Resultados que impulsan tu operación desde el primer análisis.
-              </p>
-            </div>
-
-            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-              {objectives.map(({ title, description }, index) => (
-                <article
-                  key={title}
-                  ref={(element: HTMLElement | null) => {
-                    objectiveCardsRef.current[index] = element;
-                  }}
-                  style={{ transitionDelay: `${index * 120}ms` }}
-                  className={cn(
-                    'flex h-full flex-col gap-4 rounded-3xl border border-white/10 bg-white/5 p-8 text-left text-neutral-200 shadow-[0_12px_26px_rgba(0,0,0,0.25)] transition-transform duration-300 hover:-translate-y-0.5',
-                    'motion-safe:transition-all motion-safe:duration-700 motion-safe:ease-out motion-reduce:transition-none motion-reduce:transform-none motion-reduce:opacity-100',
-                    objectiveCardsVisible[index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-                  )}
-                >
-                  <h3 className="text-lg font-semibold text-white">{title}</h3>
-                  <p className="text-sm leading-relaxed text-neutral-300">{description}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* DOLORES VS BENEFICIOS - Fondo Blanco */}
         <section
           id="dolores-beneficios"
@@ -316,6 +276,42 @@ export default function Home() {
               >
                 Agenda una sesión
               </button>
+            </div>
+          </div>
+        </section>
+
+        {/* OBJETIVOS - Fondo Negro */}
+        <section id="objetivos" data-theme="dark" className="relative overflow-hidden bg-black py-24 text-white sm:py-28 lg:py-32">
+          <BackgroundLines tone="dark" opacity={0.18} density={120} />
+
+          <div className="container relative mx-auto max-w-6xl px-4">
+            <div className="mb-16 space-y-6 text-left sm:text-center">
+              <h2 className="text-balance text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl lg:text-[3.25rem]">
+                Objetivos del proyecto
+              </h2>
+              <p className="max-w-3xl text-pretty text-lg leading-relaxed text-neutral-300 sm:mx-auto sm:text-xl">
+                Resultados que impulsan tu operación desde el primer análisis.
+              </p>
+            </div>
+
+            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+              {objectives.map(({ title, description }, index) => (
+                <article
+                  key={title}
+                  ref={(element: HTMLElement | null) => {
+                    objectiveCardsRef.current[index] = element;
+                  }}
+                  style={{ transitionDelay: `${index * 120}ms` }}
+                  className={cn(
+                    'flex h-full flex-col gap-4 rounded-3xl border border-white/10 bg-white/5 p-8 text-left text-neutral-200 shadow-[0_12px_26px_rgba(0,0,0,0.25)] transition-transform duration-300 hover:-translate-y-0.5',
+                    'motion-safe:transition-all motion-safe:duration-700 motion-safe:ease-out motion-reduce:transition-none motion-reduce:transform-none motion-reduce:opacity-100',
+                    objectiveCardsVisible[index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                  )}
+                >
+                  <h3 className="text-lg font-semibold text-white">{title}</h3>
+                  <p className="text-sm leading-relaxed text-neutral-300">{description}</p>
+                </article>
+              ))}
             </div>
           </div>
         </section>

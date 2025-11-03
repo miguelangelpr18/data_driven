@@ -14,6 +14,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  title: 'Data Driven Consulting',
   description: 'Consultoría de datos y diseño de experiencias analíticas.',
   icons: {
     icon: '/logo1.png',
