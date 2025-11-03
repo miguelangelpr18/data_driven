@@ -377,7 +377,7 @@ export default function Home() {
               {planSteps.map(({ title, duration, description, Icon }, index) => (
                 <article
                   key={title}
-                  ref={(element) => {
+                  ref={(element: HTMLElement | null) => {
                     planCardsRef.current[index] = element;
                   }}
                   style={{ transitionDelay: `${index * 100}ms` }}
