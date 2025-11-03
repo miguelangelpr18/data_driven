@@ -149,7 +149,7 @@ const dataDrivenBenefits = [
 export default function Home() {
   const [introVisible, setIntroVisible] = useState(false);
   const [planCardsVisible, setPlanCardsVisible] = useState<boolean[]>(() => planSteps.map(() => false));
-  const planCardsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const planCardsRef = useRef<(HTMLElement | null)[]>([]);
   const [objectiveCardsVisible, setObjectiveCardsVisible] = useState<boolean[]>(() => objectives.map(() => false));
   const objectiveCardsRef = useRef<(HTMLElement | null)[]>([]);
 
