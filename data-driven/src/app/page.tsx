@@ -207,131 +207,18 @@ export default function Home() {
         <Hero variant="technical" />
         <WhatWeDoSection />
         <OurPurpose />
+        <ForSMEs />
 
-        {/* QUIÉNES SOMOS */}
-        <section id="quienes-somos" data-theme="dark" className="relative overflow-hidden bg-black text-white">
-          <BackgroundLines tone="dark" opacity={0.18} density={150} />
 
-          <div className="mx-auto max-w-6xl px-4 py-24 sm:py-28 lg:py-32">
-            <div
-              className={`grid gap-16 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-center ${
-                introVisible ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
-              } transition-all duration-700 ease-out`}
-            >
-              <div className="relative z-10 max-w-4xl space-y-10">
-                <div className="space-y-3">
-                  <span className="text-xs uppercase tracking-[0.35em] text-neutral-500">Quiénes Somos</span>
-                  <div className="space-y-6 text-pretty">
-                    <p className="text-lg font-medium leading-relaxed text-neutral-200 sm:text-xl">
-                      Somos una consultora especializada en inteligencia de negocios dedicada a apoyar a las pequeñas y medianas empresas que aún no han logrado implementar el análisis de datos.
-                    </p>
-                    <p className="text-lg font-medium leading-relaxed text-neutral-200 sm:text-xl">
-                      Nuestro objetivo es simplificar el proceso de análisis de datos, ayudándoles a organizar, extraer y visualizar su información de forma efectiva para que puedan tomar decisiones estratégicas basadas en hechos en lugar de suposiciones.
-                    </p>
-                    <p className="text-lg font-medium leading-relaxed text-neutral-200 sm:text-xl">
-                      Nos enfocamos en crear soluciones accesibles y personalizadas que integren el poder de los datos en sus procesos, impulsando el crecimiento y mejorando su competitividad.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="relative lg:ml-auto">
-                <div className="pointer-events-none absolute -inset-x-8 top-0 -bottom-10 -z-10 opacity-25 blur-3xl transition duration-700 lg:hidden">
-                  <div className="h-full w-full rounded-[40px] border border-white/10 bg-gradient-to-br from-white/10 via-white/0 to-white/10" />
-                </div>
-                <div className="absolute inset-x-0 top-12 flex justify-center lg:hidden" aria-hidden="true">
-                  <div className="relative h-56 w-56 rotate-6 overflow-hidden rounded-[36px] border border-white/10 opacity-25">
-                    <div className="absolute inset-4 rounded-3xl border border-white/15" />
-                    <div className="absolute left-1/2 top-1/2 h-40 w-40 -translate-x-1/2 -translate-y-1/2 -rotate-12 border border-white/10" />
-                    <div className="absolute left-1/2 top-1/2 h-24 w-24 -translate-x-1/2 -translate-y-1/2 border border-white/25" />
-                  </div>
-                </div>
-                {/* TODO: Rehabilitar el bloque de pasos cuando volvamos a contar el proceso.
-                <div className="mt-12 border-l border-white/10 pl-6">
-                  <div className="flex flex-col gap-6">
-                    {purposeTimeline.map((item, index) => (
-                      <div key={item.title} className="relative">
-                        <span className="absolute -left-[29px] top-1 flex h-4 w-4 items-center justify-center">
-                          <span className="h-2 w-2 rounded-full bg-white" />
-                        </span>
-                        <p className="text-xs uppercase tracking-[0.3em] text-neutral-500">Paso 0{index + 1}</p>
-                        <h2 className="mt-1 text-lg font-medium text-white">{item.title}</h2>
-                        <p className="mt-2 text-sm leading-relaxed text-neutral-400">{item.description}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                */}
-                <div
-                  className="relative mx-auto hidden w-full max-w-sm justify-center lg:flex"
-                  aria-hidden="true"
-                >
-                  <div className="absolute -inset-16 rounded-full bg-white/10 blur-3xl" />
-                  <div className="relative h-[360px] w-full overflow-hidden rounded-[40px] border border-white/15 bg-gradient-to-br from-white/5 via-white/0 to-white/5">
-                    <div className="absolute inset-0 grid place-items-center">
-                      <div className="relative h-40 w-40 rotate-6 border border-white/20">
-                        <div className="absolute inset-6 rounded-2xl border border-white/10" />
-                      </div>
-                      <div className="absolute h-56 w-56 -rotate-12 border border-white/30" />
-                      <div className="absolute h-72 w-72 rotate-3 border border-white/10" />
-                    </div>
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.2),transparent_65%)]" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
+        {/* TODO: Restaurar la comparativa de dolores y beneficios si la necesitamos en el futuro.
         <section
           id="dolores-beneficios"
           data-theme="light"
           className="relative overflow-hidden bg-white py-24 text-[#0B0B0B] sm:py-28"
         >
-          <BackgroundLines tone="light" opacity={0.08} density={125} />
-
-          <div className="relative mx-auto max-w-6xl px-4">
-            <div className="rounded-3xl border border-[#E5E5EA] bg-white/95 p-10 shadow-[0_1px_2px_rgba(15,15,15,0.05),0_10px_22px_rgba(15,15,15,0.05)] sm:p-12">
-              <div className="grid gap-12 sm:grid-cols-2">
-                <div className="space-y-6">
-                  <h3 className="text-xl font-semibold text-[#0B0B0B]">Dolores comunes en PYMES</h3>
-                  <ul className="space-y-3 text-sm leading-relaxed text-neutral-600">
-                    {pymesPainPoints.map((item) => (
-                      <li key={item} className="flex items-start gap-3">
-                        <span aria-hidden="true" className="mt-[3px] text-base text-red-500">❌</span>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="space-y-6">
-                  <h3 className="text-xl font-semibold text-[#0B0B0B]">Beneficios de ser Data Driven</h3>
-                  <ul className="space-y-3 text-sm leading-relaxed text-neutral-600">
-                    {dataDrivenBenefits.map((item) => (
-                      <li key={item} className="flex items-start gap-3">
-                        <span aria-hidden="true" className="mt-[3px] text-base text-emerald-500">✅</span>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-12 flex flex-col items-center gap-4 text-center">
-              <p className="text-base font-medium text-[#0B0B0B]">
-                ¿Quieres transformar la manera en que tu empresa usa los datos?
-              </p>
-              <button
-                type="button"
-                onClick={() => document.getElementById('agenda')?.scrollIntoView({ behavior: 'smooth' })}
-                className="inline-flex items-center rounded-full bg-black px-6 py-3 text-sm font-medium text-white transition hover:bg-neutral-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/30"
-              >
-                Agenda una sesión
-              </button>
-            </div>
-          </div>
+          ...
         </section>
+        */}
 
         <section
           id="nuestra-propuesta"
@@ -533,6 +420,81 @@ export default function Home() {
                   <p className="text-sm leading-relaxed text-neutral-600">{description}</p>
                 </article>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* QUIÉNES SOMOS */}
+        <section id="quienes-somos" data-theme="dark" className="relative overflow-hidden bg-black text-white">
+          <BackgroundLines tone="dark" opacity={0.18} density={150} />
+
+          <div className="mx-auto max-w-6xl px-4 py-24 sm:py-28 lg:py-32">
+            <div
+              className={`grid gap-16 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-center ${
+                introVisible ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
+              } transition-all duration-700 ease-out`}
+            >
+              <div className="relative z-10 max-w-4xl space-y-10">
+                <div className="space-y-3">
+                  <span className="text-xs uppercase tracking-[0.35em] text-neutral-500">Quiénes Somos</span>
+                  <div className="space-y-6 text-pretty">
+                    <p className="text-lg font-medium leading-relaxed text-neutral-200 sm:text-xl">
+                      Somos una consultora especializada en inteligencia de negocios dedicada a apoyar a las pequeñas y medianas empresas que aún no han logrado implementar el análisis de datos.
+                    </p>
+                    <p className="text-lg font-medium leading-relaxed text-neutral-200 sm:text-xl">
+                      Nuestro objetivo es simplificar el proceso de análisis de datos, ayudándoles a organizar, extraer y visualizar su información de forma efectiva para que puedan tomar decisiones estratégicas basadas en hechos en lugar de suposiciones.
+                    </p>
+                    <p className="text-lg font-medium leading-relaxed text-neutral-200 sm:text-xl">
+                      Nos enfocamos en crear soluciones accesibles y personalizadas que integren el poder de los datos en sus procesos, impulsando el crecimiento y mejorando su competitividad.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="relative lg:ml-auto">
+                <div className="pointer-events-none absolute -inset-x-8 top-0 -bottom-10 -z-10 opacity-25 blur-3xl transition duration-700 lg:hidden">
+                  <div className="h-full w-full rounded-[40px] border border-white/10 bg-gradient-to-br from-white/10 via-white/0 to-white/10" />
+                </div>
+                <div className="absolute inset-x-0 top-12 flex justify-center lg:hidden" aria-hidden="true">
+                  <div className="relative h-56 w-56 rotate-6 overflow-hidden rounded-[36px] border border-white/10 opacity-25">
+                    <div className="absolute inset-4 rounded-3xl border border-white/15" />
+                    <div className="absolute left-1/2 top-1/2 h-40 w-40 -translate-x-1/2 -translate-y-1/2 -rotate-12 border border-white/10" />
+                    <div className="absolute left-1/2 top-1/2 h-24 w-24 -translate-x-1/2 -translate-y-1/2 border border-white/25" />
+                  </div>
+                </div>
+                {/* TODO: Rehabilitar el bloque de pasos cuando volvamos a contar el proceso.
+                <div className="mt-12 border-l border-white/10 pl-6">
+                  <div className="flex flex-col gap-6">
+                    {purposeTimeline.map((item, index) => (
+                      <div key={item.title} className="relative">
+                        <span className="absolute -left-[29px] top-1 flex h-4 w-4 items-center justify-center">
+                          <span className="h-2 w-2 rounded-full bg-white" />
+                        </span>
+                        <p className="text-xs uppercase tracking-[0.3em] text-neutral-500">Paso 0{index + 1}</p>
+                        <h2 className="mt-1 text-lg font-medium text-white">{item.title}</h2>
+                        <p className="mt-2 text-sm leading-relaxed text-neutral-400">{item.description}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                */}
+                <div
+                  className="relative mx-auto hidden w-full max-w-sm justify-center lg:flex"
+                  aria-hidden="true"
+                >
+                  <div className="absolute -inset-16 rounded-full bg-white/10 blur-3xl" />
+                  <div className="relative h-[360px] w-full overflow-hidden rounded-[40px] border border-white/15 bg-gradient-to-br from-white/5 via-white/0 to-white/5">
+                    <div className="absolute inset-0 grid place-items-center">
+                      <div className="relative h-40 w-40 rotate-6 border border-white/20">
+                        <div className="absolute inset-6 rounded-2xl border border-white/10" />
+                      </div>
+                      <div className="absolute h-56 w-56 -rotate-12 border border-white/30" />
+                      <div className="absolute h-72 w-72 rotate-3 border border-white/10" />
+                    </div>
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.2),transparent_65%)]" />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
