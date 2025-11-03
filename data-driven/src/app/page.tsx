@@ -287,7 +287,7 @@ export default function Home() {
           <div className="container relative mx-auto max-w-6xl px-4">
             <div className="mb-16 space-y-6 text-left sm:text-center">
               <h2 className="text-balance text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl lg:text-[3.25rem]">
-                Objetivos del proyecto
+                Objetivos Del Proyecto
               </h2>
               <p className="max-w-3xl text-pretty text-lg leading-relaxed text-neutral-300 sm:mx-auto sm:text-xl">
                 Resultados que impulsan tu operación desde el primer análisis.

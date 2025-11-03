@@ -71,7 +71,7 @@ export default function Hero({ variant = 'technical', className }: HeroProps) {
         className="relative z-10 mx-auto flex min-h-screen max-w-[1024px] flex-col items-center justify-center px-6 py-24 text-center sm:px-8"
       >
         <motion.div variants={itemVariants} className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-[0.7rem] font-semibold uppercase tracking-[0.45em] text-neutral-600 shadow-[0_12px_32px_rgba(15,15,15,0.08)] backdrop-blur">
-          CONSULTORÍA DATA DRIVEN
+          DATA DRIVEN CONSULTING
         </motion.div>
 
         <motion.div variants={itemVariants} className="mt-6 flex flex-col items-center">
