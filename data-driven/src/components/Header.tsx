@@ -7,9 +7,12 @@ import { useEffect, useMemo, useState } from 'react';
 import { cn } from '@/lib/utils';
 
 const NAV = [
-  { label: '¿Quiénes Somos?', href: '/#quienes-somos', id: 'quienes-somos' },
-  { label: 'Proyectos', href: '/#proyectos', id: 'proyectos' },
+  { label: 'Qué hacemos', href: '/#que-hacemos', id: 'que-hacemos' },
+  { label: 'Para qué', href: '/#para-que', id: 'para-que' },
+  { label: 'Objetivos', href: '/#objetivos', id: 'objetivos' },
   { label: 'Servicios', href: '/#servicios', id: 'servicios' },
+  { label: 'Metodología', href: '/#metodologia', id: 'metodologia' },
+  { label: 'Quiénes somos', href: '/#quienes-somos', id: 'quienes-somos' },
   { label: 'Contacto', href: '/#contacto', id: 'contacto' }
 ] as const;
 

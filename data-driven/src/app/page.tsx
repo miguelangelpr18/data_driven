@@ -1,14 +1,13 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { BarChart3, Database, RefreshCw, Target } from 'lucide-react';
+import { BarChart3, Database, MessageSquare, Presentation, RefreshCw, Target } from 'lucide-react';
 
 import BackgroundLines from '@/components/BackgroundLines';
 import ContactForm from '@/components/ContactForm';
 import Hero from '@/components/Hero';
 import WhatWeDoSection from '@/components/WhatWeDoSection';
 import OurPurpose from '@/components/sections/OurPurpose';
-import ForSMEs from '@/components/sections/ForSMEs';
 import SiteFooter from '@/components/SiteFooter';
 import { cn } from '@/lib/utils';
 
@@ -41,21 +40,21 @@ const planSteps = [
 
 const objectives = [
   {
-    title: 'Claridad inmediata',
+    title: 'Transformar tus datos en decisiones',
     description:
-      'Que cualquier líder reconozca tendencias, alertas y oportunidades en un vistazo.'
+      'Convertimos la información dispersa en indicadores que te permiten tomar decisiones estratégicas y accionables.'
   },
   {
-    title: 'Cultura data-driven',
+    title: 'Automatización y optimización de procesos',
     description:
-      'Instalar rituales y lenguaje común para conversar con datos en cada reunión.'
+      'Digitalizamos tareas repetitivas y estructuramos flujos de información para hacer más eficiente cada área del negocio.'
   },
   {
-    title: 'Evolución constante',
+    title: 'Medición constante y alineada a los objetivos',
     description:
-      'Liberar tiempo de análisis manual para enfocarnos en descubrimientos y crecimiento.'
+      'Aseguramos un monitoreo continuo con KPIs que se conectan directamente con las metas de tu empresa.'
   }
-];
+] as const;
 
 // TODO: Restaurar la línea de tiempo de pasos cuando debamos comunicar el proceso nuevamente.
 // const purposeTimeline = [
@@ -104,88 +103,58 @@ const objectives = [
 //   }
 // ] as const;
 
-// TODO: Reactivar el listado de servicios cuando volvamos a detallar la oferta.
-// const services = [
-//   {
-//     title: 'Limpieza y optimización de bases de datos',
-//     description:
-//       'Transformamos tus datos en una base sólida y ordenada. Estandarizamos formatos, eliminamos duplicidades y aseguramos la integridad de la información.',
-//     Icon: Database
-//   },
-//   {
-//     title: 'Definición y medición de KPIs',
-//     description:
-//       'Diseñamos indicadores claros y accionables alineados a tus objetivos estratégicos, con criterios de medición y seguimiento continuo.',
-//     Icon: Target
-//   },
-//   {
-//     title: 'Implementación de reportes y dashboards',
-//     description:
-//       'Construimos dashboards intuitivos y reportes automáticos que convierten datos dispersos en insights visuales para tu equipo.',
-//     Icon: Presentation
-//   },
-//   {
-//     title: 'Consultoría personalizada',
-//     description:
-//       'Te acompañamos con asesorías a medida para acelerar la adopción del modelo Data Driven y asegurar el éxito del cambio.',
-//     Icon: MessageSquare
-//   }
-// ] as const;
-
-const proposalColumns = [
+const services = [
   {
     title: 'Limpieza y optimización de bases de datos',
-    items: ['Identificar campos clave.', 'Organización de la información.', 'Homologación de formatos.']
+    description:
+      'Transformamos tus datos en una base sólida y ordenada. Estandarizamos formatos, eliminamos duplicidades y aseguramos la integridad de la información.',
+    Icon: Database
   },
   {
     title: 'Definición y medición de KPIs',
-    items: [
-      'Identificar el punto de partida de diferentes indicadores.',
-      'Establecer metas alcanzables.',
-      'Medición constante.'
-    ]
+    description:
+      'Diseñamos indicadores claros y accionables alineados a tus objetivos estratégicos, con criterios de medición y seguimiento continuo.',
+    Icon: Target
   },
   {
     title: 'Implementación de reportes y dashboards',
-    items: [
-      'Implementación de dashboards interactivos.',
-      'Reportes estratégicos con hallazgos encontrados.'
-    ]
+    description:
+      'Construimos dashboards intuitivos y reportes automáticos que convierten datos dispersos en insights visuales para tu equipo.',
+    Icon: Presentation
+  },
+  {
+    title: 'Consultoría personalizada',
+    description:
+      'Te acompañamos con asesorías a medida para acelerar la adopción del modelo Data Driven y asegurar el éxito del cambio.',
+    Icon: MessageSquare
   }
+] as const;
+
+const pymesPainPoints = [
+  'Datos dispersos en distintas fuentes.',
+  'Decisiones basadas en intuición en lugar de evidencia.',
+  'Información desaprovechada o difícil de acceder.',
+  'Reportes tardíos o inconsistentes.',
+  'Falta de visibilidad para detectar oportunidades.'
+] as const;
+
+const dataDrivenBenefits = [
+  'Decisiones respaldadas por datos confiables.',
+  'Información estructurada y fácil de interpretar.',
+  'KPIs alineados a objetivos del negocio.',
+  'Dashboards intuitivos que simplifican la gestión.',
+  'Capacidad de anticipar riesgos y áreas de mejora.'
 ] as const;
 
 export default function Home() {
   const [introVisible, setIntroVisible] = useState(false);
-  const [proposalVisible, setProposalVisible] = useState(false);
-  const proposalSectionRef = useRef<HTMLDivElement | null>(null);
   const [planCardsVisible, setPlanCardsVisible] = useState<boolean[]>(() => planSteps.map(() => false));
   const planCardsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const [objectiveCardsVisible, setObjectiveCardsVisible] = useState<boolean[]>(() => objectives.map(() => false));
+  const objectiveCardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     setIntroVisible(true);
-  }, []);
-
-  useEffect(() => {
-    const section = proposalSectionRef.current;
-    if (!section) {
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setProposalVisible(true);
-            observer.disconnect();
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
-
-    observer.observe(section);
-
-    return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
@@ -222,108 +191,137 @@ export default function Home() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const cards = objectiveCardsRef.current;
+    if (!cards.length) return;
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+      setObjectiveCardsVisible(objectives.map(() => true));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = cards.indexOf(entry.target as HTMLDivElement);
+            if (index !== -1) {
+              setObjectiveCardsVisible((prev) => {
+                if (prev[index]) return prev;
+                const next = [...prev];
+                next[index] = true;
+                return next;
+              });
+            }
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    cards.forEach((card) => card && observer.observe(card));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="min-h-screen bg-[#F5F5F7] text-[#0B0B0B]">
       <main className="pt-[var(--nav-h)]">
         <Hero variant="technical" />
         <WhatWeDoSection />
         <OurPurpose />
-        <ForSMEs />
 
 
-        {/* TODO: Restaurar la comparativa de dolores y beneficios si la necesitamos en el futuro.
-        <section
-          id="dolores-beneficios"
-          data-theme="light"
-          className="relative overflow-hidden bg-white py-24 text-[#0B0B0B] sm:py-28"
-        >
-          ...
-        </section>
-        */}
+        {/* OBJETIVOS - Fondo Negro */}
+        <section id="objetivos" data-theme="dark" className="relative overflow-hidden bg-black py-24 text-white sm:py-28 lg:py-32">
+          <BackgroundLines tone="dark" opacity={0.18} density={120} />
 
-        <section
-          id="nuestra-propuesta"
-          data-theme="dark"
-          className="relative overflow-hidden bg-black py-28 text-white sm:py-32"
-        >
-          <BackgroundLines tone="dark" opacity={0.2} density={160} />
-
-          <div ref={proposalSectionRef} className="relative mx-auto max-w-6xl px-4">
-            <div className="mx-auto max-w-2xl text-center">
-              <h2 className="text-balance text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl lg:text-[3rem]">
-                Nuestra propuesta
+          <div className="container relative mx-auto max-w-6xl px-4">
+            <div className="mb-16 space-y-6 text-left sm:text-center">
+              <h2 className="text-balance text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl lg:text-[3.25rem]">
+                Objetivos del proyecto
               </h2>
+              <p className="max-w-3xl text-pretty text-lg leading-relaxed text-neutral-300 sm:mx-auto sm:text-xl">
+                Resultados que impulsan tu operación desde el primer análisis.
+              </p>
             </div>
 
-            <div className="mt-16 grid gap-6 sm:gap-8 sm:grid-cols-3">
-              {proposalColumns.map(({ title, items }, index) => (
+            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+              {objectives.map(({ title, description }, index) => (
                 <article
                   key={title}
-                  className={`group relative flex h-full flex-col gap-6 overflow-hidden rounded-[30px] border border-white/10 bg-white/[0.05] p-8 shadow-[0_20px_40px_rgba(5,5,5,0.35)] transition-all duration-500 ease-out backdrop-blur-sm sm:p-9 ${
-                    proposalVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-                  }`}
+                  ref={(element) => {
+                    objectiveCardsRef.current[index] = element;
+                  }}
                   style={{ transitionDelay: `${index * 120}ms` }}
+                  className={cn(
+                    'flex h-full flex-col gap-4 rounded-3xl border border-white/10 bg-white/5 p-8 text-left text-neutral-200 shadow-[0_12px_26px_rgba(0,0,0,0.25)] transition-transform duration-300 hover:-translate-y-0.5',
+                    'motion-safe:transition-all motion-safe:duration-700 motion-safe:ease-out motion-reduce:transition-none motion-reduce:transform-none motion-reduce:opacity-100',
+                    objectiveCardsVisible[index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                  )}
                 >
-                  <span
-                    aria-hidden="true"
-                    className="pointer-events-none absolute inset-0 rounded-[30px] border border-white/5 opacity-0 transition duration-500 group-hover:opacity-100 group-hover:shadow-[0_28px_60px_rgba(0,0,0,0.5)]"
-                  />
-                  <div className="relative space-y-4">
-                    <h3 className="text-lg font-semibold text-white">{title}</h3>
-                    <div className="h-px w-12 rounded-full bg-white/25" aria-hidden="true" />
-                  </div>
-                  <ul className="relative space-y-3 text-sm leading-relaxed text-[#d1d1d1]">
-                    {items.map((item) => (
-                      <li key={item} className="flex gap-3">
-                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-white/70" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <h3 className="text-lg font-semibold text-white">{title}</h3>
+                  <p className="text-sm leading-relaxed text-neutral-300">{description}</p>
                 </article>
               ))}
             </div>
           </div>
         </section>
 
-        {/* TODO: Restaurar la sección de proyectos cuando volvamos a mostrar casos recientes.
-        <section id="proyectos" data-theme="light" className="relative overflow-hidden bg-white py-32 text-[#0B0B0B]">
-          <BackgroundLines tone="light" opacity={0.08} density={140} />
+        {/* DOLORES VS BENEFICIOS - Fondo Blanco */}
+        <section
+          id="dolores-beneficios"
+          data-theme="light"
+          className="relative overflow-hidden bg-white py-24 text-[#0B0B0B] sm:py-28 lg:py-32"
+        >
+          <BackgroundLines tone="light" opacity={0.08} density={125} />
 
           <div className="relative mx-auto max-w-6xl px-4">
-            <div className="mx-auto max-w-3xl text-center">
-              <h2 className="text-balance text-3xl font-semibold leading-tight tracking-tight text-[#0B0B0B] sm:text-4xl lg:text-[3.25rem]">
-                Casos donde los datos se volvieron decisiones
-              </h2>
-              <p className="mt-6 text-base leading-relaxed text-neutral-600 sm:text-lg">
-                Cada proyecto nos ha enseñado a traducir la complejidad en claridad. Aquí algunos ejemplos de soluciones que
-                hemos implementado.
-              </p>
-            </div>
-
-            <div className="mt-20 grid gap-8 sm:grid-cols-2 xl:grid-cols-4">
-              {projects.map(({ title, description, Icon }) => (
-                <div
-                  key={title}
-                  className="group flex h-full flex-col gap-4 rounded-3xl border border-[#E5E5EA] bg-white p-8 shadow-[0_12px_24px_rgba(15,15,15,0.03)] transition hover:-translate-y-1 hover:shadow-[0_18px_32px_rgba(15,15,15,0.08)]"
-                >
-                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#F5F5F7] text-[#0B0B0B]">
-                    <Icon className="size-6" strokeWidth={1.4} />
-                  </span>
-                  <div className="space-y-3">
-                    <h3 className="text-xl font-medium text-[#0B0B0B]">{title}</h3>
-                    <p className="text-sm leading-relaxed text-neutral-600">{description}</p>
-                  </div>
+            <div className="rounded-3xl border border-[#E5E5EA] bg-white/95 p-10 shadow-[0_1px_2px_rgba(15,15,15,0.05),0_10px_22px_rgba(15,15,15,0.05)] sm:p-12">
+              <div className="grid gap-12 sm:grid-cols-2">
+                <div className="space-y-6">
+                  <h3 className="text-xl font-semibold text-[#0B0B0B]">Dolores comunes en PYMES</h3>
+                  <ul className="space-y-3 text-sm leading-relaxed text-neutral-600">
+                    {pymesPainPoints.map((item) => (
+                      <li key={item} className="flex items-start gap-3">
+                        <span aria-hidden="true" className="mt-[3px] text-base text-red-500">❌</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-              ))}
+                <div className="space-y-6">
+                  <h3 className="text-xl font-semibold text-[#0B0B0B]">Beneficios de ser Data Driven</h3>
+                  <ul className="space-y-3 text-sm leading-relaxed text-neutral-600">
+                    {dataDrivenBenefits.map((item) => (
+                      <li key={item} className="flex items-start gap-3">
+                        <span aria-hidden="true" className="mt-[3px] text-base text-emerald-500">✅</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             </div>
 
+            <div className="mt-12 flex flex-col items-center gap-4 text-center">
+              <p className="text-base font-medium text-[#0B0B0B]">
+                ¿Quieres transformar la manera en que tu empresa usa los datos?
+              </p>
+              <button
+                type="button"
+                onClick={() => document.getElementById('agenda')?.scrollIntoView({ behavior: 'smooth' })}
+                className="inline-flex items-center rounded-full bg-black px-6 py-3 text-sm font-medium text-white transition hover:bg-neutral-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/30"
+              >
+                Agenda una sesión
+              </button>
+            </div>
           </div>
         </section>
-        */}
 
-        {/* TODO: Rehabilitar la sección de servicios cuando necesitemos mostrar la oferta completa.
-        <section id="servicios" data-theme="light" className="relative overflow-hidden bg-white py-32 text-[#0B0B0B]">
+        {/* SERVICIOS - Fondo Blanco */}
+        <section id="servicios" data-theme="light" className="relative overflow-hidden bg-white py-24 text-[#0B0B0B] sm:py-28 lg:py-32">
           <BackgroundLines tone="light" opacity={0.08} density={130} />
 
           <div className="relative mx-auto max-w-6xl px-4">
@@ -341,73 +339,22 @@ export default function Home() {
               {services.map(({ title, description, Icon }) => (
                 <div
                   key={title}
-                  className="flex h-full flex-col gap-4 rounded-2xl border border-[#E5E5EA] bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+                  className="flex h-full flex-col gap-4 rounded-2xl border border-[#E5E5EA] bg-white p-8 shadow-[0_12px_24px_rgba(15,15,15,0.03)] transition hover:-translate-y-1 hover:shadow-[0_18px_32px_rgba(15,15,15,0.08)]"
                 >
-                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#F5F5F7] text-[#0B0B0B]">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#F5F5F7] text-[#0B0B0B]">
                     <Icon className="size-6" strokeWidth={1.4} />
                   </span>
                   <div className="space-y-3">
-                    <h3 className="text-lg font-semibold text-[#0B0B0B]">{title}</h3>
+                    <h3 className="text-xl font-medium text-[#0B0B0B]">{title}</h3>
                     <p className="text-sm leading-relaxed text-neutral-600">{description}</p>
                   </div>
                 </div>
               ))}
             </div>
-
-            <div className="mt-20 grid gap-10 rounded-3xl border border-[#E5E5EA] bg-white/90 p-10 shadow-[0_1px_2px_rgba(15,15,15,0.05),0_6px_18px_rgba(15,15,15,0.05)] sm:grid-cols-2">
-              <div className="space-y-4">
-                <h3 className="text-xl font-semibold text-[#0B0B0B]">Dolores comunes en PYMES</h3>
-                <ul className="space-y-3 text-sm leading-relaxed text-neutral-600">
-                  {[
-                    'Datos dispersos en distintas fuentes.',
-                    'Decisiones basadas en intuición en lugar de evidencia.',
-                    'Información desaprovechada o difícil de acceder.',
-                    'Reportes tardíos o inconsistentes.',
-                    'Falta de visibilidad para detectar oportunidades.'
-                  ].map((item) => (
-                    <li key={item} className="flex items-start gap-3">
-                      <span aria-hidden="true" className="text-base text-red-500">❌</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="space-y-4">
-                <h3 className="text-xl font-semibold text-[#0B0B0B]">Beneficios de ser Data Driven</h3>
-                <ul className="space-y-3 text-sm leading-relaxed text-neutral-600">
-                  {[
-                    'Decisiones respaldadas por datos confiables.',
-                    'Información estructurada y fácil de interpretar.',
-                    'KPIs alineados a objetivos del negocio.',
-                    'Dashboards intuitivos que simplifican la gestión.',
-                    'Capacidad de anticipar riesgos y áreas de mejora.'
-                  ].map((item) => (
-                    <li key={item} className="flex items-start gap-3">
-                      <span aria-hidden="true" className="text-base text-emerald-500">✅</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-            <div className="mt-14 flex flex-col items-center gap-4 text-center">
-              <p className="text-base font-medium text-[#0B0B0B]">
-                ¿Quieres transformar la manera en que tu empresa usa los datos?
-              </p>
-              <button
-                type="button"
-                onClick={() => document.getElementById('agenda')?.scrollIntoView({ behavior: 'smooth' })}
-                className="inline-flex items-center rounded-full bg-black px-6 py-3 text-sm font-medium text-white transition hover:bg-neutral-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/30"
-              >
-                Agenda una sesión
-              </button>
-            </div>
           </div>
         </section>
-        */}
 
-        {/* PLAN DE TRABAJO - Fondo Blanco */}
+        {/* METODOLOGÍA - Fondo Blanco */}
         <section
           id="metodologia"
           data-theme="light"
@@ -528,35 +475,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
-        {/* OBJETIVOS - Fondo Negro */}
-        <section id="objetivos" data-theme="dark" className="relative overflow-hidden bg-black py-20 text-white md:py-28">
-          <BackgroundLines tone="dark" opacity={0.18} density={120} />
-
-          <div className="container relative mx-auto max-w-6xl px-4">
-            <div className="mb-16 space-y-6 text-left">
-              <h2 className="text-balance text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl lg:text-[3.25rem]">
-                Objetivos del Proyecto
-              </h2>
-              <p className="max-w-3xl text-pretty text-lg leading-relaxed text-neutral-400 sm:text-xl">
-                Resultados que sentimos desde la primera iteración.
-              </p>
-            </div>
-
-            <div className="grid gap-8 md:grid-cols-3">
-              {objectives.map((item) => (
-                <div
-                  key={item.title}
-                  className="rounded-3xl border border-white/10 bg-white/5 p-10 shadow-[0_1px_3px_rgba(0,0,0,0.3),0_4px_12px_rgba(0,0,0,0.2)]"
-                >
-                  <h3 className="text-2xl font-medium text-white">{item.title}</h3>
-                  <p className="mt-4 text-base leading-relaxed text-neutral-400">{item.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* CONTACTO - Fondo Blanco */}
         <section id="contacto" data-theme="light" className="relative overflow-hidden bg-white py-20 md:py-28">
           <BackgroundLines tone="light" opacity={0.08} density={140} />

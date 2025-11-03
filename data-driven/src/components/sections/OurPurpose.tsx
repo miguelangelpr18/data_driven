@@ -25,8 +25,8 @@ const pillars = [
 export default function OurPurpose() {
   return (
     <section
-      id="nuestro-proposito"
-      aria-labelledby="nuestro-proposito-heading"
+      id="para-que"
+      aria-labelledby="para-que-heading"
       data-theme="light"
       className="relative overflow-hidden bg-white py-24 sm:py-28 lg:py-32"
     >
@@ -35,10 +35,10 @@ export default function OurPurpose() {
       <div className="relative mx-auto max-w-6xl px-6 sm:px-8">
         <div className="mx-auto max-w-3xl text-center">
           <h2
-            id="nuestro-proposito-heading"
+            id="para-que-heading"
             className="text-balance text-3xl font-semibold leading-tight tracking-tight text-[#0B0B0B] sm:text-4xl lg:text-[3.25rem]"
           >
-            Nuestro propósito
+            Para qué lo hacemos
           </h2>
           <p className="mt-6 text-pretty text-base leading-relaxed text-neutral-600 sm:text-lg">
             Impulsamos a las PyMEs a tomar decisiones estratégicas con base en datos, no suposiciones. <br className="hidden sm:block" />
