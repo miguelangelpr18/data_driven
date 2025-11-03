@@ -6,6 +6,9 @@ import { BarChart3, Database, RefreshCw, Target } from 'lucide-react';
 import BackgroundLines from '@/components/BackgroundLines';
 import ContactForm from '@/components/ContactForm';
 import Hero from '@/components/Hero';
+import WhatWeDoSection from '@/components/WhatWeDoSection';
+import OurPurpose from '@/components/sections/OurPurpose';
+import ForSMEs from '@/components/sections/ForSMEs';
 import SiteFooter from '@/components/SiteFooter';
 
 const planSteps = [
@@ -202,6 +205,8 @@ export default function Home() {
     <div className="min-h-screen bg-[#F5F5F7] text-[#0B0B0B]">
       <main className="pt-[var(--nav-h)]">
         <Hero variant="technical" />
+        <WhatWeDoSection />
+        <OurPurpose />
 
         {/* QUIÉNES SOMOS */}
         <section id="quienes-somos" data-theme="dark" className="relative overflow-hidden bg-black text-white">
