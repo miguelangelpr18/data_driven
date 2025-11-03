@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { BarChart3, Database, MessageSquare, Presentation, RefreshCw, Target } from 'lucide-react';
+import { BarChart3, Database, Presentation, RefreshCw, Target, Workflow } from 'lucide-react';
 
 import BackgroundLines from '@/components/BackgroundLines';
 import ContactForm from '@/components/ContactForm';
@@ -121,10 +121,10 @@ const services = [
     Icon: Presentation
   },
   {
-    title: 'Consultoría personalizada',
+    title: 'Automatización de procesos',
     description:
-      'Te acompañamos con asesorías a medida para acelerar la adopción del modelo Data Driven y asegurar el éxito del cambio.',
-    Icon: MessageSquare
+      'Desarrollamos flujos automatizados que reducen tareas repetitivas y mejoran la eficiencia operativa. Integramos tus sistemas para que la información fluya sin fricción entre herramientas y equipos.',
+    Icon: Workflow
   }
 ] as const;
 

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { Mail, Phone } from 'lucide-react';
 import BGLines from '@/components/BGLines';
 
@@ -10,9 +11,13 @@ export default function SiteFooter() {
         <div className="relative rounded-3xl border border-[#E5E5EA] bg-white/92 p-12 shadow-[0_1px_3px_rgba(0,0,0,0.08),0_4px_12px_rgba(0,0,0,0.05)]">
           <div className="grid gap-12 md:grid-cols-2">
             <div className="space-y-4">
-              <p className="text-xs uppercase tracking-[0.35em] text-[#6E6E73]">
-                Data Driven Consulting
-              </p>
+              <Image
+                src="/logoDataDriven.png"
+                alt="Logotipo de Data Driven"
+                width={144}
+                height={48}
+                className="h-10 w-auto"
+              />
             </div>
 
             <div className="space-y-4">
