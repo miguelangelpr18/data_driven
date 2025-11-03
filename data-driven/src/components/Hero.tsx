@@ -17,7 +17,7 @@ const COPY_VARIANTS: Record<HeroCopyVariant, { title: string; subtitle: string }
   },
   technical: {
     title: 'Estrategia, diseño y datos en perfecta sincronía.',
-    subtitle: 'Te ayudamos a implementar business intelligence para tu negocio'
+    subtitle: 'Te ayudamos a implementar business intelligence en tu negocio'
   },
   commercial: {
     title: 'Menos ruido, más resultados.',
@@ -55,7 +55,7 @@ export default function Hero({ variant = 'technical', className }: HeroProps) {
       data-theme="light"
       className={cn('relative overflow-hidden bg-white text-neutral-900', className)}
     >
-      <BackgroundLines tone="light" opacity={0.08} density={160} />
+      <BackgroundLines tone='light' opacity={0.08} density={160} />
 
       {/* Radial highlight behind logo */}
       <div className="pointer-events-none absolute inset-x-0 top-[28%] flex justify-center">
@@ -70,11 +70,7 @@ export default function Hero({ variant = 'technical', className }: HeroProps) {
         variants={containerVariants}
         className="relative z-10 mx-auto flex min-h-screen max-w-[1024px] flex-col items-center justify-center px-6 py-24 text-center sm:px-8"
       >
-        <motion.div variants={itemVariants} className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-[0.7rem] font-semibold uppercase tracking-[0.45em] text-neutral-600 shadow-[0_12px_32px_rgba(15,15,15,0.08)] backdrop-blur">
-          DATA DRIVEN CONSULTING
-        </motion.div>
-
-        <motion.div variants={itemVariants} className="mt-6 flex flex-col items-center">
+        <motion.div variants={itemVariants} className="flex flex-col items-center">
           <h1 id="hero-heading" className="sr-only">
             Data Driven Consulting
           </h1>
@@ -88,7 +84,7 @@ export default function Hero({ variant = 'technical', className }: HeroProps) {
               animate={{ opacity: 1, y: 0, scale: 1, transition: { duration: 0.5, ease: 'easeOut' } }}
             >
               <Image
-                src="/logo1.png"
+                src="/logoDataDriven.png"
                 alt="Logotipo de Data Driven"
                 role="img"
                 width={224}

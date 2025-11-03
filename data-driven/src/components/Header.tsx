@@ -7,7 +7,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { cn } from '@/lib/utils';
 
 const NAV = [
-  { label: 'Propósito', href: '/#que-hacemos', id: 'que-hacemos' },
+  { label: 'Servicios', href: '/#servicios', id: 'servicios' },
   { label: 'Objetivos', href: '/#objetivos', id: 'objetivos' },
   { label: 'Servicios', href: '/#servicios', id: 'servicios' },
   { label: 'Metodología', href: '/#metodologia', id: 'metodologia' },
@@ -212,7 +212,7 @@ export default function Header() {
         <Link href="/" className="flex items-center gap-3" aria-label="Ir al inicio">
           {!logoError ? (
             <Image
-              src="/logoDataDriven.png"
+              src="/logo1.png"
               alt="Data Driven"
               width={48}
               height={48}

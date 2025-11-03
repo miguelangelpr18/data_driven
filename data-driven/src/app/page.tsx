@@ -6,7 +6,6 @@ import { BarChart3, Database, MessageSquare, Presentation, RefreshCw, Target } f
 import BackgroundLines from '@/components/BackgroundLines';
 import ContactForm from '@/components/ContactForm';
 import Hero from '@/components/Hero';
-import WhatWeDoSection from '@/components/WhatWeDoSection';
 import SiteFooter from '@/components/SiteFooter';
 import { cn } from '@/lib/utils';
 
@@ -228,7 +227,40 @@ export default function Home() {
     <div className="min-h-screen bg-[#F5F5F7] text-[#0B0B0B]">
       <main className="pt-[var(--nav-h)]">
         <Hero variant="technical" />
-        <WhatWeDoSection />
+        {/* SERVICIOS - Fondo Oscuro */}
+        <section id="servicios" data-theme="dark" className="relative overflow-hidden bg-black py-24 text-white sm:py-28 lg:py-32">
+          <BackgroundLines tone="dark" opacity={0.18} density={130} />
+
+          <div className="relative mx-auto max-w-6xl px-4">
+            <div className="mx-auto max-w-3xl text-center">
+              <h2 className="text-balance text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl lg:text-[3.25rem]">
+                Servicios de Consultoría en Inteligencia de Datos
+              </h2>
+              <p className="mt-6 text-base leading-relaxed text-neutral-300 sm:text-lg">
+                Acompañamos a tu empresa desde la limpieza de la información hasta la visualización ejecutiva. Nuestro objetivo:
+                que cada decisión esté respaldada por datos confiables y claros.
+              </p>
+            </div>
+
+            <div className="mt-20 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+              {services.map(({ title, description, Icon }) => (
+                <div
+                  key={title}
+                  className="flex h-full flex-col gap-4 rounded-2xl border border-white/10 bg-white/5 p-8 text-left shadow-[0_16px_32px_rgba(0,0,0,0.25)] transition hover:-translate-y-1 hover:shadow-[0_20px_42px_rgba(0,0,0,0.35)]"
+                >
+                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/10 text-white/80">
+                    <Icon className="size-6" strokeWidth={1.4} />
+                  </span>
+                  <div className="space-y-3">
+                    <h3 className="text-xl font-medium text-white">{title}</h3>
+                    <p className="text-sm leading-relaxed text-neutral-300">{description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* DOLORES VS BENEFICIOS - Fondo Blanco */}
         <section
           id="dolores-beneficios"
@@ -287,7 +319,7 @@ export default function Home() {
           <div className="container relative mx-auto max-w-6xl px-4">
             <div className="mb-16 space-y-6 text-left sm:text-center">
               <h2 className="text-balance text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl lg:text-[3.25rem]">
-                Objetivos Del Proyecto
+                Objetivos del Proyecto
               </h2>
               <p className="max-w-3xl text-pretty text-lg leading-relaxed text-neutral-300 sm:mx-auto sm:text-xl">
                 Resultados que impulsan tu operación desde el primer análisis.
@@ -316,40 +348,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* SERVICIOS - Fondo Oscuro */}
-        <section id="servicios" data-theme="dark" className="relative overflow-hidden bg-black py-24 text-white sm:py-28 lg:py-32">
-          <BackgroundLines tone="dark" opacity={0.18} density={130} />
-
-          <div className="relative mx-auto max-w-6xl px-4">
-            <div className="mx-auto max-w-3xl text-center">
-              <h2 className="text-balance text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl lg:text-[3.25rem]">
-                Servicios de consultoría en inteligencia de datos
-              </h2>
-              <p className="mt-6 text-base leading-relaxed text-neutral-300 sm:text-lg">
-                Acompañamos a tu empresa desde la limpieza de la información hasta la visualización ejecutiva. Nuestro objetivo:
-                que cada decisión esté respaldada por datos confiables y claros.
-              </p>
-            </div>
-
-            <div className="mt-20 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-              {services.map(({ title, description, Icon }) => (
-                <div
-                  key={title}
-                  className="flex h-full flex-col gap-4 rounded-2xl border border-white/10 bg-white/5 p-8 text-left shadow-[0_16px_32px_rgba(0,0,0,0.25)] transition hover:-translate-y-1 hover:shadow-[0_20px_42px_rgba(0,0,0,0.35)]"
-                >
-                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/10 text-white/80">
-                    <Icon className="size-6" strokeWidth={1.4} />
-                  </span>
-                  <div className="space-y-3">
-                    <h3 className="text-xl font-medium text-white">{title}</h3>
-                    <p className="text-sm leading-relaxed text-neutral-300">{description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* METODOLOGÍA - Fondo Blanco */}
         <section
           id="metodologia"
@@ -362,7 +360,7 @@ export default function Home() {
           <div className="container relative mx-auto max-w-6xl px-4">
             <div className="mx-auto max-w-3xl text-center">
               <h2 className="text-balance text-3xl font-semibold leading-tight tracking-tight text-[#0B0B0B] sm:text-4xl md:text-5xl">
-                Nuestra metodología
+                Nuestra Metodología
               </h2>
               <p className="mt-6 text-base leading-relaxed text-neutral-600 sm:text-lg">
                 Acompañamos cada etapa con entregables claros, ritmos definidos y adopción sin fricción.

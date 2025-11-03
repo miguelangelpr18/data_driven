@@ -13,13 +13,6 @@ export default function SiteFooter() {
               <p className="text-xs uppercase tracking-[0.35em] text-[#6E6E73]">
                 Data Driven Consulting
               </p>
-              <h3 className="text-2xl font-semibold tracking-tight text-[#0B0B0B]">
-                Diseño de decisiones minimalistas.
-              </h3>
-              <p className="max-w-sm text-sm leading-relaxed text-[#6E6E73]">
-                Traducimos datos complejos en experiencias claras y accionables, con el mismo cuidado
-                de detalle que esperarías de un producto Apple.
-              </p>
             </div>
 
             <div className="space-y-4">
