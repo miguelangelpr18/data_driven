@@ -151,7 +151,7 @@ export default function Home() {
   const [planCardsVisible, setPlanCardsVisible] = useState<boolean[]>(() => planSteps.map(() => false));
   const planCardsRef = useRef<(HTMLDivElement | null)[]>([]);
   const [objectiveCardsVisible, setObjectiveCardsVisible] = useState<boolean[]>(() => objectives.map(() => false));
-  const objectiveCardsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const objectiveCardsRef = useRef<(HTMLElement | null)[]>([]);
 
   useEffect(() => {
     setIntroVisible(true);
@@ -251,7 +251,7 @@ export default function Home() {
               {objectives.map(({ title, description }, index) => (
                 <article
                   key={title}
-                  ref={(element) => {
+                  ref={(element: HTMLElement | null) => {
                     objectiveCardsRef.current[index] = element;
                   }}
                   style={{ transitionDelay: `${index * 120}ms` }}
