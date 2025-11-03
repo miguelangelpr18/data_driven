@@ -320,16 +320,16 @@ export default function Home() {
           </div>
         </section>
 
-        {/* SERVICIOS - Fondo Blanco */}
-        <section id="servicios" data-theme="light" className="relative overflow-hidden bg-white py-24 text-[#0B0B0B] sm:py-28 lg:py-32">
-          <BackgroundLines tone="light" opacity={0.08} density={130} />
+        {/* SERVICIOS - Fondo Oscuro */}
+        <section id="servicios" data-theme="dark" className="relative overflow-hidden bg-black py-24 text-white sm:py-28 lg:py-32">
+          <BackgroundLines tone="dark" opacity={0.18} density={130} />
 
           <div className="relative mx-auto max-w-6xl px-4">
             <div className="mx-auto max-w-3xl text-center">
-              <h2 className="text-balance text-3xl font-semibold leading-tight tracking-tight text-[#0B0B0B] sm:text-4xl lg:text-[3.25rem]">
+              <h2 className="text-balance text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl lg:text-[3.25rem]">
                 Servicios de consultoría en inteligencia de datos
               </h2>
-              <p className="mt-6 text-base leading-relaxed text-neutral-600 sm:text-lg">
+              <p className="mt-6 text-base leading-relaxed text-neutral-300 sm:text-lg">
                 Acompañamos a tu empresa desde la limpieza de la información hasta la visualización ejecutiva. Nuestro objetivo:
                 que cada decisión esté respaldada por datos confiables y claros.
               </p>
@@ -339,14 +339,14 @@ export default function Home() {
               {services.map(({ title, description, Icon }) => (
                 <div
                   key={title}
-                  className="flex h-full flex-col gap-4 rounded-2xl border border-[#E5E5EA] bg-white p-8 shadow-[0_12px_24px_rgba(15,15,15,0.03)] transition hover:-translate-y-1 hover:shadow-[0_18px_32px_rgba(15,15,15,0.08)]"
+                  className="flex h-full flex-col gap-4 rounded-2xl border border-white/10 bg-white/5 p-8 text-left shadow-[0_16px_32px_rgba(0,0,0,0.25)] transition hover:-translate-y-1 hover:shadow-[0_20px_42px_rgba(0,0,0,0.35)]"
                 >
-                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#F5F5F7] text-[#0B0B0B]">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/10 text-white/80">
                     <Icon className="size-6" strokeWidth={1.4} />
                   </span>
                   <div className="space-y-3">
-                    <h3 className="text-xl font-medium text-[#0B0B0B]">{title}</h3>
-                    <p className="text-sm leading-relaxed text-neutral-600">{description}</p>
+                    <h3 className="text-xl font-medium text-white">{title}</h3>
+                    <p className="text-sm leading-relaxed text-neutral-300">{description}</p>
                   </div>
                 </div>
               ))}

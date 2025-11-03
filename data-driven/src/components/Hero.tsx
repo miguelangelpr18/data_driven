@@ -2,7 +2,8 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
+import { motion } from 'framer-motion';
 
 import BackgroundLines from '@/components/BackgroundLines';
 import { cn } from '@/lib/utils';
@@ -31,6 +32,21 @@ export type HeroProps = {
 
 export default function Hero({ variant = 'technical', className }: HeroProps) {
   const copy = useMemo(() => COPY_VARIANTS[variant], [variant]);
+  const [logoError, setLogoError] = useState(false);
+
+  const containerVariants = {
+    initial: { opacity: 0, y: 12 },
+    animate: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: 'easeOut', staggerChildren: 0.1, delayChildren: 0.05 }
+    }
+  } as const;
+
+  const itemVariants = {
+    initial: { opacity: 0, y: 12 },
+    animate: { opacity: 1, y: 0, transition: { duration: 0.45, ease: 'easeOut' } }
+  } as const;
 
   return (
     <section
@@ -41,53 +57,82 @@ export default function Hero({ variant = 'technical', className }: HeroProps) {
     >
       <BackgroundLines tone="light" opacity={0.08} density={160} />
 
-      <div className="relative z-10 mx-auto flex min-h-screen max-w-5xl flex-col items-center justify-center px-5 py-24 text-center sm:px-8">
-        <div className="flex flex-col gap-7 sm:gap-8">
-          <div className="flex flex-col items-center text-center">
-            <Image
-              src="/logo1.png"
-              alt="Data Driven Consulting"
-              width={224}
-              height={224}
-              priority
-              className="w-28 drop-shadow-sm sm:w-32 md:w-40 lg:w-52 xl:w-56 motion-safe:animate-[fadeUp_400ms_ease-out_1] motion-safe:opacity-0 motion-reduce:animate-none motion-reduce:opacity-100"
-              style={{ animationDelay: '0ms', animationFillMode: 'forwards' }}
-            />
-            <h1
-              id="hero-heading"
-              className="mt-5 text-2xl font-semibold tracking-tight text-neutral-900 sm:mt-6 sm:text-3xl lg:text-4xl motion-safe:animate-[fadeUp_400ms_ease-out_1] motion-safe:opacity-0 motion-reduce:animate-none motion-reduce:opacity-100"
-              style={{ animationDelay: '120ms', animationFillMode: 'forwards' }}
-            >
-              Data Driven Consulting
-            </h1>
-            <p
-              className="mt-4 max-w-2xl text-pretty text-base leading-relaxed text-neutral-600 sm:text-lg motion-safe:animate-[fadeUp_400ms_ease-out_1] motion-safe:opacity-0 motion-reduce:animate-none motion-reduce:opacity-100"
-              style={{ animationDelay: '240ms', animationFillMode: 'forwards' }}
-            >
-              {copy.subtitle}
-            </p>
-            <div
-              className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center sm:gap-5 motion-safe:animate-[fadeUp_400ms_ease-out_1] motion-safe:opacity-0 motion-reduce:animate-none motion-reduce:opacity-100"
-              style={{ animationDelay: '360ms', animationFillMode: 'forwards' }}
-            >
-              <Link
-                href="#agenda"
-                aria-label="Agenda una sesión"
-                className="inline-flex items-center justify-center rounded-full bg-black px-6 py-3 text-sm font-medium text-white shadow-[0_12px_24px_rgba(15,15,15,0.12)] transition hover:bg-neutral-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-black/30"
-              >
-                Agenda una sesión
-              </Link>
-              <Link
-                href="#quienes-somos"
-                aria-label="Conoce más sobre quiénes somos"
-                className="inline-flex items-center justify-center rounded-full border border-neutral-300 bg-white px-6 py-3 text-sm font-medium text-neutral-900 transition hover:border-neutral-400 hover:bg-neutral-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-black/10"
-              >
-                Conoce más
-              </Link>
-            </div>
-          </div>
-        </div>
+      {/* Radial highlight behind logo */}
+      <div className="pointer-events-none absolute inset-x-0 top-[28%] flex justify-center">
+        <div className="h-[20rem] w-[20rem] rounded-full bg-white/10 blur-3xl sm:h-[22rem] sm:w-[22rem]" />
       </div>
+      {/* Fade-out to white at the bottom */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-b from-transparent to-white" />
+
+      <motion.div
+        initial="initial"
+        animate="animate"
+        variants={containerVariants}
+        className="relative z-10 mx-auto flex min-h-screen max-w-[1024px] flex-col items-center justify-center px-6 py-24 text-center sm:px-8"
+      >
+        <motion.div variants={itemVariants} className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-[0.7rem] font-semibold uppercase tracking-[0.45em] text-neutral-600 shadow-[0_12px_32px_rgba(15,15,15,0.08)] backdrop-blur">
+          CONSULTORÍA DATA DRIVEN
+        </motion.div>
+
+        <motion.div variants={itemVariants} className="mt-6 flex flex-col items-center">
+          {logoError ? (
+            <div className="flex h-36 w-36 items-center justify-center rounded-full border border-white/30 bg-white/85 text-2xl font-semibold text-neutral-900 shadow-[0_20px_48px_rgba(15,15,15,0.15)] sm:h-40 sm:w-40 md:h-44 md:w-44">
+              DD
+            </div>
+          ) : (
+            <motion.div
+              initial={{ opacity: 0, y: 12, scale: 0.94 }}
+              animate={{ opacity: 1, y: 0, scale: 1, transition: { duration: 0.5, ease: 'easeOut' } }}
+            >
+              <Image
+                src="/logo1.png"
+                alt="Logotipo de Data Driven"
+                role="img"
+                width={224}
+                height={224}
+                priority
+                onError={() => setLogoError(true)}
+                className="w-28 drop-shadow-[0_24px_60px_rgba(15,15,15,0.12)] sm:w-32 md:w-40 lg:w-44"
+              />
+            </motion.div>
+          )}
+
+          <motion.h1
+            id="hero-heading"
+            variants={itemVariants}
+            className="mt-4 text-3xl font-semibold tracking-tight text-[#0F172A] sm:text-4xl lg:text-5xl"
+          >
+            Data Driven Consulting
+          </motion.h1>
+
+          <motion.p
+            variants={itemVariants}
+            className="mt-4 max-w-2xl text-pretty text-base leading-relaxed text-neutral-600 sm:text-lg"
+          >
+            {copy.subtitle}
+          </motion.p>
+        </motion.div>
+
+        <motion.div
+          variants={itemVariants}
+          className="mt-9 flex flex-col gap-4 sm:flex-row sm:justify-center sm:gap-5"
+        >
+          <Link
+            href="#agenda"
+            aria-label="Agenda una sesión"
+            className="inline-flex items-center justify-center rounded-full bg-black px-6 py-3 text-sm font-medium text-white shadow-[0_18px_32px_rgba(15,15,15,0.22)] transition will-change-transform hover:-translate-y-px hover:shadow-[0_24px_40px_rgba(15,15,15,0.26)] focus:outline-none focus-visible:ring-2 focus-visible:ring-black/20"
+          >
+            Agenda una sesión
+          </Link>
+          <Link
+            href="#quienes-somos"
+            aria-label="Conoce más sobre quiénes somos"
+            className="inline-flex items-center justify-center rounded-full border border-[#E5E7EB] bg-white px-6 py-3 text-sm font-medium text-neutral-900 shadow-[0_12px_30px_rgba(15,15,15,0.12)] transition hover:-translate-y-px hover:bg-[#F7F7F7] focus:outline-none focus-visible:ring-2 focus-visible:ring-black/10"
+          >
+            Conoce más
+          </Link>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }
