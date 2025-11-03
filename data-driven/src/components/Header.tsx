@@ -7,7 +7,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { cn } from '@/lib/utils';
 
 const NAV = [
-  { label: 'Lo que hacemos', href: '/#que-hacemos', id: 'que-hacemos' },
+  { label: 'Propósito', href: '/#que-hacemos', id: 'que-hacemos' },
   { label: 'Objetivos', href: '/#objetivos', id: 'objetivos' },
   { label: 'Servicios', href: '/#servicios', id: 'servicios' },
   { label: 'Metodología', href: '/#metodologia', id: 'metodologia' },
