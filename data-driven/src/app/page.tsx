@@ -237,7 +237,7 @@ export default function Home() {
                 Servicios de Consultoría de Análisis de Datos
               </h2>
               <p className="mt-6 text-base leading-relaxed text-neutral-300 sm:text-lg">
-                Acompañamos a tu empresa desde la limpieza de la información hasta la visualización ejecutiva. Nuestro objetivo:
+                Acompañamos a tu empresa desde la limpieza de la información hasta la visualización de datos. Nuestro objetivo:
                 que cada decisión esté respaldada por datos confiables y claros.
               </p>
             </div>
