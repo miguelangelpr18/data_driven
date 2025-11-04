@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { BarChart3, Database, LayoutDashboard, Presentation, RefreshCw, Target, Workflow } from 'lucide-react';
+import { BarChart3, Database, Presentation, RefreshCw, Target, Workflow } from 'lucide-react';
 
 import BackgroundLines from '@/components/BackgroundLines';
 import ContactForm from '@/components/ContactForm';
@@ -14,7 +14,7 @@ const planSteps = [
     title: '1. Entendemos Fuentes',
     duration: '2–3 semanas',
     description: 'Auditamos fuentes, limpiamos datos clave y homologamos estructuras para garantizar consistencia.',
-    Icon: LayoutDashboard
+    Icon: Database
   },
   {
     title: '2. Definición de KPIs',
@@ -51,11 +51,6 @@ const objectives = [
     title: 'Medición constante y alineada a los objetivos',
     description:
       'Aseguramos un monitoreo continuo con KPIs que se conectan directamente con las metas de tu empresa.'
-  },
-  {
-    title: 'Mejor control de toda tu operación',
-    description:
-      'Centralizamos la información clave de tu empresa para que tengas visibilidad total de tus procesos, resultados y desempeño en tiempo real.'
   }
 ] as const;
 
@@ -122,7 +117,7 @@ const services = [
   {
     title: 'Implementación de reportes y dashboards',
     description:
-      'Construimos dashboards intuitivos y reportes automáticos que convierten datos dispersos en insights visuales para tu equipo.',
+      'Construimos dashboards intuitivos y reportes automáticos que convierten datos dispersos en accionables.',
     Icon: Presentation
   },
   {
@@ -239,7 +234,7 @@ export default function Home() {
           <div className="relative mx-auto max-w-6xl px-4">
             <div className="mx-auto max-w-3xl text-center">
               <h2 className="text-balance text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl lg:text-[3.25rem]">
-                Servicios de Consultoría en Inteligencia de Datos
+                Servicios de Consultoría de Análisis de Datos
               </h2>
               <p className="mt-6 text-base leading-relaxed text-neutral-300 sm:text-lg">
                 Acompañamos a tu empresa desde la limpieza de la información hasta la visualización ejecutiva. Nuestro objetivo:
@@ -278,7 +273,7 @@ export default function Home() {
             <div className="rounded-3xl border border-[#E5E5EA] bg-white/95 p-10 shadow-[0_1px_2px_rgba(15,15,15,0.05),0_10px_22px_rgba(15,15,15,0.05)] sm:p-12">
               <div className="grid gap-12 sm:grid-cols-2">
                 <div className="space-y-6">
-                  <h3 className="text-xl font-semibold text-[#0B0B0B]">Dolores comunes en PYMES</h3>
+                  <h3 className="text-xl font-semibold text-[#0B0B0B]">Problemas comunes en PYMES</h3>
                   <ul className="space-y-3 text-sm leading-relaxed text-neutral-600">
                     {pymesPainPoints.map((item) => (
                       <li key={item} className="flex items-start gap-3">
