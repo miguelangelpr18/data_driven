@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { BarChart3, Database, Presentation, RefreshCw, Target, Workflow } from 'lucide-react';
+import { BarChart3, Database, LayoutDashboard, Presentation, RefreshCw, Target, Workflow } from 'lucide-react';
 
 import BackgroundLines from '@/components/BackgroundLines';
 import ContactForm from '@/components/ContactForm';
@@ -11,10 +11,10 @@ import { cn } from '@/lib/utils';
 
 const planSteps = [
   {
-    title: '1. Entendimiento y Optimización de Bases de Datos',
+    title: '1. Entendemos Fuentes',
     duration: '2–3 semanas',
     description: 'Auditamos fuentes, limpiamos datos clave y homologamos estructuras para garantizar consistencia.',
-    Icon: Database
+    Icon: LayoutDashboard
   },
   {
     title: '2. Definición de KPIs',
@@ -51,6 +51,11 @@ const objectives = [
     title: 'Medición constante y alineada a los objetivos',
     description:
       'Aseguramos un monitoreo continuo con KPIs que se conectan directamente con las metas de tu empresa.'
+  },
+  {
+    title: 'Mejor control de toda tu operación',
+    description:
+      'Centralizamos la información clave de tu empresa para que tengas visibilidad total de tus procesos, resultados y desempeño en tiempo real.'
   }
 ] as const;
 
