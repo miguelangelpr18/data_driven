@@ -18,7 +18,7 @@ const serviceItems = [
   'Automatizaciones de procesos'
 ] as const;
 
-const socialLinks = [{ label: 'Instagram', href: 'https://www.instagram.com/', Icon: Instagram }] as const;
+const socialLinks = [{ label: 'Instagram', href: 'https://www.instagram.com/data.drivenconsulting/', Icon: Instagram }] as const;
 
 export default function SiteFooter() {
   return (
@@ -44,7 +44,7 @@ export default function SiteFooter() {
                   Data Driven Consulting
                 </h3>
                 <p className="text-sm text-neutral-600">
-                  Traducimos datos en decisiones claras. BI sin fricción para PYMES.
+                  Impulsamos tu negocio con datos reales.
                 </p>
               </div>
               <a
