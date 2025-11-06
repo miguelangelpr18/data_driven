@@ -17,8 +17,13 @@ export const metadata: Metadata = {
   title: 'Data Driven Consulting',
   description: 'Consultoría de datos y diseño de experiencias analíticas.',
   icons: {
-    icon: '/favicon.png',
-    apple: '/favicon.png'
+    icon: [
+      { url: '/favicon.png', type: 'image/png', sizes: '32x32' },
+      { url: '/favicon.png', rel: 'shortcut icon' }
+    ],
+    apple: [
+      { url: '/favicon.png', sizes: '180x180', type: 'image/png' }
+    ]
   },
   themeColor: '#ffffff'
 };
@@ -29,8 +34,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="es" className="scroll-smooth">
       <head>
-        <link rel="icon" href="/favicon.png" sizes="any" />
-        <link rel="apple-touch-icon" href="/logo1.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+        <link rel="shortcut icon" href="/favicon.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png" />
         <meta name="theme-color" content="#ffffff" />
         {gaId && (
           <>
