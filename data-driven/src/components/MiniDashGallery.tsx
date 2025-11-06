@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, type MotionProps } from 'framer-motion';
 
 import BackgroundLines from '@/components/BackgroundLines';
 
@@ -9,11 +9,11 @@ const card =
 
 const svgBase = 'h-40 w-full';
 
-const fadeIn = (delay = 0) => ({
+const fadeIn = (delay = 0): MotionProps => ({
   initial: { opacity: 0, y: 12 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, amount: 0.3 },
-  transition: { duration: 0.6, ease: 'easeOut', delay }
+  transition: { duration: 0.6, ease: 'easeOut' as const, delay }
 });
 
 export default function MiniDashGallery() {
@@ -67,7 +67,7 @@ export default function MiniDashGallery() {
                     initial={{ height: 0, y: 110 }}
                     whileInView={{ height, y: 110 - height }}
                     whileHover={{ y: 110 - height - 4 }}
-                    transition={{ duration: 0.6, ease: 'easeOut', delay: index * 0.06 }}
+                    transition={{ duration: 0.6, ease: 'easeOut' as const, delay: index * 0.06 }}
                     style={{ originY: 1 }}
                     className="opacity-90 group-hover:opacity-100"
                   />
@@ -98,7 +98,7 @@ export default function MiniDashGallery() {
                   initial={{ strokeDashoffset: 2 * Math.PI * 44 }}
                   whileInView={{ strokeDashoffset: (2 * Math.PI * 44) * (1 - 0.72) }}
                   whileHover={{ rotate: 6 }}
-                  transition={{ duration: 1.1, ease: 'easeOut' }}
+                  transition={{ duration: 1.1, ease: 'easeOut' as const }}
                   className="origin-center"
                 />
                 <text x="60" y="65" textAnchor="middle" className="fill-white text-[18px] font-semibold">
@@ -140,7 +140,7 @@ export default function MiniDashGallery() {
                   .join(' ')}
                 initial={{ pathLength: 0 }}
                 whileInView={{ pathLength: 1 }}
-                transition={{ duration: 1.2, ease: 'easeInOut' }}
+                transition={{ duration: 1.2, ease: 'easeInOut' as const }}
               />
               {spark.map((value, index) => {
                 const x = 14 + index * (190 / (spark.length - 1));
@@ -185,7 +185,7 @@ export default function MiniDashGallery() {
                       initial={{ width: 0 }}
                       whileInView={{ width }}
                       whileHover={{ width: width + 6 }}
-                      transition={{ duration: 0.7, ease: 'easeOut', delay: index * 0.08 }}
+                      transition={{ duration: 0.7, ease: 'easeOut' as const, delay: index * 0.08 }}
                     />
                   </g>
                 );

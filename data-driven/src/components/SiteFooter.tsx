@@ -1,11 +1,9 @@
 import Image from 'next/image';
-import { Instagram, Linkedin, Mail, Phone } from 'lucide-react';
+import { Instagram, Mail, Phone } from 'lucide-react';
 
 import BackgroundLines from '@/components/BackgroundLines';
 
 const navigationLinks = [
-  { label: 'Qué hacemos', href: '#que-hacemos' },
-  { label: 'Para qué', href: '#para-que' },
   { label: 'Objetivos', href: '#objetivos' },
   { label: 'Servicios', href: '#servicios' },
   { label: 'Metodología', href: '#metodologia' },
@@ -20,10 +18,7 @@ const serviceItems = [
   'Automatizaciones de procesos'
 ] as const;
 
-const socialLinks = [
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/', Icon: Linkedin },
-  { label: 'Instagram', href: 'https://www.instagram.com/', Icon: Instagram }
-] as const;
+const socialLinks = [{ label: 'Instagram', href: 'https://www.instagram.com/', Icon: Instagram }] as const;
 
 export default function SiteFooter() {
   return (
@@ -34,21 +29,7 @@ export default function SiteFooter() {
       <BackgroundLines tone="light" opacity={0.06} density={140} />
 
       <div className="relative mx-auto max-w-6xl px-4">
-        <div className="flex flex-col items-center justify-between gap-4 rounded-2xl border border-[#E5E5EA] bg-white/95 p-6 shadow-[0_1px_3px_rgba(0,0,0,0.06),0_8px_20px_rgba(0,0,0,0.04)] sm:flex-row sm:p-7">
-          <p className="text-[15px] text-neutral-700">
-            ¿Listo para decisiones con datos?{' '}
-            <span className="font-medium text-neutral-900">Agendemos una sesión.</span>
-          </p>
-          <a
-            href="#agenda"
-            aria-label="Agendar una sesión"
-            className="inline-flex items-center rounded-full bg-black px-5 py-2.5 text-sm font-medium text-white transition hover:bg-neutral-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20"
-          >
-            Agenda una sesión
-          </a>
-        </div>
-
-        <div className="mt-8 rounded-3xl border border-[#E5E5EA] bg-white/95 p-10 shadow-[0_1px_3px_rgba(0,0,0,0.06),0_8px_24px_rgba(0,0,0,0.05)] sm:p-12">
+        <div className="rounded-3xl border border-[#E5E5EA] bg-white/95 p-10 shadow-[0_1px_3px_rgba(0,0,0,0.06),0_8px_24px_rgba(0,0,0,0.05)] sm:p-12">
           <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
             <div className="space-y-4">
               <Image
