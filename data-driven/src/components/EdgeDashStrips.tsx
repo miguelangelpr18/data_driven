@@ -17,12 +17,16 @@ export default function EdgeDashStrips() {
   const spark = [4, 12, 9, 20, 16, 28, 22, 34];
 
   return (
-    <section id="edge-metrics" className="relative bg-black py-8 text-white sm:py-12">
+    <section id="edge-metrics" className="relative bg-black py-10 text-white sm:py-14 lg:py-16">
       <BackgroundLines tone="dark" opacity={0.18} density={140} />
 
       <div className="relative mx-auto w-full max-w-[1600px] px-3 sm:px-4 md:px-6">
-        <div className="grid gap-x-4 gap-y-8 md:grid-cols-2 xl:grid-cols-4">
-          <motion.div {...fadeIn(0.02)} className="group">
+        <div className="grid gap-x-4 gap-y-10 md:grid-cols-2 xl:grid-cols-4">
+          <motion.div
+            {...fadeIn(0.02)}
+            className="group"
+            whileHover={{ y: -8, scale: 1.02 }}
+          >
             <svg viewBox="0 0 220 120" className="h-[140px] w-full sm:h-[160px]" aria-hidden="true">
               <line x1="12" y1="108" x2="208" y2="108" stroke="white" strokeOpacity="0.18" strokeWidth="2" />
               {bars.map((value, index) => {
@@ -38,17 +42,20 @@ export default function EdgeDashStrips() {
                     rx="4"
                     fill="white"
                     initial={{ height: 0, y: 108 }}
-                    whileInView={{ height, y: 108 - height }}
+                    animate={{ height, y: 108 - height }}
                     whileHover={{ y: 108 - height - 4 }}
                     transition={{ duration: 0.6, ease: 'easeOut' as const, delay: index * 0.06 }}
-                    viewport={{ once: false, amount: 0.3 }}
                   />
                 );
               })}
             </svg>
           </motion.div>
 
-          <motion.div {...fadeIn(0.06)} className="group flex items-center justify-center">
+          <motion.div
+            {...fadeIn(0.06)}
+            className="group flex items-center justify-center"
+            whileHover={{ y: -8, scale: 1.04 }}
+          >
             <svg viewBox="0 0 140 140" className="h-[150px] w-[150px]" aria-hidden="true">
               <circle cx="70" cy="70" r="50" fill="none" stroke="white" strokeOpacity="0.15" strokeWidth="14" />
               <motion.circle
@@ -73,7 +80,11 @@ export default function EdgeDashStrips() {
             </svg>
           </motion.div>
 
-          <motion.div {...fadeIn(0.1)} className="group">
+          <motion.div
+            {...fadeIn(0.1)}
+            className="group"
+            whileHover={{ y: -8, scale: 1.02 }}
+          >
             <svg viewBox="0 0 240 140" className="h-[140px] w-full sm:h-[160px]" aria-hidden="true">
               {[0, 1, 2, 3].map((row) => (
                 <line
@@ -98,9 +109,8 @@ export default function EdgeDashStrips() {
                   })
                   .join(' ')}
                 initial={{ pathLength: 0 }}
-                whileInView={{ pathLength: 1 }}
+                animate={{ pathLength: 1 }}
                 transition={{ duration: 1.2, ease: 'easeInOut' as const }}
-                viewport={{ once: false, amount: 0.3 }}
               />
               {spark.map((value, index) => {
                 const x = 16 + index * (200 / (spark.length - 1));
@@ -113,17 +123,20 @@ export default function EdgeDashStrips() {
                     r="3.6"
                     fill="white"
                     initial={{ scale: 0, opacity: 0 }}
-                    whileInView={{ scale: 1, opacity: 1 }}
+                    animate={{ scale: 1, opacity: 1 }}
                     whileHover={{ scale: 1.25 }}
                     transition={{ delay: 0.18 + index * 0.05, type: 'spring', stiffness: 260, damping: 16 }}
-                    viewport={{ once: false, amount: 0.3 }}
                   />
                 );
               })}
             </svg>
           </motion.div>
 
-          <motion.div {...fadeIn(0.14)} className="group">
+          <motion.div
+            {...fadeIn(0.14)}
+            className="group"
+            whileHover={{ y: -8, scale: 1.02 }}
+          >
             <svg viewBox="0 0 240 140" className="h-[140px] w-full sm:h-[160px]" aria-hidden="true">
               {hbars.map((value, index) => {
                 const y = 28 + index * 26;
@@ -138,10 +151,9 @@ export default function EdgeDashStrips() {
                       rx="6"
                       fill="white"
                       initial={{ width: 0 }}
-                      whileInView={{ width }}
+                      animate={{ width }}
                       whileHover={{ width: width + 8 }}
                       transition={{ duration: 0.7, ease: 'easeOut' as const, delay: index * 0.08 }}
-                      viewport={{ once: false, amount: 0.3 }}
                     />
                   </g>
                 );
