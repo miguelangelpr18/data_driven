@@ -6,6 +6,7 @@ import { BarChart3, Database, LayoutDashboard, RefreshCw, Target, Workflow } fro
 import BackgroundLines from '@/components/BackgroundLines';
 import ContactForm from '@/components/ContactForm';
 import Hero from '@/components/Hero';
+import MiniDashGallery from '@/components/MiniDashGallery';
 import SiteFooter from '@/components/SiteFooter';
 import { cn } from '@/lib/utils';
 
@@ -260,6 +261,8 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <MiniDashGallery />
 
         {/* DOLORES VS BENEFICIOS - Fondo Blanco */}
         <section
