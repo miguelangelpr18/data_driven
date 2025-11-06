@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { BarChart3, Database, Presentation, RefreshCw, Target, Workflow } from 'lucide-react';
+import { BarChart3, Database, LayoutDashboard, RefreshCw, Target, Workflow } from 'lucide-react';
 
 import BackgroundLines from '@/components/BackgroundLines';
 import ContactForm from '@/components/ContactForm';
@@ -118,7 +118,7 @@ const services = [
     title: 'Implementación de reportes y dashboards',
     description:
       'Construimos dashboards intuitivos y reportes automáticos que convierten datos dispersos en accionables.',
-    Icon: Presentation
+    Icon: LayoutDashboard
   },
   {
     title: 'Automatización de procesos',
