@@ -262,7 +262,9 @@ export default function Home() {
           </div>
         </section>
 
-        <EdgeDashStrips />
+        <div className="relative bg-black">
+          <EdgeDashStrips />
+        </div>
 
         {/* DOLORES VS BENEFICIOS - Fondo Blanco */}
         <section

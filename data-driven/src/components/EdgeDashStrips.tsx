@@ -17,11 +17,11 @@ export default function EdgeDashStrips() {
   const spark = [4, 12, 9, 20, 16, 28, 22, 34];
 
   return (
-    <section id="edge-metrics" className="relative bg-black py-10 text-white sm:py-14 lg:py-16">
+    <section id="edge-metrics" className="relative bg-black py-6 text-white sm:py-10 lg:py-12">
       <BackgroundLines tone="dark" opacity={0.18} density={140} />
 
-      <div className="relative mx-auto w-full max-w-[1600px] px-3 sm:px-4 md:px-6">
-        <div className="grid gap-x-4 gap-y-10 md:grid-cols-2 xl:grid-cols-4">
+      <div className="relative mx-auto w-full max-w-[1600px] px-3 pb-6 sm:px-4 sm:pb-8 md:px-6 md:pb-10">
+        <div className="grid gap-x-4 gap-y-12 md:grid-cols-2 xl:grid-cols-4">
           <motion.div
             {...fadeIn(0.02)}
             className="group"
