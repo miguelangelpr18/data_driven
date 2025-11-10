@@ -69,7 +69,7 @@ export default function Hero({ variant = 'technical', className }: HeroProps) {
         initial="initial"
         animate="animate"
         variants={containerVariants}
-        className="relative z-10 mx-auto flex min-h-screen max-w-[1024px] flex-col items-center justify-center px-6 py-24 text-center sm:px-8"
+        className="relative z-10 mx-auto flex min-h-[60vh] max-w-[1024px] flex-col items-center justify-center px-6 py-12 pb-16 text-center sm:px-8 md:min-h-[56vh] md:py-14 md:pb-20 lg:min-h-[52vh] lg:py-16 lg:pb-24"
       >
         <motion.div variants={itemVariants} className="flex flex-col items-center">
           <h1 id="hero-heading" className="sr-only">
@@ -107,7 +107,7 @@ export default function Hero({ variant = 'technical', className }: HeroProps) {
 
         <motion.div
           variants={itemVariants}
-          className="mt-9 flex flex-col gap-4 sm:flex-row sm:justify-center sm:gap-5"
+          className="mt-9 mb-4 flex flex-col gap-4 sm:mb-5 sm:flex-row sm:justify-center sm:gap-5 md:mb-6"
         >
           <Link
             href="#agenda"

@@ -72,7 +72,7 @@ const graphBaseClass = (visible: boolean, prefersReduced: boolean) =>
 
 export default function HeroDashboards() {
   return (
-    <div className="relative z-10 mx-auto mt-6 w-full max-w-6xl px-4 sm:mt-8 lg:mt-10">
+    <div className="max-w-6xl mx-auto w-full px-4 mt-4 sm:mt-5 md:mt-6 lg:mt-8">
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
         <BarsVertical />
         <KpiRing />
