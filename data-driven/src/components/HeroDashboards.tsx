@@ -60,6 +60,9 @@ function useReveal<T extends HTMLElement = HTMLElement>() {
   return { ref, visible, prefersReduced };
 }
 
+const PRIMARY = '#0B0B0B';
+const SECONDARY = 'rgba(11,11,11,0.15)';
+
 const graphBaseClass = (visible: boolean, prefersReduced: boolean) =>
   cn(
     'group relative aspect-[3/2] w-full overflow-visible',
@@ -100,7 +103,7 @@ function BarsVertical() {
       className={graphBaseClass(visible, prefersReduced)}
     >
       <svg className="absolute inset-0 h-full w-full" viewBox="0 0 300 200">
-        <line x1="26" y1="170" x2="274" y2="170" stroke="rgba(255,255,255,0.15)" strokeWidth="2" />
+        <line x1="26" y1="170" x2="274" y2="170" stroke={SECONDARY} strokeWidth="2" />
         {bars.map((value, index) => {
           const growthFactor = hovered && !prefersReduced ? 1.08 : 1;
           const displayHeight = visible ? Math.min(value * growthFactor, 170) : 0;
@@ -114,7 +117,7 @@ function BarsVertical() {
               rx="5"
               y={yPosition}
               height={displayHeight}
-              fill="#ffffff"
+              fill={PRIMARY}
               style={{
                 transition: prefersReduced
                   ? 'none'
@@ -154,11 +157,11 @@ function KpiRing() {
         viewBox="0 0 300 200"
       >
         <g transform="translate(150,100)">
-          <circle r="56" fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth="12" />
+          <circle r="56" fill="none" stroke={SECONDARY} strokeWidth="12" />
           <circle
             r="44"
             fill="none"
-            stroke="#ffffff"
+            stroke={PRIMARY}
             strokeWidth="12"
             strokeLinecap="round"
             strokeDasharray={circumference}
@@ -167,7 +170,7 @@ function KpiRing() {
               transition: prefersReduced ? 'none' : 'stroke-dashoffset 0.7s ease-out'
             }}
           />
-          <text dy="10" textAnchor="middle" fill="#ffffff" fontSize="32" fontWeight="600">
+          <text dy="10" textAnchor="middle" fill={PRIMARY} fontSize="32" fontWeight="600">
             72%
           </text>
         </g>
@@ -197,12 +200,12 @@ function TrendLine() {
     >
       <svg className="absolute inset-0 h-full w-full" viewBox="0 0 300 200">
         {[40, 80, 120, 160].map((y) => (
-          <line key={y} x1="26" y1={y} x2="274" y2={y} stroke="rgba(255,255,255,0.15)" strokeWidth="1" />
+          <line key={y} x1="26" y1={y} x2="274" y2={y} stroke={SECONDARY} strokeWidth="1" />
         ))}
         <path
           d="M30 150 L70 136 L110 142 L150 120 L190 132 L230 110 L270 134"
           fill="none"
-          stroke="#ffffff"
+          stroke={PRIMARY}
           strokeWidth="4"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -244,14 +247,14 @@ function BarsHorizontal() {
 
           return (
             <g key={index} transform={`translate(40, ${50 + index * 36})`}>
-              <rect x="0" y="-10" width="220" height="20" rx="6" fill="rgba(255,255,255,0.15)" />
+              <rect x="0" y="-10" width="220" height="20" rx="6" fill={SECONDARY} />
               <rect
                 x="0"
                 y="-10"
                 height="20"
                 rx="6"
                 width={displayWidth}
-                fill="#ffffff"
+                fill={PRIMARY}
                 style={{
                   transition: prefersReduced
                     ? 'none'
