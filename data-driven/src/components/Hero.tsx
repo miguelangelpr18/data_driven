@@ -6,7 +6,7 @@ import { useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 
 import BackgroundLines from '@/components/BackgroundLines';
-import EdgeDashStrips from '@/components/EdgeDashStrips';
+import HeroDashboards from '@/components/HeroDashboards';
 import { cn } from '@/lib/utils';
 
 type HeroCopyVariant = 'inspirational' | 'technical' | 'commercial';
@@ -126,13 +126,7 @@ export default function Hero({ variant = 'technical', className }: HeroProps) {
         </motion.div>
       </motion.div>
 
-      <div className="relative z-10 mx-auto mt-6 w-full max-w-6xl px-6 pb-24 sm:mt-12 sm:px-8">
-        <EdgeDashStrips
-          tone="light"
-          as="div"
-          className="w-full rounded-[32px] border border-[#E5E7EB] bg-white shadow-[0_24px_60px_rgba(15,15,15,0.12)]"
-        />
-      </div>
+      <HeroDashboards />
     </section>
   );
 }
