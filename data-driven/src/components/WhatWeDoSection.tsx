@@ -44,7 +44,7 @@ export default function WhatWeDoSection() {
       <div className="relative mx-auto max-w-7xl px-6 sm:px-8">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="text-balance text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl lg:text-[3rem]">
-            Lo que hacemos por tu negocio
+            Lo Que Hacemos Por Tu Negocio
           </h2>
           <p className="mt-6 text-base leading-relaxed text-white/70 sm:text-lg">
             Unimos estrategia, diseño y datos para que tomes decisiones con confianza y sin ruido.
