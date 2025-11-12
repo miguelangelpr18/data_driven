@@ -162,6 +162,8 @@ export default function Home() {
   const planCardsRef = useRef<(HTMLElement | null)[]>([]);
   const [objectiveCardsVisible, setObjectiveCardsVisible] = useState<boolean[]>(() => objectives.map(() => false));
   const objectiveCardsRef = useRef<(HTMLElement | null)[]>([]);
+  const [objectiveMessageVisible, setObjectiveMessageVisible] = useState(false);
+  const objectiveMessageRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     setIntroVisible(true);
@@ -231,6 +233,32 @@ export default function Home() {
     );
 
     cards.forEach((card) => card && observer.observe(card));
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const element = objectiveMessageRef.current;
+    if (!element) return;
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+      setObjectiveMessageVisible(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setObjectiveMessageVisible(true);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    observer.observe(element);
 
     return () => observer.disconnect();
   }, []);
@@ -356,6 +384,18 @@ export default function Home() {
                   <p className="text-sm leading-relaxed text-neutral-300">{description}</p>
                 </article>
               ))}
+            </div>
+
+            <div
+              ref={objectiveMessageRef}
+              style={{ transitionDelay: '160ms' }}
+              className={cn(
+                'mx-auto mt-16 mb-24 max-w-3xl text-center text-lg font-medium text-white leading-relaxed sm:text-xl',
+                'motion-safe:transition-all motion-safe:duration-700 motion-safe:ease-out motion-reduce:transition-none motion-reduce:transform-none motion-reduce:opacity-100',
+                objectiveMessageVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              )}
+            >
+              “Hecho a la medida de tu negocio. Flexible, escalable y 100 % personalizado.”
             </div>
           </div>
         </section>
