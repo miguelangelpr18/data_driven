@@ -49,7 +49,7 @@ const objectives = [
   {
     title: 'Incrementar ventas con información estratégica',
     description:
-      'Analizamos el desempeño de productos y el comportamiento del cliente para detectar oportunidades de crecimiento y aumentar las ventas.'
+      'Analizamos el desempeño de productos y el comportamiento del cliente para identificar oportunidades de crecimiento y aumentar las ventas.'
   },
   {
     title: 'Evitar pérdidas por exceso o falta de stock',
@@ -353,7 +353,7 @@ export default function Home() {
         </section>
 
         {/* OBJETIVOS - Fondo Negro */}
-        <section id="objetivos" data-theme="dark" className="relative overflow-hidden bg-black py-24 text-white sm:py-28 lg:py-32">
+        <section id="objetivos" data-theme="dark" className="relative overflow-hidden bg-[#0a0a0a] py-24 text-white sm:py-28 lg:py-32">
           <BackgroundLines tone="dark" opacity={0.18} density={120} />
 
           <div className="container relative mx-auto max-w-6xl px-4">
@@ -366,22 +366,24 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-20 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
               {objectives.map(({ title, description }, index) => (
                 <article
                   key={title}
                   ref={(element: HTMLElement | null) => {
                     objectiveCardsRef.current[index] = element;
                   }}
+                  tabIndex={0}
                   style={{ transitionDelay: `${index * 120}ms` }}
                   className={cn(
-                    'flex h-full flex-col gap-4 rounded-3xl border border-white/10 bg-white/5 p-8 text-left text-neutral-200 shadow-[0_12px_26px_rgba(0,0,0,0.25)] transition-transform duration-300 hover:-translate-y-0.5',
-                    'motion-safe:transition-all motion-safe:duration-700 motion-safe:ease-out motion-reduce:transition-none motion-reduce:transform-none motion-reduce:opacity-100',
+                    'group flex h-full flex-col gap-5 rounded-[24px] border border-white/10 bg-white/[0.05] px-10 py-8 text-left text-neutral-200 shadow-[0_4px_20px_rgba(255,255,255,0.05)] transition-all duration-[350ms] ease-[cubic-bezier(0.25,0.1,0.25,1)] will-change-transform',
+                    'hover:scale-[1.03] hover:bg-white/[0.08] hover:shadow-[0_8px_25px_rgba(255,255,255,0.1)] focus-visible:scale-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/20',
+                    'motion-safe:transition-all motion-reduce:transition-none motion-reduce:transform-none motion-reduce:opacity-100 motion-reduce:hover:scale-100 motion-reduce:focus-visible:scale-100',
                     objectiveCardsVisible[index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                   )}
                 >
-                  <h3 className="text-lg font-semibold text-white">{title}</h3>
-                  <p className="text-sm leading-relaxed text-neutral-300">{description}</p>
+                  <h3 className="text-xl font-bold text-white transition-colors duration-300 group-hover:text-[#d1d1d1]">{title}</h3>
+                  <p className="text-[0.95rem] font-normal leading-[1.6] text-[#b3b3b3]">{description}</p>
                 </article>
               ))}
             </div>
@@ -390,12 +392,13 @@ export default function Home() {
               ref={objectiveMessageRef}
               style={{ transitionDelay: '160ms' }}
               className={cn(
-                'mx-auto mt-16 mb-24 max-w-3xl text-center text-lg font-medium text-white leading-relaxed sm:text-xl',
+                'mx-auto mt-20 mb-24 max-w-3xl text-center text-lg font-light leading-relaxed text-[#d1d1d1] sm:text-xl',
                 'motion-safe:transition-all motion-safe:duration-700 motion-safe:ease-out motion-reduce:transition-none motion-reduce:transform-none motion-reduce:opacity-100',
                 objectiveMessageVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               )}
             >
-              “Hecho a la medida de tu negocio. Flexible, escalable y 100 % personalizado.”
+              <span className="block">Hecho a la medida de tu negocio.</span>
+              <span className="block">Flexible, escalable y 100 % personalizado.</span>
             </div>
           </div>
         </section>
