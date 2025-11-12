@@ -43,12 +43,24 @@ const objectives = [
       'Convertimos la información dispersa en indicadores que te permiten tomar decisiones estratégicas y accionables.'
   },
   {
-    title: 'Automatización y optimización de procesos',
-    description:
-      'Digitalizamos tareas repetitivas y estructuramos flujos de información para hacer más eficiente cada área del negocio.'
+    title: 'Ahorro de tiempo y costos operativos',
+    description: 'Automatiza tareas y reduce gastos operativos para enfocar recursos en lo que realmente genera valor.'
   },
   {
-    title: 'Medición constante y alineada a los objetivos',
+    title: 'Incrementar ventas con información estratégica',
+    description:
+      'Analizamos el desempeño de productos y el comportamiento del cliente para detectar oportunidades de crecimiento y aumentar las ventas.'
+  },
+  {
+    title: 'Evitar pérdidas por exceso o falta de stock',
+    description: 'Anticipa la demanda y equilibra inventarios para evitar sobrecostos y productos detenidos.'
+  },
+  {
+    title: 'Aumentar rentabilidad operativa',
+    description: 'Optimiza procesos, mejora márgenes y eleva la eficiencia de cada área del negocio.'
+  },
+  {
+    title: 'Maximizar control financiero y operativo',
     description:
       'Aseguramos un monitoreo continuo con KPIs que se conectan directamente con las metas de tu empresa.'
   }
