@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Instagram, Mail, Phone } from 'lucide-react';
+import { Instagram, Linkedin, Mail, Phone } from 'lucide-react';
 
 import BackgroundLines from '@/components/BackgroundLines';
 
@@ -18,7 +18,10 @@ const serviceItems = [
   'Automatizaciones de procesos'
 ] as const;
 
-const socialLinks = [{ label: 'Instagram', href: 'https://www.instagram.com/data.drivenconsulting/', Icon: Instagram }] as const;
+const socialLinks = [
+  { label: 'Instagram', href: 'https://www.instagram.com/data.drivenconsulting/', Icon: Instagram },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/company/dataa-driven-consulting', Icon: Linkedin }
+] as const;
 
 export default function SiteFooter() {
   return (
