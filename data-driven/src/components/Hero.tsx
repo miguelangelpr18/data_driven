@@ -18,7 +18,7 @@ const COPY_VARIANTS: Record<HeroCopyVariant, { title: string; subtitle: string }
   },
   technical: {
     title: 'Estrategia, diseño y datos en perfecta sincronía.',
-    subtitle: 'Te ayudamos a implementar business intelligence en tu negocio'
+    subtitle: 'Transformamos datos en decisiones estratégicas.'
   },
   commercial: {
     title: 'Menos ruido, más resultados.',
