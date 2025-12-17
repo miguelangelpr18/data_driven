@@ -134,6 +134,7 @@ export default function SiteFooter() {
 
           <div className="mt-6 flex flex-col gap-3 text-sm text-neutral-500 sm:flex-row sm:items-center sm:justify-between">
             <p>© 2025 Data Driven. Todos los derechos reservados.</p>
+            <p>Desarrollado por Miguel Peña.</p>
             <div className="flex gap-4">
               <a
                 href="/privacidad"
