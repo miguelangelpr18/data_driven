@@ -474,19 +474,19 @@ export default function Home() {
                 {/* Header: Nombre + Precio */}
                 <header className="plan-header mb-6 pb-0">
                   <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B]">Insight Plan</h3>
-                  <div className="plan-discount-row mt-2 flex flex-wrap items-baseline gap-2">
+                  <div className="plan-discount-row mt-3 flex flex-wrap items-baseline gap-2">
                     <span className="text-xs font-medium text-neutral-400 line-through">Antes: $4,900</span>
                     <span className="inline-flex items-center rounded-full bg-[#34C759]/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#34C759]">
                       -22%
                     </span>
                   </div>
-                  <div className="plan-price min-h-[110px] flex flex-col justify-center mt-2">
+                  <div className="plan-price min-h-[120px] flex flex-col justify-center mt-3">
                     <div className="plan-price-row max-w-full overflow-hidden">
-                      <div className="plan-price-content flex items-baseline justify-start gap-2.5 flex-wrap">
-                        <span className="precio-desde font-semibold leading-[1.1] text-[#0B0B0B]" style={{ fontSize: 'clamp(26px, 2.2vw, 36px)', fontVariantNumeric: 'tabular-nums', maxWidth: '100%', wordBreak: 'normal' }}>$3,800</span>
+                      <div className="plan-price-content flex items-baseline justify-start gap-2.5 lg:whitespace-nowrap">
+                        <span className="precio-desde font-semibold leading-[1.1] text-[#0B0B0B]" style={{ fontSize: 'clamp(28px, 2.1vw, 36px)', fontVariantNumeric: 'tabular-nums', letterSpacing: '-0.02em' }}>$3,800</span>
                       </div>
                     </div>
-                    <p className="text-sm font-medium text-neutral-500 mt-2">Pago único</p>
+                    <p className="text-sm font-medium text-neutral-500 mt-1">Pago único</p>
                   </div>
                 </header>
 
@@ -625,15 +625,15 @@ export default function Home() {
                 {/* Header: Nombre + Precio */}
                 <header className="plan-header mb-6 pb-0">
                   <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B]">Data Driven Plan</h3>
-                  <div className="plan-price min-h-[110px] flex flex-col justify-center mt-2">
+                  <div className="plan-price min-h-[120px] flex flex-col justify-center mt-3">
                     <div className="plan-price-row max-w-full overflow-hidden">
-                      <div className="plan-price-content flex items-baseline justify-start gap-2.5 flex-wrap">
-                        <span className="precio-desde font-semibold leading-[1.1] text-[#0B0B0B]" style={{ fontSize: 'clamp(26px, 2.2vw, 36px)', fontVariantNumeric: 'tabular-nums', maxWidth: '100%', wordBreak: 'normal' }}>$6,000</span>
+                      <div className="plan-price-content flex items-baseline justify-start gap-2.5 lg:whitespace-nowrap">
+                        <span className="precio-desde font-semibold leading-[1.1] text-[#0B0B0B]" style={{ fontSize: 'clamp(28px, 2.1vw, 36px)', fontVariantNumeric: 'tabular-nums', letterSpacing: '-0.02em' }}>$6,000</span>
                         <span className="separador text-xl font-medium text-neutral-500">–</span>
-                        <span className="precio-hasta font-semibold leading-[1.1] text-[#0B0B0B]" style={{ fontSize: 'clamp(26px, 2.2vw, 36px)', fontVariantNumeric: 'tabular-nums', maxWidth: '100%', wordBreak: 'normal' }}>$9,500</span>
+                        <span className="precio-hasta font-semibold leading-[1.1] text-[#0B0B0B]" style={{ fontSize: 'clamp(28px, 2.1vw, 36px)', fontVariantNumeric: 'tabular-nums', letterSpacing: '-0.02em' }}>$9,500</span>
                       </div>
                     </div>
-                    <p className="text-sm font-medium text-neutral-500 mt-2">/mes</p>
+                    <p className="text-sm font-medium text-neutral-500 mt-1">/mes</p>
                   </div>
                 </header>
 
@@ -780,15 +780,15 @@ export default function Home() {
                 {/* Header: Nombre + Precio */}
                 <header className="plan-header mb-6 pb-0">
                   <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B]">Control Plan</h3>
-                  <div className="plan-price min-h-[110px] flex flex-col justify-center mt-2">
+                  <div className="plan-price min-h-[120px] flex flex-col justify-center mt-3">
                     <div className="plan-price-row max-w-full overflow-hidden">
-                      <div className="plan-price-content flex items-baseline justify-start gap-2.5 flex-wrap">
-                        <span className="precio-desde font-semibold leading-[1.1] text-[#0B0B0B]" style={{ fontSize: 'clamp(26px, 2.2vw, 36px)', fontVariantNumeric: 'tabular-nums', maxWidth: '100%', wordBreak: 'normal' }}>$15,000</span>
+                      <div className="plan-price-content flex items-baseline justify-start gap-2.5 lg:whitespace-nowrap">
+                        <span className="precio-desde font-semibold leading-[1.1] text-[#0B0B0B]" style={{ fontSize: 'clamp(28px, 2.1vw, 36px)', fontVariantNumeric: 'tabular-nums', letterSpacing: '-0.02em' }}>$15,000</span>
                         <span className="separador text-xl font-medium text-neutral-500">–</span>
-                        <span className="precio-hasta font-semibold leading-[1.1] text-[#0B0B0B]" style={{ fontSize: 'clamp(26px, 2.2vw, 36px)', fontVariantNumeric: 'tabular-nums', maxWidth: '100%', wordBreak: 'normal' }}>$20,000</span>
+                        <span className="precio-hasta font-semibold leading-[1.1] text-[#0B0B0B]" style={{ fontSize: 'clamp(28px, 2.1vw, 36px)', fontVariantNumeric: 'tabular-nums', letterSpacing: '-0.02em' }}>$20,000</span>
                       </div>
                     </div>
-                    <p className="text-sm font-medium text-neutral-500 mt-2">/mes</p>
+                    <p className="text-sm font-medium text-neutral-500 mt-1">/mes</p>
                     <p className="text-xs font-medium text-neutral-400 mt-1">Tu área BI de tu negocio.</p>
                   </div>
                 </header>
