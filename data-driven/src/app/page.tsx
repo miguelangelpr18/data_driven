@@ -470,20 +470,20 @@ export default function Home() {
 
             <div className="mx-auto mt-20 grid max-w-5xl items-stretch gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
               {/* Plan 1: Insight Plan */}
-              <article className="group relative flex flex-col rounded-[28px] border border-[#E5E5EA] bg-white p-8 shadow-[0_4px_16px_rgba(15,15,15,0.04)] transition-all duration-280 ease-out hover:-translate-y-1 hover:border-[#D1D1D6] hover:shadow-[0_8px_24px_rgba(15,15,15,0.08)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 sm:p-9 lg:min-h-[680px]">
+              <article className="group relative flex flex-col rounded-[28px] border border-[#E5E5EA] bg-white p-8 shadow-[0_4px_16px_rgba(15,15,15,0.04)] transition-all duration-280 ease-out lg:hover:-translate-y-[3px] hover:border-[#D1D1D6] hover:shadow-[0_8px_24px_rgba(15,15,15,0.08)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 sm:p-9 lg:min-h-[680px]">
                 {/* Header: Nombre + Precio */}
-                <div className="mb-6 space-y-4">
+                <div className="plan-header mb-6 space-y-4">
                   <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B]">Insight Plan</h3>
                   <div className="space-y-2.5">
                     <div className="flex flex-col gap-1.5">
-                      <div className="flex items-baseline gap-2">
+                      <div className="flex flex-wrap items-baseline gap-2">
                         <span className="text-xs font-medium text-neutral-400 line-through">Antes: $4,800</span>
                         <span className="inline-flex items-center rounded-full bg-[#34C759]/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#34C759]">
                           -21%
                         </span>
                       </div>
-                      <div className="flex items-baseline gap-1">
-                        <span className="text-4xl font-semibold leading-none text-[#0B0B0B]">$3,800</span>
+                      <div className="plan-price flex flex-wrap items-baseline gap-1 max-w-full">
+                        <span className="font-semibold leading-[1.1] text-[#0B0B0B]" style={{ fontSize: 'clamp(26px, 2.3vw, 34px)', fontVariantNumeric: 'tabular-nums' }}>$3,800</span>
                       </div>
                     </div>
                     <p className="text-sm font-medium text-neutral-500">Pago único</p>
@@ -491,7 +491,7 @@ export default function Home() {
                 </div>
 
                 {/* Body: Lista de beneficios */}
-                <ul className="flex-1 space-y-3.5 text-left">
+                <ul className="plan-features flex-1 min-h-[280px] space-y-3.5 text-left">
                     <li className="flex items-start gap-2.5">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
@@ -600,7 +600,7 @@ export default function Home() {
                 </ul>
 
                 {/* Footer: CTA */}
-                <div className="mt-6">
+                <div className="plan-cta mt-auto pt-6">
                   <button
                     type="button"
                     onClick={() => document.getElementById('agenda')?.scrollIntoView({ behavior: 'smooth' })}
@@ -612,7 +612,7 @@ export default function Home() {
               </article>
 
               {/* Plan 2: Data Driven Plan - Destacado */}
-              <article className="group relative flex flex-col rounded-[28px] border border-[#0B0B0B]/25 bg-white p-8 shadow-[0_6px_20px_rgba(15,15,15,0.06)] transition-all duration-280 ease-out hover:-translate-y-1.5 hover:border-[#0B0B0B]/35 hover:shadow-[0_12px_32px_rgba(15,15,15,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20 sm:p-9 lg:min-h-[680px] lg:-translate-y-2">
+              <article className="group relative flex flex-col rounded-[28px] border border-[#0B0B0B]/25 bg-white p-8 shadow-[0_6px_20px_rgba(15,15,15,0.06)] transition-all duration-280 ease-out lg:hover:-translate-y-[3px] hover:border-[#0B0B0B]/35 hover:shadow-[0_12px_32px_rgba(15,15,15,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20 sm:p-9 lg:min-h-[680px] lg:-translate-y-2">
                 {/* Badge "Más popular" */}
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
                   <span className="inline-flex items-center rounded-full bg-[#0B0B0B] px-3.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-white shadow-[0_2px_8px_rgba(0,0,0,0.15)]">
@@ -621,20 +621,20 @@ export default function Home() {
                 </div>
 
                 {/* Header: Nombre + Precio */}
-                <div className="mb-6 space-y-4">
+                <div className="plan-header mb-6 space-y-4">
                   <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B]">Data Driven Plan</h3>
                   <div className="space-y-2.5">
-                    <div className="flex items-baseline gap-1.5">
-                      <span className="text-4xl font-semibold leading-none text-[#0B0B0B]">$5,800</span>
-                      <span className="text-xl font-medium text-neutral-500">–</span>
-                      <span className="text-4xl font-semibold leading-none text-[#0B0B0B]">$8,500</span>
+                    <div className="plan-price flex flex-wrap items-baseline gap-1.5 max-w-full">
+                      <span className="price-from font-semibold leading-[1.1] text-[#0B0B0B]" style={{ fontSize: 'clamp(26px, 2.3vw, 34px)', fontVariantNumeric: 'tabular-nums' }}>$5,800</span>
+                      <span className="price-sep text-xl font-medium text-neutral-500">–</span>
+                      <span className="price-to font-semibold leading-[1.1] text-[#0B0B0B]" style={{ fontSize: 'clamp(26px, 2.3vw, 34px)', fontVariantNumeric: 'tabular-nums' }}>$8,500</span>
                     </div>
                     <p className="text-sm font-medium text-neutral-500">/mes</p>
                   </div>
                 </div>
 
                 {/* Body: Lista de beneficios */}
-                <ul className="flex-1 space-y-3 text-left">
+                <ul className="plan-features flex-1 min-h-[280px] space-y-3.5 text-left">
                     <li className="flex items-start gap-2.5">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
@@ -743,7 +743,7 @@ export default function Home() {
                 </ul>
 
                 {/* Footer: CTA */}
-                <div className="mt-6">
+                <div className="plan-cta mt-auto pt-6">
                   <button
                     type="button"
                     onClick={() => document.getElementById('agenda')?.scrollIntoView({ behavior: 'smooth' })}
@@ -755,15 +755,15 @@ export default function Home() {
               </article>
 
               {/* Plan 3: Control Plan */}
-              <article className="group relative flex flex-col rounded-[28px] border border-[#E5E5EA] bg-white p-8 shadow-[0_4px_16px_rgba(15,15,15,0.04)] transition-all duration-280 ease-out hover:-translate-y-1 hover:border-[#D1D1D6] hover:shadow-[0_8px_24px_rgba(15,15,15,0.08)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 sm:p-9 lg:min-h-[680px]">
+              <article className="group relative flex flex-col rounded-[28px] border border-[#E5E5EA] bg-white p-8 shadow-[0_4px_16px_rgba(15,15,15,0.04)] transition-all duration-280 ease-out lg:hover:-translate-y-[3px] hover:border-[#D1D1D6] hover:shadow-[0_8px_24px_rgba(15,15,15,0.08)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 sm:p-9 lg:min-h-[680px]">
                 {/* Header: Nombre + Precio */}
-                <div className="mb-6 space-y-4">
+                <div className="plan-header mb-6 space-y-4">
                   <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B]">Control Plan</h3>
                   <div className="space-y-2.5">
-                    <div className="flex items-baseline gap-1.5">
-                      <span className="text-4xl font-semibold leading-none text-[#0B0B0B]">$15,000</span>
-                      <span className="text-xl font-medium text-neutral-500">–</span>
-                      <span className="text-4xl font-semibold leading-none text-[#0B0B0B]">$20,000</span>
+                    <div className="plan-price flex flex-wrap items-baseline gap-1.5 max-w-full">
+                      <span className="price-from font-semibold leading-[1.1] text-[#0B0B0B]" style={{ fontSize: 'clamp(26px, 2.3vw, 34px)', fontVariantNumeric: 'tabular-nums' }}>$15,000</span>
+                      <span className="price-sep text-xl font-medium text-neutral-500">–</span>
+                      <span className="price-to font-semibold leading-[1.1] text-[#0B0B0B]" style={{ fontSize: 'clamp(26px, 2.3vw, 34px)', fontVariantNumeric: 'tabular-nums' }}>$20,000</span>
                     </div>
                     <p className="text-sm font-medium text-neutral-500">/mes</p>
                     <p className="text-xs font-medium text-neutral-400">Tu BI externo para el negocio</p>
@@ -771,7 +771,7 @@ export default function Home() {
                 </div>
 
                 {/* Body: Lista de beneficios */}
-                <ul className="flex-1 space-y-2.5 text-left">
+                <ul className="plan-features flex-1 min-h-[280px] space-y-2.5 text-left">
                     <li className="flex items-start gap-2.5">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
@@ -783,15 +783,19 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-relaxed text-neutral-600">
-                        Múltiples dashboards, organizados por:
-                        <span className="ml-4 block text-xs leading-relaxed text-neutral-500">
-                          • Rol (Dirección / Dueño / Operación)
+                      <div className="flex-1">
+                        <span className="text-sm leading-relaxed text-neutral-600">
+                          Múltiples dashboards, organizados por:
                         </span>
-                        <span className="ml-4 block text-xs leading-relaxed text-neutral-500">
-                          • Iniciativa (ventas, retención, productividad, etc.)
-                        </span>
-                      </span>
+                        <ul className="mt-2 ml-4 space-y-1.5">
+                          <li className="text-xs leading-relaxed text-neutral-500">
+                            • Rol (Dirección / Dueño / Operación)
+                          </li>
+                          <li className="text-xs leading-relaxed text-neutral-500">
+                            • Iniciativa (ventas, retención, productividad, etc.)
+                          </li>
+                        </ul>
+                      </div>
                     </li>
                     <li className="flex items-start gap-2.5">
                       <svg
@@ -819,18 +823,22 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-relaxed text-neutral-600">
-                        Modelado de datos avanzado:
-                        <span className="ml-4 block text-xs leading-relaxed text-neutral-500">
-                          • Históricos consolidados
+                      <div className="flex-1">
+                        <span className="text-sm leading-relaxed text-neutral-600">
+                          Modelado de datos avanzado:
                         </span>
-                        <span className="ml-4 block text-xs leading-relaxed text-neutral-500">
-                          • Comparativos entre periodos
-                        </span>
-                        <span className="ml-4 block text-xs leading-relaxed text-neutral-500">
-                          • Análisis de cohortes
-                        </span>
-                      </span>
+                        <ul className="mt-2 ml-4 space-y-1.5">
+                          <li className="text-xs leading-relaxed text-neutral-500">
+                            • Históricos consolidados
+                          </li>
+                          <li className="text-xs leading-relaxed text-neutral-500">
+                            • Comparativos entre periodos
+                          </li>
+                          <li className="text-xs leading-relaxed text-neutral-500">
+                            • Análisis de cohortes
+                          </li>
+                        </ul>
+                      </div>
                     </li>
                     <li className="flex items-start gap-2.5">
                       <svg
@@ -858,18 +866,22 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-relaxed text-neutral-600">
-                        KPIs avanzados, como:
-                        <span className="ml-4 block text-xs leading-relaxed text-neutral-500">
-                          • Retención
+                      <div className="flex-1">
+                        <span className="text-sm leading-relaxed text-neutral-600">
+                          KPIs avanzados, como:
                         </span>
-                        <span className="ml-4 block text-xs leading-relaxed text-neutral-500">
-                          • Drop-off
-                        </span>
-                        <span className="ml-4 block text-xs leading-relaxed text-neutral-500">
-                          • Crecimiento
-                        </span>
-                      </span>
+                        <ul className="mt-2 ml-4 space-y-1.5">
+                          <li className="text-xs leading-relaxed text-neutral-500">
+                            • Retención
+                          </li>
+                          <li className="text-xs leading-relaxed text-neutral-500">
+                            • Drop-off
+                          </li>
+                          <li className="text-xs leading-relaxed text-neutral-500">
+                            • Crecimiento
+                          </li>
+                        </ul>
+                      </div>
                     </li>
                     <li className="flex items-start gap-2.5">
                       <svg
@@ -889,7 +901,7 @@ export default function Home() {
                 </ul>
 
                 {/* Footer: CTA */}
-                <div className="mt-6">
+                <div className="plan-cta mt-auto pt-6">
                   <button
                     type="button"
                     onClick={() => document.getElementById('agenda')?.scrollIntoView({ behavior: 'smooth' })}
