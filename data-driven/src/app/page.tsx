@@ -472,25 +472,25 @@ export default function Home() {
               {/* Plan 1: Insight Plan */}
               <article className="plan-card group relative flex flex-col rounded-[28px] border border-[#E8E8ED] bg-white p-8 shadow-[0_2px_12px_rgba(15,15,15,0.03)] transition-all duration-[220ms] ease-out lg:hover:-translate-y-[2px] lg:hover:shadow-[0_4px_18px_rgba(15,15,15,0.05)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 sm:p-9 lg:min-h-[680px]">
                 {/* Header: Nombre + Precio */}
-                <div className="plan-header mb-4 pb-2 space-y-3.5">
-                  <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B]">Insight Plan</h3>
-                  <div className="flex flex-wrap items-baseline gap-2">
+                <header className="plan-header mb-6 pb-0">
+                  <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B] mb-3">Insight Plan</h3>
+                  <div className="flex flex-wrap items-baseline gap-2 mb-4">
                     <span className="text-xs font-medium text-neutral-400 line-through">Antes: $4,800</span>
                     <span className="inline-flex items-center rounded-full bg-[#34C759]/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#34C759]">
                       -21%
                     </span>
                   </div>
-                  <div className="plan-price mt-4 h-[100px] flex flex-col justify-center">
+                  <div className="plan-price min-h-[110px] flex flex-col justify-center">
                     <div className="plan-price-content flex items-baseline justify-start gap-1.5 flex-nowrap">
                       <span className="precio-desde font-semibold leading-[1.1] text-[#0B0B0B] whitespace-nowrap" style={{ fontSize: 'clamp(26px, 2.3vw, 34px)', fontVariantNumeric: 'tabular-nums' }}>$3,800</span>
                     </div>
-                    <p className="text-sm font-medium text-neutral-500 mt-1">Pago único</p>
+                    <p className="text-sm font-medium text-neutral-500 mt-2">Pago único</p>
                   </div>
-                </div>
+                </header>
 
                 {/* Body: Lista de beneficios */}
-                <div className="plan-body flex-1 flex flex-col justify-center">
-                  <ul className="plan-features space-y-3.5 text-left">
+                <div className="plan-body flex-1 flex flex-col justify-center py-2">
+                  <ul className="plan-features space-y-4 text-left">
                     <li className="flex items-start gap-2.5">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
@@ -600,19 +600,19 @@ export default function Home() {
                 </div>
 
                 {/* Footer: CTA */}
-                <div className="plan-footer pt-6">
+                <footer className="plan-footer pt-6 mt-auto">
                   <button
                     type="button"
                     onClick={() => document.getElementById('agenda')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="w-full rounded-full border border-[#E5E5EA] bg-white px-6 py-3 text-sm font-medium text-[#0B0B0B] shadow-[0_2px_8px_rgba(15,15,15,0.08)] transition-all duration-[220ms] ease-out lg:hover:shadow-[0_3px_10px_rgba(15,15,15,0.1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10"
+                    className="w-full h-12 rounded-full border border-[#E5E5EA] bg-white px-6 text-sm font-medium text-[#0B0B0B] shadow-[0_2px_8px_rgba(15,15,15,0.08)] transition-all duration-[220ms] ease-out lg:hover:shadow-[0_3px_10px_rgba(15,15,15,0.1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10"
                   >
                     Agendar sesión
                   </button>
-                </div>
+                </footer>
               </article>
 
               {/* Plan 2: Data Driven Plan - Destacado */}
-              <article className="plan-card group relative flex flex-col rounded-[28px] border border-[#0B0B0B]/20 bg-white p-8 shadow-[0_3px_16px_rgba(15,15,15,0.05)] transition-all duration-[220ms] ease-out lg:hover:-translate-y-[2px] lg:hover:shadow-[0_6px_24px_rgba(15,15,15,0.08)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20 sm:p-9 lg:min-h-[680px] lg:-translate-y-2">
+              <article className="plan-card group relative flex flex-col rounded-[28px] border-2 border-[#0B0B0B]/25 bg-white p-8 shadow-[0_4px_20px_rgba(15,15,15,0.06)] transition-all duration-[220ms] ease-out lg:hover:-translate-y-[2px] lg:hover:shadow-[0_6px_28px_rgba(15,15,15,0.1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20 sm:p-9 lg:min-h-[680px] lg:-translate-y-2">
                 {/* Badge "Más popular" */}
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
                   <span className="inline-flex items-center rounded-full bg-[#0B0B0B] px-3.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-white shadow-[0_2px_8px_rgba(0,0,0,0.15)]">
@@ -621,21 +621,21 @@ export default function Home() {
                 </div>
 
                 {/* Header: Nombre + Precio */}
-                <div className="plan-header mb-4 pb-2 space-y-3.5">
-                  <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B]">Data Driven Plan</h3>
-                  <div className="plan-price mt-4 h-[100px] flex flex-col justify-center">
+                <header className="plan-header mb-6 pb-0">
+                  <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B] mb-3">Data Driven Plan</h3>
+                  <div className="plan-price min-h-[110px] flex flex-col justify-center">
                     <div className="plan-price-content flex items-baseline justify-start gap-1.5 flex-nowrap">
                       <span className="precio-desde font-semibold leading-[1.1] text-[#0B0B0B] whitespace-nowrap" style={{ fontSize: 'clamp(26px, 2.3vw, 34px)', fontVariantNumeric: 'tabular-nums' }}>$5,800</span>
                       <span className="separador text-xl font-medium text-neutral-500">–</span>
                       <span className="precio-hasta font-semibold leading-[1.1] text-[#0B0B0B] whitespace-nowrap" style={{ fontSize: 'clamp(26px, 2.3vw, 34px)', fontVariantNumeric: 'tabular-nums' }}>$8,500</span>
                     </div>
-                    <p className="text-sm font-medium text-neutral-500 mt-1">/mes</p>
+                    <p className="text-sm font-medium text-neutral-500 mt-2">/mes</p>
                   </div>
-                </div>
+                </header>
 
                 {/* Body: Lista de beneficios */}
-                <div className="plan-body flex-1 flex flex-col justify-center">
-                  <ul className="plan-features space-y-3.5 text-left">
+                <div className="plan-body flex-1 flex flex-col justify-center py-2">
+                  <ul className="plan-features space-y-4 text-left">
                     <li className="flex items-start gap-2.5">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
@@ -662,7 +662,7 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-relaxed text-neutral-600">
+                      <span className="text-sm leading-[1.7] text-neutral-600">
                         Revisión y conexión de múltiples fuentes de datos
                       </span>
                     </li>
@@ -677,7 +677,7 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-relaxed text-neutral-600">
+                      <span className="text-sm leading-[1.7] text-neutral-600">
                         Definición y seguimiento de KPIs clave del negocio
                       </span>
                     </li>
@@ -692,7 +692,7 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-relaxed text-neutral-600">
+                      <span className="text-sm leading-[1.7] text-neutral-600">
                         Desarrollo y evolución continua de dashboards en Power BI
                       </span>
                     </li>
@@ -707,7 +707,7 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-relaxed text-neutral-600">
+                      <span className="text-sm leading-[1.7] text-neutral-600">
                         Acceso a Power BI como plataforma de lectura interactiva
                       </span>
                     </li>
@@ -722,7 +722,7 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-relaxed text-neutral-600">
+                      <span className="text-sm leading-[1.7] text-neutral-600">
                         Actualizaciones periódicas de la información
                       </span>
                     </li>
@@ -737,7 +737,7 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-relaxed text-neutral-600">
+                      <span className="text-sm leading-[1.7] text-neutral-600">
                         Documentación y seguimiento del proyecto
                       </span>
                     </li>
@@ -745,36 +745,36 @@ export default function Home() {
                 </div>
 
                 {/* Footer: CTA */}
-                <div className="plan-footer pt-6">
+                <footer className="plan-footer pt-6 mt-auto">
                   <button
                     type="button"
                     onClick={() => document.getElementById('agenda')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="w-full rounded-full bg-black px-6 py-3 text-sm font-medium text-white shadow-[0_4px_16px_rgba(0,0,0,0.2)] transition-all duration-[220ms] ease-out lg:hover:shadow-[0_5px_18px_rgba(0,0,0,0.22)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20"
+                    className="w-full h-12 rounded-full bg-black px-6 text-sm font-medium text-white shadow-[0_4px_16px_rgba(0,0,0,0.2)] transition-all duration-[220ms] ease-out lg:hover:shadow-[0_5px_18px_rgba(0,0,0,0.22)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20"
                   >
                     Agendar sesión
                   </button>
-                </div>
+                </footer>
               </article>
 
               {/* Plan 3: Control Plan */}
               <article className="plan-card group relative flex flex-col rounded-[28px] border border-[#E8E8ED] bg-white p-8 shadow-[0_2px_12px_rgba(15,15,15,0.03)] transition-all duration-[220ms] ease-out lg:hover:-translate-y-[2px] lg:hover:shadow-[0_4px_18px_rgba(15,15,15,0.05)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 sm:p-9 lg:min-h-[680px]">
                 {/* Header: Nombre + Precio */}
-                <div className="plan-header mb-4 pb-2 space-y-3.5">
-                  <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B]">Control Plan</h3>
-                  <div className="plan-price mt-4 h-[100px] flex flex-col justify-center">
+                <header className="plan-header mb-6 pb-0">
+                  <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B] mb-3">Control Plan</h3>
+                  <div className="plan-price min-h-[110px] flex flex-col justify-center">
                     <div className="plan-price-content flex items-baseline justify-start gap-1.5 flex-nowrap">
                       <span className="precio-desde font-semibold leading-[1.1] text-[#0B0B0B] whitespace-nowrap" style={{ fontSize: 'clamp(26px, 2.3vw, 34px)', fontVariantNumeric: 'tabular-nums' }}>$15,000</span>
                       <span className="separador text-xl font-medium text-neutral-500">–</span>
                       <span className="precio-hasta font-semibold leading-[1.1] text-[#0B0B0B] whitespace-nowrap" style={{ fontSize: 'clamp(26px, 2.3vw, 34px)', fontVariantNumeric: 'tabular-nums' }}>$20,000</span>
                     </div>
-                    <p className="text-sm font-medium text-neutral-500 mt-1">/mes</p>
-                    <p className="text-xs font-medium text-neutral-400 mt-0.5">Tu BI externo para el negocio</p>
+                    <p className="text-sm font-medium text-neutral-500 mt-2">/mes</p>
+                    <p className="text-xs font-medium text-neutral-400 mt-1">Tu BI externo para el negocio</p>
                   </div>
-                </div>
+                </header>
 
                 {/* Body: Lista de beneficios */}
-                <div className="plan-body flex-1 flex flex-col justify-center">
-                  <ul className="plan-features space-y-2.5 text-left">
+                <div className="plan-body flex-1 flex flex-col justify-center py-2">
+                  <ul className="plan-features space-y-3 text-left">
                     <li className="flex items-start gap-2.5">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
@@ -884,15 +884,15 @@ export default function Home() {
                 </div>
 
                 {/* Footer: CTA */}
-                <div className="plan-footer pt-6">
+                <footer className="plan-footer pt-6 mt-auto">
                   <button
                     type="button"
                     onClick={() => document.getElementById('agenda')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="w-full rounded-full border border-[#E5E5EA] bg-white px-6 py-3 text-sm font-medium text-[#0B0B0B] shadow-[0_2px_8px_rgba(15,15,15,0.08)] transition-all duration-[220ms] ease-out lg:hover:shadow-[0_3px_10px_rgba(15,15,15,0.1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10"
+                    className="w-full h-12 rounded-full border border-[#E5E5EA] bg-white px-6 text-sm font-medium text-[#0B0B0B] shadow-[0_2px_8px_rgba(15,15,15,0.08)] transition-all duration-[220ms] ease-out lg:hover:shadow-[0_3px_10px_rgba(15,15,15,0.1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10"
                   >
                     Agendar sesión
                   </button>
-                </div>
+                </footer>
               </article>
             </div>
           </div>
