@@ -472,17 +472,17 @@ export default function Home() {
               {/* Plan 1: Insight Plan */}
               <article className="plan-card plan-card--insight group relative flex flex-col rounded-[28px] border border-[#E8E8ED] bg-white p-8 shadow-[0_2px_12px_rgba(15,15,15,0.03)] transition-all duration-[220ms] ease-out lg:hover:-translate-y-[2px] lg:hover:shadow-[0_4px_18px_rgba(15,15,15,0.05)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 sm:p-9 lg:min-h-[740px]">
                 {/* Header: Nombre + Precio */}
-                <header className="plan-header mb-6 pb-0 lg:min-h-[220px]">
+                <header className="plan-header mb-4 pb-0 lg:min-h-[200px]">
                   <div className="plan-title-row">
                     <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B]">Insight Plan</h3>
                   </div>
-                  <div className="plan-discount-row h-[28px] flex items-center gap-3 mt-3">
+                  <div className="plan-discount-row h-[28px] flex items-center gap-3 mt-2">
                     <span className="text-xs font-medium text-neutral-400 line-through">Antes: $4,900</span>
                     <span className="inline-flex items-center rounded-full bg-[#34C759]/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#34C759]">
                       -22%
                     </span>
                   </div>
-                  <div className="plan-price-block min-h-[130px] flex flex-col justify-end mt-6">
+                  <div className="plan-price-block min-h-[130px] flex flex-col justify-end mt-4">
                     <div className="plan-price-row flex items-baseline gap-2.5 max-w-full lg:whitespace-nowrap">
                       <span className="precio-desde font-semibold leading-[1.1] text-[#0B0B0B]" style={{ fontSize: 'clamp(26px, 2.0vw, 34px)', fontVariantNumeric: 'tabular-nums' }}>$3,800</span>
                     </div>
@@ -491,11 +491,11 @@ export default function Home() {
                 </header>
 
                 {/* Spacer fijo para alinear inicio de bullets */}
-                <div className="plan-meta-spacer h-12"></div>
+                <div className="plan-meta-spacer h-6"></div>
 
                 {/* Body: Lista de beneficios */}
                 <div className="plan-body flex-1 flex flex-col justify-center">
-                  <ul className="plan-list space-y-[14px] text-left">
+                  <ul className="plan-list space-y-5 text-left">
                     <li className="flex items-start gap-2.5">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
@@ -507,7 +507,7 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-[1.6] text-neutral-600">
+                      <span className="text-sm leading-[1.85] text-neutral-600">
                         1–2 sesiones de entendimiento del negocio
                       </span>
                     </li>
@@ -522,7 +522,7 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-[1.6] text-neutral-600">
+                      <span className="text-sm leading-[1.85] text-neutral-600">
                         Revisión de hasta 3 fuentes de datos (Excel, CSV o exportes de sistemas existentes)
                       </span>
                     </li>
@@ -537,7 +537,7 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-[1.6] text-neutral-600">
+                      <span className="text-sm leading-[1.85] text-neutral-600">
                         Diagnóstico inicial de la información
                       </span>
                     </li>
@@ -552,7 +552,7 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-[1.6] text-neutral-600">
+                      <span className="text-sm leading-[1.85] text-neutral-600">
                         Definición de hasta 3 KPIs clave del negocio
                       </span>
                     </li>
@@ -567,7 +567,7 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-[1.6] text-neutral-600">
+                      <span className="text-sm leading-[1.85] text-neutral-600">
                         Desarrollo de 1 dashboard inicial en Power BI
                       </span>
                     </li>
@@ -582,7 +582,7 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-[1.6] text-neutral-600">
+                      <span className="text-sm leading-[1.85] text-neutral-600">
                         Entrega única en PDF (one-shot)
                       </span>
                     </li>
@@ -597,7 +597,7 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-[1.6] text-neutral-600">
+                      <span className="text-sm leading-[1.85] text-neutral-600">
                         Documentación del proyecto
                       </span>
                     </li>
@@ -626,17 +626,17 @@ export default function Home() {
                 </div>
 
                 {/* Header: Nombre + Precio */}
-                <header className="plan-header mb-6 pb-0 lg:min-h-[220px]">
+                <header className="plan-header mb-4 pb-0 lg:min-h-[200px]">
                   <div className="plan-title-row">
                     <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B]">Data Driven Plan</h3>
                   </div>
-                  <div className="plan-discount-row h-[28px] flex items-center gap-3 mt-3 opacity-0 pointer-events-none select-none">
+                  <div className="plan-discount-row h-[28px] flex items-center gap-3 mt-2 opacity-0 pointer-events-none select-none">
                     <span className="text-xs font-medium text-neutral-400 line-through">Antes</span>
                     <span className="inline-flex items-center rounded-full bg-[#34C759]/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#34C759]">
                       -00%
                     </span>
                   </div>
-                  <div className="plan-price-block min-h-[130px] flex flex-col justify-end mt-6">
+                  <div className="plan-price-block min-h-[130px] flex flex-col justify-end mt-4">
                     <div className="plan-price-row flex items-baseline gap-2.5 max-w-full lg:whitespace-nowrap">
                       <span className="precio-desde font-semibold leading-[1.1] text-[#0B0B0B]" style={{ fontSize: 'clamp(26px, 2.0vw, 34px)', fontVariantNumeric: 'tabular-nums' }}>$6,000</span>
                       <span className="separador text-xl font-medium text-neutral-500">–</span>
@@ -647,7 +647,7 @@ export default function Home() {
                 </header>
 
                 {/* Spacer fijo para alinear inicio de bullets */}
-                <div className="plan-meta-spacer h-12"></div>
+                <div className="plan-meta-spacer h-6"></div>
 
                 {/* Body: Lista de beneficios */}
                 <div className="plan-body flex-1 flex flex-col justify-center">
@@ -790,17 +790,17 @@ export default function Home() {
               {/* Plan 3: Control Plan */}
               <article className="plan-card plan-card--control group relative flex flex-col rounded-[28px] border border-[#E8E8ED] bg-white p-8 shadow-[0_2px_12px_rgba(15,15,15,0.03)] transition-all duration-[220ms] ease-out lg:hover:-translate-y-[2px] lg:hover:shadow-[0_4px_18px_rgba(15,15,15,0.05)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 sm:p-9 lg:min-h-[740px]">
                 {/* Header: Nombre + Precio */}
-                <header className="plan-header mb-6 pb-0 lg:min-h-[220px]">
+                <header className="plan-header mb-4 pb-0 lg:min-h-[200px]">
                   <div className="plan-title-row">
                     <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B]">Control Plan</h3>
                   </div>
-                  <div className="plan-discount-row h-[28px] flex items-center gap-3 mt-3 opacity-0 pointer-events-none select-none">
+                  <div className="plan-discount-row h-[28px] flex items-center gap-3 mt-2 opacity-0 pointer-events-none select-none">
                     <span className="text-xs font-medium text-neutral-400 line-through">Antes</span>
                     <span className="inline-flex items-center rounded-full bg-[#34C759]/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#34C759]">
                       -00%
                     </span>
                   </div>
-                  <div className="plan-price-block min-h-[130px] flex flex-col justify-end mt-6">
+                  <div className="plan-price-block min-h-[130px] flex flex-col justify-end mt-4">
                     <div className="plan-price-row flex items-baseline gap-2.5 max-w-full lg:whitespace-nowrap" style={{ fontSize: 'clamp(24px, 1.75vw, 32px)', letterSpacing: '-0.02em' }}>
                       <span className="precio-desde font-semibold leading-[1.1] text-[#0B0B0B]" style={{ fontVariantNumeric: 'tabular-nums' }}>$15,000</span>
                       <span className="separador text-xl font-medium text-neutral-500">–</span>
@@ -812,7 +812,7 @@ export default function Home() {
                 </header>
 
                 {/* Spacer fijo para alinear inicio de bullets */}
-                <div className="plan-meta-spacer h-12"></div>
+                <div className="plan-meta-spacer h-6"></div>
 
                 {/* Body: Lista de beneficios */}
                 <div className="plan-body flex-1 flex flex-col justify-center">
