@@ -790,14 +790,9 @@ export default function Home() {
                         <span className="text-sm leading-[1.65] text-neutral-600">
                           Múltiples dashboards, organizados por:
                         </span>
-                        <ul className="plan-sublist mt-2.5 ml-5 space-y-1.5">
-                          <li className="text-[11px] leading-[1.5] text-neutral-400">
-                            • Rol (Dirección / Dueño / Operación)
-                          </li>
-                          <li className="text-[11px] leading-[1.5] text-neutral-400">
-                            • Iniciativa (ventas, retención, productividad, etc.)
-                          </li>
-                        </ul>
+                        <span className="mt-1 block text-xs leading-[1.5] text-neutral-400">
+                          Rol (Dirección / Dueño / Operación) · Iniciativa (ventas, retención, productividad, etc.)
+                        </span>
                       </div>
                     </li>
                     <li className="flex items-start gap-2.5">
@@ -830,17 +825,9 @@ export default function Home() {
                         <span className="text-sm leading-[1.65] text-neutral-600">
                           Modelado de datos avanzado:
                         </span>
-                        <ul className="plan-sublist mt-2.5 ml-5 space-y-1.5">
-                          <li className="text-[11px] leading-[1.5] text-neutral-400">
-                            • Históricos consolidados
-                          </li>
-                          <li className="text-[11px] leading-[1.5] text-neutral-400">
-                            • Comparativos entre periodos
-                          </li>
-                          <li className="text-[11px] leading-[1.5] text-neutral-400">
-                            • Análisis de cohortes
-                          </li>
-                        </ul>
+                        <span className="mt-1 block text-xs leading-[1.5] text-neutral-400">
+                          Históricos consolidados · Comparativos entre periodos · Análisis de cohortes
+                        </span>
                       </div>
                     </li>
                     <li className="flex items-start gap-2.5">
@@ -873,17 +860,9 @@ export default function Home() {
                         <span className="text-sm leading-[1.65] text-neutral-600">
                           KPIs avanzados, como:
                         </span>
-                        <ul className="plan-sublist mt-2.5 ml-5 space-y-1.5">
-                          <li className="text-[11px] leading-[1.5] text-neutral-400">
-                            • Retención
-                          </li>
-                          <li className="text-[11px] leading-[1.5] text-neutral-400">
-                            • Drop-off
-                          </li>
-                          <li className="text-[11px] leading-[1.5] text-neutral-400">
-                            • Crecimiento
-                          </li>
-                        </ul>
+                        <span className="mt-1 block text-xs leading-[1.5] text-neutral-400">
+                          Retención · Drop-off · Crecimiento
+                        </span>
                       </div>
                     </li>
                     <li className="flex items-start gap-2.5">
