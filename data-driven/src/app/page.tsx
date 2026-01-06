@@ -470,29 +470,27 @@ export default function Home() {
 
             <div className="mx-auto mt-20 grid max-w-5xl items-stretch gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
               {/* Plan 1: Insight Plan */}
-              <article className="plan-card group relative flex flex-col rounded-[28px] border border-[#E5E5EA] bg-white p-8 shadow-[0_4px_16px_rgba(15,15,15,0.04)] transition-all duration-[220ms] ease-out lg:hover:-translate-y-[3px] lg:hover:shadow-[0_6px_20px_rgba(15,15,15,0.06)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 sm:p-9 lg:min-h-[680px]">
+              <article className="plan-card group relative flex flex-col rounded-[28px] border border-[#E8E8ED] bg-white p-8 shadow-[0_2px_12px_rgba(15,15,15,0.03)] transition-all duration-[220ms] ease-out lg:hover:-translate-y-[2px] lg:hover:shadow-[0_4px_18px_rgba(15,15,15,0.05)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 sm:p-9 lg:min-h-[680px]">
                 {/* Header: Nombre + Precio */}
                 <div className="plan-header mb-4 pb-2 space-y-3.5">
                   <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B]">Insight Plan</h3>
-                  <div className="space-y-2.5">
-                    <div className="flex flex-wrap items-baseline gap-2">
-                      <span className="text-xs font-medium text-neutral-400 line-through">Antes: $4,800</span>
-                      <span className="inline-flex items-center rounded-full bg-[#34C759]/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#34C759]">
-                        -21%
-                      </span>
+                  <div className="flex flex-wrap items-baseline gap-2">
+                    <span className="text-xs font-medium text-neutral-400 line-through">Antes: $4,800</span>
+                    <span className="inline-flex items-center rounded-full bg-[#34C759]/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#34C759]">
+                      -21%
+                    </span>
+                  </div>
+                  <div className="plan-price mt-4 h-[100px] flex flex-col justify-center">
+                    <div className="plan-price-content flex items-baseline justify-start gap-1.5 flex-nowrap">
+                      <span className="precio-desde font-semibold leading-[1.1] text-[#0B0B0B] whitespace-nowrap" style={{ fontSize: 'clamp(26px, 2.3vw, 34px)', fontVariantNumeric: 'tabular-nums' }}>$3,800</span>
                     </div>
-                    <div className="plan-price-wrapper mt-2 mb-2">
-                      <div className="plan-price flex items-baseline justify-start gap-1.5 flex-nowrap">
-                        <span className="precio-desde font-semibold leading-[1.1] text-[#0B0B0B] whitespace-nowrap" style={{ fontSize: 'clamp(26px, 2.3vw, 34px)', fontVariantNumeric: 'tabular-nums' }}>$3,800</span>
-                      </div>
-                    </div>
-                    <p className="text-sm font-medium text-neutral-500">Pago único</p>
+                    <p className="text-sm font-medium text-neutral-500 mt-1">Pago único</p>
                   </div>
                 </div>
 
                 {/* Body: Lista de beneficios */}
                 <div className="plan-body flex-1 flex flex-col justify-center">
-                  <ul className="plan-features space-y-3 text-left">
+                  <ul className="plan-features space-y-3.5 text-left">
                     <li className="flex items-start gap-2.5">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
@@ -504,7 +502,7 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-[1.65] text-neutral-600">
+                      <span className="text-sm leading-[1.7] text-neutral-600">
                         1–2 sesiones de entendimiento del negocio
                       </span>
                     </li>
@@ -519,7 +517,7 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-[1.65] text-neutral-600">
+                      <span className="text-sm leading-[1.7] text-neutral-600">
                         Revisión de hasta 3 fuentes de datos
                       </span>
                     </li>
@@ -534,7 +532,7 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-[1.65] text-neutral-600">
+                      <span className="text-sm leading-[1.7] text-neutral-600">
                         Diagnóstico inicial de la información
                       </span>
                     </li>
@@ -549,7 +547,7 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-[1.65] text-neutral-600">
+                      <span className="text-sm leading-[1.7] text-neutral-600">
                         Desarrollo de 1 dashboard ejecutivo en Power BI
                       </span>
                     </li>
@@ -564,7 +562,7 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-[1.65] text-neutral-600">
+                      <span className="text-sm leading-[1.7] text-neutral-600">
                         Entrega única en PDF (one-shot)
                       </span>
                     </li>
@@ -579,7 +577,7 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-[1.65] text-neutral-600">
+                      <span className="text-sm leading-[1.7] text-neutral-600">
                         1 Sesión de resultados y recomendaciones
                       </span>
                     </li>
@@ -594,7 +592,7 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-[1.65] text-neutral-600">
+                      <span className="text-sm leading-[1.7] text-neutral-600">
                         Documentación del proyecto
                       </span>
                     </li>
@@ -614,7 +612,7 @@ export default function Home() {
               </article>
 
               {/* Plan 2: Data Driven Plan - Destacado */}
-              <article className="plan-card group relative flex flex-col rounded-[28px] border border-[#0B0B0B]/25 bg-white p-8 shadow-[0_6px_20px_rgba(15,15,15,0.06)] transition-all duration-[220ms] ease-out lg:hover:-translate-y-[3px] lg:hover:shadow-[0_8px_28px_rgba(15,15,15,0.1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20 sm:p-9 lg:min-h-[680px] lg:-translate-y-2">
+              <article className="plan-card group relative flex flex-col rounded-[28px] border border-[#0B0B0B]/20 bg-white p-8 shadow-[0_3px_16px_rgba(15,15,15,0.05)] transition-all duration-[220ms] ease-out lg:hover:-translate-y-[2px] lg:hover:shadow-[0_6px_24px_rgba(15,15,15,0.08)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20 sm:p-9 lg:min-h-[680px] lg:-translate-y-2">
                 {/* Badge "Más popular" */}
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
                   <span className="inline-flex items-center rounded-full bg-[#0B0B0B] px-3.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-white shadow-[0_2px_8px_rgba(0,0,0,0.15)]">
@@ -625,21 +623,19 @@ export default function Home() {
                 {/* Header: Nombre + Precio */}
                 <div className="plan-header mb-4 pb-2 space-y-3.5">
                   <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B]">Data Driven Plan</h3>
-                  <div className="space-y-2.5">
-                    <div className="plan-price-wrapper mt-2 mb-2">
-                      <div className="plan-price flex items-baseline justify-start gap-1.5 flex-nowrap">
-                        <span className="precio-desde font-semibold leading-[1.1] text-[#0B0B0B] whitespace-nowrap" style={{ fontSize: 'clamp(26px, 2.3vw, 34px)', fontVariantNumeric: 'tabular-nums' }}>$5,800</span>
-                        <span className="separador text-xl font-medium text-neutral-500">–</span>
-                        <span className="precio-hasta font-semibold leading-[1.1] text-[#0B0B0B] whitespace-nowrap" style={{ fontSize: 'clamp(26px, 2.3vw, 34px)', fontVariantNumeric: 'tabular-nums' }}>$8,500</span>
-                      </div>
+                  <div className="plan-price mt-4 h-[100px] flex flex-col justify-center">
+                    <div className="plan-price-content flex items-baseline justify-start gap-1.5 flex-nowrap">
+                      <span className="precio-desde font-semibold leading-[1.1] text-[#0B0B0B] whitespace-nowrap" style={{ fontSize: 'clamp(26px, 2.3vw, 34px)', fontVariantNumeric: 'tabular-nums' }}>$5,800</span>
+                      <span className="separador text-xl font-medium text-neutral-500">–</span>
+                      <span className="precio-hasta font-semibold leading-[1.1] text-[#0B0B0B] whitespace-nowrap" style={{ fontSize: 'clamp(26px, 2.3vw, 34px)', fontVariantNumeric: 'tabular-nums' }}>$8,500</span>
                     </div>
-                    <p className="text-sm font-medium text-neutral-500">/mes</p>
+                    <p className="text-sm font-medium text-neutral-500 mt-1">/mes</p>
                   </div>
                 </div>
 
                 {/* Body: Lista de beneficios */}
                 <div className="plan-body flex-1 flex flex-col justify-center">
-                  <ul className="plan-features space-y-3 text-left">
+                  <ul className="plan-features space-y-3.5 text-left">
                     <li className="flex items-start gap-2.5">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
@@ -651,7 +647,7 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-[1.65] text-neutral-600">
+                      <span className="text-sm leading-[1.7] text-neutral-600">
                         Sesiones iniciales de entendimiento y alineación
                       </span>
                     </li>
@@ -761,20 +757,18 @@ export default function Home() {
               </article>
 
               {/* Plan 3: Control Plan */}
-              <article className="plan-card group relative flex flex-col rounded-[28px] border border-[#E5E5EA] bg-white p-8 shadow-[0_4px_16px_rgba(15,15,15,0.04)] transition-all duration-[220ms] ease-out lg:hover:-translate-y-[3px] lg:hover:shadow-[0_6px_20px_rgba(15,15,15,0.06)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 sm:p-9 lg:min-h-[680px]">
+              <article className="plan-card group relative flex flex-col rounded-[28px] border border-[#E8E8ED] bg-white p-8 shadow-[0_2px_12px_rgba(15,15,15,0.03)] transition-all duration-[220ms] ease-out lg:hover:-translate-y-[2px] lg:hover:shadow-[0_4px_18px_rgba(15,15,15,0.05)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 sm:p-9 lg:min-h-[680px]">
                 {/* Header: Nombre + Precio */}
                 <div className="plan-header mb-4 pb-2 space-y-3.5">
                   <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B]">Control Plan</h3>
-                  <div className="space-y-2.5">
-                    <div className="plan-price-wrapper mt-2 mb-2">
-                      <div className="plan-price flex items-baseline justify-start gap-1.5 flex-nowrap">
-                        <span className="precio-desde font-semibold leading-[1.1] text-[#0B0B0B] whitespace-nowrap" style={{ fontSize: 'clamp(26px, 2.3vw, 34px)', fontVariantNumeric: 'tabular-nums' }}>$15,000</span>
-                        <span className="separador text-xl font-medium text-neutral-500">–</span>
-                        <span className="precio-hasta font-semibold leading-[1.1] text-[#0B0B0B] whitespace-nowrap" style={{ fontSize: 'clamp(26px, 2.3vw, 34px)', fontVariantNumeric: 'tabular-nums' }}>$20,000</span>
-                      </div>
+                  <div className="plan-price mt-4 h-[100px] flex flex-col justify-center">
+                    <div className="plan-price-content flex items-baseline justify-start gap-1.5 flex-nowrap">
+                      <span className="precio-desde font-semibold leading-[1.1] text-[#0B0B0B] whitespace-nowrap" style={{ fontSize: 'clamp(26px, 2.3vw, 34px)', fontVariantNumeric: 'tabular-nums' }}>$15,000</span>
+                      <span className="separador text-xl font-medium text-neutral-500">–</span>
+                      <span className="precio-hasta font-semibold leading-[1.1] text-[#0B0B0B] whitespace-nowrap" style={{ fontSize: 'clamp(26px, 2.3vw, 34px)', fontVariantNumeric: 'tabular-nums' }}>$20,000</span>
                     </div>
-                    <p className="text-sm font-medium text-neutral-500">/mes</p>
-                    <p className="text-xs font-medium text-neutral-400">Tu BI externo para el negocio</p>
+                    <p className="text-sm font-medium text-neutral-500 mt-1">/mes</p>
+                    <p className="text-xs font-medium text-neutral-400 mt-0.5">Tu BI externo para el negocio</p>
                   </div>
                 </div>
 
