@@ -792,14 +792,9 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <div className="flex-1">
-                        <span className="text-sm leading-[1.65] text-neutral-600">
-                          Múltiples dashboards, organizados por:
-                        </span>
-                        <span className="mt-1 block text-xs leading-[1.5] text-neutral-400">
-                          Rol (Dirección / Dueño / Operación) · Iniciativa (ventas, retención, productividad, etc.)
-                        </span>
-                      </div>
+                      <span className="text-sm leading-[1.65] text-neutral-600">
+                        Múltiples dashboards, organizados por:
+                      </span>
                     </li>
                     <li className="flex items-start gap-2.5">
                       <svg
@@ -827,14 +822,9 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <div className="flex-1">
-                        <span className="text-sm leading-[1.65] text-neutral-600">
-                          Modelado de datos avanzado:
-                        </span>
-                        <span className="mt-1 block text-xs leading-[1.5] text-neutral-400">
-                          Históricos consolidados · Comparativos entre periodos · Análisis de cohortes
-                        </span>
-                      </div>
+                      <span className="text-sm leading-[1.65] text-neutral-600">
+                        Modelado de datos avanzado:
+                      </span>
                     </li>
                     <li className="flex items-start gap-2.5">
                       <svg
@@ -862,14 +852,9 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <div className="flex-1">
-                        <span className="text-sm leading-[1.65] text-neutral-600">
-                          KPIs avanzados, como:
-                        </span>
-                        <span className="mt-1 block text-xs leading-[1.5] text-neutral-400">
-                          Retención · Drop-off · Crecimiento
-                        </span>
-                      </div>
+                      <span className="text-sm leading-[1.65] text-neutral-600">
+                        KPIs avanzados, como:
+                      </span>
                     </li>
                     <li className="flex items-start gap-2.5">
                       <svg
