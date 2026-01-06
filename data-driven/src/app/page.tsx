@@ -472,7 +472,7 @@ export default function Home() {
               {/* Plan 1: Insight Plan */}
               <article className="plan-card group relative flex flex-col rounded-[28px] border border-[#E5E5EA] bg-white p-8 shadow-[0_4px_16px_rgba(15,15,15,0.04)] transition-all duration-280 ease-out lg:hover:-translate-y-[3px] hover:border-[#D1D1D6] hover:shadow-[0_8px_24px_rgba(15,15,15,0.08)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 sm:p-9 lg:min-h-[680px]">
                 {/* Header: Nombre + Precio */}
-                <div className="plan-header mb-6 space-y-4">
+                <div className="plan-header mb-4 pb-2 space-y-3.5">
                   <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B]">Insight Plan</h3>
                   <div className="space-y-2.5">
                     <div className="flex flex-wrap items-baseline gap-2">
@@ -491,7 +491,8 @@ export default function Home() {
                 </div>
 
                 {/* Body: Lista de beneficios */}
-                <ul className="plan-features flex-1 min-h-[280px] space-y-3.5 text-left">
+                <div className="plan-body flex-1 flex flex-col justify-center">
+                  <ul className="plan-features space-y-3 text-left">
                     <li className="flex items-start gap-2.5">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
@@ -503,7 +504,7 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-relaxed text-neutral-600">
+                      <span className="text-sm leading-[1.65] text-neutral-600">
                         1–2 sesiones de entendimiento del negocio
                       </span>
                     </li>
@@ -518,7 +519,7 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-relaxed text-neutral-600">
+                      <span className="text-sm leading-[1.65] text-neutral-600">
                         Revisión de hasta 3 fuentes de datos
                       </span>
                     </li>
@@ -533,7 +534,7 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-relaxed text-neutral-600">
+                      <span className="text-sm leading-[1.65] text-neutral-600">
                         Diagnóstico inicial de la información
                       </span>
                     </li>
@@ -548,7 +549,7 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-relaxed text-neutral-600">
+                      <span className="text-sm leading-[1.65] text-neutral-600">
                         Desarrollo de 1 dashboard ejecutivo en Power BI
                       </span>
                     </li>
@@ -563,7 +564,7 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-relaxed text-neutral-600">
+                      <span className="text-sm leading-[1.65] text-neutral-600">
                         Entrega única en PDF (one-shot)
                       </span>
                     </li>
@@ -578,7 +579,7 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-relaxed text-neutral-600">
+                      <span className="text-sm leading-[1.65] text-neutral-600">
                         1 Sesión de resultados y recomendaciones
                       </span>
                     </li>
@@ -593,7 +594,7 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-relaxed text-neutral-600">
+                      <span className="text-sm leading-[1.65] text-neutral-600">
                         Documentación del proyecto
                       </span>
                     </li>
@@ -621,7 +622,7 @@ export default function Home() {
                 </div>
 
                 {/* Header: Nombre + Precio */}
-                <div className="plan-header mb-6 space-y-4">
+                <div className="plan-header mb-4 pb-2 space-y-3.5">
                   <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B]">Data Driven Plan</h3>
                   <div className="space-y-2.5">
                     <div className="plan-price-wrapper mt-2 mb-2">
@@ -637,7 +638,7 @@ export default function Home() {
 
                 {/* Body: Lista de beneficios */}
                 <div className="plan-body flex-1 flex flex-col justify-center">
-                  <ul className="plan-features space-y-3.5 text-left">
+                  <ul className="plan-features space-y-3 text-left">
                     <li className="flex items-start gap-2.5">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
@@ -649,7 +650,7 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-relaxed text-neutral-600">
+                      <span className="text-sm leading-[1.65] text-neutral-600">
                         Sesiones iniciales de entendimiento y alineación
                       </span>
                     </li>
@@ -761,7 +762,7 @@ export default function Home() {
               {/* Plan 3: Control Plan */}
               <article className="plan-card group relative flex flex-col rounded-[28px] border border-[#E5E5EA] bg-white p-8 shadow-[0_4px_16px_rgba(15,15,15,0.04)] transition-all duration-280 ease-out lg:hover:-translate-y-[3px] hover:border-[#D1D1D6] hover:shadow-[0_8px_24px_rgba(15,15,15,0.08)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 sm:p-9 lg:min-h-[680px]">
                 {/* Header: Nombre + Precio */}
-                <div className="plan-header mb-6 space-y-4">
+                <div className="plan-header mb-4 pb-2 space-y-3.5">
                   <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B]">Control Plan</h3>
                   <div className="space-y-2.5">
                     <div className="plan-price-wrapper mt-2 mb-2">
@@ -791,14 +792,14 @@ export default function Home() {
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
                       <div className="flex-1">
-                        <span className="text-sm leading-relaxed text-neutral-600">
+                        <span className="text-sm leading-[1.65] text-neutral-600">
                           Múltiples dashboards, organizados por:
                         </span>
                         <ul className="mt-2 ml-4 space-y-1.5">
-                          <li className="text-xs leading-relaxed text-neutral-500">
+                          <li className="text-xs leading-[1.5] text-neutral-500">
                             • Rol (Dirección / Dueño / Operación)
                           </li>
-                          <li className="text-xs leading-relaxed text-neutral-500">
+                          <li className="text-xs leading-[1.5] text-neutral-500">
                             • Iniciativa (ventas, retención, productividad, etc.)
                           </li>
                         </ul>
@@ -815,7 +816,7 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-relaxed text-neutral-600">
+                      <span className="text-sm leading-[1.65] text-neutral-600">
                         Reportes especializados orientados a acciones concretas
                       </span>
                     </li>
@@ -831,17 +832,17 @@ export default function Home() {
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
                       <div className="flex-1">
-                        <span className="text-sm leading-relaxed text-neutral-600">
+                        <span className="text-sm leading-[1.65] text-neutral-600">
                           Modelado de datos avanzado:
                         </span>
                         <ul className="mt-2 ml-4 space-y-1.5">
-                          <li className="text-xs leading-relaxed text-neutral-500">
+                          <li className="text-xs leading-[1.5] text-neutral-500">
                             • Históricos consolidados
                           </li>
-                          <li className="text-xs leading-relaxed text-neutral-500">
+                          <li className="text-xs leading-[1.5] text-neutral-500">
                             • Comparativos entre periodos
                           </li>
-                          <li className="text-xs leading-relaxed text-neutral-500">
+                          <li className="text-xs leading-[1.5] text-neutral-500">
                             • Análisis de cohortes
                           </li>
                         </ul>
@@ -858,7 +859,7 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-relaxed text-neutral-600">
+                      <span className="text-sm leading-[1.65] text-neutral-600">
                         Actualización semanal o automática (si la fuente lo permite)
                       </span>
                     </li>
@@ -874,17 +875,17 @@ export default function Home() {
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
                       <div className="flex-1">
-                        <span className="text-sm leading-relaxed text-neutral-600">
+                        <span className="text-sm leading-[1.65] text-neutral-600">
                           KPIs avanzados, como:
                         </span>
                         <ul className="mt-2 ml-4 space-y-1.5">
-                          <li className="text-xs leading-relaxed text-neutral-500">
+                          <li className="text-xs leading-[1.5] text-neutral-500">
                             • Retención
                           </li>
-                          <li className="text-xs leading-relaxed text-neutral-500">
+                          <li className="text-xs leading-[1.5] text-neutral-500">
                             • Drop-off
                           </li>
-                          <li className="text-xs leading-relaxed text-neutral-500">
+                          <li className="text-xs leading-[1.5] text-neutral-500">
                             • Crecimiento
                           </li>
                         </ul>
@@ -901,7 +902,7 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-relaxed text-neutral-600">
+                      <span className="text-sm leading-[1.65] text-neutral-600">
                         Priorización mensual de nuevas iniciativas y vistas
                       </span>
                     </li>
