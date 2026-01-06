@@ -598,7 +598,8 @@ export default function Home() {
                         Documentación del proyecto
                       </span>
                     </li>
-                </ul>
+                  </ul>
+                </div>
 
                 {/* Footer: CTA */}
                 <div className="plan-footer pt-6">
