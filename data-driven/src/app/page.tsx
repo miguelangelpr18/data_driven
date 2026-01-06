@@ -470,7 +470,7 @@ export default function Home() {
 
             <div className="mx-auto mt-20 grid max-w-5xl items-stretch gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
               {/* Plan 1: Insight Plan */}
-              <article className="group relative flex flex-col rounded-[28px] border border-[#E5E5EA] bg-white p-8 shadow-[0_4px_16px_rgba(15,15,15,0.04)] transition-all duration-280 ease-out lg:hover:-translate-y-[3px] hover:border-[#D1D1D6] hover:shadow-[0_8px_24px_rgba(15,15,15,0.08)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 sm:p-9 lg:min-h-[680px]">
+              <article className="plan-card group relative flex flex-col rounded-[28px] border border-[#E5E5EA] bg-white p-8 shadow-[0_4px_16px_rgba(15,15,15,0.04)] transition-all duration-280 ease-out lg:hover:-translate-y-[3px] hover:border-[#D1D1D6] hover:shadow-[0_8px_24px_rgba(15,15,15,0.08)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 sm:p-9 lg:min-h-[680px]">
                 {/* Header: Nombre + Precio */}
                 <div className="plan-header mb-6 space-y-4">
                   <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B]">Insight Plan</h3>
@@ -612,7 +612,7 @@ export default function Home() {
               </article>
 
               {/* Plan 2: Data Driven Plan - Destacado */}
-              <article className="group relative flex flex-col rounded-[28px] border border-[#0B0B0B]/25 bg-white p-8 shadow-[0_6px_20px_rgba(15,15,15,0.06)] transition-all duration-280 ease-out lg:hover:-translate-y-[3px] hover:border-[#0B0B0B]/35 hover:shadow-[0_12px_32px_rgba(15,15,15,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20 sm:p-9 lg:min-h-[680px] lg:-translate-y-2">
+              <article className="plan-card group relative flex flex-col rounded-[28px] border border-[#0B0B0B]/25 bg-white p-8 shadow-[0_6px_20px_rgba(15,15,15,0.06)] transition-all duration-280 ease-out lg:hover:-translate-y-[3px] hover:border-[#0B0B0B]/35 hover:shadow-[0_12px_32px_rgba(15,15,15,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20 sm:p-9 lg:min-h-[680px] lg:-translate-y-2">
                 {/* Badge "Más popular" */}
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
                   <span className="inline-flex items-center rounded-full bg-[#0B0B0B] px-3.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-white shadow-[0_2px_8px_rgba(0,0,0,0.15)]">
@@ -636,7 +636,8 @@ export default function Home() {
                 </div>
 
                 {/* Body: Lista de beneficios */}
-                <ul className="plan-features flex-1 min-h-[280px] space-y-3.5 text-left">
+                <div className="plan-body flex-1 flex flex-col justify-center">
+                  <ul className="plan-features space-y-3.5 text-left">
                     <li className="flex items-start gap-2.5">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
@@ -742,10 +743,11 @@ export default function Home() {
                         Documentación y seguimiento del proyecto
                       </span>
                     </li>
-                </ul>
+                  </ul>
+                </div>
 
                 {/* Footer: CTA */}
-                <div className="plan-cta mt-auto pt-6">
+                <div className="plan-footer pt-6">
                   <button
                     type="button"
                     onClick={() => document.getElementById('agenda')?.scrollIntoView({ behavior: 'smooth' })}
@@ -757,7 +759,7 @@ export default function Home() {
               </article>
 
               {/* Plan 3: Control Plan */}
-              <article className="group relative flex flex-col rounded-[28px] border border-[#E5E5EA] bg-white p-8 shadow-[0_4px_16px_rgba(15,15,15,0.04)] transition-all duration-280 ease-out lg:hover:-translate-y-[3px] hover:border-[#D1D1D6] hover:shadow-[0_8px_24px_rgba(15,15,15,0.08)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 sm:p-9 lg:min-h-[680px]">
+              <article className="plan-card group relative flex flex-col rounded-[28px] border border-[#E5E5EA] bg-white p-8 shadow-[0_4px_16px_rgba(15,15,15,0.04)] transition-all duration-280 ease-out lg:hover:-translate-y-[3px] hover:border-[#D1D1D6] hover:shadow-[0_8px_24px_rgba(15,15,15,0.08)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 sm:p-9 lg:min-h-[680px]">
                 {/* Header: Nombre + Precio */}
                 <div className="plan-header mb-6 space-y-4">
                   <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B]">Control Plan</h3>
@@ -775,7 +777,8 @@ export default function Home() {
                 </div>
 
                 {/* Body: Lista de beneficios */}
-                <ul className="plan-features flex-1 min-h-[280px] space-y-2.5 text-left">
+                <div className="plan-body flex-1 flex flex-col justify-center">
+                  <ul className="plan-features space-y-2.5 text-left">
                     <li className="flex items-start gap-2.5">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
@@ -905,7 +908,7 @@ export default function Home() {
                 </ul>
 
                 {/* Footer: CTA */}
-                <div className="plan-cta mt-auto pt-6">
+                <div className="plan-footer pt-6">
                   <button
                     type="button"
                     onClick={() => document.getElementById('agenda')?.scrollIntoView({ behavior: 'smooth' })}
