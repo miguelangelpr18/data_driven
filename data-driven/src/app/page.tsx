@@ -468,29 +468,37 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="mt-20 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mx-auto mt-20 grid max-w-5xl gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
               {/* Plan 1: Insight Plan */}
-              <article className="group relative flex h-full flex-col rounded-[28px] border border-[#E5E5EA] bg-white p-8 shadow-[0_12px_24px_rgba(15,15,15,0.05)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 sm:p-9">
-                <div className="flex flex-col gap-6">
+              <article className="group relative flex h-full flex-col rounded-[28px] border border-[#E5E5EA] bg-white p-8 shadow-[0_4px_16px_rgba(15,15,15,0.04)] transition-all duration-280 ease-out hover:-translate-y-1 hover:border-[#D1D1D6] hover:shadow-[0_8px_24px_rgba(15,15,15,0.08)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 sm:p-9">
+                <div className="flex flex-1 flex-col gap-6">
                   <div>
-                    <h3 className="text-2xl font-semibold text-[#0B0B0B]">Insight Plan</h3>
+                    <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B]">Insight Plan</h3>
                   </div>
 
-                  <div>
-                    <div className="flex items-baseline gap-1">
-                      <span className="text-4xl font-semibold text-[#0B0B0B]">$____</span>
+                  <div className="space-y-2">
+                    <div className="flex flex-col gap-1">
+                      <div className="flex items-baseline gap-2">
+                        <span className="text-xs font-medium text-neutral-400 line-through">Antes: $4,800</span>
+                        <span className="inline-flex items-center rounded-full bg-[#34C759]/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#34C759]">
+                          -21%
+                        </span>
+                      </div>
+                      <div className="flex items-baseline gap-1">
+                        <span className="text-4xl font-semibold leading-none text-[#0B0B0B]">$3,800</span>
+                      </div>
                     </div>
-                    <p className="mt-2 text-sm text-neutral-500">Pago único</p>
+                    <p className="text-sm font-medium text-neutral-500">Pago único</p>
                   </div>
 
-                  <ul className="flex-1 space-y-3 text-left">
-                    <li className="flex items-start gap-3">
+                  <ul className="flex-1 space-y-2.5 text-left">
+                    <li className="flex items-start gap-2.5">
                       <svg
-                        className="mt-0.5 h-5 w-5 shrink-0 text-[#34C759]"
+                        className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
-                        strokeWidth={2}
+                        strokeWidth={2.5}
                         aria-hidden="true"
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -499,13 +507,13 @@ export default function Home() {
                         1–2 sesiones de entendimiento del negocio
                       </span>
                     </li>
-                    <li className="flex items-start gap-3">
+                    <li className="flex items-start gap-2.5">
                       <svg
-                        className="mt-0.5 h-5 w-5 shrink-0 text-[#34C759]"
+                        className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
-                        strokeWidth={2}
+                        strokeWidth={2.5}
                         aria-hidden="true"
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -514,13 +522,13 @@ export default function Home() {
                         Revisión de hasta 3 fuentes de datos
                       </span>
                     </li>
-                    <li className="flex items-start gap-3">
+                    <li className="flex items-start gap-2.5">
                       <svg
-                        className="mt-0.5 h-5 w-5 shrink-0 text-[#34C759]"
+                        className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
-                        strokeWidth={2}
+                        strokeWidth={2.5}
                         aria-hidden="true"
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -529,13 +537,13 @@ export default function Home() {
                         Diagnóstico inicial de la información
                       </span>
                     </li>
-                    <li className="flex items-start gap-3">
+                    <li className="flex items-start gap-2.5">
                       <svg
-                        className="mt-0.5 h-5 w-5 shrink-0 text-[#34C759]"
+                        className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
-                        strokeWidth={2}
+                        strokeWidth={2.5}
                         aria-hidden="true"
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -544,13 +552,13 @@ export default function Home() {
                         Desarrollo de 1 dashboard ejecutivo en Power BI
                       </span>
                     </li>
-                    <li className="flex items-start gap-3">
+                    <li className="flex items-start gap-2.5">
                       <svg
-                        className="mt-0.5 h-5 w-5 shrink-0 text-[#34C759]"
+                        className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
-                        strokeWidth={2}
+                        strokeWidth={2.5}
                         aria-hidden="true"
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -559,13 +567,13 @@ export default function Home() {
                         Entrega única en PDF (one-shot)
                       </span>
                     </li>
-                    <li className="flex items-start gap-3">
+                    <li className="flex items-start gap-2.5">
                       <svg
-                        className="mt-0.5 h-5 w-5 shrink-0 text-[#34C759]"
+                        className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
-                        strokeWidth={2}
+                        strokeWidth={2.5}
                         aria-hidden="true"
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -574,13 +582,13 @@ export default function Home() {
                         1 Sesión de resultados y recomendaciones
                       </span>
                     </li>
-                    <li className="flex items-start gap-3">
+                    <li className="flex items-start gap-2.5">
                       <svg
-                        className="mt-0.5 h-5 w-5 shrink-0 text-[#34C759]"
+                        className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
-                        strokeWidth={2}
+                        strokeWidth={2.5}
                         aria-hidden="true"
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -594,7 +602,7 @@ export default function Home() {
                   <button
                     type="button"
                     onClick={() => document.getElementById('agenda')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="mt-auto inline-flex items-center justify-center rounded-full border border-[#E5E5EA] bg-white px-6 py-3 text-sm font-medium text-[#0B0B0B] shadow-[0_12px_30px_rgba(15,15,15,0.12)] transition hover:-translate-y-px hover:bg-[#F7F7F7] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10"
+                    className="mt-auto w-full rounded-full border border-[#E5E5EA] bg-white px-6 py-3 text-sm font-medium text-[#0B0B0B] shadow-[0_2px_8px_rgba(15,15,15,0.08)] transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-[#D1D1D6] hover:bg-[#FAFAFA] hover:shadow-[0_4px_12px_rgba(15,15,15,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 sm:w-auto"
                   >
                     Agendar
                   </button>
@@ -602,34 +610,36 @@ export default function Home() {
               </article>
 
               {/* Plan 2: Data Driven Plan - Destacado */}
-              <article className="group relative flex h-full flex-col rounded-[28px] border-2 border-[#0B0B0B] bg-white p-8 shadow-[0_16px_32px_rgba(15,15,15,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(15,15,15,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20 sm:p-9 lg:-translate-y-1.5">
+              <article className="group relative flex h-full flex-col rounded-[28px] border border-[#0B0B0B]/20 bg-white p-8 shadow-[0_6px_20px_rgba(15,15,15,0.06)] transition-all duration-280 ease-out hover:-translate-y-1.5 hover:border-[#0B0B0B]/30 hover:shadow-[0_12px_32px_rgba(15,15,15,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20 sm:p-9 lg:-translate-y-2">
                 {/* Badge "Más popular" */}
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                  <span className="inline-flex items-center rounded-full bg-[#0B0B0B] px-4 py-1 text-xs font-medium text-white">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
+                  <span className="inline-flex items-center rounded-full bg-[#0B0B0B] px-3.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-white shadow-[0_2px_8px_rgba(0,0,0,0.15)]">
                     Más popular
                   </span>
                 </div>
 
-                <div className="flex flex-col gap-6">
+                <div className="flex flex-1 flex-col gap-6">
                   <div>
-                    <h3 className="text-2xl font-semibold text-[#0B0B0B]">Data Driven Plan</h3>
+                    <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B]">Data Driven Plan</h3>
                   </div>
 
-                  <div>
-                    <div className="flex items-baseline gap-1">
-                      <span className="text-4xl font-semibold text-[#0B0B0B]">$____</span>
+                  <div className="space-y-2">
+                    <div className="flex items-baseline gap-1.5">
+                      <span className="text-4xl font-semibold leading-none text-[#0B0B0B]">$5,800</span>
+                      <span className="text-xl font-medium text-neutral-500">–</span>
+                      <span className="text-4xl font-semibold leading-none text-[#0B0B0B]">$8,500</span>
                     </div>
-                    <p className="mt-2 text-sm text-neutral-500">/mes</p>
+                    <p className="text-sm font-medium text-neutral-500">/mes</p>
                   </div>
 
-                  <ul className="flex-1 space-y-3 text-left">
-                    <li className="flex items-start gap-3">
+                  <ul className="flex-1 space-y-2.5 text-left">
+                    <li className="flex items-start gap-2.5">
                       <svg
-                        className="mt-0.5 h-5 w-5 shrink-0 text-[#34C759]"
+                        className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
-                        strokeWidth={2}
+                        strokeWidth={2.5}
                         aria-hidden="true"
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -638,13 +648,13 @@ export default function Home() {
                         Sesiones iniciales de entendimiento y alineación
                       </span>
                     </li>
-                    <li className="flex items-start gap-3">
+                    <li className="flex items-start gap-2.5">
                       <svg
-                        className="mt-0.5 h-5 w-5 shrink-0 text-[#34C759]"
+                        className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
-                        strokeWidth={2}
+                        strokeWidth={2.5}
                         aria-hidden="true"
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -653,13 +663,13 @@ export default function Home() {
                         Revisión y conexión de múltiples fuentes de datos
                       </span>
                     </li>
-                    <li className="flex items-start gap-3">
+                    <li className="flex items-start gap-2.5">
                       <svg
-                        className="mt-0.5 h-5 w-5 shrink-0 text-[#34C759]"
+                        className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
-                        strokeWidth={2}
+                        strokeWidth={2.5}
                         aria-hidden="true"
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -668,13 +678,13 @@ export default function Home() {
                         Definición y seguimiento de KPIs clave del negocio
                       </span>
                     </li>
-                    <li className="flex items-start gap-3">
+                    <li className="flex items-start gap-2.5">
                       <svg
-                        className="mt-0.5 h-5 w-5 shrink-0 text-[#34C759]"
+                        className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
-                        strokeWidth={2}
+                        strokeWidth={2.5}
                         aria-hidden="true"
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -683,13 +693,13 @@ export default function Home() {
                         Desarrollo y evolución continua de dashboards en Power BI
                       </span>
                     </li>
-                    <li className="flex items-start gap-3">
+                    <li className="flex items-start gap-2.5">
                       <svg
-                        className="mt-0.5 h-5 w-5 shrink-0 text-[#34C759]"
+                        className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
-                        strokeWidth={2}
+                        strokeWidth={2.5}
                         aria-hidden="true"
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -698,13 +708,13 @@ export default function Home() {
                         Acceso a Power BI como plataforma de lectura interactiva
                       </span>
                     </li>
-                    <li className="flex items-start gap-3">
+                    <li className="flex items-start gap-2.5">
                       <svg
-                        className="mt-0.5 h-5 w-5 shrink-0 text-[#34C759]"
+                        className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
-                        strokeWidth={2}
+                        strokeWidth={2.5}
                         aria-hidden="true"
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -713,13 +723,13 @@ export default function Home() {
                         Actualizaciones periódicas de la información
                       </span>
                     </li>
-                    <li className="flex items-start gap-3">
+                    <li className="flex items-start gap-2.5">
                       <svg
-                        className="mt-0.5 h-5 w-5 shrink-0 text-[#34C759]"
+                        className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
-                        strokeWidth={2}
+                        strokeWidth={2.5}
                         aria-hidden="true"
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -733,7 +743,7 @@ export default function Home() {
                   <button
                     type="button"
                     onClick={() => document.getElementById('agenda')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="mt-auto inline-flex items-center justify-center rounded-full bg-black px-6 py-3 text-sm font-medium text-white shadow-[0_18px_32px_rgba(15,15,15,0.22)] transition will-change-transform hover:-translate-y-px hover:shadow-[0_24px_40px_rgba(15,15,15,0.26)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20"
+                    className="mt-auto w-full rounded-full bg-black px-6 py-3 text-sm font-medium text-white shadow-[0_4px_16px_rgba(0,0,0,0.2)] transition-all duration-200 ease-out hover:-translate-y-0.5 hover:bg-neutral-900 hover:shadow-[0_6px_20px_rgba(0,0,0,0.25)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20 sm:w-auto"
                   >
                     Quiero este plan
                   </button>
@@ -741,46 +751,51 @@ export default function Home() {
               </article>
 
               {/* Plan 3: Control Plan */}
-              <article className="group relative flex h-full flex-col rounded-[28px] border border-[#E5E5EA] bg-white p-8 shadow-[0_12px_24px_rgba(15,15,15,0.05)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 sm:p-9">
-                <div className="flex flex-col gap-6">
+              <article className="group relative flex h-full flex-col rounded-[28px] border border-[#E5E5EA] bg-white p-8 shadow-[0_4px_16px_rgba(15,15,15,0.04)] transition-all duration-280 ease-out hover:-translate-y-1 hover:border-[#D1D1D6] hover:shadow-[0_8px_24px_rgba(15,15,15,0.08)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 sm:p-9">
+                <div className="flex flex-1 flex-col gap-6">
                   <div>
-                    <h3 className="text-2xl font-semibold text-[#0B0B0B]">Control Plan</h3>
+                    <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B]">Control Plan</h3>
                   </div>
 
-                  <div>
-                    <div className="flex items-baseline gap-1">
-                      <span className="text-4xl font-semibold text-[#0B0B0B]">$____</span>
+                  <div className="space-y-2">
+                    <div className="flex items-baseline gap-1.5">
+                      <span className="text-4xl font-semibold leading-none text-[#0B0B0B]">$15,000</span>
+                      <span className="text-xl font-medium text-neutral-500">–</span>
+                      <span className="text-4xl font-semibold leading-none text-[#0B0B0B]">$20,000</span>
                     </div>
-                    <p className="mt-2 text-sm text-neutral-500">/mes</p>
+                    <p className="text-sm font-medium text-neutral-500">/mes</p>
+                    <p className="text-xs font-medium text-neutral-400">Tu BI externo para el negocio</p>
                   </div>
 
-                  <ul className="flex-1 space-y-3 text-left">
-                    <li className="flex items-start gap-3">
+                  <ul className="flex-1 space-y-2.5 text-left">
+                    <li className="flex items-start gap-2.5">
                       <svg
-                        className="mt-0.5 h-5 w-5 shrink-0 text-[#34C759]"
+                        className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
-                        strokeWidth={2}
+                        strokeWidth={2.5}
                         aria-hidden="true"
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
                       <span className="text-sm leading-relaxed text-neutral-600">
                         Múltiples dashboards, organizados por:
-                        <br />
-                        <span className="ml-6">• Rol (Dirección / Dueño / Operación)</span>
-                        <br />
-                        <span className="ml-6">• Iniciativa (ventas, retención, productividad, etc.)</span>
+                        <span className="ml-4 block text-xs leading-relaxed text-neutral-500">
+                          • Rol (Dirección / Dueño / Operación)
+                        </span>
+                        <span className="ml-4 block text-xs leading-relaxed text-neutral-500">
+                          • Iniciativa (ventas, retención, productividad, etc.)
+                        </span>
                       </span>
                     </li>
-                    <li className="flex items-start gap-3">
+                    <li className="flex items-start gap-2.5">
                       <svg
-                        className="mt-0.5 h-5 w-5 shrink-0 text-[#34C759]"
+                        className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
-                        strokeWidth={2}
+                        strokeWidth={2.5}
                         aria-hidden="true"
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -789,34 +804,37 @@ export default function Home() {
                         Reportes especializados orientados a acciones concretas
                       </span>
                     </li>
-                    <li className="flex items-start gap-3">
+                    <li className="flex items-start gap-2.5">
                       <svg
-                        className="mt-0.5 h-5 w-5 shrink-0 text-[#34C759]"
+                        className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
-                        strokeWidth={2}
+                        strokeWidth={2.5}
                         aria-hidden="true"
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
                       <span className="text-sm leading-relaxed text-neutral-600">
                         Modelado de datos avanzado:
-                        <br />
-                        <span className="ml-6">• Históricos consolidados</span>
-                        <br />
-                        <span className="ml-6">• Comparativos entre periodos</span>
-                        <br />
-                        <span className="ml-6">• Análisis de cohortes</span>
+                        <span className="ml-4 block text-xs leading-relaxed text-neutral-500">
+                          • Históricos consolidados
+                        </span>
+                        <span className="ml-4 block text-xs leading-relaxed text-neutral-500">
+                          • Comparativos entre periodos
+                        </span>
+                        <span className="ml-4 block text-xs leading-relaxed text-neutral-500">
+                          • Análisis de cohortes
+                        </span>
                       </span>
                     </li>
-                    <li className="flex items-start gap-3">
+                    <li className="flex items-start gap-2.5">
                       <svg
-                        className="mt-0.5 h-5 w-5 shrink-0 text-[#34C759]"
+                        className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
-                        strokeWidth={2}
+                        strokeWidth={2.5}
                         aria-hidden="true"
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -825,34 +843,37 @@ export default function Home() {
                         Actualización semanal o automática (si la fuente lo permite)
                       </span>
                     </li>
-                    <li className="flex items-start gap-3">
+                    <li className="flex items-start gap-2.5">
                       <svg
-                        className="mt-0.5 h-5 w-5 shrink-0 text-[#34C759]"
+                        className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
-                        strokeWidth={2}
+                        strokeWidth={2.5}
                         aria-hidden="true"
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
                       <span className="text-sm leading-relaxed text-neutral-600">
                         KPIs avanzados, como:
-                        <br />
-                        <span className="ml-6">• Retención</span>
-                        <br />
-                        <span className="ml-6">• Drop-off</span>
-                        <br />
-                        <span className="ml-6">• Crecimiento</span>
+                        <span className="ml-4 block text-xs leading-relaxed text-neutral-500">
+                          • Retención
+                        </span>
+                        <span className="ml-4 block text-xs leading-relaxed text-neutral-500">
+                          • Drop-off
+                        </span>
+                        <span className="ml-4 block text-xs leading-relaxed text-neutral-500">
+                          • Crecimiento
+                        </span>
                       </span>
                     </li>
-                    <li className="flex items-start gap-3">
+                    <li className="flex items-start gap-2.5">
                       <svg
-                        className="mt-0.5 h-5 w-5 shrink-0 text-[#34C759]"
+                        className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
-                        strokeWidth={2}
+                        strokeWidth={2.5}
                         aria-hidden="true"
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -866,7 +887,7 @@ export default function Home() {
                   <button
                     type="button"
                     onClick={() => document.getElementById('agenda')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="mt-auto inline-flex items-center justify-center rounded-full border border-[#E5E5EA] bg-white px-6 py-3 text-sm font-medium text-[#0B0B0B] shadow-[0_12px_30px_rgba(15,15,15,0.12)] transition hover:-translate-y-px hover:bg-[#F7F7F7] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10"
+                    className="mt-auto w-full rounded-full border border-[#E5E5EA] bg-white px-6 py-3 text-sm font-medium text-[#0B0B0B] shadow-[0_2px_8px_rgba(15,15,15,0.08)] transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-[#D1D1D6] hover:bg-[#FAFAFA] hover:shadow-[0_4px_12px_rgba(15,15,15,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 sm:w-auto"
                   >
                     Agendar
                   </button>
