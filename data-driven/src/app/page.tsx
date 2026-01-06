@@ -450,6 +450,432 @@ export default function Home() {
           </div>
         </section>
 
+        {/* PLANES DATA DRIVEN - Fondo Blanco */}
+        <section
+          id="planes-data-driven"
+          data-theme="light"
+          className="relative overflow-hidden bg-white py-28 text-[#0B0B0B] sm:py-32"
+        >
+          <BackgroundLines tone="light" opacity={0.08} density={135} />
+
+          <div className="container relative mx-auto max-w-6xl px-4">
+            <div className="mx-auto max-w-3xl text-center">
+              <h2 className="text-balance text-3xl font-semibold leading-tight tracking-tight text-[#0B0B0B] sm:text-4xl md:text-5xl">
+                Planes Data Driven
+              </h2>
+              <p className="mt-6 text-base leading-relaxed text-neutral-600 sm:text-lg">
+                Elige el plan ideal según tu nivel de control y seguimiento.
+              </p>
+            </div>
+
+            <div className="mt-20 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {/* Plan 1: Insight Plan */}
+              <article className="group relative flex h-full flex-col rounded-[28px] border border-[#E5E5EA] bg-white p-8 shadow-[0_12px_24px_rgba(15,15,15,0.05)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 sm:p-9">
+                <div className="flex flex-col gap-6">
+                  <div>
+                    <h3 className="text-2xl font-semibold text-[#0B0B0B]">Insight Plan</h3>
+                  </div>
+
+                  <div>
+                    <div className="flex items-baseline gap-1">
+                      <span className="text-4xl font-semibold text-[#0B0B0B]">$____</span>
+                    </div>
+                    <p className="mt-2 text-sm text-neutral-500">Pago único</p>
+                  </div>
+
+                  <ul className="flex-1 space-y-3 text-left">
+                    <li className="flex items-start gap-3">
+                      <svg
+                        className="mt-0.5 h-5 w-5 shrink-0 text-[#34C759]"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                        aria-hidden="true"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className="text-sm leading-relaxed text-neutral-600">
+                        1–2 sesiones de entendimiento del negocio
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <svg
+                        className="mt-0.5 h-5 w-5 shrink-0 text-[#34C759]"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                        aria-hidden="true"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className="text-sm leading-relaxed text-neutral-600">
+                        Revisión de hasta 3 fuentes de datos
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <svg
+                        className="mt-0.5 h-5 w-5 shrink-0 text-[#34C759]"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                        aria-hidden="true"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className="text-sm leading-relaxed text-neutral-600">
+                        Diagnóstico inicial de la información
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <svg
+                        className="mt-0.5 h-5 w-5 shrink-0 text-[#34C759]"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                        aria-hidden="true"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className="text-sm leading-relaxed text-neutral-600">
+                        Desarrollo de 1 dashboard ejecutivo en Power BI
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <svg
+                        className="mt-0.5 h-5 w-5 shrink-0 text-[#34C759]"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                        aria-hidden="true"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className="text-sm leading-relaxed text-neutral-600">
+                        Entrega única en PDF (one-shot)
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <svg
+                        className="mt-0.5 h-5 w-5 shrink-0 text-[#34C759]"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                        aria-hidden="true"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className="text-sm leading-relaxed text-neutral-600">
+                        1 Sesión de resultados y recomendaciones
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <svg
+                        className="mt-0.5 h-5 w-5 shrink-0 text-[#34C759]"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                        aria-hidden="true"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className="text-sm leading-relaxed text-neutral-600">
+                        Documentación del proyecto
+                      </span>
+                    </li>
+                  </ul>
+
+                  <button
+                    type="button"
+                    onClick={() => document.getElementById('agenda')?.scrollIntoView({ behavior: 'smooth' })}
+                    className="mt-auto inline-flex items-center justify-center rounded-full border border-[#E5E5EA] bg-white px-6 py-3 text-sm font-medium text-[#0B0B0B] shadow-[0_12px_30px_rgba(15,15,15,0.12)] transition hover:-translate-y-px hover:bg-[#F7F7F7] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10"
+                  >
+                    Agendar
+                  </button>
+                </div>
+              </article>
+
+              {/* Plan 2: Data Driven Plan - Destacado */}
+              <article className="group relative flex h-full flex-col rounded-[28px] border-2 border-[#0B0B0B] bg-white p-8 shadow-[0_16px_32px_rgba(15,15,15,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(15,15,15,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20 sm:p-9 lg:-translate-y-1.5">
+                {/* Badge "Más popular" */}
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                  <span className="inline-flex items-center rounded-full bg-[#0B0B0B] px-4 py-1 text-xs font-medium text-white">
+                    Más popular
+                  </span>
+                </div>
+
+                <div className="flex flex-col gap-6">
+                  <div>
+                    <h3 className="text-2xl font-semibold text-[#0B0B0B]">Data Driven Plan</h3>
+                  </div>
+
+                  <div>
+                    <div className="flex items-baseline gap-1">
+                      <span className="text-4xl font-semibold text-[#0B0B0B]">$____</span>
+                    </div>
+                    <p className="mt-2 text-sm text-neutral-500">/mes</p>
+                  </div>
+
+                  <ul className="flex-1 space-y-3 text-left">
+                    <li className="flex items-start gap-3">
+                      <svg
+                        className="mt-0.5 h-5 w-5 shrink-0 text-[#34C759]"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                        aria-hidden="true"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className="text-sm leading-relaxed text-neutral-600">
+                        Sesiones iniciales de entendimiento y alineación
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <svg
+                        className="mt-0.5 h-5 w-5 shrink-0 text-[#34C759]"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                        aria-hidden="true"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className="text-sm leading-relaxed text-neutral-600">
+                        Revisión y conexión de múltiples fuentes de datos
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <svg
+                        className="mt-0.5 h-5 w-5 shrink-0 text-[#34C759]"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                        aria-hidden="true"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className="text-sm leading-relaxed text-neutral-600">
+                        Definición y seguimiento de KPIs clave del negocio
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <svg
+                        className="mt-0.5 h-5 w-5 shrink-0 text-[#34C759]"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                        aria-hidden="true"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className="text-sm leading-relaxed text-neutral-600">
+                        Desarrollo y evolución continua de dashboards en Power BI
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <svg
+                        className="mt-0.5 h-5 w-5 shrink-0 text-[#34C759]"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                        aria-hidden="true"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className="text-sm leading-relaxed text-neutral-600">
+                        Acceso a Power BI como plataforma de lectura interactiva
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <svg
+                        className="mt-0.5 h-5 w-5 shrink-0 text-[#34C759]"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                        aria-hidden="true"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className="text-sm leading-relaxed text-neutral-600">
+                        Actualizaciones periódicas de la información
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <svg
+                        className="mt-0.5 h-5 w-5 shrink-0 text-[#34C759]"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                        aria-hidden="true"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className="text-sm leading-relaxed text-neutral-600">
+                        Documentación y seguimiento del proyecto
+                      </span>
+                    </li>
+                  </ul>
+
+                  <button
+                    type="button"
+                    onClick={() => document.getElementById('agenda')?.scrollIntoView({ behavior: 'smooth' })}
+                    className="mt-auto inline-flex items-center justify-center rounded-full bg-black px-6 py-3 text-sm font-medium text-white shadow-[0_18px_32px_rgba(15,15,15,0.22)] transition will-change-transform hover:-translate-y-px hover:shadow-[0_24px_40px_rgba(15,15,15,0.26)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20"
+                  >
+                    Quiero este plan
+                  </button>
+                </div>
+              </article>
+
+              {/* Plan 3: Control Plan */}
+              <article className="group relative flex h-full flex-col rounded-[28px] border border-[#E5E5EA] bg-white p-8 shadow-[0_12px_24px_rgba(15,15,15,0.05)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 sm:p-9">
+                <div className="flex flex-col gap-6">
+                  <div>
+                    <h3 className="text-2xl font-semibold text-[#0B0B0B]">Control Plan</h3>
+                  </div>
+
+                  <div>
+                    <div className="flex items-baseline gap-1">
+                      <span className="text-4xl font-semibold text-[#0B0B0B]">$____</span>
+                    </div>
+                    <p className="mt-2 text-sm text-neutral-500">/mes</p>
+                  </div>
+
+                  <ul className="flex-1 space-y-3 text-left">
+                    <li className="flex items-start gap-3">
+                      <svg
+                        className="mt-0.5 h-5 w-5 shrink-0 text-[#34C759]"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                        aria-hidden="true"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className="text-sm leading-relaxed text-neutral-600">
+                        Múltiples dashboards, organizados por:
+                        <br />
+                        <span className="ml-6">• Rol (Dirección / Dueño / Operación)</span>
+                        <br />
+                        <span className="ml-6">• Iniciativa (ventas, retención, productividad, etc.)</span>
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <svg
+                        className="mt-0.5 h-5 w-5 shrink-0 text-[#34C759]"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                        aria-hidden="true"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className="text-sm leading-relaxed text-neutral-600">
+                        Reportes especializados orientados a acciones concretas
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <svg
+                        className="mt-0.5 h-5 w-5 shrink-0 text-[#34C759]"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                        aria-hidden="true"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className="text-sm leading-relaxed text-neutral-600">
+                        Modelado de datos avanzado:
+                        <br />
+                        <span className="ml-6">• Históricos consolidados</span>
+                        <br />
+                        <span className="ml-6">• Comparativos entre periodos</span>
+                        <br />
+                        <span className="ml-6">• Análisis de cohortes</span>
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <svg
+                        className="mt-0.5 h-5 w-5 shrink-0 text-[#34C759]"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                        aria-hidden="true"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className="text-sm leading-relaxed text-neutral-600">
+                        Actualización semanal o automática (si la fuente lo permite)
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <svg
+                        className="mt-0.5 h-5 w-5 shrink-0 text-[#34C759]"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                        aria-hidden="true"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className="text-sm leading-relaxed text-neutral-600">
+                        KPIs avanzados, como:
+                        <br />
+                        <span className="ml-6">• Retención</span>
+                        <br />
+                        <span className="ml-6">• Drop-off</span>
+                        <br />
+                        <span className="ml-6">• Crecimiento</span>
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <svg
+                        className="mt-0.5 h-5 w-5 shrink-0 text-[#34C759]"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                        aria-hidden="true"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className="text-sm leading-relaxed text-neutral-600">
+                        Priorización mensual de nuevas iniciativas y vistas
+                      </span>
+                    </li>
+                  </ul>
+
+                  <button
+                    type="button"
+                    onClick={() => document.getElementById('agenda')?.scrollIntoView({ behavior: 'smooth' })}
+                    className="mt-auto inline-flex items-center justify-center rounded-full border border-[#E5E5EA] bg-white px-6 py-3 text-sm font-medium text-[#0B0B0B] shadow-[0_12px_30px_rgba(15,15,15,0.12)] transition hover:-translate-y-px hover:bg-[#F7F7F7] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10"
+                  >
+                    Agendar
+                  </button>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
         {/* QUIÉNES SOMOS */}
         <section id="quienes-somos" data-theme="dark" className="relative overflow-hidden bg-black text-white">
           <BackgroundLines tone="dark" opacity={0.18} density={150} />
