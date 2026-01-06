@@ -470,21 +470,21 @@ export default function Home() {
 
             <div className="mx-auto mt-20 grid max-w-5xl items-stretch gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
               {/* Plan 1: Insight Plan */}
-              <article className="plan-card group relative flex flex-col rounded-[28px] border border-[#E8E8ED] bg-white p-8 shadow-[0_2px_12px_rgba(15,15,15,0.03)] transition-all duration-[220ms] ease-out lg:hover:-translate-y-[2px] lg:hover:shadow-[0_4px_18px_rgba(15,15,15,0.05)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 sm:p-9 lg:min-h-[740px]">
+              <article className="plan-card plan-card--insight group relative flex flex-col rounded-[28px] border border-[#E8E8ED] bg-white p-8 shadow-[0_2px_12px_rgba(15,15,15,0.03)] transition-all duration-[220ms] ease-out lg:hover:-translate-y-[2px] lg:hover:shadow-[0_4px_18px_rgba(15,15,15,0.05)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 sm:p-9 lg:min-h-[740px]">
                 {/* Header: Nombre + Precio */}
-                <header className="plan-header mb-6 pb-0">
-                  <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B]">Insight Plan</h3>
-                  <div className="plan-discount-row mt-3 flex flex-wrap items-baseline gap-2">
-                    <span className="text-xs font-medium text-neutral-400 line-through">Antes: $4,900</span>
-                    <span className="inline-flex items-center rounded-full bg-[#34C759]/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#34C759]">
-                      -22%
-                    </span>
+                <header className="plan-header mb-6 pb-0 lg:min-h-[220px]">
+                  <div className="plan-title-row">
+                    <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B]">Insight Plan</h3>
+                    <div className="plan-discount-row mt-3 flex flex-wrap items-baseline gap-2">
+                      <span className="text-xs font-medium text-neutral-400 line-through">Antes: $4,900</span>
+                      <span className="inline-flex items-center rounded-full bg-[#34C759]/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#34C759]">
+                        -22%
+                      </span>
+                    </div>
                   </div>
-                  <div className="plan-price min-h-[120px] flex flex-col justify-center mt-3">
-                    <div className="plan-price-row max-w-full overflow-hidden">
-                      <div className="plan-price-content flex items-baseline justify-start gap-2.5 lg:whitespace-nowrap">
-                        <span className="precio-desde font-semibold leading-[1.1] text-[#0B0B0B]" style={{ fontSize: 'clamp(28px, 2.1vw, 36px)', fontVariantNumeric: 'tabular-nums', letterSpacing: '-0.02em' }}>$3,800</span>
-                      </div>
+                  <div className="plan-price-block min-h-[130px] flex flex-col justify-end mt-3">
+                    <div className="plan-price-row flex items-baseline gap-2.5 max-w-full lg:whitespace-nowrap">
+                      <span className="precio-desde font-semibold leading-[1.1] text-[#0B0B0B]" style={{ fontSize: 'clamp(26px, 2.0vw, 34px)', fontVariantNumeric: 'tabular-nums' }}>$3,800</span>
                     </div>
                     <p className="text-sm font-medium text-neutral-500 mt-1">Pago único</p>
                   </div>
@@ -492,7 +492,7 @@ export default function Home() {
 
                 {/* Body: Lista de beneficios */}
                 <div className="plan-body flex-1 flex flex-col justify-center py-2">
-                  <ul className="plan-features space-y-4 text-left">
+                  <ul className="plan-list space-y-[14px] text-left">
                     <li className="flex items-start gap-2.5">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
@@ -504,7 +504,7 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-[1.7] text-neutral-600">
+                      <span className="text-sm leading-[1.6] text-neutral-600">
                         1–2 sesiones de entendimiento del negocio
                       </span>
                     </li>
@@ -519,7 +519,7 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-[1.7] text-neutral-600">
+                      <span className="text-sm leading-[1.6] text-neutral-600">
                         Revisión de hasta 3 fuentes de datos (Excel, CSV o exportes de sistemas existentes)
                       </span>
                     </li>
@@ -534,7 +534,7 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-[1.7] text-neutral-600">
+                      <span className="text-sm leading-[1.6] text-neutral-600">
                         Diagnóstico inicial de la información
                       </span>
                     </li>
@@ -549,7 +549,7 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-[1.7] text-neutral-600">
+                      <span className="text-sm leading-[1.6] text-neutral-600">
                         Definición de hasta 3 KPIs clave del negocio
                       </span>
                     </li>
@@ -564,7 +564,7 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-[1.7] text-neutral-600">
+                      <span className="text-sm leading-[1.6] text-neutral-600">
                         Desarrollo de 1 dashboard inicial en Power BI
                       </span>
                     </li>
@@ -579,7 +579,7 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-[1.7] text-neutral-600">
+                      <span className="text-sm leading-[1.6] text-neutral-600">
                         Entrega única en PDF (one-shot)
                       </span>
                     </li>
@@ -594,7 +594,7 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-[1.7] text-neutral-600">
+                      <span className="text-sm leading-[1.6] text-neutral-600">
                         Documentación del proyecto
                       </span>
                     </li>
@@ -614,7 +614,7 @@ export default function Home() {
               </article>
 
               {/* Plan 2: Data Driven Plan - Destacado */}
-              <article className="plan-card group relative flex flex-col rounded-[28px] border-2 border-[#0B0B0B]/25 bg-white p-8 shadow-[0_4px_20px_rgba(15,15,15,0.06)] transition-all duration-[220ms] ease-out lg:hover:-translate-y-[2px] lg:hover:shadow-[0_6px_28px_rgba(15,15,15,0.1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20 sm:p-9 lg:min-h-[740px] lg:-translate-y-2">
+              <article className="plan-card plan-card--pro group relative flex flex-col rounded-[28px] border-2 border-[#0B0B0B]/25 bg-white p-8 shadow-[0_4px_20px_rgba(15,15,15,0.06)] transition-all duration-[220ms] ease-out lg:hover:-translate-y-[2px] lg:hover:shadow-[0_6px_28px_rgba(15,15,15,0.1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20 sm:p-9 lg:min-h-[740px] lg:-translate-y-2">
                 {/* Badge "Más popular" */}
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
                   <span className="inline-flex items-center rounded-full bg-[#0B0B0B] px-3.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-white shadow-[0_2px_8px_rgba(0,0,0,0.15)]">
@@ -623,15 +623,15 @@ export default function Home() {
                 </div>
 
                 {/* Header: Nombre + Precio */}
-                <header className="plan-header mb-6 pb-0">
-                  <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B]">Data Driven Plan</h3>
-                  <div className="plan-price min-h-[120px] flex flex-col justify-center mt-3">
-                    <div className="plan-price-row max-w-full overflow-hidden">
-                      <div className="plan-price-content flex items-baseline justify-start gap-2.5 lg:whitespace-nowrap">
-                        <span className="precio-desde font-semibold leading-[1.1] text-[#0B0B0B]" style={{ fontSize: 'clamp(28px, 2.1vw, 36px)', fontVariantNumeric: 'tabular-nums', letterSpacing: '-0.02em' }}>$6,000</span>
-                        <span className="separador text-xl font-medium text-neutral-500">–</span>
-                        <span className="precio-hasta font-semibold leading-[1.1] text-[#0B0B0B]" style={{ fontSize: 'clamp(28px, 2.1vw, 36px)', fontVariantNumeric: 'tabular-nums', letterSpacing: '-0.02em' }}>$9,500</span>
-                      </div>
+                <header className="plan-header mb-6 pb-0 lg:min-h-[220px]">
+                  <div className="plan-title-row">
+                    <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B]">Data Driven Plan</h3>
+                  </div>
+                  <div className="plan-price-block min-h-[130px] flex flex-col justify-end mt-3">
+                    <div className="plan-price-row flex items-baseline gap-2.5 max-w-full lg:whitespace-nowrap">
+                      <span className="precio-desde font-semibold leading-[1.1] text-[#0B0B0B]" style={{ fontSize: 'clamp(26px, 2.0vw, 34px)', fontVariantNumeric: 'tabular-nums' }}>$6,000</span>
+                      <span className="separador text-xl font-medium text-neutral-500">–</span>
+                      <span className="precio-hasta font-semibold leading-[1.1] text-[#0B0B0B]" style={{ fontSize: 'clamp(26px, 2.0vw, 34px)', fontVariantNumeric: 'tabular-nums' }}>$9,500</span>
                     </div>
                     <p className="text-sm font-medium text-neutral-500 mt-1">/mes</p>
                   </div>
@@ -639,7 +639,7 @@ export default function Home() {
 
                 {/* Body: Lista de beneficios */}
                 <div className="plan-body flex-1 flex flex-col justify-center py-2">
-                  <ul className="plan-features space-y-4 text-left">
+                  <ul className="plan-list space-y-3 text-left">
                     <li className="flex items-start gap-2.5">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
@@ -776,17 +776,17 @@ export default function Home() {
               </article>
 
               {/* Plan 3: Control Plan */}
-              <article className="plan-card group relative flex flex-col rounded-[28px] border border-[#E8E8ED] bg-white p-8 shadow-[0_2px_12px_rgba(15,15,15,0.03)] transition-all duration-[220ms] ease-out lg:hover:-translate-y-[2px] lg:hover:shadow-[0_4px_18px_rgba(15,15,15,0.05)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 sm:p-9 lg:min-h-[740px]">
+              <article className="plan-card plan-card--control group relative flex flex-col rounded-[28px] border border-[#E8E8ED] bg-white p-8 shadow-[0_2px_12px_rgba(15,15,15,0.03)] transition-all duration-[220ms] ease-out lg:hover:-translate-y-[2px] lg:hover:shadow-[0_4px_18px_rgba(15,15,15,0.05)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 sm:p-9 lg:min-h-[740px]">
                 {/* Header: Nombre + Precio */}
-                <header className="plan-header mb-6 pb-0">
-                  <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B]">Control Plan</h3>
-                  <div className="plan-price min-h-[120px] flex flex-col justify-center mt-3">
-                    <div className="plan-price-row max-w-full overflow-hidden">
-                      <div className="plan-price-content flex items-baseline justify-start gap-2.5 lg:whitespace-nowrap">
-                        <span className="precio-desde font-semibold leading-[1.1] text-[#0B0B0B]" style={{ fontSize: 'clamp(28px, 2.1vw, 36px)', fontVariantNumeric: 'tabular-nums', letterSpacing: '-0.02em' }}>$15,000</span>
-                        <span className="separador text-xl font-medium text-neutral-500">–</span>
-                        <span className="precio-hasta font-semibold leading-[1.1] text-[#0B0B0B]" style={{ fontSize: 'clamp(28px, 2.1vw, 36px)', fontVariantNumeric: 'tabular-nums', letterSpacing: '-0.02em' }}>$20,000</span>
-                      </div>
+                <header className="plan-header mb-6 pb-0 lg:min-h-[220px]">
+                  <div className="plan-title-row">
+                    <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B]">Control Plan</h3>
+                  </div>
+                  <div className="plan-price-block min-h-[130px] flex flex-col justify-end mt-3">
+                    <div className="plan-price-row flex items-baseline gap-2.5 max-w-full lg:whitespace-nowrap" style={{ fontSize: 'clamp(24px, 1.75vw, 32px)', letterSpacing: '-0.02em' }}>
+                      <span className="precio-desde font-semibold leading-[1.1] text-[#0B0B0B]" style={{ fontVariantNumeric: 'tabular-nums' }}>$15,000</span>
+                      <span className="separador text-xl font-medium text-neutral-500">–</span>
+                      <span className="precio-hasta font-semibold leading-[1.1] text-[#0B0B0B]" style={{ fontVariantNumeric: 'tabular-nums' }}>$20,000</span>
                     </div>
                     <p className="text-sm font-medium text-neutral-500 mt-1">/mes</p>
                     <p className="text-xs font-medium text-neutral-400 mt-1">Tu área BI de tu negocio.</p>
@@ -795,7 +795,7 @@ export default function Home() {
 
                 {/* Body: Lista de beneficios */}
                 <div className="plan-body flex-1 flex flex-col justify-center py-2">
-                  <ul className="plan-features space-y-3.5 text-left">
+                  <ul className="plan-list space-y-3 text-left">
                     <li className="flex items-start gap-2.5">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
@@ -812,10 +812,10 @@ export default function Home() {
                           Múltiples dashboards, organizados por:
                         </span>
                         <ul className="plan-sublist mt-2 ml-4 space-y-1.5">
-                          <li className="text-xs leading-[1.5] text-neutral-400">
+                          <li className="text-[0.9em] leading-[1.4] text-neutral-400">
                             • Rol (Dirección / Dueño, Operación)
                           </li>
-                          <li className="text-xs leading-[1.5] text-neutral-400">
+                          <li className="text-[0.9em] leading-[1.4] text-neutral-400">
                             • Iniciativa (ventas, retención, productividad, etc.)
                           </li>
                         </ul>
@@ -852,13 +852,13 @@ export default function Home() {
                           Modelado de datos avanzado:
                         </span>
                         <ul className="plan-sublist mt-2 ml-4 space-y-1.5">
-                          <li className="text-xs leading-[1.5] text-neutral-400">
+                          <li className="text-[0.9em] leading-[1.4] text-neutral-400">
                             • Históricos consolidados
                           </li>
-                          <li className="text-xs leading-[1.5] text-neutral-400">
+                          <li className="text-[0.9em] leading-[1.4] text-neutral-400">
                             • Comparativos entre periodos
                           </li>
-                          <li className="text-xs leading-[1.5] text-neutral-400">
+                          <li className="text-[0.9em] leading-[1.4] text-neutral-400">
                             • Análisis de cohortes
                           </li>
                         </ul>
@@ -895,13 +895,13 @@ export default function Home() {
                           KPIs avanzados, como:
                         </span>
                         <ul className="plan-sublist mt-2 ml-4 space-y-1.5">
-                          <li className="text-xs leading-[1.5] text-neutral-400">
+                          <li className="text-[0.9em] leading-[1.4] text-neutral-400">
                             • Retención
                           </li>
-                          <li className="text-xs leading-[1.5] text-neutral-400">
+                          <li className="text-[0.9em] leading-[1.4] text-neutral-400">
                             • Drop-off
                           </li>
-                          <li className="text-xs leading-[1.5] text-neutral-400">
+                          <li className="text-[0.9em] leading-[1.4] text-neutral-400">
                             • Crecimiento
                           </li>
                         </ul>
