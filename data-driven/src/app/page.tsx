@@ -907,7 +907,8 @@ export default function Home() {
                         Priorización mensual de nuevas iniciativas y vistas
                       </span>
                     </li>
-                </ul>
+                  </ul>
+                </div>
 
                 {/* Footer: CTA */}
                 <div className="plan-footer pt-6">
