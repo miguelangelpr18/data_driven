@@ -473,18 +473,22 @@ export default function Home() {
               <article className="plan-card group relative flex flex-col rounded-[28px] border border-[#E8E8ED] bg-white p-8 shadow-[0_2px_12px_rgba(15,15,15,0.03)] transition-all duration-[220ms] ease-out lg:hover:-translate-y-[2px] lg:hover:shadow-[0_4px_18px_rgba(15,15,15,0.05)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 sm:p-9 lg:min-h-[680px]">
                 {/* Header: Nombre + Precio */}
                 <header className="plan-header mb-6 pb-0">
-                  <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B] mb-3">Insight Plan</h3>
-                  <div className="flex flex-wrap items-baseline gap-2 mb-4">
-                    <span className="text-xs font-medium text-neutral-400 line-through">Antes: $4,800</span>
-                    <span className="inline-flex items-center rounded-full bg-[#34C759]/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#34C759]">
-                      -21%
-                    </span>
-                  </div>
-                  <div className="plan-price min-h-[110px] flex flex-col justify-center">
-                    <div className="plan-price-content flex items-baseline justify-start gap-1.5 flex-nowrap">
-                      <span className="precio-desde font-semibold leading-[1.1] text-[#0B0B0B] whitespace-nowrap" style={{ fontSize: 'clamp(26px, 2.3vw, 34px)', fontVariantNumeric: 'tabular-nums' }}>$3,800</span>
+                  <div className="plan-header-top">
+                    <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B]">Insight Plan</h3>
+                    <div className="plan-discount-row mt-2 flex flex-wrap items-baseline gap-2">
+                      <span className="text-xs font-medium text-neutral-400 line-through">Antes: $4,800</span>
+                      <span className="inline-flex items-center rounded-full bg-[#34C759]/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#34C759]">
+                        -21%
+                      </span>
                     </div>
-                    <p className="text-sm font-medium text-neutral-500 mt-2">Pago único</p>
+                    <div className="plan-price-row mt-2">
+                      <div className="plan-price min-h-[110px] flex flex-col justify-center">
+                        <div className="plan-price-content flex items-baseline justify-start gap-1.5 flex-nowrap">
+                          <span className="precio-desde font-semibold leading-[1.1] text-[#0B0B0B] whitespace-nowrap" style={{ fontSize: 'clamp(26px, 2.3vw, 34px)', fontVariantNumeric: 'tabular-nums' }}>$3,800</span>
+                        </div>
+                        <p className="text-sm font-medium text-neutral-500 mt-1">Pago único</p>
+                      </div>
+                    </div>
                   </div>
                 </header>
 
@@ -762,10 +766,12 @@ export default function Home() {
                 <header className="plan-header mb-6 pb-0">
                   <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B] mb-3">Control Plan</h3>
                   <div className="plan-price min-h-[110px] flex flex-col justify-center">
-                    <div className="plan-price-content flex items-baseline justify-start gap-1.5 flex-nowrap">
-                      <span className="precio-desde font-semibold leading-[1.1] text-[#0B0B0B] whitespace-nowrap" style={{ fontSize: 'clamp(26px, 2.3vw, 34px)', fontVariantNumeric: 'tabular-nums' }}>$15,000</span>
-                      <span className="separador text-xl font-medium text-neutral-500">–</span>
-                      <span className="precio-hasta font-semibold leading-[1.1] text-[#0B0B0B] whitespace-nowrap" style={{ fontSize: 'clamp(26px, 2.3vw, 34px)', fontVariantNumeric: 'tabular-nums' }}>$20,000</span>
+                    <div className="plan-price-row max-w-full overflow-hidden">
+                      <div className="plan-price-content flex items-baseline justify-start gap-2 flex-wrap">
+                        <span className="precio-desde font-semibold leading-[1.1] text-[#0B0B0B]" style={{ fontSize: 'clamp(26px, 2.2vw, 34px)', fontVariantNumeric: 'tabular-nums', maxWidth: '100%', wordBreak: 'normal' }}>$15,000</span>
+                        <span className="separador text-xl font-medium text-neutral-500">–</span>
+                        <span className="precio-hasta font-semibold leading-[1.1] text-[#0B0B0B]" style={{ fontSize: 'clamp(26px, 2.2vw, 34px)', fontVariantNumeric: 'tabular-nums', maxWidth: '100%', wordBreak: 'normal' }}>$20,000</span>
+                      </div>
                     </div>
                     <p className="text-sm font-medium text-neutral-500 mt-2">/mes</p>
                     <p className="text-xs font-medium text-neutral-400 mt-1">Tu BI externo para el negocio</p>
