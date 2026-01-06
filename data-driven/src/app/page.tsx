@@ -475,14 +475,14 @@ export default function Home() {
                 <header className="plan-header mb-6 pb-0 lg:min-h-[220px]">
                   <div className="plan-title-row">
                     <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B]">Insight Plan</h3>
-                    <div className="plan-discount-row mt-3 flex flex-wrap items-baseline gap-2">
-                      <span className="text-xs font-medium text-neutral-400 line-through">Antes: $4,900</span>
-                      <span className="inline-flex items-center rounded-full bg-[#34C759]/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#34C759]">
-                        -22%
-                      </span>
-                    </div>
                   </div>
-                  <div className="plan-price-block min-h-[130px] flex flex-col justify-end mt-3">
+                  <div className="plan-discount-row h-[28px] flex items-center gap-3 mt-3">
+                    <span className="text-xs font-medium text-neutral-400 line-through">Antes: $4,900</span>
+                    <span className="inline-flex items-center rounded-full bg-[#34C759]/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#34C759]">
+                      -22%
+                    </span>
+                  </div>
+                  <div className="plan-price-block min-h-[130px] flex flex-col justify-end mt-6">
                     <div className="plan-price-row flex items-baseline gap-2.5 max-w-full lg:whitespace-nowrap">
                       <span className="precio-desde font-semibold leading-[1.1] text-[#0B0B0B]" style={{ fontSize: 'clamp(26px, 2.0vw, 34px)', fontVariantNumeric: 'tabular-nums' }}>$3,800</span>
                     </div>
@@ -490,8 +490,11 @@ export default function Home() {
                   </div>
                 </header>
 
+                {/* Spacer fijo para alinear inicio de bullets */}
+                <div className="plan-meta-spacer h-12"></div>
+
                 {/* Body: Lista de beneficios */}
-                <div className="plan-body flex-1 flex flex-col justify-center py-2">
+                <div className="plan-body flex-1 flex flex-col justify-center">
                   <ul className="plan-list space-y-[14px] text-left">
                     <li className="flex items-start gap-2.5">
                       <svg
@@ -627,7 +630,13 @@ export default function Home() {
                   <div className="plan-title-row">
                     <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B]">Data Driven Plan</h3>
                   </div>
-                  <div className="plan-price-block min-h-[130px] flex flex-col justify-end mt-3">
+                  <div className="plan-discount-row h-[28px] flex items-center gap-3 mt-3 opacity-0 pointer-events-none select-none">
+                    <span className="text-xs font-medium text-neutral-400 line-through">Antes</span>
+                    <span className="inline-flex items-center rounded-full bg-[#34C759]/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#34C759]">
+                      -00%
+                    </span>
+                  </div>
+                  <div className="plan-price-block min-h-[130px] flex flex-col justify-end mt-6">
                     <div className="plan-price-row flex items-baseline gap-2.5 max-w-full lg:whitespace-nowrap">
                       <span className="precio-desde font-semibold leading-[1.1] text-[#0B0B0B]" style={{ fontSize: 'clamp(26px, 2.0vw, 34px)', fontVariantNumeric: 'tabular-nums' }}>$6,000</span>
                       <span className="separador text-xl font-medium text-neutral-500">–</span>
@@ -637,8 +646,11 @@ export default function Home() {
                   </div>
                 </header>
 
+                {/* Spacer fijo para alinear inicio de bullets */}
+                <div className="plan-meta-spacer h-12"></div>
+
                 {/* Body: Lista de beneficios */}
-                <div className="plan-body flex-1 flex flex-col justify-center py-2">
+                <div className="plan-body flex-1 flex flex-col justify-center">
                   <ul className="plan-list space-y-3 text-left">
                     <li className="flex items-start gap-2.5">
                       <svg
@@ -782,7 +794,13 @@ export default function Home() {
                   <div className="plan-title-row">
                     <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B]">Control Plan</h3>
                   </div>
-                  <div className="plan-price-block min-h-[130px] flex flex-col justify-end mt-3">
+                  <div className="plan-discount-row h-[28px] flex items-center gap-3 mt-3 opacity-0 pointer-events-none select-none">
+                    <span className="text-xs font-medium text-neutral-400 line-through">Antes</span>
+                    <span className="inline-flex items-center rounded-full bg-[#34C759]/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#34C759]">
+                      -00%
+                    </span>
+                  </div>
+                  <div className="plan-price-block min-h-[130px] flex flex-col justify-end mt-6">
                     <div className="plan-price-row flex items-baseline gap-2.5 max-w-full lg:whitespace-nowrap" style={{ fontSize: 'clamp(24px, 1.75vw, 32px)', letterSpacing: '-0.02em' }}>
                       <span className="precio-desde font-semibold leading-[1.1] text-[#0B0B0B]" style={{ fontVariantNumeric: 'tabular-nums' }}>$15,000</span>
                       <span className="separador text-xl font-medium text-neutral-500">–</span>
@@ -793,8 +811,11 @@ export default function Home() {
                   </div>
                 </header>
 
+                {/* Spacer fijo para alinear inicio de bullets */}
+                <div className="plan-meta-spacer h-12"></div>
+
                 {/* Body: Lista de beneficios */}
-                <div className="plan-body flex-1 flex flex-col justify-center py-2">
+                <div className="plan-body flex-1 flex flex-col justify-center">
                   <ul className="plan-list space-y-3 text-left">
                     <li className="flex items-start gap-2.5">
                       <svg
