@@ -111,7 +111,6 @@ export default function SiteFooter() {
                   >
                     <Phone className="h-4 w-4 text-neutral-700" />
                     +52 (81) 1801 9331
-                    +52 (81) 2717 9766
                   </a>
                 </li>
               </ul>
