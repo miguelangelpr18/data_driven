@@ -809,7 +809,9 @@ export default function Home() {
                       <span className="precio-hasta font-semibold leading-[1.1] text-[#0B0B0B]" style={{ fontVariantNumeric: 'tabular-nums' }}>$20,000</span>
                     </div>
                     <p className="text-sm font-medium text-neutral-500 mt-1">/mes</p>
-                    <p className="text-xs font-medium text-neutral-400 mt-1">Tu área BI de tu negocio.</p>
+                  </div>
+                  <div className="h-[20px] flex items-start">
+                    <p className="text-xs font-medium text-neutral-400">Tu área BI de tu negocio.</p>
                   </div>
                 </div>
 
