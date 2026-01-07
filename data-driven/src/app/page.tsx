@@ -471,32 +471,32 @@ export default function Home() {
             <div className="mx-auto mt-20 grid max-w-5xl items-stretch gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
               {/* Plan 1: Insight Plan */}
               <article className="plan-card plan-card--insight group relative flex flex-col rounded-[28px] border border-[#E8E8ED] bg-white p-8 shadow-[0_2px_12px_rgba(15,15,15,0.03)] transition-all duration-[220ms] ease-out lg:hover:-translate-y-[2px] lg:hover:shadow-[0_4px_18px_rgba(15,15,15,0.05)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 sm:p-9 lg:min-h-[740px]">
-                {/* Header: Nombre + Precio */}
-                <header className="plan-header mb-4 pb-0 lg:min-h-[200px]">
-                  <div className="plan-title-row">
-                    <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B]">Insight Plan</h3>
-                  </div>
-                  <div className="plan-discount-row h-[28px] flex items-center gap-3 mt-2">
+                {/* Top: Título */}
+                <div className="plan-top h-[64px] flex items-start">
+                  <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B]">Insight Plan</h3>
+                </div>
+
+                {/* Price Block: Descuento + Precio + Pago único */}
+                <div className="plan-priceBlock h-[140px] flex flex-col justify-between">
+                  <div className="plan-discount-row h-[28px] flex items-center gap-3">
                     <span className="text-xs font-medium text-neutral-400 line-through">Antes: $4,900</span>
                     <span className="inline-flex items-center rounded-full bg-[#34C759]/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#34C759]">
                       -22%
                     </span>
                   </div>
-                  <div className="plan-price-block min-h-[130px] flex flex-col justify-end mt-4">
+                  <div className="flex flex-col">
                     <div className="plan-price-row flex items-baseline gap-2.5 max-w-full lg:whitespace-nowrap">
                       <span className="precio-desde font-semibold leading-[1.1] text-[#0B0B0B]" style={{ fontSize: 'clamp(26px, 2.0vw, 34px)', fontVariantNumeric: 'tabular-nums' }}>$3,800</span>
                     </div>
                     <p className="text-sm font-medium text-neutral-500 mt-1">Pago único</p>
                   </div>
-                </header>
-
-                {/* Spacer fijo para alinear inicio de bullets */}
-                <div className="plan-meta-spacer h-6"></div>
+                  <div className="h-[20px]"></div>
+                </div>
 
                 {/* Body: Lista de beneficios */}
-                <div className="plan-body flex-1 flex flex-col justify-center">
-                  <ul className="plan-list space-y-5 text-left">
-                    <li className="flex items-start gap-2.5">
+                <div className="plan-body flex-1 flex flex-col">
+                  <ul className="plan-list space-y-4 text-left">
+                    <li className="flex items-start gap-2">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
@@ -507,11 +507,11 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-[1.85] text-neutral-600">
+                      <span className="text-sm leading-7 text-neutral-600">
                         1–2 sesiones de entendimiento del negocio
                       </span>
                     </li>
-                    <li className="flex items-start gap-2.5">
+                    <li className="flex items-start gap-2">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
@@ -522,11 +522,11 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-[1.85] text-neutral-600">
+                      <span className="text-sm leading-7 text-neutral-600">
                         Revisión de hasta 3 fuentes de datos (Excel, CSV o exportes de sistemas existentes)
                       </span>
                     </li>
-                    <li className="flex items-start gap-2.5">
+                    <li className="flex items-start gap-2">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
@@ -537,11 +537,11 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-[1.85] text-neutral-600">
+                      <span className="text-sm leading-7 text-neutral-600">
                         Diagnóstico inicial de la información
                       </span>
                     </li>
-                    <li className="flex items-start gap-2.5">
+                    <li className="flex items-start gap-2">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
@@ -552,11 +552,11 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-[1.85] text-neutral-600">
+                      <span className="text-sm leading-7 text-neutral-600">
                         Definición de hasta 3 KPIs clave del negocio
                       </span>
                     </li>
-                    <li className="flex items-start gap-2.5">
+                    <li className="flex items-start gap-2">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
@@ -567,11 +567,11 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-[1.85] text-neutral-600">
+                      <span className="text-sm leading-7 text-neutral-600">
                         Desarrollo de 1 dashboard inicial en Power BI
                       </span>
                     </li>
-                    <li className="flex items-start gap-2.5">
+                    <li className="flex items-start gap-2">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
@@ -582,11 +582,11 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-[1.85] text-neutral-600">
+                      <span className="text-sm leading-7 text-neutral-600">
                         Entrega única en PDF (one-shot)
                       </span>
                     </li>
-                    <li className="flex items-start gap-2.5">
+                    <li className="flex items-start gap-2">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
@@ -597,15 +597,15 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-[1.85] text-neutral-600">
+                      <span className="text-sm leading-7 text-neutral-600">
                         Documentación del proyecto
                       </span>
                     </li>
                   </ul>
                 </div>
 
-                {/* Footer: CTA */}
-                <footer className="plan-footer pt-6 mt-auto">
+                {/* CTA: Botón */}
+                <div className="plan-cta mt-auto pt-6">
                   <button
                     type="button"
                     onClick={() => document.getElementById('agenda')?.scrollIntoView({ behavior: 'smooth' })}
@@ -613,7 +613,7 @@ export default function Home() {
                   >
                     Agendar sesión
                   </button>
-                </footer>
+                </div>
               </article>
 
               {/* Plan 2: Data Driven Plan - Destacado */}
@@ -625,18 +625,20 @@ export default function Home() {
                   </span>
                 </div>
 
-                {/* Header: Nombre + Precio */}
-                <header className="plan-header mb-4 pb-0 lg:min-h-[200px]">
-                  <div className="plan-title-row">
-                    <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B]">Data Driven Plan</h3>
-                  </div>
-                  <div className="plan-discount-row h-[28px] flex items-center gap-3 mt-2 opacity-0 pointer-events-none select-none">
+                {/* Top: Título */}
+                <div className="plan-top h-[64px] flex items-start">
+                  <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B]">Data Driven Plan</h3>
+                </div>
+
+                {/* Price Block: Descuento invisible + Precio + /mes */}
+                <div className="plan-priceBlock h-[140px] flex flex-col justify-between">
+                  <div className="plan-discount-row h-[28px] flex items-center gap-3 opacity-0 pointer-events-none select-none">
                     <span className="text-xs font-medium text-neutral-400 line-through">Antes</span>
                     <span className="inline-flex items-center rounded-full bg-[#34C759]/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#34C759]">
                       -00%
                     </span>
                   </div>
-                  <div className="plan-price-block min-h-[130px] flex flex-col justify-end mt-4">
+                  <div className="flex flex-col">
                     <div className="plan-price-row flex items-baseline gap-2.5 max-w-full lg:whitespace-nowrap">
                       <span className="precio-desde font-semibold leading-[1.1] text-[#0B0B0B]" style={{ fontSize: 'clamp(26px, 2.0vw, 34px)', fontVariantNumeric: 'tabular-nums' }}>$6,000</span>
                       <span className="separador text-xl font-medium text-neutral-500">–</span>
@@ -644,15 +646,13 @@ export default function Home() {
                     </div>
                     <p className="text-sm font-medium text-neutral-500 mt-1">/mes</p>
                   </div>
-                </header>
-
-                {/* Spacer fijo para alinear inicio de bullets */}
-                <div className="plan-meta-spacer h-6"></div>
+                  <div className="h-[20px]"></div>
+                </div>
 
                 {/* Body: Lista de beneficios */}
-                <div className="plan-body flex-1 flex flex-col justify-center">
-                  <ul className="plan-list space-y-3 text-left">
-                    <li className="flex items-start gap-2.5">
+                <div className="plan-body flex-1 flex flex-col">
+                  <ul className="plan-list space-y-2 text-left">
+                    <li className="flex items-start gap-2">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
@@ -663,11 +663,11 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-[1.7] text-neutral-600">
+                      <span className="text-sm leading-6 text-neutral-600">
                         Sesiones iniciales de entendimiento y alineación
                       </span>
                     </li>
-                    <li className="flex items-start gap-2.5">
+                    <li className="flex items-start gap-2">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
@@ -678,11 +678,11 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-[1.7] text-neutral-600">
+                      <span className="text-sm leading-6 text-neutral-600">
                         Revisión y conexión de múltiples fuentes de datos
                       </span>
                     </li>
-                    <li className="flex items-start gap-2.5">
+                    <li className="flex items-start gap-2">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
@@ -693,11 +693,11 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-[1.7] text-neutral-600">
+                      <span className="text-sm leading-6 text-neutral-600">
                         Definición y seguimiento de KPIs clave del negocio
                       </span>
                     </li>
-                    <li className="flex items-start gap-2.5">
+                    <li className="flex items-start gap-2">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
@@ -708,11 +708,11 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-[1.7] text-neutral-600">
+                      <span className="text-sm leading-6 text-neutral-600">
                         Sesiones mensuales de resultados y seguimiento con recomendaciones de decisiones estrategicas
                       </span>
                     </li>
-                    <li className="flex items-start gap-2.5">
+                    <li className="flex items-start gap-2">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
@@ -723,11 +723,11 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-[1.7] text-neutral-600">
+                      <span className="text-sm leading-6 text-neutral-600">
                         Desarrollo y evolución continua de dashboards en Power BI
                       </span>
                     </li>
-                    <li className="flex items-start gap-2.5">
+                    <li className="flex items-start gap-2">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
@@ -738,11 +738,11 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-[1.7] text-neutral-600">
+                      <span className="text-sm leading-6 text-neutral-600">
                         Acceso a Power BI como plataforma de lectura interactiva
                       </span>
                     </li>
-                    <li className="flex items-start gap-2.5">
+                    <li className="flex items-start gap-2">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
@@ -753,11 +753,11 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-[1.7] text-neutral-600">
+                      <span className="text-sm leading-6 text-neutral-600">
                         Actualizaciones periódicas de la información
                       </span>
                     </li>
-                    <li className="flex items-start gap-2.5">
+                    <li className="flex items-start gap-2">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
@@ -768,15 +768,15 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-[1.7] text-neutral-600">
+                      <span className="text-sm leading-6 text-neutral-600">
                         Documentación y seguimiento del proyecto
                       </span>
                     </li>
                   </ul>
                 </div>
 
-                {/* Footer: CTA */}
-                <footer className="plan-footer pt-6 mt-auto">
+                {/* CTA: Botón */}
+                <div className="plan-cta mt-auto pt-6">
                   <button
                     type="button"
                     onClick={() => document.getElementById('agenda')?.scrollIntoView({ behavior: 'smooth' })}
@@ -784,23 +784,25 @@ export default function Home() {
                   >
                     Agendar sesión
                   </button>
-                </footer>
+                </div>
               </article>
 
               {/* Plan 3: Control Plan */}
               <article className="plan-card plan-card--control group relative flex flex-col rounded-[28px] border border-[#E8E8ED] bg-white p-8 shadow-[0_2px_12px_rgba(15,15,15,0.03)] transition-all duration-[220ms] ease-out lg:hover:-translate-y-[2px] lg:hover:shadow-[0_4px_18px_rgba(15,15,15,0.05)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 sm:p-9 lg:min-h-[740px]">
-                {/* Header: Nombre + Precio */}
-                <header className="plan-header mb-4 pb-0 lg:min-h-[200px]">
-                  <div className="plan-title-row">
-                    <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B]">Control Plan</h3>
-                  </div>
-                  <div className="plan-discount-row h-[28px] flex items-center gap-3 mt-2 opacity-0 pointer-events-none select-none">
+                {/* Top: Título */}
+                <div className="plan-top h-[64px] flex items-start">
+                  <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B]">Control Plan</h3>
+                </div>
+
+                {/* Price Block: Descuento invisible + Precio + /mes + Subtítulo */}
+                <div className="plan-priceBlock h-[140px] flex flex-col justify-between">
+                  <div className="plan-discount-row h-[28px] flex items-center gap-3 opacity-0 pointer-events-none select-none">
                     <span className="text-xs font-medium text-neutral-400 line-through">Antes</span>
                     <span className="inline-flex items-center rounded-full bg-[#34C759]/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#34C759]">
                       -00%
                     </span>
                   </div>
-                  <div className="plan-price-block min-h-[130px] flex flex-col justify-end mt-4">
+                  <div className="flex flex-col">
                     <div className="plan-price-row flex items-baseline gap-2.5 max-w-full lg:whitespace-nowrap" style={{ fontSize: 'clamp(24px, 1.75vw, 32px)', letterSpacing: '-0.02em' }}>
                       <span className="precio-desde font-semibold leading-[1.1] text-[#0B0B0B]" style={{ fontVariantNumeric: 'tabular-nums' }}>$15,000</span>
                       <span className="separador text-xl font-medium text-neutral-500">–</span>
@@ -809,15 +811,12 @@ export default function Home() {
                     <p className="text-sm font-medium text-neutral-500 mt-1">/mes</p>
                     <p className="text-xs font-medium text-neutral-400 mt-1">Tu área BI de tu negocio.</p>
                   </div>
-                </header>
-
-                {/* Spacer fijo para alinear inicio de bullets */}
-                <div className="plan-meta-spacer h-6"></div>
+                </div>
 
                 {/* Body: Lista de beneficios */}
-                <div className="plan-body flex-1 flex flex-col justify-center">
-                  <ul className="plan-list space-y-3 text-left">
-                    <li className="flex items-start gap-2.5">
+                <div className="plan-body flex-1 flex flex-col">
+                  <ul className="plan-list space-y-2 text-left">
+                    <li className="flex items-start gap-2">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
@@ -829,10 +828,10 @@ export default function Home() {
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
                       <div className="flex-1">
-                        <span className="text-sm leading-[1.65] text-neutral-600">
+                        <span className="text-sm leading-6 text-neutral-600">
                           Múltiples dashboards, organizados por:
                         </span>
-                        <ul className="plan-sublist mt-2 ml-4 space-y-1.5">
+                        <ul className="plan-sublist mt-1.5 ml-4 space-y-1">
                           <li className="text-[0.9em] leading-[1.4] text-neutral-400">
                             • Rol (Dirección / Dueño, Operación)
                           </li>
@@ -842,7 +841,7 @@ export default function Home() {
                         </ul>
                       </div>
                     </li>
-                    <li className="flex items-start gap-2.5">
+                    <li className="flex items-start gap-2">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
@@ -853,11 +852,11 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-[1.65] text-neutral-600">
+                      <span className="text-sm leading-6 text-neutral-600">
                         Reportes especializados orientados a acciones concretas
                       </span>
                     </li>
-                    <li className="flex items-start gap-2.5">
+                    <li className="flex items-start gap-2">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
@@ -869,10 +868,10 @@ export default function Home() {
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
                       <div className="flex-1">
-                        <span className="text-sm leading-[1.65] text-neutral-600">
+                        <span className="text-sm leading-6 text-neutral-600">
                           Modelado de datos avanzado:
                         </span>
-                        <ul className="plan-sublist mt-2 ml-4 space-y-1.5">
+                        <ul className="plan-sublist mt-1.5 ml-4 space-y-1">
                           <li className="text-[0.9em] leading-[1.4] text-neutral-400">
                             • Históricos consolidados
                           </li>
@@ -885,7 +884,7 @@ export default function Home() {
                         </ul>
                       </div>
                     </li>
-                    <li className="flex items-start gap-2.5">
+                    <li className="flex items-start gap-2">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
@@ -896,11 +895,11 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-[1.65] text-neutral-600">
+                      <span className="text-sm leading-6 text-neutral-600">
                         Actualización semanal o automática (si la fuente lo permite)
                       </span>
                     </li>
-                    <li className="flex items-start gap-2.5">
+                    <li className="flex items-start gap-2">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
@@ -912,10 +911,10 @@ export default function Home() {
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
                       <div className="flex-1">
-                        <span className="text-sm leading-[1.65] text-neutral-600">
+                        <span className="text-sm leading-6 text-neutral-600">
                           KPIs avanzados, como:
                         </span>
-                        <ul className="plan-sublist mt-2 ml-4 space-y-1.5">
+                        <ul className="plan-sublist mt-1.5 ml-4 space-y-1">
                           <li className="text-[0.9em] leading-[1.4] text-neutral-400">
                             • Retención
                           </li>
@@ -928,7 +927,7 @@ export default function Home() {
                         </ul>
                       </div>
                     </li>
-                    <li className="flex items-start gap-2.5">
+                    <li className="flex items-start gap-2">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
@@ -939,15 +938,15 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-[1.65] text-neutral-600">
+                      <span className="text-sm leading-6 text-neutral-600">
                         Priorización mensual de nuevas iniciativas y vistas
                       </span>
                     </li>
                   </ul>
                 </div>
 
-                {/* Footer: CTA */}
-                <footer className="plan-footer pt-6 mt-auto">
+                {/* CTA: Botón */}
+                <div className="plan-cta mt-auto pt-6">
                   <button
                     type="button"
                     onClick={() => document.getElementById('agenda')?.scrollIntoView({ behavior: 'smooth' })}
@@ -955,7 +954,7 @@ export default function Home() {
                   >
                     Agendar sesión
                   </button>
-                </footer>
+                </div>
               </article>
             </div>
           </div>
