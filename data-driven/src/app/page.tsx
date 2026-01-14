@@ -630,7 +630,7 @@ export default function Home() {
                   <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B]">Data Driven Plan</h3>
                 </div>
 
-                {/* Price Block: Descuento invisible + Precio + /mes */}
+                {/* Offer Block: Label + Cotización */}
                 <div className="plan-priceBlock h-[140px] flex flex-col justify-between">
                   <div className="plan-discount-row h-[28px] flex items-center gap-3 opacity-0 pointer-events-none select-none">
                     <span className="text-xs font-medium text-neutral-400 line-through">Antes</span>
@@ -638,13 +638,9 @@ export default function Home() {
                       -00%
                     </span>
                   </div>
-                  <div className="flex flex-col">
-                    <div className="plan-price-row flex items-baseline gap-2.5 max-w-full lg:whitespace-nowrap">
-                      <span className="precio-desde font-semibold leading-[1.1] text-[#0B0B0B]" style={{ fontSize: 'clamp(26px, 2.0vw, 34px)', fontVariantNumeric: 'tabular-nums' }}>$6,000</span>
-                      <span className="separador text-xl font-medium text-neutral-500">–</span>
-                      <span className="precio-hasta font-semibold leading-[1.1] text-[#0B0B0B]" style={{ fontSize: 'clamp(26px, 2.0vw, 34px)', fontVariantNumeric: 'tabular-nums' }}>$9,500</span>
-                    </div>
-                    <p className="text-sm font-medium text-neutral-500 mt-1">/mes</p>
+                  <div className="flex flex-col justify-center">
+                    <p className="text-xs font-medium text-neutral-500 mb-2">Plan mensual</p>
+                    <p className="text-xl font-semibold leading-tight text-[#0B0B0B]">Cotización según alcance</p>
                   </div>
                   <div className="h-[20px]"></div>
                 </div>
@@ -794,7 +790,7 @@ export default function Home() {
                   <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B]">Control Plan</h3>
                 </div>
 
-                {/* Price Block: Descuento invisible + Precio + /mes + Subtítulo */}
+                {/* Offer Block: Label + Cotización */}
                 <div className="plan-priceBlock h-[140px] flex flex-col justify-between">
                   <div className="plan-discount-row h-[28px] flex items-center gap-3 opacity-0 pointer-events-none select-none">
                     <span className="text-xs font-medium text-neutral-400 line-through">Antes</span>
@@ -802,17 +798,11 @@ export default function Home() {
                       -00%
                     </span>
                   </div>
-                  <div className="flex flex-col">
-                    <div className="plan-price-row flex items-baseline gap-2.5 max-w-full lg:whitespace-nowrap" style={{ fontSize: 'clamp(24px, 1.75vw, 32px)', letterSpacing: '-0.02em' }}>
-                      <span className="precio-desde font-semibold leading-[1.1] text-[#0B0B0B]" style={{ fontVariantNumeric: 'tabular-nums' }}>$15,000</span>
-                      <span className="separador text-xl font-medium text-neutral-500">–</span>
-                      <span className="precio-hasta font-semibold leading-[1.1] text-[#0B0B0B]" style={{ fontVariantNumeric: 'tabular-nums' }}>$20,000</span>
-                    </div>
-                    <p className="text-sm font-medium text-neutral-500 mt-1">/mes</p>
+                  <div className="flex flex-col justify-center">
+                    <p className="text-xs font-medium text-neutral-500 mb-2">BI externo para tu negocio</p>
+                    <p className="text-xl font-semibold leading-tight text-[#0B0B0B]">Cotización a medida</p>
                   </div>
-                  <div className="h-[20px] flex items-start">
-                    <p className="text-xs font-medium text-neutral-400">Tu área BI de tu negocio.</p>
-                  </div>
+                  <div className="h-[20px]"></div>
                 </div>
 
                 {/* Body: Lista de beneficios */}
