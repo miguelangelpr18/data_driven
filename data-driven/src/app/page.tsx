@@ -477,26 +477,25 @@ export default function Home() {
                 </div>
 
                 {/* Price Block: Descuento + Precio + Pago único */}
-                <div className="plan-priceBlock h-[140px] flex flex-col justify-between">
-                  <div className="plan-discount-row h-[28px] flex items-center gap-3">
+                <div className="plan-priceBlock h-[96px] flex flex-col justify-start gap-2.5">
+                  <div className="plan-discount-row flex items-center gap-2 leading-4">
                     <span className="text-xs font-medium text-neutral-400 line-through">Antes: $4,900</span>
                     <span className="inline-flex items-center rounded-full bg-[#34C759]/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#34C759]">
                       -22%
                     </span>
                   </div>
-                  <div className="flex flex-col">
+                  <div className="flex flex-col mt-0">
                     <div className="plan-price-row flex items-baseline gap-2.5 max-w-full lg:whitespace-nowrap">
                       <span className="precio-desde font-semibold leading-[1.1] text-[#0B0B0B]" style={{ fontSize: 'clamp(26px, 2.0vw, 34px)', fontVariantNumeric: 'tabular-nums' }}>$3,800</span>
                     </div>
                     <p className="text-sm font-medium text-neutral-500 mt-1">Pago único</p>
                   </div>
-                  <div className="h-[20px]"></div>
                 </div>
 
                 {/* Body: Lista de beneficios */}
-                <div className="plan-body flex-1 flex flex-col">
-                  <ul className="plan-list space-y-4 text-left">
-                    <li className="flex items-start gap-2">
+                <div className="plan-body flex-1 flex flex-col mt-4">
+                  <ul className="plan-list space-y-2 text-left">
+                    <li className="flex items-start gap-3">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
@@ -507,11 +506,11 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-7 text-neutral-600">
+                      <span className="text-sm leading-6 text-neutral-600">
                         1–2 sesiones de entendimiento del negocio
                       </span>
                     </li>
-                    <li className="flex items-start gap-2">
+                    <li className="flex items-start gap-3">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
@@ -522,11 +521,11 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-7 text-neutral-600">
+                      <span className="text-sm leading-6 text-neutral-600">
                         Revisión de hasta 3 fuentes de datos (Excel, CSV o exportes de sistemas existentes)
                       </span>
                     </li>
-                    <li className="flex items-start gap-2">
+                    <li className="flex items-start gap-3">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
@@ -537,11 +536,11 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-7 text-neutral-600">
+                      <span className="text-sm leading-6 text-neutral-600">
                         Diagnóstico inicial de la información
                       </span>
                     </li>
-                    <li className="flex items-start gap-2">
+                    <li className="flex items-start gap-3">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
@@ -552,11 +551,11 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-7 text-neutral-600">
+                      <span className="text-sm leading-6 text-neutral-600">
                         Definición de hasta 3 KPIs clave del negocio
                       </span>
                     </li>
-                    <li className="flex items-start gap-2">
+                    <li className="flex items-start gap-3">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
@@ -567,11 +566,11 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-7 text-neutral-600">
+                      <span className="text-sm leading-6 text-neutral-600">
                         Desarrollo de 1 dashboard inicial en Power BI
                       </span>
                     </li>
-                    <li className="flex items-start gap-2">
+                    <li className="flex items-start gap-3">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
@@ -582,11 +581,11 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-7 text-neutral-600">
+                      <span className="text-sm leading-6 text-neutral-600">
                         Entrega única en PDF (one-shot)
                       </span>
                     </li>
-                    <li className="flex items-start gap-2">
+                    <li className="flex items-start gap-3">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
@@ -597,7 +596,7 @@ export default function Home() {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-sm leading-7 text-neutral-600">
+                      <span className="text-sm leading-6 text-neutral-600">
                         Documentación del proyecto
                       </span>
                     </li>
@@ -631,24 +630,23 @@ export default function Home() {
                 </div>
 
                 {/* Offer Block: Label + Cotización */}
-                <div className="plan-priceBlock h-[140px] flex flex-col justify-between">
-                  <div className="plan-discount-row h-[28px] flex items-center gap-3 opacity-0 pointer-events-none select-none">
+                <div className="plan-priceBlock h-[96px] flex flex-col justify-start gap-2.5">
+                  <div className="plan-discount-row h-[20px] flex items-center gap-3 opacity-0 pointer-events-none select-none">
                     <span className="text-xs font-medium text-neutral-400 line-through">Antes</span>
                     <span className="inline-flex items-center rounded-full bg-[#34C759]/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#34C759]">
                       -00%
                     </span>
                   </div>
-                  <div className="flex flex-col justify-center">
-                    <p className="text-xs font-medium text-neutral-500 mb-2">Plan mensual</p>
-                    <p className="text-xl font-semibold leading-tight text-[#0B0B0B]"> Inversíon según alcance</p>
+                  <div className="flex flex-col justify-start">
+                    <p className="text-xs font-medium text-neutral-500 mb-1.5">Plan mensual</p>
+                    <p className="text-lg font-semibold leading-tight text-[#0B0B0B]">Inversión según alcance</p>
                   </div>
-                  <div className="h-[20px]"></div>
                 </div>
 
                 {/* Body: Lista de beneficios */}
-                <div className="plan-body flex-1 flex flex-col">
+                <div className="plan-body flex-1 flex flex-col mt-4">
                   <ul className="plan-list space-y-2 text-left">
-                    <li className="flex items-start gap-2">
+                    <li className="flex items-start gap-3">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
@@ -663,7 +661,7 @@ export default function Home() {
                         Sesiones iniciales de entendimiento y alineación
                       </span>
                     </li>
-                    <li className="flex items-start gap-2">
+                    <li className="flex items-start gap-3">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
@@ -678,7 +676,7 @@ export default function Home() {
                         Revisión y conexión de múltiples fuentes de datos
                       </span>
                     </li>
-                    <li className="flex items-start gap-2">
+                    <li className="flex items-start gap-3">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
@@ -693,7 +691,7 @@ export default function Home() {
                         Definición y seguimiento de KPIs clave del negocio
                       </span>
                     </li>
-                    <li className="flex items-start gap-2">
+                    <li className="flex items-start gap-3">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
@@ -708,7 +706,7 @@ export default function Home() {
                         Sesiones mensuales de resultados y seguimiento con recomendaciones de decisiones estrategicas
                       </span>
                     </li>
-                    <li className="flex items-start gap-2">
+                    <li className="flex items-start gap-3">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
@@ -723,7 +721,7 @@ export default function Home() {
                         Desarrollo y evolución continua de dashboards en Power BI
                       </span>
                     </li>
-                    <li className="flex items-start gap-2">
+                    <li className="flex items-start gap-3">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
@@ -738,7 +736,7 @@ export default function Home() {
                         Acceso a Power BI como plataforma de lectura interactiva
                       </span>
                     </li>
-                    <li className="flex items-start gap-2">
+                    <li className="flex items-start gap-3">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
@@ -753,7 +751,7 @@ export default function Home() {
                         Actualizaciones periódicas de la información
                       </span>
                     </li>
-                    <li className="flex items-start gap-2">
+                    <li className="flex items-start gap-3">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
@@ -791,24 +789,23 @@ export default function Home() {
                 </div>
 
                 {/* Offer Block: Label + Cotización */}
-                <div className="plan-priceBlock h-[140px] flex flex-col justify-between">
-                  <div className="plan-discount-row h-[28px] flex items-center gap-3 opacity-0 pointer-events-none select-none">
+                <div className="plan-priceBlock h-[96px] flex flex-col justify-start gap-2.5">
+                  <div className="plan-discount-row h-[20px] flex items-center gap-3 opacity-0 pointer-events-none select-none">
                     <span className="text-xs font-medium text-neutral-400 line-through">Antes</span>
                     <span className="inline-flex items-center rounded-full bg-[#34C759]/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#34C759]">
                       -00%
                     </span>
                   </div>
-                  <div className="flex flex-col justify-center">
-                    <p className="text-xs font-medium text-neutral-500 mb-2">BI externo para tu negocio</p>
-                    <p className="text-xl font-semibold leading-tight text-[#0B0B0B]">Inversión según alcance</p>
+                  <div className="flex flex-col justify-start">
+                    <p className="text-xs font-medium text-neutral-500 mb-1.5">BI externo para tu negocio</p>
+                    <p className="text-lg font-semibold leading-tight text-[#0B0B0B]">Inversión según alcance</p>
                   </div>
-                  <div className="h-[20px]"></div>
                 </div>
 
                 {/* Body: Lista de beneficios */}
-                <div className="plan-body flex-1 flex flex-col">
+                <div className="plan-body flex-1 flex flex-col mt-4">
                   <ul className="plan-list space-y-2 text-left">
-                    <li className="flex items-start gap-2">
+                    <li className="flex items-start gap-3">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
@@ -833,7 +830,7 @@ export default function Home() {
                         </ul>
                       </div>
                     </li>
-                    <li className="flex items-start gap-2">
+                    <li className="flex items-start gap-3">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
@@ -848,7 +845,7 @@ export default function Home() {
                         Reportes especializados orientados a acciones concretas
                       </span>
                     </li>
-                    <li className="flex items-start gap-2">
+                    <li className="flex items-start gap-3">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
@@ -876,7 +873,7 @@ export default function Home() {
                         </ul>
                       </div>
                     </li>
-                    <li className="flex items-start gap-2">
+                    <li className="flex items-start gap-3">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
@@ -891,7 +888,7 @@ export default function Home() {
                         Actualización semanal o automática (si la fuente lo permite)
                       </span>
                     </li>
-                    <li className="flex items-start gap-2">
+                    <li className="flex items-start gap-3">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
@@ -919,7 +916,7 @@ export default function Home() {
                         </ul>
                       </div>
                     </li>
-                    <li className="flex items-start gap-2">
+                    <li className="flex items-start gap-3">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
                         fill="none"
