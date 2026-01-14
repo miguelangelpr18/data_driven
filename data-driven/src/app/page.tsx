@@ -471,29 +471,31 @@ export default function Home() {
             <div className="mx-auto mt-20 grid max-w-5xl items-stretch gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
               {/* Plan 1: Insight Plan */}
               <article className="plan-card plan-card--insight group relative flex flex-col rounded-[28px] border border-[#E8E8ED] bg-white p-8 shadow-[0_2px_12px_rgba(15,15,15,0.03)] transition-all duration-[220ms] ease-out lg:hover:-translate-y-[2px] lg:hover:shadow-[0_4px_18px_rgba(15,15,15,0.05)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 sm:p-9 lg:min-h-[740px]">
-                {/* Header: Título + Precio */}
-                <div className="plan-header min-h-[180px] flex flex-col justify-between">
-                  <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B]">Insight Plan</h3>
+                {/* Header: Grid con 3 filas fijas */}
+                <header className="grid grid-rows-[56px_24px_80px] gap-0">
+                  {/* Fila 1: Título */}
+                  <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B] flex items-start">Insight Plan</h3>
                   
-                  <div className="flex flex-col gap-2.5">
-                    <div className="plan-discount-row flex items-center gap-2 leading-4">
-                      <span className="text-xs font-medium text-neutral-400 line-through">Antes: $4,900</span>
-                      <span className="inline-flex items-center rounded-full bg-[#34C759]/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#34C759]">
-                        -22%
-                      </span>
-                    </div>
-                    <div className="flex flex-col">
-                      <div className="plan-price-row flex items-baseline gap-2.5 max-w-full lg:whitespace-nowrap">
-                        <span className="precio-desde font-semibold leading-[1.1] text-[#0B0B0B]" style={{ fontSize: 'clamp(26px, 2.0vw, 34px)', fontVariantNumeric: 'tabular-nums' }}>$3,800</span>
-                      </div>
-                      <p className="text-sm font-medium text-neutral-500 mt-1">Pago único</p>
-                    </div>
+                  {/* Fila 2: Meta row */}
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs font-medium text-neutral-400 line-through">Antes: $4,900</span>
+                    <span className="inline-flex items-center rounded-full bg-[#34C759]/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#34C759]">
+                      -22%
+                    </span>
                   </div>
-                </div>
+                  
+                  {/* Fila 3: Oferta principal */}
+                  <div className="flex flex-col justify-start">
+                    <div className="plan-price-row flex items-baseline gap-2.5 max-w-full lg:whitespace-nowrap">
+                      <span className="precio-desde font-semibold leading-[1.1] text-[#0B0B0B]" style={{ fontSize: 'clamp(26px, 2.0vw, 34px)', fontVariantNumeric: 'tabular-nums' }}>$3,800</span>
+                    </div>
+                    <p className="text-sm font-medium text-neutral-500 mt-1">Pago único</p>
+                  </div>
+                </header>
 
                 {/* Body: Lista de beneficios */}
                 <div className="plan-body flex-1 flex flex-col mt-6">
-                  <ul className="plan-list space-y-1.5 text-left">
+                  <ul className="plan-list space-y-2 text-left">
                     <li className="flex items-start gap-3">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
@@ -623,19 +625,25 @@ export default function Home() {
                   </span>
                 </div>
 
-                {/* Header: Título + Oferta */}
-                <div className="plan-header min-h-[180px] flex flex-col justify-between">
-                  <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B]">Data Driven Plan</h3>
+                {/* Header: Grid con 3 filas fijas */}
+                <header className="grid grid-rows-[56px_24px_80px] gap-0">
+                  {/* Fila 1: Título */}
+                  <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B] flex items-start">Data Driven Plan</h3>
                   
-                  <div className="flex flex-col">
-                    <p className="text-xs font-medium text-neutral-500 mb-1.5">Plan mensual</p>
+                  {/* Fila 2: Meta row */}
+                  <div className="flex items-center">
+                    <p className="text-xs font-medium text-neutral-500">Plan mensual</p>
+                  </div>
+                  
+                  {/* Fila 3: Oferta principal */}
+                  <div className="flex flex-col justify-start">
                     <p className="text-lg font-semibold leading-tight text-[#0B0B0B]">Inversión según alcance</p>
                   </div>
-                </div>
+                </header>
 
                 {/* Body: Lista de beneficios */}
                 <div className="plan-body flex-1 flex flex-col mt-6">
-                  <ul className="plan-list space-y-1.5 text-left">
+                  <ul className="plan-list space-y-2 text-left">
                     <li className="flex items-start gap-3">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
@@ -773,19 +781,25 @@ export default function Home() {
 
               {/* Plan 3: Control Plan */}
               <article className="plan-card plan-card--control group relative flex flex-col rounded-[28px] border border-[#E8E8ED] bg-white p-8 shadow-[0_2px_12px_rgba(15,15,15,0.03)] transition-all duration-[220ms] ease-out lg:hover:-translate-y-[2px] lg:hover:shadow-[0_4px_18px_rgba(15,15,15,0.05)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 sm:p-9 lg:min-h-[740px]">
-                {/* Header: Título + Oferta */}
-                <div className="plan-header min-h-[180px] flex flex-col justify-between">
-                  <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B]">Control Plan</h3>
+                {/* Header: Grid con 3 filas fijas */}
+                <header className="grid grid-rows-[56px_24px_80px] gap-0">
+                  {/* Fila 1: Título */}
+                  <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B] flex items-start">Control Plan</h3>
                   
-                  <div className="flex flex-col">
-                    <p className="text-xs font-medium text-neutral-500 mb-1.5">BI externo para tu negocio</p>
+                  {/* Fila 2: Meta row */}
+                  <div className="flex items-center">
+                    <p className="text-xs font-medium text-neutral-500">BI externo para tu negocio</p>
+                  </div>
+                  
+                  {/* Fila 3: Oferta principal */}
+                  <div className="flex flex-col justify-start">
                     <p className="text-lg font-semibold leading-tight text-[#0B0B0B]">Inversión según alcance</p>
                   </div>
-                </div>
+                </header>
 
                 {/* Body: Lista de beneficios */}
                 <div className="plan-body flex-1 flex flex-col mt-6">
-                  <ul className="plan-list space-y-1.5 text-left">
+                  <ul className="plan-list space-y-2 text-left">
                     <li className="flex items-start gap-3">
                       <svg
                         className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
