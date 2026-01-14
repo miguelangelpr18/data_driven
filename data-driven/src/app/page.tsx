@@ -471,24 +471,27 @@ export default function Home() {
             <div className="mx-auto mt-20 grid max-w-5xl items-stretch gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
               {/* Plan 1: Insight Plan */}
               <article className="plan-card plan-card--insight group relative flex flex-col rounded-[28px] border border-[#E8E8ED] bg-white p-8 shadow-[0_2px_12px_rgba(15,15,15,0.03)] transition-all duration-[220ms] ease-out lg:hover:-translate-y-[2px] lg:hover:shadow-[0_4px_18px_rgba(15,15,15,0.05)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 sm:p-9 lg:min-h-[740px]">
-                {/* Top: Título */}
-                <div className="plan-top h-[64px] flex items-start">
-                  <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B]">Insight Plan</h3>
-                </div>
-
-                {/* Price Block: Descuento + Precio + Pago único */}
-                <div className="plan-priceBlock h-[96px] flex flex-col justify-start gap-2.5">
-                  <div className="plan-discount-row flex items-center gap-2 leading-4">
-                    <span className="text-xs font-medium text-neutral-400 line-through">Antes: $4,900</span>
-                    <span className="inline-flex items-center rounded-full bg-[#34C759]/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#34C759]">
-                      -22%
-                    </span>
+                {/* Header Section: Título + Oferta */}
+                <div className="plan-header-section min-h-[160px] flex flex-col">
+                  {/* Top: Título */}
+                  <div className="plan-top h-[64px] flex items-start">
+                    <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B]">Insight Plan</h3>
                   </div>
-                  <div className="flex flex-col mt-0">
-                    <div className="plan-price-row flex items-baseline gap-2.5 max-w-full lg:whitespace-nowrap">
-                      <span className="precio-desde font-semibold leading-[1.1] text-[#0B0B0B]" style={{ fontSize: 'clamp(26px, 2.0vw, 34px)', fontVariantNumeric: 'tabular-nums' }}>$3,800</span>
+
+                  {/* Price Block: Descuento + Precio + Pago único */}
+                  <div className="plan-priceBlock flex-1 flex flex-col justify-start gap-2.5">
+                    <div className="plan-discount-row flex items-center gap-2 leading-4">
+                      <span className="text-xs font-medium text-neutral-400 line-through">Antes: $4,900</span>
+                      <span className="inline-flex items-center rounded-full bg-[#34C759]/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#34C759]">
+                        -22%
+                      </span>
                     </div>
-                    <p className="text-sm font-medium text-neutral-500 mt-1">Pago único</p>
+                    <div className="flex flex-col mt-0">
+                      <div className="plan-price-row flex items-baseline gap-2.5 max-w-full lg:whitespace-nowrap">
+                        <span className="precio-desde font-semibold leading-[1.1] text-[#0B0B0B]" style={{ fontSize: 'clamp(26px, 2.0vw, 34px)', fontVariantNumeric: 'tabular-nums' }}>$3,800</span>
+                      </div>
+                      <p className="text-sm font-medium text-neutral-500 mt-1">Pago único</p>
+                    </div>
                   </div>
                 </div>
 
@@ -624,22 +627,25 @@ export default function Home() {
                   </span>
                 </div>
 
-                {/* Top: Título */}
-                <div className="plan-top h-[64px] flex items-start">
-                  <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B]">Data Driven Plan</h3>
-                </div>
-
-                {/* Offer Block: Label + Cotización */}
-                <div className="plan-priceBlock h-[96px] flex flex-col justify-start gap-2.5">
-                  <div className="plan-discount-row h-[20px] flex items-center gap-3 opacity-0 pointer-events-none select-none">
-                    <span className="text-xs font-medium text-neutral-400 line-through">Antes</span>
-                    <span className="inline-flex items-center rounded-full bg-[#34C759]/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#34C759]">
-                      -00%
-                    </span>
+                {/* Header Section: Título + Oferta */}
+                <div className="plan-header-section min-h-[160px] flex flex-col">
+                  {/* Top: Título */}
+                  <div className="plan-top h-[64px] flex items-start">
+                    <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B]">Data Driven Plan</h3>
                   </div>
-                  <div className="flex flex-col justify-start">
-                    <p className="text-xs font-medium text-neutral-500 mb-1.5">Plan mensual</p>
-                    <p className="text-lg font-semibold leading-tight text-[#0B0B0B]">Inversión según alcance</p>
+
+                  {/* Offer Block: Label + Cotización */}
+                  <div className="plan-priceBlock flex-1 flex flex-col justify-center gap-2.5">
+                    <div className="plan-discount-row h-0 flex items-center gap-3 opacity-0 pointer-events-none select-none overflow-hidden">
+                      <span className="text-xs font-medium text-neutral-400 line-through">Antes</span>
+                      <span className="inline-flex items-center rounded-full bg-[#34C759]/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#34C759]">
+                        -00%
+                      </span>
+                    </div>
+                    <div className="flex flex-col justify-center">
+                      <p className="text-xs font-medium text-neutral-500 mb-1.5">Plan mensual</p>
+                      <p className="text-lg font-semibold leading-tight text-[#0B0B0B]">Inversión según alcance</p>
+                    </div>
                   </div>
                 </div>
 
@@ -783,22 +789,25 @@ export default function Home() {
 
               {/* Plan 3: Control Plan */}
               <article className="plan-card plan-card--control group relative flex flex-col rounded-[28px] border border-[#E8E8ED] bg-white p-8 shadow-[0_2px_12px_rgba(15,15,15,0.03)] transition-all duration-[220ms] ease-out lg:hover:-translate-y-[2px] lg:hover:shadow-[0_4px_18px_rgba(15,15,15,0.05)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 sm:p-9 lg:min-h-[740px]">
-                {/* Top: Título */}
-                <div className="plan-top h-[64px] flex items-start">
-                  <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B]">Control Plan</h3>
-                </div>
-
-                {/* Offer Block: Label + Cotización */}
-                <div className="plan-priceBlock h-[96px] flex flex-col justify-start gap-2.5">
-                  <div className="plan-discount-row h-[20px] flex items-center gap-3 opacity-0 pointer-events-none select-none">
-                    <span className="text-xs font-medium text-neutral-400 line-through">Antes</span>
-                    <span className="inline-flex items-center rounded-full bg-[#34C759]/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#34C759]">
-                      -00%
-                    </span>
+                {/* Header Section: Título + Oferta */}
+                <div className="plan-header-section min-h-[160px] flex flex-col">
+                  {/* Top: Título */}
+                  <div className="plan-top h-[64px] flex items-start">
+                    <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B]">Control Plan</h3>
                   </div>
-                  <div className="flex flex-col justify-start">
-                    <p className="text-xs font-medium text-neutral-500 mb-1.5">BI externo para tu negocio</p>
-                    <p className="text-lg font-semibold leading-tight text-[#0B0B0B]">Inversión según alcance</p>
+
+                  {/* Offer Block: Label + Cotización */}
+                  <div className="plan-priceBlock flex-1 flex flex-col justify-center gap-2.5">
+                    <div className="plan-discount-row h-0 flex items-center gap-3 opacity-0 pointer-events-none select-none overflow-hidden">
+                      <span className="text-xs font-medium text-neutral-400 line-through">Antes</span>
+                      <span className="inline-flex items-center rounded-full bg-[#34C759]/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#34C759]">
+                        -00%
+                      </span>
+                    </div>
+                    <div className="flex flex-col justify-center">
+                      <p className="text-xs font-medium text-neutral-500 mb-1.5">BI externo para tu negocio</p>
+                      <p className="text-lg font-semibold leading-tight text-[#0B0B0B]">Inversión según alcance</p>
+                    </div>
                   </div>
                 </div>
 
