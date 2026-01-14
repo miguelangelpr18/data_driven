@@ -640,7 +640,7 @@ export default function Home() {
                   </div>
                   <div className="flex flex-col justify-center">
                     <p className="text-xs font-medium text-neutral-500 mb-2">Plan mensual</p>
-                    <p className="text-xl font-semibold leading-tight text-[#0B0B0B]">Cotización según alcance</p>
+                    <p className="text-xl font-semibold leading-tight text-[#0B0B0B]"> Inversíon según alcance</p>
                   </div>
                   <div className="h-[20px]"></div>
                 </div>
@@ -800,7 +800,7 @@ export default function Home() {
                   </div>
                   <div className="flex flex-col justify-center">
                     <p className="text-xs font-medium text-neutral-500 mb-2">BI externo para tu negocio</p>
-                    <p className="text-xl font-semibold leading-tight text-[#0B0B0B]">Cotización a medida</p>
+                    <p className="text-xl font-semibold leading-tight text-[#0B0B0B]">Inversión según alcance</p>
                   </div>
                   <div className="h-[20px]"></div>
                 </div>
