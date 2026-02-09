@@ -156,7 +156,7 @@ const dataDrivenBenefits = [
   'Capacidad de anticipar riesgos y áreas de mejora.'
 ] as const;
 
-const BULLETS_VISIBLE_DEFAULT = 6;
+const MAX_BULLETS_VISIBLE = 5;
 
 const CheckIcon = () => (
   <svg className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5} aria-hidden="true">
@@ -164,51 +164,55 @@ const CheckIcon = () => (
   </svg>
 );
 
+const CaretDown = () => (
+  <svg className="h-3.5 w-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+  </svg>
+);
+
 type PlanVariant = 'default' | 'popular';
 
 interface PlanCardProps {
+  id: string;
   title: string;
   subtitle?: string;
-  priceMain: string;
   priceLabel: string;
-  priceMeta?: string;
+  priceMain: string;
+  priceMeta: string;
   discountRow?: { before: string; badge: string };
   bullets: string[];
   variant: PlanVariant;
   badge?: string;
-  priceSize?: 'normal' | 'small';
-  /** Si true, el precio puede hacer wrap (ej. "Inversión según alcance") */
-  priceWraps?: boolean;
+  expanded: boolean;
+  onToggle: () => void;
 }
 
 function PlanCard({
+  id,
   title,
   subtitle,
-  priceMain,
   priceLabel,
+  priceMain,
   priceMeta,
   discountRow,
   bullets,
   variant,
   badge,
-  priceSize = 'normal',
-  priceWraps = false
+  expanded,
+  onToggle
 }: PlanCardProps) {
-  const [expanded, setExpanded] = useState(false);
-  const hasMore = bullets.length > BULLETS_VISIBLE_DEFAULT;
-  const visibleBullets = expanded ? bullets : bullets.slice(0, BULLETS_VISIBLE_DEFAULT);
+  const hasMore = bullets.length > MAX_BULLETS_VISIBLE;
+  const visibleBullets = expanded ? bullets : bullets.slice(0, MAX_BULLETS_VISIBLE);
 
   const isPopular = variant === 'popular';
   const cardClasses = cn(
     'plan-card group relative flex min-h-0 flex-col rounded-[28px] border bg-white p-8 shadow-[0_2px_12px_rgba(15,15,15,0.03)] transition-all duration-[220ms] ease-out',
-    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 sm:p-9 lg:min-h-[520px]',
+    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 sm:p-9 lg:min-h-[480px]',
     'lg:hover:-translate-y-[2px] lg:hover:shadow-[0_4px_18px_rgba(15,15,15,0.05)]',
     isPopular
       ? 'border-2 border-[#0B0B0B]/25 shadow-[0_4px_20px_rgba(15,15,15,0.06)] lg:hover:shadow-[0_6px_28px_rgba(15,15,15,0.1)] focus-visible:ring-black/20 lg:-translate-y-2'
       : 'border border-[#E8E8ED]'
   );
-
-  const priceClamp = priceSize === 'small' ? 'clamp(22px,1.6vw,28px)' : 'clamp(24px,1.8vw,32px)';
 
   return (
     <article className={cardClasses}>
@@ -220,39 +224,45 @@ function PlanCard({
         </div>
       )}
 
-      <header className="plan-top h-[76px] flex flex-col justify-center shrink-0">
+      <header className="plan-top min-h-[76px] flex flex-col justify-center shrink-0">
         <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B]">{title}</h3>
-        {subtitle && <p className="mt-1 text-sm font-medium text-neutral-500">{subtitle}</p>}
+        <p className="mt-1 min-h-[20px] text-sm font-medium text-neutral-500">
+          {subtitle ?? '\u00A0'}
+        </p>
       </header>
 
-      <div className="plan-priceBlock h-[92px] flex flex-col justify-center shrink-0 mt-1">
-        {discountRow && (
-          <div className="flex items-center gap-2 mb-1">
-            <span className="text-xs font-medium text-neutral-400 line-through">{discountRow.before}</span>
-            <span className="inline-flex items-center rounded-full bg-[#34C759]/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#34C759]">
-              {discountRow.badge}
-            </span>
-          </div>
-        )}
-        <div className="flex flex-col gap-0.5 min-w-0">
-          <p
-            className={cn(
-              'font-semibold leading-tight text-[#0B0B0B] min-w-0 overflow-hidden tracking-tight',
-              priceWraps ? 'whitespace-normal' : 'whitespace-nowrap text-ellipsis tabular-nums'
-            )}
-            style={{ fontSize: priceClamp, fontVariantNumeric: priceWraps ? undefined : 'tabular-nums' }}
-          >
-            {priceMain}
-          </p>
-          <p className="text-sm font-medium text-neutral-500">{priceLabel}</p>
-          {priceMeta && <p className="text-xs text-neutral-400">{priceMeta}</p>}
+      <div className="plan-priceBlock h-[110px] grid grid-rows-[24px_20px_40px_20px] gap-0 shrink-0 mt-1 min-w-0">
+        <div className="flex items-center gap-2">
+          {discountRow ? (
+            <>
+              <span className="text-xs font-medium text-neutral-400 line-through">{discountRow.before}</span>
+              <span className="inline-flex items-center rounded-full bg-[#34C759]/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#34C759]">
+                {discountRow.badge}
+              </span>
+            </>
+          ) : (
+            <span className="text-xs text-transparent select-none">-</span>
+          )}
         </div>
+        <p className="text-xs font-medium text-neutral-500 leading-tight flex items-end">
+          {priceLabel}
+        </p>
+        <p
+          className="text-[#0B0B0B] font-semibold leading-tight tracking-tight whitespace-nowrap overflow-hidden text-ellipsis min-w-0 flex items-end"
+          style={{ fontSize: 'clamp(22px,1.8vw,32px)', fontVariantNumeric: 'tabular-nums' }}
+        >
+          {priceMain}
+        </p>
+        <p className="text-xs text-neutral-400 leading-tight flex items-start">
+          {priceMeta || '\u00A0'}
+        </p>
       </div>
 
       <div className="plan-body flex-1 flex flex-col min-h-0 mt-6">
         <div
-          className="overflow-hidden transition-all duration-300 ease-out"
-          style={{ maxHeight: expanded ? '2000px' : '12.5rem' }}
+          id={`plan-bullets-${id}`}
+          className="overflow-hidden transition-[max-height] duration-300 ease-out min-h-0"
+          style={{ maxHeight: expanded ? '2000px' : '11rem' }}
         >
           <ul className="plan-list space-y-2 text-left">
             {visibleBullets.map((item) => (
@@ -266,11 +276,16 @@ function PlanCard({
         {hasMore && (
           <button
             type="button"
-            onClick={() => setExpanded((e) => !e)}
+            onClick={onToggle}
             aria-expanded={expanded}
-            className="mt-3 text-sm font-medium text-[#0B0B0B] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 rounded"
+            aria-controls={`plan-bullets-${id}`}
+            id={`plan-toggle-${id}`}
+            className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-[#0B0B0B] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 rounded"
           >
             {expanded ? 'Ver menos' : 'Ver más'}
+            <span className={cn('transition-transform duration-200', expanded && 'rotate-180')}>
+              <CaretDown />
+            </span>
           </button>
         )}
       </div>
@@ -294,13 +309,14 @@ function PlanCard({
   );
 }
 
-const pricingPlans: PlanCardProps[] = [
+const pricingPlansData: Omit<PlanCardProps, 'expanded' | 'onToggle'>[] = [
   {
+    id: 'data00',
     title: 'Data 0.0',
     subtitle: 'Fundamentos Data-Driven',
-    priceMain: '$3,000 MXN',
-    priceLabel: '/ mes',
-    priceMeta: 'Duración mínima: 3 meses',
+    priceLabel: 'Plan mensual',
+    priceMain: 'Inversión desde $2,000',
+    priceMeta: 'Según alcance · Duración mínima: 3 meses',
     bullets: [
       'Entendimiento profundo del negocio',
       'Sesión inicial de diagnóstico operativo',
@@ -314,10 +330,11 @@ const pricingPlans: PlanCardProps[] = [
     variant: 'default'
   },
   {
+    id: 'insight',
     title: 'Insight Plan',
-    priceMain: '$3,800',
     priceLabel: 'Pago único',
-    priceMeta: undefined,
+    priceMain: '$3,800',
+    priceMeta: '',
     discountRow: { before: 'Antes: $4,900', badge: '-22%' },
     bullets: [
       '1–2 sesiones de entendimiento del negocio',
@@ -331,10 +348,11 @@ const pricingPlans: PlanCardProps[] = [
     variant: 'default'
   },
   {
+    id: 'pro',
     title: 'Data Driven Plan',
-    priceMain: 'Inversión según alcance',
     priceLabel: 'Plan mensual',
-    priceMeta: undefined,
+    priceMain: 'Inversión según alcance',
+    priceMeta: '',
     bullets: [
       'Sesiones iniciales de entendimiento y alineación',
       'Revisión y conexión de múltiples fuentes de datos',
@@ -346,25 +364,26 @@ const pricingPlans: PlanCardProps[] = [
       'Documentación y seguimiento del proyecto'
     ],
     variant: 'popular',
-    badge: 'MÁS POPULAR',
-    priceWraps: true
+    badge: 'MÁS POPULAR'
   },
   {
+    id: 'control',
     title: 'Control Plan',
-    priceMain: 'Inversión según alcance',
     priceLabel: 'BI externo para tu negocio',
-    priceMeta: undefined,
+    priceMain: 'Inversión según alcance',
+    priceMeta: '',
     bullets: [
-      'Múltiples dashboards, organizados por rol (Dirección / Dueño, Operación) e iniciativa (ventas, retención, productividad, etc.)',
+      'Múltiples dashboards organizados por rol (Dirección / Dueño, Operación)',
+      'Múltiples dashboards organizados por iniciativa (ventas, retención, productividad, etc.)',
       'Reportes especializados orientados a acciones concretas',
-      'Modelado de datos avanzado: históricos consolidados, comparativos entre periodos, análisis de cohortes',
+      'Modelado de datos avanzado (históricos consolidados)',
+      'Modelado de datos avanzado (comparativos entre periodos)',
+      'Modelado de datos avanzado (análisis de cohortes)',
       'Actualización semanal o automática (si la fuente lo permite)',
-      'KPIs avanzados: retención, drop-off, crecimiento',
+      'KPIs avanzados (retención, drop-off, crecimiento)',
       'Priorización mensual de nuevas iniciativas y vistas'
     ],
-    variant: 'default',
-    priceSize: 'small',
-    priceWraps: true
+    variant: 'default'
   }
 ];
 
@@ -376,6 +395,11 @@ export default function Home() {
   const objectiveCardsRef = useRef<(HTMLElement | null)[]>([]);
   const [objectiveMessageVisible, setObjectiveMessageVisible] = useState(false);
   const objectiveMessageRef = useRef<HTMLDivElement | null>(null);
+  const [expandedPlans, setExpandedPlans] = useState<Record<string, boolean>>({});
+
+  const togglePlan = (id: string) => {
+    setExpandedPlans((prev) => ({ ...prev, [id]: !(prev[id] ?? false) }));
+  };
 
   useEffect(() => {
     setIntroVisible(true);
@@ -678,9 +702,14 @@ export default function Home() {
                 Elige el plan ideal según tu nivel de control y seguimiento.
               </p>
             </div>
-            <div className="mx-auto mt-16 grid max-w-7xl items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-2 2xl:grid-cols-4">
-              {pricingPlans.map((plan) => (
-                <PlanCard key={plan.title} {...plan} />
+            <div className="mx-auto mt-16 grid max-w-7xl items-stretch gap-6 sm:grid-cols-2 xl:grid-cols-4">
+              {pricingPlansData.map((plan) => (
+                <PlanCard
+                  key={plan.id}
+                  {...plan}
+                  expanded={expandedPlans[plan.id] ?? false}
+                  onToggle={() => togglePlan(plan.id)}
+                />
               ))}
             </div>
           </div>
