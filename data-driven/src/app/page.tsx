@@ -156,6 +156,218 @@ const dataDrivenBenefits = [
   'Capacidad de anticipar riesgos y áreas de mejora.'
 ] as const;
 
+const BULLETS_VISIBLE_DEFAULT = 6;
+
+const CheckIcon = () => (
+  <svg className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5} aria-hidden="true">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+  </svg>
+);
+
+type PlanVariant = 'default' | 'popular';
+
+interface PlanCardProps {
+  title: string;
+  subtitle?: string;
+  priceMain: string;
+  priceLabel: string;
+  priceMeta?: string;
+  discountRow?: { before: string; badge: string };
+  bullets: string[];
+  variant: PlanVariant;
+  badge?: string;
+  priceSize?: 'normal' | 'small';
+  /** Si true, el precio puede hacer wrap (ej. "Inversión según alcance") */
+  priceWraps?: boolean;
+}
+
+function PlanCard({
+  title,
+  subtitle,
+  priceMain,
+  priceLabel,
+  priceMeta,
+  discountRow,
+  bullets,
+  variant,
+  badge,
+  priceSize = 'normal',
+  priceWraps = false
+}: PlanCardProps) {
+  const [expanded, setExpanded] = useState(false);
+  const hasMore = bullets.length > BULLETS_VISIBLE_DEFAULT;
+  const visibleBullets = expanded ? bullets : bullets.slice(0, BULLETS_VISIBLE_DEFAULT);
+
+  const isPopular = variant === 'popular';
+  const cardClasses = cn(
+    'plan-card group relative flex min-h-0 flex-col rounded-[28px] border bg-white p-8 shadow-[0_2px_12px_rgba(15,15,15,0.03)] transition-all duration-[220ms] ease-out',
+    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 sm:p-9 lg:min-h-[520px]',
+    'lg:hover:-translate-y-[2px] lg:hover:shadow-[0_4px_18px_rgba(15,15,15,0.05)]',
+    isPopular
+      ? 'border-2 border-[#0B0B0B]/25 shadow-[0_4px_20px_rgba(15,15,15,0.06)] lg:hover:shadow-[0_6px_28px_rgba(15,15,15,0.1)] focus-visible:ring-black/20 lg:-translate-y-2'
+      : 'border border-[#E8E8ED]'
+  );
+
+  const priceClamp = priceSize === 'small' ? 'clamp(22px,1.6vw,28px)' : 'clamp(24px,1.8vw,32px)';
+
+  return (
+    <article className={cardClasses}>
+      {badge && (
+        <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
+          <span className="inline-flex items-center rounded-full bg-[#0B0B0B] px-3.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-white shadow-[0_2px_8px_rgba(0,0,0,0.15)]">
+            {badge}
+          </span>
+        </div>
+      )}
+
+      <header className="plan-top h-[76px] flex flex-col justify-center shrink-0">
+        <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B]">{title}</h3>
+        {subtitle && <p className="mt-1 text-sm font-medium text-neutral-500">{subtitle}</p>}
+      </header>
+
+      <div className="plan-priceBlock h-[92px] flex flex-col justify-center shrink-0 mt-1">
+        {discountRow && (
+          <div className="flex items-center gap-2 mb-1">
+            <span className="text-xs font-medium text-neutral-400 line-through">{discountRow.before}</span>
+            <span className="inline-flex items-center rounded-full bg-[#34C759]/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#34C759]">
+              {discountRow.badge}
+            </span>
+          </div>
+        )}
+        <div className="flex flex-col gap-0.5 min-w-0">
+          <p
+            className={cn(
+              'font-semibold leading-tight text-[#0B0B0B] min-w-0 overflow-hidden tracking-tight',
+              priceWraps ? 'whitespace-normal' : 'whitespace-nowrap text-ellipsis tabular-nums'
+            )}
+            style={{ fontSize: priceClamp, fontVariantNumeric: priceWraps ? undefined : 'tabular-nums' }}
+          >
+            {priceMain}
+          </p>
+          <p className="text-sm font-medium text-neutral-500">{priceLabel}</p>
+          {priceMeta && <p className="text-xs text-neutral-400">{priceMeta}</p>}
+        </div>
+      </div>
+
+      <div className="plan-body flex-1 flex flex-col min-h-0 mt-6">
+        <div
+          className="overflow-hidden transition-all duration-300 ease-out"
+          style={{ maxHeight: expanded ? '2000px' : '12.5rem' }}
+        >
+          <ul className="plan-list space-y-2 text-left">
+            {visibleBullets.map((item) => (
+              <li key={item} className="flex items-start gap-3">
+                <CheckIcon />
+                <span className="text-sm leading-6 text-neutral-600">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        {hasMore && (
+          <button
+            type="button"
+            onClick={() => setExpanded((e) => !e)}
+            aria-expanded={expanded}
+            className="mt-3 text-sm font-medium text-[#0B0B0B] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 rounded"
+          >
+            {expanded ? 'Ver menos' : 'Ver más'}
+          </button>
+        )}
+      </div>
+
+      <div className="plan-cta mt-auto pt-6 shrink-0">
+        <button
+          type="button"
+          onClick={() => document.getElementById('agenda')?.scrollIntoView({ behavior: 'smooth' })}
+          className={cn(
+            'w-full h-12 rounded-full px-6 text-sm font-medium transition-all duration-[220ms] ease-out',
+            'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20',
+            isPopular
+              ? 'bg-black text-white shadow-[0_4px_16px_rgba(0,0,0,0.2)] lg:hover:shadow-[0_5px_18px_rgba(0,0,0,0.22)]'
+              : 'border border-[#E5E5EA] bg-white text-[#0B0B0B] shadow-[0_2px_8px_rgba(15,15,15,0.08)] lg:hover:shadow-[0_3px_10px_rgba(15,15,15,0.1)] focus-visible:ring-black/10'
+          )}
+        >
+          Agendar sesión
+        </button>
+      </div>
+    </article>
+  );
+}
+
+const pricingPlans: PlanCardProps[] = [
+  {
+    title: 'Data 0.0',
+    subtitle: 'Fundamentos Data-Driven',
+    priceMain: '$3,000 MXN',
+    priceLabel: '/ mes',
+    priceMeta: 'Duración mínima: 3 meses',
+    bullets: [
+      'Entendimiento profundo del negocio',
+      'Sesión inicial de diagnóstico operativo',
+      'Diseño de sistema de registro a la medida',
+      'Plantilla estructurada (Excel o Google Sheets)',
+      'Guía clara de uso y disciplina',
+      'Sesión mensual de seguimiento',
+      'Ajustes al sistema según uso real',
+      'Acompañamiento para asegurar adopción'
+    ],
+    variant: 'default'
+  },
+  {
+    title: 'Insight Plan',
+    priceMain: '$3,800',
+    priceLabel: 'Pago único',
+    priceMeta: undefined,
+    discountRow: { before: 'Antes: $4,900', badge: '-22%' },
+    bullets: [
+      '1–2 sesiones de entendimiento del negocio',
+      'Revisión de hasta 3 fuentes de datos (Excel, CSV o exportes de sistemas existentes)',
+      'Diagnóstico inicial de la información',
+      'Definición de hasta 3 KPIs clave del negocio',
+      'Desarrollo de 1 dashboard inicial en Power BI',
+      'Entrega única en PDF (one-shot)',
+      'Documentación del proyecto'
+    ],
+    variant: 'default'
+  },
+  {
+    title: 'Data Driven Plan',
+    priceMain: 'Inversión según alcance',
+    priceLabel: 'Plan mensual',
+    priceMeta: undefined,
+    bullets: [
+      'Sesiones iniciales de entendimiento y alineación',
+      'Revisión y conexión de múltiples fuentes de datos',
+      'Definición y seguimiento de KPIs clave del negocio',
+      'Sesiones mensuales de resultados y seguimiento con recomendaciones de decisiones estratégicas',
+      'Desarrollo y evolución continua de dashboards en Power BI',
+      'Acceso a Power BI como plataforma de lectura interactiva',
+      'Actualizaciones periódicas de la información',
+      'Documentación y seguimiento del proyecto'
+    ],
+    variant: 'popular',
+    badge: 'MÁS POPULAR',
+    priceWraps: true
+  },
+  {
+    title: 'Control Plan',
+    priceMain: 'Inversión según alcance',
+    priceLabel: 'BI externo para tu negocio',
+    priceMeta: undefined,
+    bullets: [
+      'Múltiples dashboards, organizados por rol (Dirección / Dueño, Operación) e iniciativa (ventas, retención, productividad, etc.)',
+      'Reportes especializados orientados a acciones concretas',
+      'Modelado de datos avanzado: históricos consolidados, comparativos entre periodos, análisis de cohortes',
+      'Actualización semanal o automática (si la fuente lo permite)',
+      'KPIs avanzados: retención, drop-off, crecimiento',
+      'Priorización mensual de nuevas iniciativas y vistas'
+    ],
+    variant: 'default',
+    priceSize: 'small',
+    priceWraps: true
+  }
+];
+
 export default function Home() {
   const [introVisible, setIntroVisible] = useState(false);
   const [planCardsVisible, setPlanCardsVisible] = useState<boolean[]>(() => planSteps.map(() => false));
@@ -450,15 +662,14 @@ export default function Home() {
           </div>
         </section>
 
-        {/* PLANES DATA DRIVEN - Fondo Blanco */}
+        {/* PLANES DATA DRIVEN - 4 cards consistentes */}
         <section
           id="planes-data-driven"
           data-theme="light"
           className="relative overflow-hidden bg-white py-28 text-[#0B0B0B] sm:py-32"
         >
           <BackgroundLines tone="light" opacity={0.08} density={135} />
-
-          <div className="container relative mx-auto max-w-6xl px-4">
+          <div className="container relative mx-auto max-w-7xl px-4">
             <div className="mx-auto max-w-3xl text-center">
               <h2 className="text-balance text-3xl font-semibold leading-tight tracking-tight text-[#0B0B0B] sm:text-4xl md:text-5xl">
                 Planes Data Driven
@@ -467,479 +678,10 @@ export default function Home() {
                 Elige el plan ideal según tu nivel de control y seguimiento.
               </p>
             </div>
-
-            <div className="mx-auto mt-20 grid max-w-5xl items-stretch gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
-              {/* Plan 1: Insight Plan */}
-              <article className="plan-card plan-card--insight group relative flex flex-col rounded-[28px] border border-[#E8E8ED] bg-white p-8 shadow-[0_2px_12px_rgba(15,15,15,0.03)] transition-all duration-[220ms] ease-out lg:hover:-translate-y-[2px] lg:hover:shadow-[0_4px_18px_rgba(15,15,15,0.05)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 sm:p-9 lg:min-h-[740px]">
-                {/* Header: Grid con 3 filas fijas */}
-                <header className="grid grid-rows-[56px_24px_80px] gap-0">
-                  {/* Fila 1: Título */}
-                  <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B] flex items-start">Insight Plan</h3>
-                  
-                  {/* Fila 2: Meta row */}
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs font-medium text-neutral-400 line-through">Antes: $4,900</span>
-                    <span className="inline-flex items-center rounded-full bg-[#34C759]/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#34C759]">
-                      -22%
-                    </span>
-                  </div>
-                  
-                  {/* Fila 3: Oferta principal */}
-                  <div className="flex flex-col justify-start">
-                    <div className="plan-price-row flex items-baseline gap-2.5 max-w-full lg:whitespace-nowrap">
-                      <span className="precio-desde font-semibold leading-[1.1] text-[#0B0B0B]" style={{ fontSize: 'clamp(26px, 2.0vw, 34px)', fontVariantNumeric: 'tabular-nums' }}>$3,800</span>
-                    </div>
-                    <p className="text-sm font-medium text-neutral-500 mt-1">Pago único</p>
-                  </div>
-                </header>
-
-                {/* Body: Lista de beneficios */}
-                <div className="plan-body flex-1 flex flex-col mt-6">
-                  <ul className="plan-list space-y-2 text-left">
-                    <li className="flex items-start gap-3">
-                      <svg
-                        className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={2.5}
-                        aria-hidden="true"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span className="text-sm leading-6 text-neutral-600">
-                        1–2 sesiones de entendimiento del negocio
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <svg
-                        className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={2.5}
-                        aria-hidden="true"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span className="text-sm leading-6 text-neutral-600">
-                        Revisión de hasta 3 fuentes de datos (Excel, CSV o exportes de sistemas existentes)
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <svg
-                        className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={2.5}
-                        aria-hidden="true"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span className="text-sm leading-6 text-neutral-600">
-                        Diagnóstico inicial de la información
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <svg
-                        className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={2.5}
-                        aria-hidden="true"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span className="text-sm leading-6 text-neutral-600">
-                        Definición de hasta 3 KPIs clave del negocio
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <svg
-                        className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={2.5}
-                        aria-hidden="true"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span className="text-sm leading-6 text-neutral-600">
-                        Desarrollo de 1 dashboard inicial en Power BI
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <svg
-                        className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={2.5}
-                        aria-hidden="true"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span className="text-sm leading-6 text-neutral-600">
-                        Entrega única en PDF (one-shot)
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <svg
-                        className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={2.5}
-                        aria-hidden="true"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span className="text-sm leading-6 text-neutral-600">
-                        Documentación del proyecto
-                      </span>
-                    </li>
-                  </ul>
-                </div>
-
-                {/* CTA: Botón */}
-                <div className="plan-cta mt-auto pt-6">
-                  <button
-                    type="button"
-                    onClick={() => document.getElementById('agenda')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="w-full h-12 rounded-full border border-[#E5E5EA] bg-white px-6 text-sm font-medium text-[#0B0B0B] shadow-[0_2px_8px_rgba(15,15,15,0.08)] transition-all duration-[220ms] ease-out lg:hover:shadow-[0_3px_10px_rgba(15,15,15,0.1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10"
-                  >
-                    Agendar sesión
-                  </button>
-                </div>
-              </article>
-
-              {/* Plan 2: Data Driven Plan - Destacado */}
-              <article className="plan-card plan-card--pro group relative flex flex-col rounded-[28px] border-2 border-[#0B0B0B]/25 bg-white p-8 shadow-[0_4px_20px_rgba(15,15,15,0.06)] transition-all duration-[220ms] ease-out lg:hover:-translate-y-[2px] lg:hover:shadow-[0_6px_28px_rgba(15,15,15,0.1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20 sm:p-9 lg:min-h-[740px] lg:-translate-y-2">
-                {/* Badge "Más popular" */}
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
-                  <span className="inline-flex items-center rounded-full bg-[#0B0B0B] px-3.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-white shadow-[0_2px_8px_rgba(0,0,0,0.15)]">
-                    MÁS POPULAR
-                  </span>
-                </div>
-
-                {/* Header: Grid con 3 filas fijas */}
-                <header className="grid grid-rows-[56px_24px_80px] gap-0">
-                  {/* Fila 1: Título */}
-                  <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B] flex items-start">Data Driven Plan</h3>
-                  
-                  {/* Fila 2: Meta row */}
-                  <div className="flex items-center">
-                    <p className="text-xs font-medium text-neutral-500">Plan mensual</p>
-                  </div>
-                  
-                  {/* Fila 3: Oferta principal */}
-                  <div className="flex flex-col justify-start">
-                    <p className="text-lg font-semibold leading-tight text-[#0B0B0B]">Inversión según alcance</p>
-                  </div>
-                </header>
-
-                {/* Body: Lista de beneficios */}
-                <div className="plan-body flex-1 flex flex-col mt-6">
-                  <ul className="plan-list space-y-2 text-left">
-                    <li className="flex items-start gap-3">
-                      <svg
-                        className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={2.5}
-                        aria-hidden="true"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span className="text-sm leading-6 text-neutral-600">
-                        Sesiones iniciales de entendimiento y alineación
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <svg
-                        className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={2.5}
-                        aria-hidden="true"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span className="text-sm leading-6 text-neutral-600">
-                        Revisión y conexión de múltiples fuentes de datos
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <svg
-                        className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={2.5}
-                        aria-hidden="true"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span className="text-sm leading-6 text-neutral-600">
-                        Definición y seguimiento de KPIs clave del negocio
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <svg
-                        className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={2.5}
-                        aria-hidden="true"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span className="text-sm leading-6 text-neutral-600">
-                        Sesiones mensuales de resultados y seguimiento con recomendaciones de decisiones estrategicas
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <svg
-                        className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={2.5}
-                        aria-hidden="true"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span className="text-sm leading-6 text-neutral-600">
-                        Desarrollo y evolución continua de dashboards en Power BI
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <svg
-                        className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={2.5}
-                        aria-hidden="true"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span className="text-sm leading-6 text-neutral-600">
-                        Acceso a Power BI como plataforma de lectura interactiva
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <svg
-                        className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={2.5}
-                        aria-hidden="true"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span className="text-sm leading-6 text-neutral-600">
-                        Actualizaciones periódicas de la información
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <svg
-                        className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={2.5}
-                        aria-hidden="true"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span className="text-sm leading-6 text-neutral-600">
-                        Documentación y seguimiento del proyecto
-                      </span>
-                    </li>
-                  </ul>
-                </div>
-
-                {/* CTA: Botón */}
-                <div className="plan-cta mt-auto pt-6">
-                  <button
-                    type="button"
-                    onClick={() => document.getElementById('agenda')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="w-full h-12 rounded-full bg-black px-6 text-sm font-medium text-white shadow-[0_4px_16px_rgba(0,0,0,0.2)] transition-all duration-[220ms] ease-out lg:hover:shadow-[0_5px_18px_rgba(0,0,0,0.22)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20"
-                  >
-                    Agendar sesión
-                  </button>
-                </div>
-              </article>
-
-              {/* Plan 3: Control Plan */}
-              <article className="plan-card plan-card--control group relative flex flex-col rounded-[28px] border border-[#E8E8ED] bg-white p-8 shadow-[0_2px_12px_rgba(15,15,15,0.03)] transition-all duration-[220ms] ease-out lg:hover:-translate-y-[2px] lg:hover:shadow-[0_4px_18px_rgba(15,15,15,0.05)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 sm:p-9 lg:min-h-[740px]">
-                {/* Header: Grid con 3 filas fijas */}
-                <header className="grid grid-rows-[56px_24px_80px] gap-0">
-                  {/* Fila 1: Título */}
-                  <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B] flex items-start">Control Plan</h3>
-                  
-                  {/* Fila 2: Meta row */}
-                  <div className="flex items-center">
-                    <p className="text-xs font-medium text-neutral-500">BI externo para tu negocio</p>
-                  </div>
-                  
-                  {/* Fila 3: Oferta principal */}
-                  <div className="flex flex-col justify-start">
-                    <p className="text-lg font-semibold leading-tight text-[#0B0B0B]">Inversión según alcance</p>
-                  </div>
-                </header>
-
-                {/* Body: Lista de beneficios */}
-                <div className="plan-body flex-1 flex flex-col mt-6">
-                  <ul className="plan-list space-y-2 text-left">
-                    <li className="flex items-start gap-3">
-                      <svg
-                        className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={2.5}
-                        aria-hidden="true"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                      <div className="flex-1">
-                        <span className="text-sm leading-6 text-neutral-600">
-                          Múltiples dashboards, organizados por:
-                        </span>
-                        <ul className="plan-sublist mt-1.5 ml-4 space-y-1">
-                          <li className="text-[0.9em] leading-[1.4] text-neutral-400">
-                            • Rol (Dirección / Dueño, Operación)
-                          </li>
-                          <li className="text-[0.9em] leading-[1.4] text-neutral-400">
-                            • Iniciativa (ventas, retención, productividad, etc.)
-                          </li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <svg
-                        className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={2.5}
-                        aria-hidden="true"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span className="text-sm leading-6 text-neutral-600">
-                        Reportes especializados orientados a acciones concretas
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <svg
-                        className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={2.5}
-                        aria-hidden="true"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                      <div className="flex-1">
-                        <span className="text-sm leading-6 text-neutral-600">
-                          Modelado de datos avanzado:
-                        </span>
-                        <ul className="plan-sublist mt-1.5 ml-4 space-y-1">
-                          <li className="text-[0.9em] leading-[1.4] text-neutral-400">
-                            • Históricos consolidados
-                          </li>
-                          <li className="text-[0.9em] leading-[1.4] text-neutral-400">
-                            • Comparativos entre periodos
-                          </li>
-                          <li className="text-[0.9em] leading-[1.4] text-neutral-400">
-                            • Análisis de cohortes
-                          </li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <svg
-                        className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={2.5}
-                        aria-hidden="true"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span className="text-sm leading-6 text-neutral-600">
-                        Actualización semanal o automática (si la fuente lo permite)
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <svg
-                        className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={2.5}
-                        aria-hidden="true"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                      <div className="flex-1">
-                        <span className="text-sm leading-6 text-neutral-600">
-                          KPIs avanzados, como:
-                        </span>
-                        <ul className="plan-sublist mt-1.5 ml-4 space-y-1">
-                          <li className="text-[0.9em] leading-[1.4] text-neutral-400">
-                            • Retención
-                          </li>
-                          <li className="text-[0.9em] leading-[1.4] text-neutral-400">
-                            • Drop-off
-                          </li>
-                          <li className="text-[0.9em] leading-[1.4] text-neutral-400">
-                            • Crecimiento
-                          </li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <svg
-                        className="mt-0.5 h-4 w-4 shrink-0 text-[#34C759]/80"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={2.5}
-                        aria-hidden="true"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span className="text-sm leading-6 text-neutral-600">
-                        Priorización mensual de nuevas iniciativas y vistas
-                      </span>
-                    </li>
-                  </ul>
-                </div>
-
-                {/* CTA: Botón */}
-                <div className="plan-cta mt-auto pt-6">
-                  <button
-                    type="button"
-                    onClick={() => document.getElementById('agenda')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="w-full h-12 rounded-full border border-[#E5E5EA] bg-white px-6 text-sm font-medium text-[#0B0B0B] shadow-[0_2px_8px_rgba(15,15,15,0.08)] transition-all duration-[220ms] ease-out lg:hover:shadow-[0_3px_10px_rgba(15,15,15,0.1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10"
-                  >
-                    Agendar sesión
-                  </button>
-                </div>
-              </article>
+            <div className="mx-auto mt-16 grid max-w-7xl items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-2 2xl:grid-cols-4">
+              {pricingPlans.map((plan) => (
+                <PlanCard key={plan.title} {...plan} />
+              ))}
             </div>
           </div>
         </section>
