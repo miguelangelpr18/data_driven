@@ -231,7 +231,7 @@ function PlanCard({
         </p>
       </header>
 
-      <div className="plan-priceBlock h-[110px] grid grid-rows-[24px_20px_40px_20px] gap-0 shrink-0 mt-1 min-w-0">
+      <div className="plan-priceBlock h-[124px] grid grid-rows-[24px_20px_60px_20px] gap-0 shrink-0 mt-1 min-w-0">
         <div className="flex items-center gap-2">
           {discountRow ? (
             <>
@@ -248,7 +248,8 @@ function PlanCard({
           {priceLabel}
         </p>
         <p
-          className="text-[#0B0B0B] font-semibold leading-tight tracking-tight whitespace-nowrap overflow-hidden text-ellipsis min-w-0 flex items-end"
+          title={priceMain}
+          className="min-w-0 flex items-end text-[#0B0B0B] font-semibold leading-[1.15] tracking-tight line-clamp-2"
           style={{ fontSize: 'clamp(22px,1.8vw,32px)', fontVariantNumeric: 'tabular-nums' }}
         >
           {priceMain}
