@@ -321,7 +321,7 @@ const pricingPlansData: Omit<PlanCardProps, 'expanded' | 'onToggle'>[] = [
     bullets: [
       'Entendimiento profundo del negocio',
       'Sesión inicial de diagnóstico operativo',
-      'Diseño de sistema de registro a la medida',
+      'Diseño de estructura de registro a la medida',
       'Plantilla estructurada (Excel o Google Sheets)',
       'Guía clara de uso y disciplina',
       'Sesión mensual de seguimiento',
