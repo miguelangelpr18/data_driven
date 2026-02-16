@@ -322,7 +322,7 @@ const pricingPlansData: Omit<PlanCardProps, 'expanded' | 'onToggle'>[] = [
       'Entendimiento profundo del negocio',
       'Sesión inicial de diagnóstico operativo',
       'Diseño de estructura de registro a la medida',
-      'Plantilla estructurada (Excel o Google Sheets)',
+      'Estructura de registro (Excel o Google Sheets)',
       'Guía clara de uso y disciplina',
       'Sesión mensual de seguimiento',
       'Ajustes al sistema según uso real',
