@@ -174,8 +174,10 @@ type PlanVariant = 'default' | 'popular';
 
 interface PlanCardProps {
   id: string;
+  step?: string;
   title: string;
   subtitle?: string;
+  idealFor?: string;
   priceLabel: string;
   priceMain: string;
   priceMeta: string;
@@ -189,8 +191,10 @@ interface PlanCardProps {
 
 function PlanCard({
   id,
+  step,
   title,
   subtitle,
+  idealFor,
   priceLabel,
   priceMain,
   priceMeta,
@@ -210,7 +214,7 @@ function PlanCard({
     'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 sm:p-9 lg:min-h-[480px]',
     'lg:hover:-translate-y-[2px] lg:hover:shadow-[0_4px_18px_rgba(15,15,15,0.05)]',
     isPopular
-      ? 'border-2 border-[#0B0B0B]/25 shadow-[0_4px_20px_rgba(15,15,15,0.06)] lg:hover:shadow-[0_6px_28px_rgba(15,15,15,0.1)] focus-visible:ring-black/20 lg:-translate-y-2'
+      ? 'border-2 border-[#0B0B0B]/20 bg-[#FAFAF8] shadow-[0_4px_24px_rgba(15,15,15,0.07)] lg:hover:shadow-[0_8px_32px_rgba(15,15,15,0.11)] focus-visible:ring-black/20 lg:-translate-y-2'
       : 'border border-[#E8E8ED]'
   );
 
@@ -225,10 +229,20 @@ function PlanCard({
       )}
 
       <header className="plan-top min-h-[76px] flex flex-col justify-center shrink-0">
+        {step && (
+          <span className="mb-1.5 font-mono text-[11px] font-medium tabular-nums text-neutral-300">
+            {step}
+          </span>
+        )}
         <h3 className="text-2xl font-semibold leading-tight text-[#0B0B0B]">{title}</h3>
         <p className="mt-1 min-h-[20px] text-sm font-medium text-neutral-500">
           {subtitle ?? '\u00A0'}
         </p>
+        {idealFor && (
+          <span className="mt-2 inline-flex w-fit items-center rounded-full border border-[#E5E5EA] px-2.5 py-0.5 text-[10px] text-neutral-400">
+            Ideal para: {idealFor}
+          </span>
+        )}
       </header>
 
       <div className="plan-priceBlock h-[124px] grid grid-rows-[24px_20px_60px_20px] gap-0 shrink-0 mt-1 min-w-0">
@@ -313,8 +327,10 @@ function PlanCard({
 const pricingPlansData: Omit<PlanCardProps, 'expanded' | 'onToggle'>[] = [
   {
     id: 'data00',
+    step: '01',
     title: 'Data 0.0',
     subtitle: 'Fundamentos Data-Driven',
+    idealFor: 'negocios sin estructura de datos',
     priceLabel: 'Plan mensual',
     priceMain: 'Inversión desde $2,000',
     priceMeta: 'Según alcance · Duración mínima: 3 meses',
@@ -332,7 +348,9 @@ const pricingPlansData: Omit<PlanCardProps, 'expanded' | 'onToggle'>[] = [
   },
   {
     id: 'insight',
+    step: '02',
     title: 'Insight Plan',
+    idealFor: 'diagnóstico inicial rápido',
     priceLabel: 'Pago único',
     priceMain: '$3,800',
     priceMeta: '',
@@ -350,7 +368,9 @@ const pricingPlansData: Omit<PlanCardProps, 'expanded' | 'onToggle'>[] = [
   },
   {
     id: 'pro',
+    step: '03',
     title: 'Data Driven Plan',
+    idealFor: 'seguimiento continuo de KPIs',
     priceLabel: 'Plan mensual',
     priceMain: 'Inversión según alcance',
     priceMeta: '',
@@ -369,7 +389,9 @@ const pricingPlansData: Omit<PlanCardProps, 'expanded' | 'onToggle'>[] = [
   },
   {
     id: 'control',
+    step: '04',
     title: 'Control Plan',
+    idealFor: 'operación con BI interna',
     priceLabel: 'BI externo para tu negocio',
     priceMain: 'Inversión según alcance',
     priceMeta: '',
@@ -696,14 +718,17 @@ export default function Home() {
           <BackgroundLines tone="light" opacity={0.08} density={135} />
           <div className="container relative mx-auto max-w-7xl px-4">
             <div className="mx-auto max-w-3xl text-center">
-              <h2 className="text-balance text-3xl font-semibold leading-tight tracking-tight text-[#0B0B0B] sm:text-4xl md:text-5xl">
-                Planes Data Driven
+              <span className="text-xs font-medium uppercase tracking-[0.35em] text-neutral-400">
+                Tu camino hacia los datos
+              </span>
+              <h2 className="mt-3 text-balance text-3xl font-semibold leading-tight tracking-tight text-[#0B0B0B] sm:text-4xl md:text-5xl">
+                Del primer Excel a tu área BI interna.
               </h2>
-              <p className="mt-6 text-base leading-relaxed text-neutral-600 sm:text-lg">
-                Elige el plan ideal según tu nivel de control y seguimiento.
+              <p className="mt-5 text-base leading-relaxed text-neutral-500 sm:text-lg">
+                Cada plan corresponde a una etapa. Empieza donde estás, avanza a tu ritmo.
               </p>
             </div>
-            <div className="mx-auto mt-16 grid max-w-7xl items-stretch gap-6 sm:grid-cols-2 xl:grid-cols-4">
+            <div className="mx-auto mt-16 grid max-w-5xl items-stretch gap-6 sm:grid-cols-2 2xl:max-w-7xl 2xl:grid-cols-4">
               {pricingPlansData.map((plan) => (
                 <PlanCard
                   key={plan.id}
@@ -712,6 +737,19 @@ export default function Home() {
                   onToggle={() => togglePlan(plan.id)}
                 />
               ))}
+            </div>
+
+            <div className="mt-12 text-center">
+              <p className="text-sm text-neutral-500">
+                ¿No sabes cuál es el plan correcto para tu negocio?{' '}
+                <button
+                  type="button"
+                  onClick={() => document.getElementById('agenda')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="font-medium text-[#0B0B0B] underline underline-offset-2 transition hover:text-neutral-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/10 rounded"
+                >
+                  Cuéntanos tu caso y te orientamos.
+                </button>
+              </p>
             </div>
           </div>
         </section>
