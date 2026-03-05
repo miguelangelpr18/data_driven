@@ -20,7 +20,7 @@ const serviceItems = [
 
 const socialLinks = [
   { label: 'Instagram', href: 'https://www.instagram.com/data.drivenconsulting/', Icon: Instagram },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/company/dataa-driven-consulting', Icon: Linkedin }
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/company/datadriven-consulting', Icon: Linkedin }
 ] as const;
 
 export default function SiteFooter() {
