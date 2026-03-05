@@ -502,7 +502,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#F5F5F7] text-[#0B0B0B]">
-      <main id="main-content" className="pt-[var(--nav-h)]">
+      <main className="pt-[var(--nav-h)]">
         <Hero variant="technical" />
         {/* SERVICIOS - Fondo Oscuro */}
         <section id="servicios" data-theme="dark" className="relative overflow-hidden bg-black py-24 text-white sm:py-28 lg:py-32">
@@ -711,69 +711,6 @@ export default function Home() {
                   expanded={expandedPlans[plan.id] ?? false}
                   onToggle={() => togglePlan(plan.id)}
                 />
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* TESTIMONIOS */}
-        <section
-          id="testimonios"
-          data-theme="light"
-          className="relative overflow-hidden bg-[#F5F5F7] py-24 text-[#0B0B0B] sm:py-28"
-        >
-          <div className="relative mx-auto max-w-6xl px-4">
-            <div className="mx-auto max-w-2xl text-center">
-              <span className="text-xs font-medium uppercase tracking-[0.35em] text-neutral-500">
-                Clientes
-              </span>
-              <h2 className="mt-3 text-balance text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
-                Lo que dicen nuestros clientes
-              </h2>
-            </div>
-
-            <div className="mt-14 grid gap-6 sm:grid-cols-3">
-              {[
-                {
-                  quote:
-                    'Antes tardábamos horas consolidando reportes en Excel. Ahora tenemos un dashboard actualizado en tiempo real y el equipo directivo toma decisiones el mismo día.',
-                  author: 'Director de Operaciones',
-                  company: 'Empresa de distribución, Monterrey',
-                },
-                {
-                  quote:
-                    'El equipo de Data Driven entendió rápido nuestra operación y nos entregó KPIs claros que nunca habíamos podido ver. La inversión se recuperó en menos de tres meses.',
-                  author: 'Gerente General',
-                  company: 'PYME manufacturera, CDMX',
-                },
-                {
-                  quote:
-                    'Automatizaron todos nuestros reportes de ventas y nos ahorraron más de 20 horas semanales. Hoy podemos enfocarnos en lo que realmente importa: crecer.',
-                  author: 'Directora Comercial',
-                  company: 'Empresa de servicios, Guadalajara',
-                },
-              ].map(({ quote, author, company }) => (
-                <figure
-                  key={author}
-                  className="flex flex-col gap-6 rounded-[28px] border border-[#E5E5EA] bg-white p-8 shadow-[0_2px_12px_rgba(0,0,0,0.06)] transition hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(0,0,0,0.10)]"
-                >
-                  <svg
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="h-7 w-7 shrink-0 text-neutral-300"
-                  >
-                    <path d="M11.192 15.757c0-.88-.23-1.618-.69-2.217-.326-.412-.768-.683-1.327-.812-.55-.128-1.07-.137-1.54-.028-.16-.95.1-1.95.78-3a6.66 6.66 0 0 1 1.023-1.01c.27-.213.4-.39.4-.532 0-.2-.12-.342-.36-.426-.24-.083-.488-.062-.74.063A6.49 6.49 0 0 0 6.5 9.236C5.5 10.762 5 12.374 5 14.073c0 1.26.39 2.26 1.17 3 .78.74 1.76 1.11 2.94 1.11 1.05 0 1.92-.36 2.61-1.08.69-.72 1.035-1.61 1.035-2.67l-.563-.676zm8.808 0c0-.88-.23-1.618-.69-2.217-.326-.413-.768-.683-1.327-.812-.55-.128-1.07-.137-1.54-.028-.16-.95.1-1.95.78-3A6.66 6.66 0 0 1 18.246 8.7c.27-.214.4-.39.4-.532 0-.2-.12-.342-.36-.426-.24-.084-.488-.063-.74.062a6.49 6.49 0 0 0-2.237 1.488C14.31 10.762 13.81 12.374 13.81 14.073c0 1.26.39 2.26 1.17 3 .78.74 1.76 1.11 2.94 1.11 1.05 0 1.92-.36 2.61-1.08.69-.72 1.034-1.61 1.034-2.67l-.563-.676z" />
-                  </svg>
-                  <blockquote className="flex-1 text-sm leading-relaxed text-neutral-700">
-                    &ldquo;{quote}&rdquo;
-                  </blockquote>
-                  <figcaption className="border-t border-[#E5E5EA] pt-5">
-                    <p className="text-sm font-semibold text-[#0B0B0B]">{author}</p>
-                    <p className="mt-0.5 text-xs text-neutral-500">{company}</p>
-                  </figcaption>
-                </figure>
               ))}
             </div>
           </div>

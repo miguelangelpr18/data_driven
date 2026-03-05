@@ -1,10 +1,8 @@
-import type { Metadata, Viewport } from 'next';
+import type { Metadata } from 'next';
 import Script from 'next/script';
 import { Inter } from 'next/font/google';
 
 import Header from '@/components/Header';
-import WhatsAppButton from '@/components/WhatsAppButton';
-import JsonLd from '@/components/JsonLd';
 
 import './globals.css';
 
@@ -15,41 +13,9 @@ const inter = Inter({
   weight: ['300', '400', '600']
 });
 
-const SITE_URL = 'https://www.datadriven.com.mx';
-const SITE_NAME = 'Data Driven Consulting';
-const SITE_DESCRIPTION =
-  'Consultoría de datos para PYMES en México. KPIs, dashboards en Power BI y automatización de reportes.';
-
-export const viewport: Viewport = {
-  themeColor: '#ffffff',
-};
-
 export const metadata: Metadata = {
-  title: SITE_NAME,
-  description: SITE_DESCRIPTION,
-  metadataBase: new URL(SITE_URL),
-  openGraph: {
-    title: SITE_NAME,
-    description: SITE_DESCRIPTION,
-    url: SITE_URL,
-    siteName: SITE_NAME,
-    locale: 'es_MX',
-    type: 'website',
-    images: [
-      {
-        url: '/logoDataDriven.png',
-        width: 1200,
-        height: 630,
-        alt: 'Data Driven Consulting — Consultoría de datos para PYMES en México',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: SITE_NAME,
-    description: SITE_DESCRIPTION,
-    images: ['/logoDataDriven.png'],
-  },
+  title: 'Data Driven Consulting',
+  description: 'Consultoría de datos y diseño de experiencias analíticas.',
   icons: {
     icon: [
       { url: '/favicon.png', type: 'image/png', sizes: '32x32' },
@@ -59,6 +25,7 @@ export const metadata: Metadata = {
       { url: '/favicon.png', sizes: '180x180', type: 'image/png' }
     ]
   },
+  themeColor: '#ffffff'
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -70,7 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
         <link rel="shortcut icon" href="/favicon.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png" />
-        <JsonLd />
+        <meta name="theme-color" content="#ffffff" />
         {gaId && (
           <>
             <Script src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} strategy="afterInteractive" />
@@ -89,15 +56,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         )}
       </head>
       <body className={`${inter.variable} font-sans text-neutral-900 antialiased`}>
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[9999] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-black/20"
-        >
-          Ir al contenido principal
-        </a>
         <Header />
         {children}
-        <WhatsAppButton />
       </body>
     </html>
   );

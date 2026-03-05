@@ -91,7 +91,6 @@ export default function Hero({ variant = 'technical', className }: HeroProps) {
                 width={224}
                 height={224}
                 priority
-                sizes="(max-width: 640px) 112px, (max-width: 768px) 128px, (max-width: 1024px) 160px, 176px"
                 onError={() => setLogoError(true)}
                 className="w-28 drop-shadow-[0_24px_60px_rgba(15,15,15,0.12)] sm:w-32 md:w-40 lg:w-44"
               />
