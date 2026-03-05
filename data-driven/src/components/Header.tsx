@@ -7,11 +7,11 @@ import { useEffect, useMemo, useState } from 'react';
 import { cn } from '@/lib/utils';
 
 const NAV = [
-  { label: 'Servicios', href: '/#servicios', id: 'servicios' },
-  { label: 'Objetivos', href: '/#objetivos', id: 'objetivos' },
-  { label: 'Metodología', href: '/#metodologia', id: 'metodologia' },
-  { label: 'Nosotros', href: '/#quienes-somos', id: 'quienes-somos' },
-  { label: 'Contacto', href: '/#contacto', id: 'contacto' }
+  { label: 'Servicios',   href: '/#servicios',           id: 'servicios' },
+  { label: 'Metodología', href: '/#metodologia',         id: 'metodologia' },
+  { label: 'Planes',      href: '/#planes-data-driven',  id: 'planes-data-driven' },
+  { label: 'Nosotros',    href: '/#quienes-somos',       id: 'quienes-somos' },
+  { label: 'Contacto',    href: '/#contacto',            id: 'contacto' },
 ] as const;
 
 type NavItem = (typeof NAV)[number];

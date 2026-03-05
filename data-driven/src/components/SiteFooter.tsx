@@ -4,11 +4,11 @@ import { Instagram, Linkedin, Mail, Phone } from 'lucide-react';
 import BackgroundLines from '@/components/BackgroundLines';
 
 const navigationLinks = [
-  { label: 'Objetivos', href: '#objetivos' },
-  { label: 'Servicios', href: '#servicios' },
+  { label: 'Servicios',   href: '#servicios' },
   { label: 'Metodología', href: '#metodologia' },
-  { label: 'Quiénes somos', href: '#quienes-somos' },
-  { label: 'Contacto', href: '#contacto' }
+  { label: 'Planes',      href: '#planes-data-driven' },
+  { label: 'Nosotros',    href: '#quienes-somos' },
+  { label: 'Contacto',    href: '#contacto' },
 ] as const;
 
 const serviceItems = [
