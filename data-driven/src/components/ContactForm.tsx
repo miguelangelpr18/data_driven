@@ -52,18 +52,31 @@ export default function ContactForm() {
     setError(null);
 
     try {
-      const response = await fetch('/api/leads', {
+      const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
+      if (!accessKey) {
+        throw new Error('Configuración del formulario incompleta. Contacta al administrador.');
+      }
+
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const { website, ...formFields } = data;
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          Accept: 'application/json',
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          access_key: accessKey,
+          subject: `Nuevo contacto desde datadriven.com.mx — ${data.name}`,
+          from_name: data.name,
+          ...formFields,
+        }),
       });
 
       const result = await response.json();
 
-      if (!response.ok) {
-        throw new Error(result.error || 'Error al enviar el formulario');
+      if (!result.success) {
+        throw new Error(result.message || 'Error al enviar el formulario');
       }
 
       setIsSuccess(true);
