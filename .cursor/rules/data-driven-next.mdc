@@ -1,0 +1,14 @@
+---
+description: Convenciones Next.js / React para el sitio Data Driven en data-driven/
+globs: data-driven/**/*.{ts,tsx,js,jsx}
+alwaysApply: false
+---
+
+# Data Driven — Next (solo `data-driven/`)
+
+- **Export estático:** El proyecto usa `output: 'export'`. Evitar Server Actions, `getServerSideProps`, rutas API de Next y dependencias de runtime Node en el cliente sin comprobar que el build estático sigue pasando.
+- **App Router:** Páginas y layouts en `src/app/`. Preferir Server Components por defecto; `'use client'` solo cuando haga falta estado, efectos o eventos.
+- **Estilo:** Tailwind 4; reutilizar utilidades y patrones existentes antes de CSS ad hoc.
+- **Tipado:** TypeScript estricto razonable; no usar `any` salvo justificación breve.
+- **Calidad:** Tras cambios tocados, como mínimo `npm run lint` desde `data-driven/`.
+- **Contenido legal/visible:** Coherente con [docs/data-driven/brand-voice.md](docs/data-driven/brand-voice.md).

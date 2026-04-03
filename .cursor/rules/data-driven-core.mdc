@@ -1,0 +1,11 @@
+---
+description: Contexto global Data Driven — idioma, marca y límites de datos
+alwaysApply: true
+---
+
+# Data Driven — núcleo
+
+- **Idioma:** Responde en español salvo que el usuario pida otro idioma.
+- **Marca:** Antes de copy público o propuestas, alinea con [docs/data-driven/brand-voice.md](docs/data-driven/brand-voice.md) e [icp.md](docs/data-driven/icp.md).
+- **Datos:** No inventar nombres, teléfonos, correos, redes, URLs ni métricas de clientes o leads. Si faltan datos, pedirlos o usar fuentes documentadas (OSM, sitio oficial, etc.).
+- **Leads:** Si el trabajo toca recolección o inserción de leads, seguir las reglas del workspace sobre calidad, validación de URLs (navegador) y contacto mínimo; no rellenar campos con placeholders.
