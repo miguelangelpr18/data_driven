@@ -1,0 +1,24 @@
+---
+description: Rol operativo El Practi vs eljefe — Notion del cliente, diccionario de KPIs, dashboards y profundidad de métricas (CAC/LTV)
+alwaysApply: false
+---
+
+# El Practi y eljefe — entregables y datos
+
+## Diccionario de KPIs (Notion del cliente)
+
+- La página tipo **“KPIs y Definiciones”** es el **contrato de significados** con el cliente: si una métrica no está definida ahí, no se trata en junta como “verdad oficial”.
+- **El Practi (ejecución):** armar/mantener la tabla (KPI, qué mide, fórmula o regla, filtros/categorías POS, granularidad, deduplicación de cliente, exclusiones, “no confundir con”). Enlazar **fuente** (ej. Lightspeed, export/reporte), **versión** del dashboard y fecha de revisión. Coordinar con **`excel`** (fórmulas en hoja) y **`analista`** (definiciones y riesgos de lectura).
+- **eljefe (gobernanza):** validar con el dueño las decisiones que cambian el número: IVA incluido o no, qué entra en cada categoría (ej. “Equipo”), ventanas de tiempo, definición de **recurrente**. Priorizar llenar el diccionario **antes** de discutir desvíos.
+
+## Percepción de valor
+
+- Evitar que el **dashboard activo** quede solo como link a un visor externo de terceros cuando el cliente paga continuidad: **objetivo** Power BI (u otro BI) embebido en Notion cuando aplique; el Practi/`powerbi` ejecutan, eljefe confirma prioridad con el cliente.
+
+## Métricas “finas” con solo POS
+
+- **CAC** y **LTV** completos exigen costos de marketing y atribución; si el POS no registra origen, **no prometer** CAC/LTV clásicos sin decir el supuesto. Preferir proxies acordados con **`analista`** (LTV por cohorte desde transacciones, eficiencia gasto vs ingreso en ventanas de campaña) y plan de captura mínima (pregunta en caja, UTM).
+
+## Deep dives (alineación con `analista`)
+
+- Cada deep dive debe anclarse en **una decisión** del dueño; plantilla máxima: **3 insights con número + 1 acción** con responsable y fecha; evitar análisis sin cambio operativo la semana siguiente. eljefe revisa que el menú mensual/trimestral apunte a **objetivos del cliente**, no solo curiosidad.

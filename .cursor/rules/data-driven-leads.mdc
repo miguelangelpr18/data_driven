@@ -6,4 +6,4 @@ alwaysApply: false
 
 # Leads en este repo (`leads/`)
 
-Si existen scripts bajo `leads/**/*.py`, aplicar el mismo orden que en la skill **data-driven-leads**: origen verificable, JSON fuente, validación de contacto, verificación de URLs con navegador cuando las reglas del workspace lo exijan, lotes pequeños y reporte. No inventar datos de contacto.
+Si existen scripts bajo `leads/**/*.py`, aplicar el mismo orden que en la skill **leads**: origen verificable, JSON fuente, validación de contacto, verificación de URLs con navegador cuando las reglas del workspace lo exijan, lotes pequeños y reporte. No inventar datos de contacto.
