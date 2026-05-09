@@ -19,7 +19,7 @@ export default function Section({
   tone = 'light'
 }: SectionProps) {
   const headingClass = tone === 'dark' ? 'text-white' : 'text-[#0B0B0B]';
-  const subtitleClass = tone === 'dark' ? 'text-gray-300' : 'text-[#6E6E73]';
+  const subtitleClass = tone === 'dark' ? 'text-gray-300' : 'text-[#5A5A5F]';
 
   return (
     <section 

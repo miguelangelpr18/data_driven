@@ -12,10 +12,10 @@ const navigationLinks = [
 ] as const;
 
 const serviceItems = [
-  'Limpieza y optimización de bases de datos',
-  'Definición y medición de KPIs',
-  'Reportes y dashboards',
-  'Automatizaciones de procesos'
+  'Datos ordenados y confiables',
+  'KPIs que sí importan',
+  'Dashboards en Power BI',
+  'Automatización de reportes'
 ] as const;
 
 const socialLinks = [
@@ -52,10 +52,10 @@ export default function SiteFooter() {
               </div>
               <a
                 href="#agenda"
-                aria-label="Agendar una sesión con Data Driven Consulting"
+                aria-label="Agenda un diagnóstico gratuito de 30 minutos"
                 className="inline-flex items-center rounded-full bg-black px-4 py-2 text-xs font-medium text-white transition hover:bg-neutral-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20"
               >
-                Agenda una sesión
+                Diagnóstico gratuito
               </a>
             </div>
 

@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: process.env.SITE_URL || 'https://datadriven.com',
+  siteUrl: process.env.SITE_URL || 'https://www.datadriven.com.mx',
   generateRobotsTxt: true,
   generateIndexSitemap: false,
   exclude: ['/api/*', '/admin/*'],
@@ -13,7 +13,7 @@ module.exports = {
       },
     ],
     additionalSitemaps: [
-      'https://datadriven.com/sitemap.xml',
+      'https://www.datadriven.com.mx/sitemap.xml',
     ],
   },
   transform: async (config, path) => {

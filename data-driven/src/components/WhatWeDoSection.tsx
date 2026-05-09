@@ -3,30 +3,30 @@ import { Database, Gauge, LayoutDashboard, Workflow } from 'lucide-react';
 
 const offerings = [
   {
-    title: 'Ordenamos tus datos',
+    title: 'Tus datos ordenados y confiables',
     description:
-      'Integramos, limpiamos y estandarizamos tus fuentes para que la información sea confiable y utilizable.',
+      'Eliminamos duplicados, errores y huecos. Tus fuentes (Excel, sistemas, exportes) quedan listas para decidir sin que ningún reporte mienta.',
     Icon: Database,
     delay: 0
   },
   {
-    title: 'KPIs que importan',
+    title: 'Los números que sí importan',
     description:
-      'Definimos indicadores claros alineados a objetivos de negocio para medir avance real —no solo números.',
+      'Definimos contigo 5 a 10 indicadores que mueven la aguja: ventas, márgenes, retención, inventario. Sin métricas de adorno.',
     Icon: Gauge,
     delay: 120
   },
   {
-    title: 'Dashboards minimalistas',
+    title: 'Tu negocio en 30 segundos',
     description:
-      'Diseñamos vistas intuitivas con foco en señal sobre ruido, listas para tomar decisiones en minutos.',
+      'Dashboards en Power BI hechos para dueños y operación. Ventas, márgenes y clientes actualizados sin abrir Excel.',
     Icon: LayoutDashboard,
     delay: 240
   },
   {
-    title: 'Automatización de reportes',
+    title: 'Recupera horas cada semana',
     description:
-      'Eliminamos tareas manuales y duplicadas; tus entregables se generan solos con datos siempre al día.',
+      'Automatizamos los reportes manuales que hoy te roban tiempo. Tus entregables se generan solos con datos siempre al día.',
     Icon: Workflow,
     delay: 360
   }

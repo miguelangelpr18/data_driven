@@ -17,6 +17,7 @@ const inter = Inter({
 
 const SITE_URL = 'https://www.datadriven.com.mx';
 const SITE_NAME = 'Data Driven Consulting';
+const SITE_TITLE = 'Consultoría de Análisis de Datos para PyMEs | Data Driven MX';
 const SITE_DESCRIPTION =
   'Consultoría de datos para PYMES en México. KPIs, dashboards en Power BI y automatización de reportes.';
 
@@ -25,11 +26,11 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: SITE_NAME,
+  title: SITE_TITLE,
   description: SITE_DESCRIPTION,
   metadataBase: new URL(SITE_URL),
   openGraph: {
-    title: SITE_NAME,
+    title: SITE_TITLE,
     description: SITE_DESCRIPTION,
     url: SITE_URL,
     siteName: SITE_NAME,
@@ -37,7 +38,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/logoDataDriven.png',
+        url: '/og-image.png',
         width: 1200,
         height: 630,
         alt: 'Data Driven Consulting — Consultoría de datos para PYMES en México',
@@ -46,9 +47,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: SITE_NAME,
+    title: SITE_TITLE,
     description: SITE_DESCRIPTION,
-    images: ['/logoDataDriven.png'],
+    images: ['/og-image.png'],
   },
   icons: {
     icon: [

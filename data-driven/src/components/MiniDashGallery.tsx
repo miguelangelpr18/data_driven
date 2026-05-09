@@ -96,13 +96,13 @@ export default function MiniDashGallery() {
                   strokeLinecap="round"
                   strokeDasharray={2 * Math.PI * 44}
                   initial={{ strokeDashoffset: 2 * Math.PI * 44 }}
-                  whileInView={{ strokeDashoffset: (2 * Math.PI * 44) * (1 - 0.72) }}
+                  whileInView={{ strokeDashoffset: (2 * Math.PI * 44) * (1 - 0.67) }}
                   whileHover={{ rotate: 6 }}
                   transition={{ duration: 1.1, ease: 'easeOut' as const }}
                   className="origin-center"
                 />
                 <text x="60" y="65" textAnchor="middle" className="fill-white text-[18px] font-semibold">
-                  72%
+                  67%
                 </text>
               </svg>
             </div>

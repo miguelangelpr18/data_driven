@@ -100,14 +100,14 @@ export default function EdgeDashStrips({
                 strokeLinecap="round"
                 strokeDasharray={2 * Math.PI * 50}
                 initial={{ strokeDashoffset: 2 * Math.PI * 50 }}
-                whileInView={{ strokeDashoffset: (2 * Math.PI * 50) * (1 - 0.72) }}
+                whileInView={{ strokeDashoffset: (2 * Math.PI * 50) * (1 - 0.91) }}
                 whileHover={{ rotate: 6 }}
                 transition={{ duration: 1.05, ease: 'easeOut' as const }}
                 className="origin-center"
                 viewport={{ once: false, amount: 0.3 }}
               />
               <text x="70" y="77" textAnchor="middle" fill={palette.accent} className="text-[20px] font-semibold">
-                72%
+                91%
               </text>
             </svg>
           </motion.div>

@@ -115,27 +115,27 @@ const objectives = [
 
 const services = [
   {
-    title: 'Limpieza y optimización de bases de datos',
+    title: 'Tus datos ordenados y confiables',
     description:
-      'Transformamos tus datos en una base sólida y ordenada. Estandarizamos formatos, eliminamos duplicidades y aseguramos la integridad de la información.',
+      'Eliminamos duplicados, errores y huecos para que ningún reporte mienta. Tus fuentes (Excel, sistemas, exportes) quedan listas para decidir con certeza.',
     Icon: Database
   },
   {
-    title: 'Definición y medición de KPIs',
+    title: 'Los números que sí importan',
     description:
-      'Diseñamos indicadores claros y accionables alineados a tus objetivos estratégicos, con criterios de medición y seguimiento continuo.',
+      'Definimos contigo 5 a 10 indicadores que mueven la aguja en tu negocio: ventas, márgenes, retención, inventario. Sin métricas de adorno.',
     Icon: Target
   },
   {
-    title: 'Implementación de reportes y dashboards',
+    title: 'Un tablero para ver tu negocio en 30 segundos',
     description:
-      'Construimos dashboards intuitivos y reportes automáticos que convierten datos dispersos en accionables.',
+      'Ventas, márgenes y clientes actualizados sin abrir Excel. Dashboards en Power BI hechos para dueños y operación, no para analistas.',
     Icon: LayoutDashboard
   },
   {
-    title: 'Automatización de procesos',
+    title: 'Recupera horas cada semana',
     description:
-      'Desarrollamos flujos automatizados que reducen tareas repetitivas y mejoran la eficiencia operativa. Integramos tus sistemas para que la información fluya sin fricción entre herramientas y equipos.',
+      'Automatizamos los reportes manuales que hoy te roban tiempo. Tus entregables se generan solos y la información fluye sin fricción entre herramientas.',
     Icon: Workflow
   }
 ] as const;
@@ -349,7 +349,7 @@ const pricingPlansData: Omit<PlanCardProps, 'expanded' | 'onToggle'>[] = [
   {
     id: 'insight',
     step: '02',
-    title: 'Insight Plan',
+    title: 'Diagnóstico',
     idealFor: 'diagnóstico inicial rápido',
     priceLabel: 'Pago único',
     priceMain: '$3,800',
@@ -369,11 +369,11 @@ const pricingPlansData: Omit<PlanCardProps, 'expanded' | 'onToggle'>[] = [
   {
     id: 'pro',
     step: '03',
-    title: 'Data Driven Plan',
+    title: 'Plan Estratégico',
     idealFor: 'seguimiento continuo de KPIs',
     priceLabel: 'Plan mensual',
-    priceMain: 'Inversión según alcance',
-    priceMeta: '',
+    priceMain: 'Desde $8,000 / mes',
+    priceMeta: 'Según alcance · Duración mínima: 6 meses',
     bullets: [
       'Sesiones iniciales de entendimiento y alineación',
       'Revisión y conexión de múltiples fuentes de datos',
@@ -390,11 +390,11 @@ const pricingPlansData: Omit<PlanCardProps, 'expanded' | 'onToggle'>[] = [
   {
     id: 'control',
     step: '04',
-    title: 'Control Plan',
+    title: 'Plan Ejecutivo',
     idealFor: 'operación con BI interna',
     priceLabel: 'BI externo para tu negocio',
-    priceMain: 'Inversión según alcance',
-    priceMeta: '',
+    priceMain: 'Desde $15,000 / mes',
+    priceMeta: 'Según alcance · Duración mínima: 6 meses',
     bullets: [
       'Múltiples dashboards organizados por rol (Dirección / Dueño, Operación)',
       'Múltiples dashboards organizados por iniciativa (ventas, retención, productividad, etc.)',
@@ -605,7 +605,7 @@ export default function Home() {
                 onClick={() => document.getElementById('agenda')?.scrollIntoView({ behavior: 'smooth' })}
                 className="inline-flex items-center rounded-full bg-black px-6 py-3 text-sm font-medium text-white transition hover:bg-neutral-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/30"
               >
-                Agenda una sesión
+                Diagnóstico gratuito (30 min)
               </button>
             </div>
           </div>
@@ -837,7 +837,7 @@ export default function Home() {
               <h2 className="text-balance text-3xl font-semibold leading-tight tracking-tight text-[#0B0B0B] sm:text-4xl lg:text-[3.25rem]">
                 Contacto
               </h2>
-              <p className="max-w-3xl text-pretty text-lg leading-relaxed text-[#6E6E73] sm:text-xl">
+              <p className="max-w-3xl text-pretty text-lg leading-relaxed text-[#5A5A5F] sm:text-xl">
                 Compártenos tu contexto y agendemos una llamada de diagnóstico.
               </p>
             </div>

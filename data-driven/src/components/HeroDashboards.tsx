@@ -135,7 +135,7 @@ function KpiRing() {
   const { ref, visible, prefersReduced } = useReveal<HTMLDivElement>();
   const [hovered, setHovered] = useState(false);
   const circumference = 2 * Math.PI * 44;
-  const progress = hovered && !prefersReduced ? 0.76 : 0.72;
+  const progress = hovered && !prefersReduced ? 0.88 : 0.84;
 
   const handlePointerEnter = () => {
     if (!prefersReduced) setHovered(true);
@@ -171,7 +171,7 @@ function KpiRing() {
             }}
           />
           <text dy="10" textAnchor="middle" fill={PRIMARY} fontSize="32" fontWeight="600">
-            72%
+            84%
           </text>
         </g>
       </svg>

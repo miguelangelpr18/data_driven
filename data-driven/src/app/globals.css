@@ -51,9 +51,9 @@
 :root {
   --font-inter: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji';
   /* Custom brand variables */
-  --brand: #3A7D5C;
+  --brand: #34C759;
   --ink: #0B0B0B;
-  --muted: #6E6E73;
+  --muted: #5A5A5F;
   --surface: #FFFFFF;
   --surface-soft: #F5F5F7;
   --line: #E5E5EA;
@@ -73,8 +73,8 @@
   --primary-foreground: #FFFFFF;
   --secondary: #FFFFFF;
   --secondary-foreground: #0B0B0B;
-  --muted-foreground: #6E6E73;
-  --accent: #3A7D5C;
+  --muted-foreground: #5A5A5F;
+  --accent: #34C759;
   --accent-foreground: #FFFFFF;
   --destructive: #FF3B30;
   --border: #E5E5EA;
