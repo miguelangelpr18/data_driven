@@ -238,8 +238,8 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Link href="/#agenda" className={ctaClass} aria-label="Agenda un diagnóstico gratuito de 30 minutos">
-            Diagnóstico gratuito
+          <Link href="/#agenda" className={ctaClass} aria-label="Agenda una sesión con nuestro equipo">
+            Agenda una sesión
           </Link>
 
           <button
@@ -311,7 +311,7 @@ export default function Header() {
                   : 'bg-black text-white hover:bg-neutral-900 focus-visible:ring-black/30'
               )}
             >
-              Diagnóstico gratuito (30 min)
+              Agenda una sesión
             </Link>
           </div>
         </div>

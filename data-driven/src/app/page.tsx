@@ -115,27 +115,27 @@ const objectives = [
 
 const services = [
   {
-    title: 'Tus datos ordenados y confiables',
+    title: 'Limpieza y optimización de bases de datos',
     description:
-      'Eliminamos duplicados, errores y huecos para que ningún reporte mienta. Tus fuentes (Excel, sistemas, exportes) quedan listas para decidir con certeza.',
+      'Transformamos tus datos en una base sólida y ordenada. Estandarizamos formatos, eliminamos duplicidades y aseguramos la integridad de la información.',
     Icon: Database
   },
   {
-    title: 'Los números que sí importan',
+    title: 'Definición y medición de KPIs',
     description:
-      'Definimos contigo 5 a 10 indicadores que mueven la aguja en tu negocio: ventas, márgenes, retención, inventario. Sin métricas de adorno.',
+      'Diseñamos indicadores claros y accionables alineados a tus objetivos estratégicos, con criterios de medición y seguimiento continuo.',
     Icon: Target
   },
   {
-    title: 'Un tablero para ver tu negocio en 30 segundos',
+    title: 'Implementación de reportes y dashboards',
     description:
-      'Ventas, márgenes y clientes actualizados sin abrir Excel. Dashboards en Power BI hechos para dueños y operación, no para analistas.',
+      'Construimos dashboards intuitivos y reportes automáticos que convierten datos dispersos en accionables.',
     Icon: LayoutDashboard
   },
   {
-    title: 'Recupera horas cada semana',
+    title: 'Automatización de procesos',
     description:
-      'Automatizamos los reportes manuales que hoy te roban tiempo. Tus entregables se generan solos y la información fluye sin fricción entre herramientas.',
+      'Desarrollamos flujos automatizados que reducen tareas repetitivas y mejoran la eficiencia operativa. Integramos tus sistemas para que la información fluya sin fricción entre herramientas y equipos.',
     Icon: Workflow
   }
 ] as const;
@@ -349,7 +349,7 @@ const pricingPlansData: Omit<PlanCardProps, 'expanded' | 'onToggle'>[] = [
   {
     id: 'insight',
     step: '02',
-    title: 'Diagnóstico',
+    title: 'Insight Plan',
     idealFor: 'diagnóstico inicial rápido',
     priceLabel: 'Pago único',
     priceMain: '$3,800',
@@ -369,11 +369,11 @@ const pricingPlansData: Omit<PlanCardProps, 'expanded' | 'onToggle'>[] = [
   {
     id: 'pro',
     step: '03',
-    title: 'Plan Estratégico',
+    title: 'Data Driven Plan',
     idealFor: 'seguimiento continuo de KPIs',
     priceLabel: 'Plan mensual',
-    priceMain: 'Desde $8,000 / mes',
-    priceMeta: 'Según alcance · Duración mínima: 6 meses',
+    priceMain: 'Inversión según alcance',
+    priceMeta: '',
     bullets: [
       'Sesiones iniciales de entendimiento y alineación',
       'Revisión y conexión de múltiples fuentes de datos',
@@ -390,11 +390,11 @@ const pricingPlansData: Omit<PlanCardProps, 'expanded' | 'onToggle'>[] = [
   {
     id: 'control',
     step: '04',
-    title: 'Plan Ejecutivo',
+    title: 'Control Plan',
     idealFor: 'operación con BI interna',
     priceLabel: 'BI externo para tu negocio',
-    priceMain: 'Desde $15,000 / mes',
-    priceMeta: 'Según alcance · Duración mínima: 6 meses',
+    priceMain: 'Inversión según alcance',
+    priceMeta: '',
     bullets: [
       'Múltiples dashboards organizados por rol (Dirección / Dueño, Operación)',
       'Múltiples dashboards organizados por iniciativa (ventas, retención, productividad, etc.)',
@@ -605,7 +605,7 @@ export default function Home() {
                 onClick={() => document.getElementById('agenda')?.scrollIntoView({ behavior: 'smooth' })}
                 className="inline-flex items-center rounded-full bg-black px-6 py-3 text-sm font-medium text-white transition hover:bg-neutral-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/30"
               >
-                Diagnóstico gratuito (30 min)
+                Agenda una sesión
               </button>
             </div>
           </div>

@@ -12,24 +12,12 @@ import { motion } from 'framer-motion';
 // Schema de validación con Zod
 const contactSchema = z.object({
   name: z.string().min(2, 'El nombre debe tener al menos 2 caracteres').max(80, 'El nombre debe tener máximo 80 caracteres'),
-  company: z.string().min(1, 'Cuéntanos el nombre de tu empresa').max(80, 'La empresa debe tener máximo 80 caracteres'),
-  phone: z.string().min(8, 'Necesitamos tu WhatsApp para contactarte').max(30, 'El teléfono debe tener máximo 30 caracteres'),
-  industry: z.string().max(60).optional(),
-  email: z.string().email('Email inválido').optional().or(z.literal('')),
-  message: z.string().max(2000, 'El mensaje debe tener máximo 2000 caracteres').optional(),
+  company: z.string().max(80, 'La empresa debe tener máximo 80 caracteres').optional(),
+  email: z.string().email('Email inválido'),
+  phone: z.string().max(30, 'El teléfono debe tener máximo 30 caracteres').optional(),
+  message: z.string().min(5, 'El mensaje debe tener al menos 5 caracteres').max(2000, 'El mensaje debe tener máximo 2000 caracteres'),
   website: z.string().optional(), // Honeypot
 });
-
-const industryOptions = [
-  'Retail / E-commerce',
-  'Servicios profesionales',
-  'Salud / Wellness / Fitness',
-  'Restaurantes / Alimentos',
-  'Manufactura',
-  'Educación',
-  'Inmobiliaria / Construcción',
-  'Otro'
-] as const;
 
 type ContactFormData = z.infer<typeof contactSchema>;
 
@@ -70,24 +58,19 @@ export default function ContactForm() {
       }
 
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const { website, email, message, industry, ...required } = data;
-      const payload: Record<string, string> = {
-        access_key: accessKey,
-        subject: `Nuevo contacto desde datadriven.com.mx — ${data.name}`,
-        from_name: data.name,
-        ...required,
-      };
-      if (email) payload.email = email;
-      if (message) payload.message = message;
-      if (industry) payload.industry = industry;
-
+      const { website, ...formFields } = data;
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           Accept: 'application/json',
         },
-        body: JSON.stringify(payload),
+        body: JSON.stringify({
+          access_key: accessKey,
+          subject: `Nuevo contacto desde datadriven.com.mx — ${data.name}`,
+          from_name: data.name,
+          ...formFields,
+        }),
       });
 
       const result = await response.json();
@@ -121,8 +104,8 @@ export default function ContactForm() {
       className="mx-auto max-w-3xl"
     >
       <div className="rounded-3xl border border-[#E5E5EA] bg-white/92 p-12 shadow-[0_1px_3px_rgba(0,0,0,0.08),0_4px_12px_rgba(0,0,0,0.05)]">
-        <h3 className="mb-3 text-center text-3xl font-semibold tracking-tight text-[#0B0B0B]">
-          Agenda tu diagnóstico gratuito
+        <h3 className="mb-6 text-center text-3xl font-semibold tracking-tight text-[#0B0B0B]">
+          ¿Listo para Transformar Tu Negocio?
         </h3>
 
         {isSuccess && (
@@ -145,15 +128,11 @@ export default function ContactForm() {
           </motion.div>
         )}
 
-        <p className="mb-8 text-center text-sm text-[#5A5A5F]">
-          Te contactamos por WhatsApp en menos de 2 horas hábiles.
-        </p>
-
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             <div>
               <label htmlFor="name" className="mb-2 block text-sm font-medium text-[#0B0B0B]">
-                Nombre completo *
+                Nombre Completo *
               </label>
               <Input
                 id="name"
@@ -169,7 +148,7 @@ export default function ContactForm() {
 
             <div>
               <label htmlFor="company" className="mb-2 block text-sm font-medium text-[#0B0B0B]">
-                Empresa *
+                Empresa
               </label>
               <Input
                 id="company"
@@ -186,8 +165,25 @@ export default function ContactForm() {
 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             <div>
+              <label htmlFor="email" className="mb-2 block text-sm font-medium text-[#0B0B0B]">
+                Email *
+              </label>
+              <Input
+                id="email"
+                type="email"
+                {...register('email')}
+                placeholder="tu@empresa.com"
+                className="rounded-2xl border-[#E5E5EA] bg-white/95 px-4 py-3 text-base text-[#0B0B0B] transition-colors duration-200 focus:border-[#34C759] focus:ring-0"
+                disabled={isLoading}
+              />
+              {errors.email && (
+                <p className="mt-1 text-sm text-[#FF3B30]">{errors.email.message}</p>
+              )}
+            </div>
+
+            <div>
               <label htmlFor="phone" className="mb-2 block text-sm font-medium text-[#0B0B0B]">
-                WhatsApp *
+                Teléfono
               </label>
               <Input
                 id="phone"
@@ -201,55 +197,17 @@ export default function ContactForm() {
                 <p className="mt-1 text-sm text-[#FF3B30]">{errors.phone.message}</p>
               )}
             </div>
-
-            <div>
-              <label htmlFor="industry" className="mb-2 block text-sm font-medium text-[#0B0B0B]">
-                Industria <span className="text-neutral-400">(opcional)</span>
-              </label>
-              <select
-                id="industry"
-                {...register('industry')}
-                disabled={isLoading}
-                defaultValue=""
-                className="w-full rounded-2xl border border-[#E5E5EA] bg-white/95 px-4 py-3 text-base text-[#0B0B0B] transition-colors duration-200 focus:border-[#34C759] focus:outline-none focus:ring-0"
-              >
-                <option value="" disabled>Selecciona tu industria</option>
-                {industryOptions.map((option) => (
-                  <option key={option} value={option}>{option}</option>
-                ))}
-              </select>
-              {errors.industry && (
-                <p className="mt-1 text-sm text-[#FF3B30]">{errors.industry.message}</p>
-              )}
-            </div>
-          </div>
-
-          <div>
-            <label htmlFor="email" className="mb-2 block text-sm font-medium text-[#0B0B0B]">
-              Email <span className="text-neutral-400">(opcional)</span>
-            </label>
-            <Input
-              id="email"
-              type="email"
-              {...register('email')}
-              placeholder="tu@empresa.com"
-              className="rounded-2xl border-[#E5E5EA] bg-white/95 px-4 py-3 text-base text-[#0B0B0B] transition-colors duration-200 focus:border-[#34C759] focus:ring-0"
-              disabled={isLoading}
-            />
-            {errors.email && (
-              <p className="mt-1 text-sm text-[#FF3B30]">{errors.email.message}</p>
-            )}
           </div>
 
           <div>
             <label htmlFor="message" className="mb-2 block text-sm font-medium text-[#0B0B0B]">
-              Cuéntanos tu contexto <span className="text-neutral-400">(opcional)</span>
+              Mensaje *
             </label>
             <Textarea
               id="message"
               {...register('message')}
-              placeholder="¿Qué decisiones quieres mejorar con datos? ¿En qué herramientas vives hoy?"
-              rows={4}
+              placeholder="Cuéntanos sobre tu proyecto y cómo podemos ayudarte..."
+              rows={5}
               className="resize-none rounded-2xl border-[#E5E5EA] bg-white/95 px-4 py-3 text-base text-[#0B0B0B] transition-colors duration-200 focus:border-[#34C759] focus:ring-0"
               disabled={isLoading}
             />
@@ -281,7 +239,7 @@ export default function ContactForm() {
                   <span>Enviando...</span>
                 </div>
               ) : (
-                'Agendar diagnóstico gratuito'
+                'Enviar Mensaje'
               )}
             </Button>
           </div>

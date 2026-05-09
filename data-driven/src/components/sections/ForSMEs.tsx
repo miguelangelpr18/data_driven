@@ -74,7 +74,7 @@ export default function ForSMEs() {
             href="#contacto"
             className="inline-flex items-center rounded-full bg-black px-6 py-3 text-sm font-medium text-white transition hover:bg-neutral-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/30"
           >
-            Diagnóstico gratuito (30 min)
+            Agenda una sesión
           </a>
         </div>
       </div>

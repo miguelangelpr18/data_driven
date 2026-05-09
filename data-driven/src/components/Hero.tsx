@@ -17,8 +17,8 @@ const COPY_VARIANTS: Record<HeroCopyVariant, { title: string; subtitle: string }
     subtitle: 'Convertimos la complejidad de tus métricas en claridad visual y acción.'
   },
   technical: {
-    title: 'Sálte de Excel. Ten reportes que te dicen qué hacer, no solo qué pasó.',
-    subtitle: 'Consultoría de datos para PyMEs en México. Implementamos en 6 a 10 semanas.'
+    title: 'Estrategia, diseño y datos en perfecta sincronía.',
+    subtitle: 'Transformamos datos en decisiones estratégicas.'
   },
   commercial: {
     title: 'Menos ruido, más resultados.',
@@ -111,10 +111,10 @@ export default function Hero({ variant = 'technical', className }: HeroProps) {
         >
           <Link
             href="#agenda"
-            aria-label="Agenda diagnóstico gratuito de 30 minutos"
+            aria-label="Agenda una sesión"
             className="inline-flex items-center justify-center rounded-full bg-black px-6 py-3 text-sm font-medium text-white shadow-[0_18px_32px_rgba(15,15,15,0.22)] transition will-change-transform hover:-translate-y-px hover:shadow-[0_24px_40px_rgba(15,15,15,0.26)] focus:outline-none focus-visible:ring-2 focus-visible:ring-black/20"
           >
-            Diagnóstico gratuito (30 min)
+            Agenda una sesión
           </Link>
           <Link
             href="#quienes-somos"

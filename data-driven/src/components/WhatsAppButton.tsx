@@ -3,7 +3,7 @@
 export default function WhatsAppButton() {
   return (
     <a
-      href="https://wa.me/528118019331?text=Hola%2C%20vi%20su%20sitio%20y%20quiero%20agendar%20un%20diagn%C3%B3stico%20gratuito%20de%2030%20minutos."
+      href="https://wa.me/528118019331?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20sus%20servicios%20de%20datos."
       target="_blank"
       rel="noreferrer noopener"
       aria-label="Contáctanos por WhatsApp"
