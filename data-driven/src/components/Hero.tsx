@@ -88,11 +88,11 @@ export default function Hero({ variant = 'technical', className }: HeroProps) {
                 src="/logoDataDriven.png"
                 alt="Logotipo de Data Driven"
                 role="img"
-                width={224}
-                height={224}
+                width={916}
+                height={1341}
                 priority
                 onError={() => setLogoError(true)}
-                className="w-28 drop-shadow-[0_24px_60px_rgba(15,15,15,0.12)] sm:w-32 md:w-40 lg:w-44"
+                className="h-auto w-28 drop-shadow-[0_24px_60px_rgba(15,15,15,0.12)] sm:w-32 md:w-40 lg:w-44"
               />
             </motion.div>
           )}

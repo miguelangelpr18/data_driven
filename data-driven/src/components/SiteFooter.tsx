@@ -38,9 +38,9 @@ export default function SiteFooter() {
               <Image
                 src="/logoDataDriven.png"
                 alt="Data Driven Consulting"
-                width={144}
-                height={48}
-                className="h-10 w-auto"
+                width={916}
+                height={1341}
+                className="h-12 w-auto"
               />
               <div className="space-y-3">
                 <h3 className="text-sm font-semibold tracking-wide text-neutral-800">
@@ -134,7 +134,7 @@ export default function SiteFooter() {
           <div className="mt-10 border-t border-[#E5E5EA]" />
 
           <div className="mt-6 flex flex-col gap-3 text-sm text-neutral-500 sm:flex-row sm:items-center sm:justify-between">
-            <p>© 2025 Data Driven. Todos los derechos reservados.</p>
+            <p>© {new Date().getFullYear()} Data Driven. Todos los derechos reservados.</p>
             <p>Desarrollado por Miguel Peña.</p>
             <div className="flex gap-4">
               <a

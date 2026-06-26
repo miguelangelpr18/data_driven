@@ -230,7 +230,7 @@ function PlanCard({
 
       <header className="plan-top min-h-[76px] flex flex-col justify-center shrink-0">
         {step && (
-          <span className="mb-1.5 font-mono text-[11px] font-medium tabular-nums text-neutral-300">
+          <span className="mb-1.5 font-mono text-[11px] font-medium tabular-nums text-neutral-400">
             {step}
           </span>
         )}
@@ -239,7 +239,7 @@ function PlanCard({
           {subtitle ?? '\u00A0'}
         </p>
         {idealFor && (
-          <span className="mt-2 inline-flex w-fit items-center rounded-full border border-[#E5E5EA] px-2.5 py-0.5 text-[10px] text-neutral-400">
+          <span className="mt-2 inline-flex w-fit items-center rounded-full border border-[#E5E5EA] px-2.5 py-0.5 text-[10px] text-neutral-500">
             Ideal para: {idealFor}
           </span>
         )}
@@ -249,7 +249,7 @@ function PlanCard({
         <div className="flex items-center gap-2">
           {discountRow ? (
             <>
-              <span className="text-xs font-medium text-neutral-400 line-through">{discountRow.before}</span>
+              <span className="text-xs font-medium text-neutral-500 line-through">{discountRow.before}</span>
               <span className="inline-flex items-center rounded-full bg-[#34C759]/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#34C759]">
                 {discountRow.badge}
               </span>
@@ -268,7 +268,7 @@ function PlanCard({
         >
           {priceMain}
         </p>
-        <p className="text-xs text-neutral-400 leading-tight flex items-start">
+        <p className="text-xs text-neutral-500 leading-tight flex items-start">
           {priceMeta || '\u00A0'}
         </p>
       </div>
@@ -524,7 +524,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#F5F5F7] text-[#0B0B0B]">
-      <main className="pt-[var(--nav-h)]">
+      <main id="main-content" className="pt-[var(--nav-h)]">
         <Hero variant="technical" />
         {/* SERVICIOS - Fondo Oscuro */}
         <section id="servicios" data-theme="dark" className="relative overflow-hidden bg-black py-24 text-white sm:py-28 lg:py-32">
@@ -632,12 +632,11 @@ export default function Home() {
                   ref={(element: HTMLElement | null) => {
                     objectiveCardsRef.current[index] = element;
                   }}
-                  tabIndex={0}
                   style={{ transitionDelay: `${index * 120}ms` }}
                   className={cn(
                     'group flex h-full flex-col gap-5 rounded-[24px] border border-white/10 bg-white/[0.05] px-10 py-8 text-left text-neutral-200 shadow-[0_4px_20px_rgba(255,255,255,0.05)] transition-all duration-[350ms] ease-[cubic-bezier(0.25,0.1,0.25,1)] will-change-transform',
-                    'hover:scale-[1.03] hover:bg-white/[0.08] hover:shadow-[0_8px_25px_rgba(255,255,255,0.1)] focus-visible:scale-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/20',
-                    'motion-safe:transition-all motion-reduce:transition-none motion-reduce:transform-none motion-reduce:opacity-100 motion-reduce:hover:scale-100 motion-reduce:focus-visible:scale-100',
+                    'hover:scale-[1.03] hover:bg-white/[0.08] hover:shadow-[0_8px_25px_rgba(255,255,255,0.1)]',
+                    'motion-safe:transition-all motion-reduce:transition-none motion-reduce:transform-none motion-reduce:opacity-100 motion-reduce:hover:scale-100',
                     objectiveCardsVisible[index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                   )}
                 >

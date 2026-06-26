@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 
 import { cn } from '@/lib/utils';
 
@@ -127,6 +127,8 @@ export default function Header() {
   const [logoError, setLogoError] = useState(false);
   const [theme, setTheme] = useState<ThemeMode>('light');
   const activeSection = useActiveSection(NAV);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const drawerCloseRef = useRef<HTMLButtonElement>(null);
 
   const isDark = theme === 'dark';
 
@@ -165,10 +167,22 @@ export default function Header() {
     if (!menuOpen) return;
 
     const previousOverflow = document.body.style.overflow;
+    const menuButton = menuButtonRef.current;
     document.body.style.overflow = 'hidden';
+
+    // Mover el foco al panel al abrir (accesibilidad de diálogo)
+    drawerCloseRef.current?.focus();
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setMenuOpen(false);
+    };
+    document.addEventListener('keydown', handleKeyDown);
 
     return () => {
       document.body.style.overflow = previousOverflow;
+      document.removeEventListener('keydown', handleKeyDown);
+      // Devolver el foco al botón que abrió el menú
+      menuButton?.focus();
     };
   }, [menuOpen]);
 
@@ -213,8 +227,8 @@ export default function Header() {
             <Image
               src="/logo1.png"
               alt="Data Driven"
-              width={48}
-              height={48}
+              width={916}
+              height={1341}
               priority
               className={cn('h-10 w-auto shrink-0 object-contain transition duration-300 sm:h-11', isDark ? 'drop-shadow-[0_6px_18px_rgba(0,0,0,0.45)]' : '')}
               onError={() => setLogoError(true)}
@@ -243,6 +257,7 @@ export default function Header() {
           </Link>
 
           <button
+            ref={menuButtonRef}
             type="button"
             aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
             aria-expanded={menuOpen}
@@ -270,8 +285,9 @@ export default function Header() {
           />
           <div className={drawerClass}>
             <div className="flex items-center justify-between">
-              <span className="text-base font-semibold">{isDark ? 'Menú' : 'Menú'}</span>
+              <span className="text-base font-semibold">Menú</span>
               <button
+                ref={drawerCloseRef}
                 type="button"
                 aria-label="Cerrar menú"
                 onClick={() => setMenuOpen(false)}

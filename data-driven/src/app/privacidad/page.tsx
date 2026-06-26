@@ -4,6 +4,7 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Política de Privacidad | Data Driven Consulting',
   description: 'Conoce cómo Data Driven Consulting recopila, usa y protege tu información personal.',
+  alternates: { canonical: '/privacidad' },
 };
 
 export default function PoliticaDePrivacidad() {
@@ -12,7 +13,7 @@ export default function PoliticaDePrivacidad() {
       <div className="space-y-10 text-[#0B0B0B]">
         <header className="space-y-3">
           <p className="text-xs font-medium uppercase tracking-[0.3em] text-neutral-500">
-            Última actualización: enero 2025
+            Última actualización: junio 2026
           </p>
           <h1 className="text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
             Política de Privacidad
