@@ -27,10 +27,11 @@ const fadeInUp = {
   transition: { duration: 0.6, ease: "easeOut" }
 };
 
+// Número de WhatsApp de la empresa (mismo del botón flotante y el footer)
+const WHATSAPP_NUMBER = '528118019331';
+
 export default function ContactForm() {
-  const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const [error, setError] = useState<string | null>(null);
 
   const {
     register,
@@ -41,58 +42,39 @@ export default function ContactForm() {
     resolver: zodResolver(contactSchema),
   });
 
-  const onSubmit = async (data: ContactFormData) => {
+  const onSubmit = (data: ContactFormData) => {
     // Verificar honeypot
     if (data.website) {
       console.log('Bot detected, form submission blocked');
       return;
     }
 
-    setIsLoading(true);
-    setError(null);
+    // Armar el mensaje para WhatsApp con los datos del formulario
+    const header = [
+      `Hola, soy ${data.name}.`,
+      data.company ? `Empresa: ${data.company}` : null,
+      `Email: ${data.email}`,
+      data.phone ? `Teléfono: ${data.phone}` : null,
+    ]
+      .filter(Boolean)
+      .join('\n');
 
-    try {
-      const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
-      if (!accessKey) {
-        throw new Error('Configuración del formulario incompleta. Contacta al administrador.');
-      }
+    const text = encodeURIComponent(`${header}\n\n${data.message}`);
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
 
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const { website, ...formFields } = data;
-      const response = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-        body: JSON.stringify({
-          access_key: accessKey,
-          subject: `Nuevo contacto desde datadriven.com.mx — ${data.name}`,
-          from_name: data.name,
-          ...formFields,
-        }),
-      });
-
-      const result = await response.json();
-
-      if (!result.success) {
-        throw new Error(result.message || 'Error al enviar el formulario');
-      }
-
-      setIsSuccess(true);
-      reset();
-      
-      // Ocultar mensaje de éxito después de 5 segundos
-      setTimeout(() => {
-        setIsSuccess(false);
-      }, 5000);
-
-    } catch (error) {
-      console.error('Error al enviar el formulario:', error);
-      setError(error instanceof Error ? error.message : 'Error al enviar el mensaje. Por favor, inténtalo de nuevo.');
-    } finally {
-      setIsLoading(false);
+    // Abrir WhatsApp; si el navegador bloquea la pestaña nueva, redirigir en la misma
+    const win = window.open(url, '_blank', 'noopener,noreferrer');
+    if (!win) {
+      window.location.href = url;
     }
+
+    setIsSuccess(true);
+    reset();
+
+    // Ocultar mensaje de éxito después de 6 segundos
+    setTimeout(() => {
+      setIsSuccess(false);
+    }, 6000);
   };
 
   return (
@@ -114,17 +96,7 @@ export default function ContactForm() {
             animate={{ opacity: 1, y: 0 }}
             className="mb-6 rounded-2xl border border-[#34C759]/30 bg-[#34C759]/10 px-4 py-4 text-sm font-medium text-[#1C7F3D]"
           >
-            ✅ ¡Mensaje enviado exitosamente! Nos pondremos en contacto contigo pronto.
-          </motion.div>
-        )}
-
-        {error && (
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mb-6 rounded-2xl border border-[#FF3B30]/30 bg-[#FF3B30]/10 px-4 py-4 text-sm font-medium text-[#D12A1D]"
-          >
-            ❌ {error}
+            ✅ Te abrimos WhatsApp con tu mensaje listo para enviar. Si no se abrió, usa el botón de WhatsApp en la esquina.
           </motion.div>
         )}
 
@@ -139,7 +111,6 @@ export default function ContactForm() {
                 {...register('name')}
                 placeholder="Tu nombre completo"
                 className="rounded-2xl border-[#E5E5EA] bg-white/95 px-4 py-3 text-base text-[#0B0B0B] transition-colors duration-200 focus:border-[#34C759] focus:ring-0"
-                disabled={isLoading}
               />
               {errors.name && (
                 <p className="mt-1 text-sm text-[#FF3B30]">{errors.name.message}</p>
@@ -155,7 +126,6 @@ export default function ContactForm() {
                 {...register('company')}
                 placeholder="Nombre de tu empresa"
                 className="rounded-2xl border-[#E5E5EA] bg-white/95 px-4 py-3 text-base text-[#0B0B0B] transition-colors duration-200 focus:border-[#34C759] focus:ring-0"
-                disabled={isLoading}
               />
               {errors.company && (
                 <p className="mt-1 text-sm text-[#FF3B30]">{errors.company.message}</p>
@@ -174,7 +144,6 @@ export default function ContactForm() {
                 {...register('email')}
                 placeholder="tu@empresa.com"
                 className="rounded-2xl border-[#E5E5EA] bg-white/95 px-4 py-3 text-base text-[#0B0B0B] transition-colors duration-200 focus:border-[#34C759] focus:ring-0"
-                disabled={isLoading}
               />
               {errors.email && (
                 <p className="mt-1 text-sm text-[#FF3B30]">{errors.email.message}</p>
@@ -191,7 +160,6 @@ export default function ContactForm() {
                 {...register('phone')}
                 placeholder="+52 (81) 1801 9331"
                 className="rounded-2xl border-[#E5E5EA] bg-white/95 px-4 py-3 text-base text-[#0B0B0B] transition-colors duration-200 focus:border-[#34C759] focus:ring-0"
-                disabled={isLoading}
               />
               {errors.phone && (
                 <p className="mt-1 text-sm text-[#FF3B30]">{errors.phone.message}</p>
@@ -209,7 +177,6 @@ export default function ContactForm() {
               placeholder="Cuéntanos sobre tu proyecto y cómo podemos ayudarte..."
               rows={5}
               className="resize-none rounded-2xl border-[#E5E5EA] bg-white/95 px-4 py-3 text-base text-[#0B0B0B] transition-colors duration-200 focus:border-[#34C759] focus:ring-0"
-              disabled={isLoading}
             />
             {errors.message && (
               <p className="mt-1 text-sm text-[#FF3B30]">{errors.message.message}</p>
@@ -230,22 +197,14 @@ export default function ContactForm() {
           <div className="text-center">
             <Button
               type="submit"
-              disabled={isLoading}
-              className="min-w-[200px] rounded-full bg-[#34C759] px-9 py-4 text-base font-semibold text-white transition-opacity duration-200 hover:opacity-90 disabled:opacity-60"
+              className="min-w-[200px] rounded-full bg-[#34C759] px-9 py-4 text-base font-semibold text-white transition-opacity duration-200 hover:opacity-90"
             >
-              {isLoading ? (
-                <div className="flex items-center space-x-2">
-                  <div className="h-4 w-4 animate-spin rounded-full border-2 border-white/60 border-t-transparent"></div>
-                  <span>Enviando...</span>
-                </div>
-              ) : (
-                'Enviar Mensaje'
-              )}
+              Enviar por WhatsApp
             </Button>
           </div>
 
           <p className="text-center text-sm text-[#5A5A5F]">
-            Al enviar este formulario, aceptas que nos pongamos en contacto contigo para discutir tu proyecto.
+            Al enviar, te llevamos a WhatsApp con tu mensaje listo para continuar la conversación con nuestro equipo.
           </p>
         </form>
       </div>

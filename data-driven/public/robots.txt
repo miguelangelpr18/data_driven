@@ -5,7 +5,7 @@ Disallow: /api/
 Disallow: /admin/
 
 # Host
-Host: https://datadriven.com
+Host: https://www.datadriven.com.mx
 
 # Sitemaps
-Sitemap: https://datadriven.com/sitemap.xml
+Sitemap: https://www.datadriven.com.mx/sitemap.xml
