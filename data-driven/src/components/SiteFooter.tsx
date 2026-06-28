@@ -135,7 +135,18 @@ export default function SiteFooter() {
 
           <div className="mt-6 flex flex-col gap-3 text-sm text-neutral-500 sm:flex-row sm:items-center sm:justify-between">
             <p>© {new Date().getFullYear()} Data Driven. Todos los derechos reservados.</p>
-            <p>Desarrollado por Miguel Peña.</p>
+            <p>
+              Designed by{' '}
+              <a
+                href="https://www.hierarchy.com.mx"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Designed by Hierarchy Web — abrir hierarchy.com.mx en una pestaña nueva"
+                className="font-medium text-neutral-700 transition hover:text-neutral-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/15"
+              >
+                Hierarchy Web
+              </a>
+            </p>
             <div className="flex gap-4">
               <a
                 href="/privacidad"
