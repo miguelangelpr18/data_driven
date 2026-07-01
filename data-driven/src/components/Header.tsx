@@ -9,6 +9,7 @@ import { cn } from '@/lib/utils';
 const NAV = [
   { label: 'Servicios',   href: '/#servicios',           id: 'servicios' },
   { label: 'Metodología', href: '/#metodologia',         id: 'metodologia' },
+  { label: 'Demos',       href: '/#demos',               id: 'demos' },
   { label: 'Planes',      href: '/#planes-data-driven',  id: 'planes-data-driven' },
   { label: 'Nosotros',    href: '/#quienes-somos',       id: 'quienes-somos' },
   { label: 'Contacto',    href: '/#contacto',            id: 'contacto' },

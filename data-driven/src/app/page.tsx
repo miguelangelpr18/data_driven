@@ -5,6 +5,7 @@ import { BarChart3, Database, LayoutDashboard, RefreshCw, Target, Workflow } fro
 
 import BackgroundLines from '@/components/BackgroundLines';
 import ContactForm from '@/components/ContactForm';
+import DemosSection from '@/components/DemosSection';
 import Hero from '@/components/Hero';
 import SiteFooter from '@/components/SiteFooter';
 import { cn } from '@/lib/utils';
@@ -707,6 +708,9 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* DEMOS POR INDUSTRIA - Fondo Negro */}
+        <DemosSection />
 
         {/* PLANES DATA DRIVEN - 4 cards consistentes */}
         <section

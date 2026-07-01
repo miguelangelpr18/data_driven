@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hábito · Reporte de Operación · Junio 2026 · Data Driven Consulting</title>
+<meta name="description" content="Reporte mensual de operación · Hábito Café de Especialidad · Junio 2026 · Data Driven Consulting">
+<meta property="og:title" content="Hábito · Reporte de Operación · Junio 2026 · Data Driven">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="/demos/vendor/chart.umd.min.js"></script>
+<style>
+:root{
+  --bg:#15110D; --surface:#1E1914; --surface2:#241E17; --hair:#332B21; --hair2:#41382B;
+  --ink:#F4EEE4; --body:#E3DACC; --muted:#A99C88; --faint:#7E7262;
+  --brand:#4E9B72; --brand-d:#3A7D5C; --brand-l:#6FB78F; --brand-xl:#8FCBA8; --brand-soft:rgba(78,155,114,.14);
+  --accent:#CB8A3E; --accent-d:#A66E2C; --accent-l:#E0A85C; --crema:#D9C19A;
+  --graph:#8A7F6E;
+  --sans:'Geist','IBM Plex Sans',-apple-system,system-ui,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+  --sh-sm:0 1px 2px rgba(0,0,0,.25),0 2px 8px rgba(0,0,0,.22);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);color:var(--body);background:var(--bg);line-height:1.5;-webkit-font-smoothing:antialiased}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.tnum{font-variant-numeric:tabular-nums lining-nums;font-feature-settings:"tnum","lnum"}
+.wrap{max-width:1120px;margin:0 auto;padding:0 32px}
+.lines{position:absolute;inset:0;pointer-events:none;z-index:0;
+  -webkit-mask-image:radial-gradient(80% 86% at 62% 40%,#000,transparent);mask-image:radial-gradient(80% 86% at 62% 40%,#000,transparent)}
+.lines svg{position:absolute;inset:0;width:100%;height:100%}
+
+.head{position:relative;background:var(--surface);border-bottom:1px solid var(--hair);overflow:hidden}
+.head .wrap{position:relative;z-index:1}
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid var(--hair)}
+.lock{display:flex;align-items:center;gap:10px}
+.lock .ic{width:26px;height:26px;display:block;color:var(--ink)}
+.lock .tx{font-family:var(--sans);line-height:1;display:flex;flex-direction:column;gap:3px}
+.lock .tx b{font-size:12.5px;font-weight:600;letter-spacing:.14em;color:var(--ink)}
+.lock .tx span{font-size:9px;font-weight:500;letter-spacing:.26em;color:var(--muted)}
+.topbar .meta{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.02em}
+.masthead{padding:34px 0 8px;display:flex;justify-content:space-between;align-items:flex-end;gap:24px}
+.masthead .kk{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--brand-l);font-weight:600}
+.masthead h1{font-size:clamp(30px,4.4vw,46px);font-weight:600;letter-spacing:-.02em;line-height:1.04;margin:12px 0 6px;color:var(--ink)}
+.masthead h1 .sub{display:block;font-size:15px;font-weight:500;letter-spacing:0;color:var(--muted);margin-top:9px}
+.masthead .rightmeta{text-align:right;font-family:var(--mono);font-size:11.5px;color:var(--muted);line-height:1.9;white-space:nowrap}
+.masthead .rightmeta b{color:var(--ink);font-weight:600}
+.caplead{font-family:var(--mono);font-size:10px;color:var(--faint);letter-spacing:.04em;text-transform:uppercase;padding:14px 0 0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;padding:9px 0 28px}
+.chip{font-family:var(--mono);font-size:11px;color:var(--body);background:var(--surface2);border:1px solid var(--hair);padding:6px 11px;border-radius:7px;display:inline-flex;align-items:center;gap:7px}
+.chip i{width:6px;height:6px;border-radius:1px;background:var(--brand);display:block}
+
+.section{padding:36px 0 8px}
+.shead{display:flex;align-items:baseline;gap:16px;margin-bottom:20px}
+.shead .code{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--brand-l);letter-spacing:.04em;flex:none}
+.shead h2{font-size:19px;font-weight:600;letter-spacing:-.01em;color:var(--ink)}
+.shead .ln{flex:1;height:1px;background:var(--hair);align-self:center}
+.shead .note{font-size:12.5px;color:var(--muted);max-width:320px;text-align:right;flex:none}
+
+.kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+.kpi{background:var(--surface);border:1px solid var(--hair);border-radius:10px;padding:15px 15px 14px;box-shadow:var(--sh-sm)}
+.kpi .l{font-family:var(--mono);font-size:9.5px;font-weight:500;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);min-height:22px;line-height:1.3}
+.kpi .v{font-family:var(--sans);font-weight:600;font-size:25px;letter-spacing:-.02em;color:var(--ink);margin:9px 0 7px;line-height:1}
+.kpi .v.sm{font-size:21px}
+.kpi .d{font-family:var(--mono);font-size:11px;font-weight:500;display:flex;align-items:center;gap:5px}
+.kpi .d .ar{font-size:9px}
+.up{color:var(--brand-l)} .dn{color:var(--body)} .nu{color:var(--faint)}
+
+.grid{display:grid;gap:14px}.g2{grid-template-columns:1fr 1fr}.g32{grid-template-columns:1.5fr 1fr}
+.card{background:var(--surface);border:1px solid var(--hair);border-radius:12px;padding:18px 18px 14px;box-shadow:var(--sh-sm)}
+.card h3{font-size:14px;font-weight:600;color:var(--ink)}
+.card .hint{font-family:var(--mono);font-size:10.5px;color:var(--faint);margin:3px 0 15px;letter-spacing:.01em}
+.card .hint .sw{display:inline-block;width:9px;height:9px;border-radius:2px;margin:0 4px 0 8px;vertical-align:-1px}
+.card .hint .sw:first-child{margin-left:0}
+.chart{position:relative;width:100%}.h330{height:330px}.h300{height:300px}.h260{height:260px}.h210{height:210px}
+
+.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
+.tbl th{font-family:var(--mono);text-align:left;font-size:9.5px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);padding:0 9px 10px;border-bottom:1px solid var(--hair2)}
+.tbl td{padding:9px 9px;border-bottom:1px solid var(--hair);color:var(--body)}
+.tbl tr:last-child td{border-bottom:0}
+.tbl td.r,.tbl th.r{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums}
+.tbl .nm{font-weight:500;color:var(--ink)}
+.tbl .rk{font-family:var(--mono);color:var(--faint);width:24px;font-size:12px}
+.tbl .tag{font-family:var(--mono);font-size:10px;color:var(--muted)}
+.tbl tbody tr:hover td{background:var(--surface2)}
+
+.foot{position:relative;margin-top:44px;background:var(--surface);border-top:1px solid var(--hair);overflow:hidden}
+.foot .wrap{position:relative;z-index:1;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;padding:30px 32px 46px}
+.foot .l{display:flex;align-items:center;gap:12px}.foot .ic{width:30px;height:30px;color:var(--ink)}
+.foot .t{font-size:13px;color:var(--muted);line-height:1.5}.foot .t b{color:var(--ink);font-weight:600}
+.foot a{color:inherit;text-decoration:underline;text-decoration-thickness:.5px;text-underline-offset:2px}
+.foot .dis{font-family:var(--mono);font-size:10px;line-height:1.7;color:var(--faint);max-width:380px;text-align:right}
+
+@media(max-width:900px){.kpis{grid-template-columns:repeat(3,1fr)}.g2,.g32{grid-template-columns:1fr}.masthead{flex-direction:column;align-items:flex-start}.masthead .rightmeta{text-align:left}}
+@media(max-width:560px){.kpis{grid-template-columns:repeat(2,1fr)}}
+@media print{.card,.kpi{break-inside:avoid}}
+</style>
+</head>
+<body>
+
+<template id="ddclines">
+<div class="lines"><svg viewBox="0 0 960 720" preserveAspectRatio="xMidYMid slice">
+<rect x="-120" y="180" width="420" height="420" transform="rotate(-18 90 390)" fill="none" stroke="rgba(235,235,245,.07)" stroke-width="0.8"/>
+<rect x="40" y="-120" width="520" height="520" transform="rotate(12 300 140)" fill="none" stroke="rgba(235,235,245,.055)" stroke-width="0.9"/>
+<rect x="220" y="60" width="460" height="460" transform="rotate(-32 450 290)" fill="none" stroke="rgba(235,235,245,.06)" stroke-width="0.75"/>
+<rect x="360" y="-60" width="520" height="520" transform="rotate(28 620 200)" fill="none" stroke="rgba(235,235,245,.055)" stroke-width="0.7"/>
+<rect x="520" y="200" width="420" height="420" transform="rotate(-24 730 410)" fill="none" stroke="rgba(235,235,245,.05)" stroke-width="0.85"/>
+<rect x="60" y="320" width="520" height="520" transform="rotate(-12 320 580)" fill="none" stroke="rgba(235,235,245,.045)" stroke-width="0.65"/>
+<rect x="440" y="360" width="480" height="480" transform="rotate(18 680 600)" fill="none" stroke="rgba(235,235,245,.045)" stroke-width="0.7"/>
+<path d="M-80 120 L 320 60 L 680 140" fill="none" stroke="rgba(240,236,228,.07)" stroke-width="0.75" stroke-linecap="round"/>
+<path d="M-120 420 L 260 320 L 640 420" fill="none" stroke="rgba(240,236,228,.06)" stroke-width="0.75" stroke-linecap="round"/>
+<path d="M80 -60 L 140 280 L 60 520" fill="none" stroke="rgba(240,236,228,.06)" stroke-width="0.75" stroke-linecap="round"/>
+<path d="M520 -40 L 580 280 L 500 520" fill="none" stroke="rgba(240,236,228,.05)" stroke-width="0.75" stroke-linecap="round"/>
+<path d="M720 20 L 780 300 L 700 540" fill="none" stroke="rgba(240,236,228,.05)" stroke-width="0.75" stroke-linecap="round"/>
+</svg></div>
+</template>
+<svg style="display:none"><symbol id="ddcmark" viewBox="0 0 864.06 864.06"><g transform="translate(-97.34,-74.00)"><path d="M407.07 851.09 C410.95 849.87 416.88 846.78 421.57 843.52 C436.07 833.45 435.28 833.66 462.00 832.91 C491.37 832.08 493.99 831.46 539.00 814.71 C610.53 788.08 663.43 764.73 697.31 744.85 C758.40 709.00 802.21 664.33 829.41 610.17 C839.25 590.58 846.44 570.54 852.55 545.65 C866.20 490.06 864.59 421.98 848.35 368.00 C837.94 333.40 822.20 302.56 800.13 273.50 C790.56 260.90 765.46 235.60 753.00 226.00 C719.02 199.81 681.01 181.46 642.39 172.60 C610.62 165.31 604.75 165.04 474.38 165.02 C360.44 165.00 360.27 165.00 357.63 167.07 L355.00 169.15L355.00 193.94 C355.00 217.36 355.11 218.87 357.04 221.32 L359.07 223.91L482.29 224.30 C616.12 224.72 609.33 224.45 633.50 230.40 C686.07 243.33 733.16 276.02 762.55 320.00 C784.70 353.14 797.93 392.11 802.07 436.33 C803.58 452.50 802.73 495.52 800.62 509.50 C793.76 555.03 777.78 592.26 749.95 627.54 C741.32 638.47 722.44 657.08 711.00 665.92 C670.68 697.08 613.70 725.53 533.93 754.35 C496.06 768.03 476.00 773.16 455.00 774.53 L445.50 775.15L441.82 768.76 C436.94 760.30 430.49 753.29 423.63 749.00 L418.03 745.50L418.01 692.93 L418.00 640.36L506.25 640.43 C605.50 640.51 602.59 640.69 626.41 632.89 C646.65 626.27 663.38 616.25 678.84 601.50 C705.28 576.28 720.67 546.34 727.56 506.69 C729.68 494.51 730.61 455.88 729.12 442.17 C725.79 411.61 716.24 384.60 700.24 360.51 C691.26 346.99 672.94 328.68 659.50 319.80 C639.99 306.92 619.12 298.38 596.00 293.83 C584.56 291.58 583.96 291.57 477.24 291.24 C380.03 290.95 369.66 291.07 366.57 292.54 C359.60 295.84 360.00 288.59 360.00 411.76 L360.00 522.73L362.64 525.36 L365.27 528.00L388.53 528.00 C409.93 528.00 411.97 527.85 414.14 526.09 L416.50 524.18L417.00 436.34 L417.50 348.50L490.50 348.21 C566.00 347.91 575.06 348.25 590.84 352.02 C609.89 356.57 627.22 366.14 640.55 379.46 C655.85 394.75 666.02 415.29 670.66 440.24 C673.10 453.40 673.09 483.87 670.63 497.50 C664.82 529.80 649.89 553.69 625.65 569.49 C614.68 576.64 603.65 581.19 590.00 584.19 L579.50 586.50L446.00 586.50 C372.57 586.50 310.93 586.15 309.00 585.71 C305.77 584.99 305.14 584.18 300.85 575.21 C297.41 568.03 294.63 563.90 290.18 559.34 C286.87 555.95 282.10 551.97 279.58 550.50 L275.00 547.81L275.00 397.83 L275.00 247.85L280.40 242.91 C289.55 234.55 293.98 226.13 296.06 213.15 C299.74 190.06 282.75 166.07 259.20 161.11 C242.60 157.62 225.11 162.84 213.98 174.62 C204.07 185.09 199.36 200.79 201.81 215.10 C203.53 225.13 207.23 232.18 215.14 240.51 L222.00 247.73L222.00 398.21 L222.00 548.68L219.75 549.71 C216.19 551.33 209.09 557.62 205.01 562.77 C200.21 568.83 196.38 576.45 194.49 583.69 C192.74 590.41 192.54 604.67 194.09 612.20 C198.03 631.32 215.41 649.49 234.54 654.47 C241.25 656.22 255.34 656.45 262.00 654.92 C269.54 653.19 280.17 647.45 286.56 641.67 L292.62 636.17L322.56 637.65 C339.03 638.47 354.41 639.36 356.75 639.63 L361.00 640.12L361.00 692.53 L361.00 744.94L355.75 748.30 C344.97 755.20 335.81 767.97 332.49 780.70 C330.72 787.49 330.54 801.78 332.14 809.20 C334.95 822.33 344.96 836.80 356.56 844.50 C362.18 848.23 370.07 851.45 377.49 853.05 C383.94 854.44 399.74 853.39 407.07 851.09 Z" fill="currentColor" fill-rule="evenodd"/></g></symbol></svg>
+
+<header class="head" id="head">
+  <div class="wrap">
+    <div class="topbar">
+      <div class="lock"><svg class="ic"><use href="#ddcmark"/></svg>
+        <span class="tx"><b>DATA DRIVEN</b><span>CONSULTING</span></span></div>
+      <div class="meta">Documento confidencial</div>
+    </div>
+    <div class="masthead">
+      <div>
+        <div class="kk">Reporte de operación · Junio 2026</div>
+        <h1>Hábito<span class="sub">Coffee Shop</span></h1>
+      </div>
+      <div class="rightmeta">Periodo del reporte<br><b>1 al 30 de junio, 2026</b></div>
+    </div>
+    <div class="caplead">Acumulado de los últimos doce meses</div>
+    <div class="chips" id="chips"></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="section">
+    <div class="shead"><span class="code">01</span><h2>Pulso del mes</h2><span class="ln"></span><span class="note">Variación vs. mes anterior</span></div>
+    <div class="kpis" id="kpis"></div>
+  </section>
+
+  <section class="section">
+    <div class="shead"><span class="code">02</span><h2>Operación a doce meses</h2><span class="ln"></span><span class="note">Los últimos doce meses</span></div>
+    <div class="card"><h3>Ventas del mes y número de tickets</h3>
+      <div class="hint"><span class="sw" style="background:var(--brand)"></span>Ventas<span class="sw" style="background:var(--accent)"></span>Tickets</div>
+      <div class="chart h330"><canvas id="cTrend"></canvas></div></div>
+  </section>
+
+  <section class="section">
+    <div class="shead"><span class="code">03</span><h2>El ritmo del día y la semana</h2><span class="ln"></span><span class="note">A qué hora y qué día se llena</span></div>
+    <div class="grid g2">
+      <div class="card"><h3>Tickets por hora · año</h3><div class="hint">La mañana concentra la venta</div>
+        <div class="chart h300"><canvas id="cHora"></canvas></div></div>
+      <div class="card"><h3>Tickets por día de la semana · año</h3><div class="hint">El fin de semana es el más fuerte</div>
+        <div class="chart h300"><canvas id="cDia"></canvas></div></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shead"><span class="code">04</span><h2>Mezcla de productos</h2><span class="ln"></span><span class="note">Qué se vende y cuánto deja</span></div>
+    <div class="grid g32">
+      <div class="card"><h3>Ventas por categoría · año</h3>
+        <div class="hint"><span class="sw" style="background:var(--brand)"></span>Ventas<span class="sw" style="background:var(--accent)"></span>Margen de la categoría</div>
+        <div class="chart h300"><canvas id="cCat"></canvas></div></div>
+      <div class="card"><h3>Productos más vendidos</h3><div class="hint">Por venta del año</div>
+        <table class="tbl" id="tProd"></table></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shead"><span class="code">05</span><h2>Canal y forma de pago</h2><span class="ln"></span><span class="note">Cómo y por dónde se cobra</span></div>
+    <div class="grid g2">
+      <div class="card"><h3>Ventas por canal · año</h3><div class="hint">Mostrador, para llevar y digitales</div>
+        <div class="chart h300"><canvas id="cCanal"></canvas></div></div>
+      <div class="card"><h3>Ventas por forma de pago · año</h3><div class="hint">Reparto del cobro</div>
+        <div class="chart h300"><canvas id="cPago"></canvas></div></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shead"><span class="code">06</span><h2>Ticket promedio y margen</h2><span class="ln"></span><span class="note">Gasto y rentabilidad por visita</span></div>
+    <div class="grid g2">
+      <div class="card"><h3>Ticket promedio por mes</h3><div class="hint">Gasto promedio por visita</div>
+        <div class="chart h300"><canvas id="cTicket"></canvas></div></div>
+      <div class="card"><h3>Margen por categoría · año</h3><div class="hint">El café deja más; el grano de origen menos</div>
+        <div class="chart h300"><canvas id="cMargen"></canvas></div></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shead"><span class="code">07</span><h2>Lealtad y clientela</h2><span class="ln"></span><span class="note">Socios que regresan cada mes</span></div>
+    <div class="grid g2">
+      <div class="card"><h3>Socios activos por mes · año</h3><div class="hint">Clientes de lealtad con compra en el mes</div>
+        <div class="chart h300"><canvas id="cSocios"></canvas></div></div>
+      <div class="card"><h3>Clientes más frecuentes · año</h3><div class="hint">Por gasto acumulado</div>
+        <table class="tbl" id="tCli"></table></div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot" id="foot">
+  <div class="wrap">
+    <div class="l"><svg class="ic"><use href="#ddcmark"/></svg>
+      <span class="t"><b>Data Driven Consulting</b> · <a href="https://www.datadriven.com.mx" target="_blank" rel="noopener">datadriven.com.mx</a><br>Transformamos datos en decisiones.</span></div>
+    <div class="dis">Demo de producto. Hábito Café de Especialidad es una marca ficticia con datos sintéticos, creada para ilustrar el formato de reporte mensual. © 2026 Data Driven Consulting.</div>
+  </div>
+</footer>
+
+<script>
+const DATA={"marca": "Hábito", "mesActual": "Junio 2026", "meses": ["Jul 25", "Ago 25", "Sep 25", "Oct 25", "Nov 25", "Dic 25", "Ene 26", "Feb 26", "Mar 26", "Abr 26", "May 26", "Jun 26"], "ventasMes": [243196, 250289, 263780, 295461, 319133, 349389, 313466, 282609, 312771, 300354, 315702, 307716], "ticketsMes": [1777, 1827, 1989, 2202, 2357, 2515, 2343, 2093, 2324, 2205, 2357, 2278], "ticketPromMes": [137, 137, 133, 134, 135, 139, 134, 135, 135, 136, 134, 135], "productosMes": [3554, 3665, 3940, 4343, 4677, 5001, 4587, 4132, 4601, 4395, 4640, 4477], "margenMes": [65.8, 65.7, 66.4, 65.9, 66.1, 65.0, 65.6, 65.6, 65.8, 65.9, 66.0, 66.0], "socioMes": [304, 306, 324, 337, 334, 347, 344, 333, 342, 332, 342, 349], "kpi": {"ventas": {"val": 307716, "prev": 315702, "delta": -2.5}, "tickets": {"val": 2278, "prev": 2357, "delta": -3.4}, "ticketProm": {"val": 135, "prev": 134, "delta": 0.7}, "margen": {"val": 66.0, "prev": 66.0, "delta": 0.0, "pts": true}, "productos": {"val": 4477, "prev": 4640, "delta": -3.5}, "socios": {"val": 349, "prev": 342, "delta": 2.0}}, "porCategoria": [{"cat": "Café caliente", "unidades": 20971, "ventas": 1129364, "margenPct": 79.8}, {"cat": "Café frío", "unidades": 6480, "ventas": 445674, "margenPct": 75.9}, {"cat": "Otras bebidas", "unidades": 4897, "ventas": 261439, "margenPct": 72.8}, {"cat": "Repostería", "unidades": 12358, "ventas": 631171, "margenPct": 62.0}, {"cat": "Alimentos", "unidades": 5571, "ventas": 597643, "margenPct": 54.6}, {"cat": "Retail", "unidades": 1735, "ventas": 488575, "margenPct": 39.2}], "topProductos": [{"producto": "Mocha", "categoria": "Café caliente", "unidades": 2622, "ventas": 170430}, {"producto": "Flat White", "categoria": "Café caliente", "unidades": 2669, "ventas": 160140}, {"producto": "Café 250g (grano)", "categoria": "Retail", "unidades": 704, "ventas": 158400}, {"producto": "Chai Latte", "categoria": "Café caliente", "unidades": 2578, "ventas": 149524}, {"producto": "Latte", "categoria": "Café caliente", "unidades": 2575, "ventas": 149350}, {"producto": "Café 1kg (grano)", "categoria": "Retail", "unidades": 213, "ventas": 146970}, {"producto": "Capuccino", "categoria": "Café caliente", "unidades": 2658, "ventas": 146190}, {"producto": "Rebanada de Pastel", "categoria": "Repostería", "unidades": 1736, "ventas": 135408}, {"producto": "Chilaquiles", "categoria": "Alimentos", "unidades": 917, "ventas": 123795}, {"producto": "Cortado", "categoria": "Café caliente", "unidades": 2565, "ventas": 123120}], "porHora": [{"hora": "07:00", "tickets": 1082, "ventas": 142342}, {"hora": "08:00", "tickets": 2925, "ventas": 401844}, {"hora": "09:00", "tickets": 3316, "ventas": 456343}, {"hora": "10:00", "tickets": 2921, "ventas": 405364}, {"hora": "11:00", "tickets": 2141, "ventas": 288604}, {"hora": "12:00", "tickets": 1859, "ventas": 241320}, {"hora": "13:00", "tickets": 1659, "ventas": 222959}, {"hora": "14:00", "tickets": 1500, "ventas": 203873}, {"hora": "15:00", "tickets": 1242, "ventas": 165948}, {"hora": "16:00", "tickets": 1531, "ventas": 210486}, {"hora": "17:00", "tickets": 1771, "ventas": 239576}, {"hora": "18:00", "tickets": 1563, "ventas": 204808}, {"hora": "19:00", "tickets": 1313, "ventas": 175048}, {"hora": "20:00", "tickets": 887, "ventas": 120930}, {"hora": "21:00", "tickets": 557, "ventas": 74421}], "porDia": [{"dia": "Lun", "tickets": 3399, "ventas": 461407}, {"dia": "Mar", "tickets": 3458, "ventas": 466534}, {"dia": "Mié", "tickets": 3469, "ventas": 473249}, {"dia": "Jue", "tickets": 3555, "ventas": 486113}, {"dia": "Vie", "tickets": 3729, "ventas": 510386}, {"dia": "Sáb", "tickets": 4605, "ventas": 614546}, {"dia": "Dom", "tickets": 4052, "ventas": 541631}], "porCanal": [{"canal": "Mostrador", "tickets": 13049, "ventas": 1777241, "ticketProm": 136}, {"canal": "Para llevar", "tickets": 8369, "ventas": 1121961, "ticketProm": 134}, {"canal": "App / Pickup", "tickets": 2384, "ventas": 321145, "ticketProm": 135}, {"canal": "Delivery", "tickets": 2465, "ventas": 333519, "ticketProm": 135}], "porPago": [{"metodo": "Tarjeta", "tickets": 15216, "ventas": 2055547}, {"metodo": "Efectivo", "tickets": 7953, "ventas": 1080173}, {"metodo": "Digital", "tickets": 3098, "ventas": 418146}], "topClientes": [{"cliente": "Lucía Cruz", "visitas": 50, "gasto": 8724}, {"cliente": "Paola González", "visitas": 62, "gasto": 8634}, {"cliente": "Regina Vega", "visitas": 58, "gasto": 7869}, {"cliente": "Héctor Ramírez", "visitas": 53, "gasto": 7434}, {"cliente": "Mauricio Hernández", "visitas": 40, "gasto": 7170}, {"cliente": "Andrés Pérez", "visitas": 45, "gasto": 7103}, {"cliente": "Marcela Sánchez", "visitas": 45, "gasto": 7087}, {"cliente": "Rodrigo Mendoza", "visitas": 59, "gasto": 7014}, {"cliente": "Andrea Torres", "visitas": 41, "gasto": 6932}, {"cliente": "Lucía Fuentes", "visitas": 48, "gasto": 6916}], "totales": {"ventas": 3553866, "tickets": 26267, "productos": 52012, "margenPct": 65.8, "socios": 514, "pctLealtad": 35.9, "ticketProm": 135}};
+const C={ink:'#F4EEE4',body:'#E3DACC',muted:'#A99C88',faint:'#7E7262',hair:'#332B21',
+  brand:'#4E9B72',brandD:'#3A7D5C',brandL:'#6FB78F',brandXL:'#8FCBA8',
+  accent:'#CB8A3E',accentD:'#A66E2C',accentL:'#E0A85C',crema:'#D9C19A',graph:'#8A7F6E'};
+const CATCOL=[C.brand,C.brandL,C.brandXL,C.accent,C.accentL,C.crema];
+const SANS="600 12px 'Geist','IBM Plex Sans',sans-serif";
+const fmtM=n=>'$'+Math.round(n).toLocaleString('es-MX');
+const fmtK=n=>n>=1e6?'$'+(n/1e6).toFixed(2)+'M':n>=1000?'$'+Math.round(n/1000)+'K':'$'+n;
+const nf=n=>Math.round(n).toLocaleString('es-MX');
+
+Chart.defaults.font.family="'JetBrains Mono',monospace";
+Chart.defaults.font.size=10.5; Chart.defaults.color=C.faint;
+Chart.defaults.plugins.legend.display=false;
+Object.assign(Chart.defaults.plugins.tooltip,{backgroundColor:'#2A2218',borderColor:C.hair,borderWidth:1,cornerRadius:7,padding:10,
+  displayColors:false,titleColor:C.ink,bodyColor:C.body,
+  titleFont:{family:"'Geist',sans-serif",weight:'600',size:12.5},bodyFont:{family:"'JetBrains Mono',monospace",size:11}});
+const noGrid={grid:{display:false},border:{display:false}};
+const xA={grid:{display:false},border:{color:C.hair},ticks:{color:C.muted,font:{size:9.5}}};
+const vlab=(o={})=>({id:'vl'+(o.axis||'x')+(o.ds||0),afterDatasetsDraw(c){const{ctx}=c;const ds=o.ds??0;const f=o.fmt||(v=>v);
+  c.getDatasetMeta(ds).data.forEach((el,k)=>{const v=c.data.datasets[ds].data[k];if(v==null)return;ctx.save();
+  ctx.fillStyle=o.color||C.body;ctx.font=o.font||SANS;
+  if(o.axis==='y'){ctx.textAlign='left';ctx.textBaseline='middle';ctx.fillText(f(v),el.x+8,el.y);}
+  else{ctx.textAlign='center';ctx.textBaseline='bottom';ctx.fillText(f(v),el.x,el.y-7);}ctx.restore();});}});
+const endLab=(o={})=>({id:'end',afterDatasetsDraw(c){const m=c.getDatasetMeta(o.ds);const el=m.data[m.data.length-1];if(!el)return;
+  const v=c.data.datasets[o.ds].data[m.data.length-1];const{ctx}=c;ctx.save();ctx.fillStyle=o.color||C.brandL;
+  ctx.font="600 12.5px 'Geist',sans-serif";ctx.textAlign='right';ctx.textBaseline='bottom';ctx.fillText((o.fmt||(x=>x))(v),el.x-2,el.y-9);ctx.restore();}});
+function inject(id){document.getElementById(id).prepend(document.getElementById('ddclines').content.cloneNode(true));}
+
+function build(){
+  inject('head');inject('foot');
+  const T=DATA.totales;
+  document.getElementById('chips').innerHTML=[
+    T.tickets.toLocaleString('es-MX')+' tickets', fmtK(T.ventas)+' en ventas',
+    T.margenPct+'% de margen', T.ticketProm+' ticket promedio', T.socios+' socios de lealtad'
+  ].map(t=>`<span class="chip"><i></i>${t}</span>`).join('');
+
+  const K=DATA.kpi;
+  const dl=(o)=>{const d=o.delta;if(d==null||d===0)return `<span class="d nu">Sin cambio</span>`;
+    return `<span class="d ${d>0?'up':'dn'}"><span class="ar">${d>0?'▲':'▼'}</span> ${Math.abs(d)}${o.pts?' pts':'%'}</span>`;};
+  const defs=[
+    {l:'Ventas del mes',v:fmtM(K.ventas.val),sm:1,d:dl(K.ventas)},
+    {l:'Tickets',v:nf(K.tickets.val),d:dl(K.tickets)},
+    {l:'Ticket promedio',v:fmtM(K.ticketProm.val),d:dl(K.ticketProm)},
+    {l:'Margen',v:K.margen.val+'%',d:dl(K.margen)},
+    {l:'Productos vendidos',v:nf(K.productos.val),d:dl(K.productos)},
+    {l:'Socios activos',v:nf(K.socios.val),d:dl(K.socios)},
+  ];
+  document.getElementById('kpis').innerHTML=defs.map(k=>
+    `<div class="kpi"><div class="l">${k.l}</div><div class="v ${k.sm?'sm':''} tnum">${k.v}</div>${k.d}</div>`).join('');
+
+  // trend ventas + tickets
+  new Chart(cTrend,{data:{labels:DATA.meses,datasets:[
+    {type:'bar',label:'Tickets',data:DATA.ticketsMes,yAxisID:'y1',backgroundColor:'rgba(203,138,62,.28)',
+     hoverBackgroundColor:'rgba(203,138,62,.5)',borderRadius:3,barPercentage:.6,categoryPercentage:.7,order:3},
+    {type:'line',label:'Ventas',data:DATA.ventasMes,yAxisID:'y',borderColor:C.brand,backgroundColor:C.brand,
+     borderWidth:2,tension:.34,pointRadius:0,pointHoverRadius:4,fill:false,order:1}
+  ]},options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},layout:{padding:{top:22,right:10}},
+    plugins:{tooltip:{callbacks:{label:c=>c.dataset.label==='Ventas'?'Ventas  '+fmtM(c.parsed.y):'Tickets  '+nf(c.parsed.y)}}},
+    scales:{y:{beginAtZero:true,ticks:{color:C.muted,callback:v=>fmtK(v)},...noGrid},
+      y1:{position:'right',beginAtZero:true,grace:'12%',ticks:{color:C.faint},...noGrid},x:xA}},
+    plugins:[endLab({ds:1,fmt:fmtK})]});
+
+  // por hora
+  const OH=DATA.porHora,maxh=Math.max(...OH.map(o=>o.tickets));
+  new Chart(cHora,{type:'bar',data:{labels:OH.map(o=>o.hora),datasets:[
+    {data:OH.map(o=>o.tickets),borderRadius:4,barPercentage:.82,
+     backgroundColor:OH.map(o=>o.tickets>=maxh*0.82?C.accentL:o.tickets>=maxh*0.55?C.accent:o.tickets>=maxh*0.38?C.brand:C.graph)}]},
+    options:{responsive:true,maintainAspectRatio:false,
+    plugins:{tooltip:{callbacks:{label:c=>nf(c.parsed.y)+' tickets · '+fmtM(OH[c.dataIndex].ventas)}}},
+    scales:{y:{beginAtZero:true,ticks:{color:C.muted},...noGrid},
+      x:{ticks:{color:C.body,font:{family:"'JetBrains Mono'",size:8.5},maxRotation:0,autoSkipPadding:3},grid:{display:false},border:{color:C.hair}}}}});
+
+  // por día
+  const AD=DATA.porDia;
+  new Chart(cDia,{type:'bar',data:{labels:AD.map(d=>d.dia),datasets:[
+    {data:AD.map(d=>d.tickets),backgroundColor:AD.map(d=>d.dia==='Sáb'||d.dia==='Dom'?C.accent:C.brand),borderRadius:4,barPercentage:.66}]},
+    options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:20}},
+    plugins:{tooltip:{callbacks:{label:c=>nf(c.parsed.y)+' tickets · '+fmtM(AD[c.dataIndex].ventas)}}},
+    scales:{y:{beginAtZero:true,ticks:{color:C.muted},...noGrid},x:{ticks:{color:C.ink,font:{family:"'Geist',sans-serif",size:12}},grid:{display:false},border:{color:C.hair}}},
+    },plugins:[vlab({fmt:nf,color:C.muted})]});
+
+  // categoría ventas + margen
+  const PCAT=DATA.porCategoria;
+  new Chart(cCat,{data:{labels:PCAT.map(c=>c.cat),datasets:[
+    {type:'bar',data:PCAT.map(c=>c.ventas),backgroundColor:CATCOL,borderRadius:4,barPercentage:.72,xAxisID:'x',order:2},
+  ]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,layout:{padding:{right:58}},
+    plugins:{tooltip:{callbacks:{label:c=>fmtM(c.parsed.x)+' · margen '+PCAT[c.dataIndex].margenPct+'%'}}},
+    scales:{x:{beginAtZero:true,ticks:{display:false},...noGrid},
+      y:{ticks:{color:C.ink,font:{family:"'Geist',sans-serif",size:11.5}},...noGrid}}},
+    plugins:[vlab({axis:'y',fmt:fmtK,color:C.muted})]});
+
+  // top productos
+  document.getElementById('tProd').innerHTML=
+    '<thead><tr><th>Producto</th><th class="r">Unid.</th><th class="r">Ventas</th></tr></thead><tbody>'+
+    DATA.topProductos.slice(0,8).map(p=>`<tr><td class="nm">${p.producto}<div class="tag">${p.categoria}</div></td>
+      <td class="r">${nf(p.unidades)}</td><td class="r">${fmtM(p.ventas)}</td></tr>`).join('')+'</tbody>';
+
+  // canal
+  const PCAN=DATA.porCanal;
+  new Chart(cCanal,{type:'bar',data:{labels:PCAN.map(c=>c.canal),datasets:[
+    {data:PCAN.map(c=>c.ventas),backgroundColor:[C.brand,C.brandL,C.accent,C.accentL],borderRadius:4,barPercentage:.66}]},
+    options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:20}},
+    plugins:{tooltip:{callbacks:{label:c=>fmtM(c.parsed.y)+' · '+nf(PCAN[c.dataIndex].tickets)+' tickets'}}},
+    scales:{y:{beginAtZero:true,ticks:{color:C.muted,callback:v=>fmtK(v)},...noGrid},x:{ticks:{color:C.ink,font:{family:"'Geist',sans-serif",size:11}},grid:{display:false},border:{color:C.hair}}},
+    },plugins:[vlab({fmt:fmtK,color:C.muted})]});
+
+  // pago
+  const PP=DATA.porPago;
+  new Chart(cPago,{type:'bar',data:{labels:PP.map(p=>p.metodo),datasets:[
+    {data:PP.map(p=>p.ventas),backgroundColor:[C.brand,C.accent,C.brandL],borderRadius:4,barPercentage:.56}]},
+    options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:20}},
+    plugins:{tooltip:{callbacks:{label:c=>fmtM(c.parsed.y)+' · '+nf(PP[c.dataIndex].tickets)+' tickets'}}},
+    scales:{y:{beginAtZero:true,ticks:{color:C.muted,callback:v=>fmtK(v)},...noGrid},x:{ticks:{color:C.ink,font:{family:"'Geist',sans-serif",size:12}},grid:{display:false},border:{color:C.hair}}},
+    },plugins:[vlab({fmt:fmtK,color:C.muted})]});
+
+  // ticket promedio mes
+  new Chart(cTicket,{type:'line',data:{labels:DATA.meses,datasets:[
+    {data:DATA.ticketPromMes,borderColor:C.accent,backgroundColor:'rgba(203,138,62,.10)',borderWidth:2,tension:.34,
+     pointRadius:0,pointHoverRadius:4,fill:true}]},
+    options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:8,right:6}},
+    plugins:{tooltip:{callbacks:{label:c=>'Ticket promedio  '+fmtM(c.parsed.y)}}},
+    scales:{y:{beginAtZero:false,ticks:{color:C.muted,callback:v=>fmtM(v)},...noGrid},x:xA}}});
+
+  // margen por categoría
+  new Chart(cMargen,{type:'bar',data:{labels:PCAT.map(c=>c.cat),datasets:[
+    {data:PCAT.map(c=>c.margenPct),backgroundColor:CATCOL,borderRadius:4,barPercentage:.72}]},
+    options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,layout:{padding:{right:46}},
+    plugins:{tooltip:{callbacks:{label:c=>'Margen  '+c.parsed.x+'%'}}},
+    scales:{x:{beginAtZero:true,max:100,ticks:{display:false},...noGrid},y:{ticks:{color:C.ink,font:{family:"'Geist',sans-serif",size:11.5}},...noGrid}}},
+    plugins:[vlab({axis:'y',fmt:v=>v+'%',color:C.muted})]});
+
+  // socios por mes
+  new Chart(cSocios,{type:'bar',data:{labels:DATA.meses,datasets:[
+    {data:DATA.socioMes,backgroundColor:C.accent,borderRadius:3,barPercentage:.62}]},
+    options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:20}},
+    plugins:{tooltip:{callbacks:{label:c=>nf(c.parsed.y)+' socios activos'}}},
+    scales:{y:{beginAtZero:true,ticks:{color:C.muted},...noGrid},x:xA}},
+    plugins:[vlab({fmt:nf,color:C.muted,font:"600 9.5px 'Geist',sans-serif"})]});
+
+  // top clientes
+  document.getElementById('tCli').innerHTML=
+    '<thead><tr><th class="rk">#</th><th>Cliente</th><th class="r">Visitas</th><th class="r">Gasto año</th></tr></thead><tbody>'+
+    DATA.topClientes.slice(0,8).map((c,k)=>`<tr><td class="rk">${String(k+1).padStart(2,'0')}</td><td class="nm">${c.cliente}</td>
+      <td class="r">${nf(c.visitas)}</td><td class="r">${fmtM(c.gasto)}</td></tr>`).join('')+'</tbody>';
+}
+if(document.fonts&&document.fonts.ready){document.fonts.ready.then(build);}else{build();}
+</script>
+</body>
+</html>

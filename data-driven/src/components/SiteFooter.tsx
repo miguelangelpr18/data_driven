@@ -6,6 +6,7 @@ import BackgroundLines from '@/components/BackgroundLines';
 const navigationLinks = [
   { label: 'Servicios',   href: '#servicios' },
   { label: 'Metodología', href: '#metodologia' },
+  { label: 'Demos',       href: '#demos' },
   { label: 'Planes',      href: '#planes-data-driven' },
   { label: 'Nosotros',    href: '#quienes-somos' },
   { label: 'Contacto',    href: '#contacto' },

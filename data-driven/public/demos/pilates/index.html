@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Núcleo · Reporte de Operación · Junio 2026 · Data Driven Consulting</title>
+<meta name="description" content="Reporte mensual de operación · Núcleo Estudio de Pilates · Junio 2026 · Data Driven Consulting">
+<meta property="og:title" content="Núcleo · Reporte de Operación · Junio 2026 · Data Driven">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="/demos/vendor/chart.umd.min.js"></script>
+<style>
+:root{
+  --bg:#F5F5F7; --surface:#FFFFFF; --surface2:#FAFAFC; --hair:#E5E5EA; --hair2:#D7D7DC;
+  --ink:#0B0B0B; --body:#1D1D1F; --muted:#6E6E73; --faint:#8E8E93;
+  --brand:#3A7D5C; --brand-d:#2C5E45; --brand-l:#5E9E7B; --brand-soft:#EAF2EE;
+  --accent:#BE6E4E; --accent-d:#9E5638; --accent-l:#D49170; --sand:#C9A87C;
+  --graph:#5E6670;
+  --sans:'Geist','IBM Plex Sans',-apple-system,system-ui,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+  --sh-sm:0 1px 2px rgba(0,0,0,.04),0 1px 3px rgba(0,0,0,.05);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);color:var(--body);background:var(--bg);line-height:1.5;-webkit-font-smoothing:antialiased}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.tnum{font-variant-numeric:tabular-nums lining-nums;font-feature-settings:"tnum","lnum"}
+.wrap{max-width:1120px;margin:0 auto;padding:0 32px}
+.lines{position:absolute;inset:0;pointer-events:none;z-index:0;
+  -webkit-mask-image:radial-gradient(80% 86% at 62% 40%,#000,transparent);mask-image:radial-gradient(80% 86% at 62% 40%,#000,transparent)}
+.lines svg{position:absolute;inset:0;width:100%;height:100%}
+
+.head{position:relative;background:var(--surface);border-bottom:1px solid var(--hair);overflow:hidden}
+.head .wrap{position:relative;z-index:1}
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid var(--hair)}
+.lock{display:flex;align-items:center;gap:10px}
+.lock .ic{width:26px;height:26px;display:block}
+.lock .tx{font-family:var(--sans);line-height:1;display:flex;flex-direction:column;gap:3px}
+.lock .tx b{font-size:12.5px;font-weight:600;letter-spacing:.14em;color:var(--ink)}
+.lock .tx span{font-size:9px;font-weight:500;letter-spacing:.26em;color:var(--muted)}
+.topbar .meta{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.02em}
+.masthead{padding:34px 0 8px;display:flex;justify-content:space-between;align-items:flex-end;gap:24px}
+.masthead .kk{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--brand);font-weight:600}
+.masthead h1{font-size:clamp(30px,4.4vw,46px);font-weight:600;letter-spacing:-.02em;line-height:1.04;margin:12px 0 6px;color:var(--ink)}
+.masthead h1 .sub{display:block;font-size:15px;font-weight:500;letter-spacing:0;color:var(--muted);margin-top:9px}
+.masthead .rightmeta{text-align:right;font-family:var(--mono);font-size:11.5px;color:var(--muted);line-height:1.9;white-space:nowrap}
+.masthead .rightmeta b{color:var(--ink);font-weight:600}
+.caplead{font-family:var(--mono);font-size:10px;color:var(--faint);letter-spacing:.04em;text-transform:uppercase;padding:14px 0 0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;padding:9px 0 28px}
+.chip{font-family:var(--mono);font-size:11px;color:var(--body);background:var(--surface2);border:1px solid var(--hair);padding:6px 11px;border-radius:7px;display:inline-flex;align-items:center;gap:7px}
+.chip i{width:6px;height:6px;border-radius:1px;background:var(--brand);display:block}
+
+.section{padding:36px 0 8px}
+.shead{display:flex;align-items:baseline;gap:16px;margin-bottom:20px}
+.shead .code{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--brand);letter-spacing:.04em;flex:none}
+.shead h2{font-size:19px;font-weight:600;letter-spacing:-.01em;color:var(--ink)}
+.shead .ln{flex:1;height:1px;background:var(--hair);align-self:center}
+.shead .note{font-size:12.5px;color:var(--muted);max-width:320px;text-align:right;flex:none}
+
+.kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+.kpi{background:var(--surface);border:1px solid var(--hair);border-radius:10px;padding:15px 15px 14px;box-shadow:var(--sh-sm)}
+.kpi .l{font-family:var(--mono);font-size:9.5px;font-weight:500;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);min-height:22px;line-height:1.3}
+.kpi .v{font-family:var(--sans);font-weight:600;font-size:25px;letter-spacing:-.02em;color:var(--ink);margin:9px 0 7px;line-height:1}
+.kpi .v.sm{font-size:21px}
+.kpi .d{font-family:var(--mono);font-size:11px;font-weight:500;display:flex;align-items:center;gap:5px}
+.kpi .d .ar{font-size:9px}
+.up{color:var(--brand)} .dn{color:var(--ink)} .nu{color:var(--faint)}
+
+.grid{display:grid;gap:14px}.g2{grid-template-columns:1fr 1fr}.g32{grid-template-columns:1.5fr 1fr}
+.card{background:var(--surface);border:1px solid var(--hair);border-radius:12px;padding:18px 18px 14px;box-shadow:var(--sh-sm)}
+.card h3{font-size:14px;font-weight:600;color:var(--ink)}
+.card .hint{font-family:var(--mono);font-size:10.5px;color:var(--faint);margin:3px 0 15px;letter-spacing:.01em}
+.card .hint .sw{display:inline-block;width:9px;height:9px;border-radius:2px;margin:0 4px 0 8px;vertical-align:-1px}
+.card .hint .sw:first-child{margin-left:0}
+.chart{position:relative;width:100%}.h330{height:330px}.h300{height:300px}.h260{height:260px}.h210{height:210px}
+
+.funnel{margin-top:4px}
+.frow{display:grid;grid-template-columns:165px 1fr 120px;align-items:center;gap:14px;padding:13px 0;border-bottom:1px solid var(--hair)}
+.frow:last-child{border-bottom:0}
+.frow .fn .lab{font-family:var(--mono);font-size:10px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:3px}
+.frow .fn .big{font-family:var(--sans);font-weight:600;font-size:22px;color:var(--ink);letter-spacing:-.02em}
+.fbar{height:10px;background:var(--surface2);border-radius:6px;overflow:hidden;border:1px solid var(--hair)}
+.fbar i{display:block;height:100%;border-radius:6px;background:var(--brand)}
+.frow:nth-child(1) .fbar i{background:var(--brand-d)}
+.frow:nth-child(2) .fbar i{background:var(--brand)}
+.frow:nth-child(3) .fbar i{background:var(--accent)}
+.frow .fpct{text-align:right;font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+.frow .fpct b{display:block;font-family:var(--sans);font-size:14px;color:var(--ink);font-weight:600}
+
+.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
+.tbl th{font-family:var(--mono);text-align:left;font-size:9.5px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);padding:0 9px 10px;border-bottom:1px solid var(--hair2)}
+.tbl td{padding:10px 9px;border-bottom:1px solid var(--hair);color:var(--body)}
+.tbl tr:last-child td{border-bottom:0}
+.tbl td.r,.tbl th.r{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums}
+.tbl .nm{font-weight:500;color:var(--ink)}
+.tbl tbody tr:hover td{background:var(--surface2)}
+
+.foot{position:relative;margin-top:44px;background:var(--surface);border-top:1px solid var(--hair);overflow:hidden}
+.foot .wrap{position:relative;z-index:1;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;padding:30px 32px 46px}
+.foot .l{display:flex;align-items:center;gap:12px}.foot .ic{width:30px;height:30px}
+.foot .t{font-size:13px;color:var(--muted);line-height:1.5}.foot .t b{color:var(--ink);font-weight:600}
+.foot a{color:inherit;text-decoration:underline;text-decoration-thickness:.5px;text-underline-offset:2px}
+.foot .dis{font-family:var(--mono);font-size:10px;line-height:1.7;color:var(--faint);max-width:380px;text-align:right}
+
+@media(max-width:900px){.kpis{grid-template-columns:repeat(3,1fr)}.g2,.g32{grid-template-columns:1fr}.masthead{flex-direction:column;align-items:flex-start}.masthead .rightmeta{text-align:left}}
+@media(max-width:560px){.kpis{grid-template-columns:repeat(2,1fr)}}
+@media print{body{background:#fff}.card,.kpi{break-inside:avoid;box-shadow:none}}
+</style>
+</head>
+<body>
+
+<template id="ddclines">
+<div class="lines"><svg viewBox="0 0 960 720" preserveAspectRatio="xMidYMid slice">
+<rect x="-120" y="180" width="420" height="420" transform="rotate(-18 90 390)" fill="none" stroke="rgba(24,24,28,.13)" stroke-width="0.8"/>
+<rect x="40" y="-120" width="520" height="520" transform="rotate(12 300 140)" fill="none" stroke="rgba(24,24,28,.10)" stroke-width="0.9"/>
+<rect x="220" y="60" width="460" height="460" transform="rotate(-32 450 290)" fill="none" stroke="rgba(24,24,28,.11)" stroke-width="0.75"/>
+<rect x="360" y="-60" width="520" height="520" transform="rotate(28 620 200)" fill="none" stroke="rgba(24,24,28,.10)" stroke-width="0.7"/>
+<rect x="520" y="200" width="420" height="420" transform="rotate(-24 730 410)" fill="none" stroke="rgba(24,24,28,.09)" stroke-width="0.85"/>
+<rect x="60" y="320" width="520" height="520" transform="rotate(-12 320 580)" fill="none" stroke="rgba(24,24,28,.08)" stroke-width="0.65"/>
+<rect x="440" y="360" width="480" height="480" transform="rotate(18 680 600)" fill="none" stroke="rgba(24,24,28,.08)" stroke-width="0.7"/>
+<path d="M-80 120 L 320 60 L 680 140" fill="none" stroke="rgba(18,18,24,.12)" stroke-width="0.75" stroke-linecap="round"/>
+<path d="M-120 420 L 260 320 L 640 420" fill="none" stroke="rgba(18,18,24,.10)" stroke-width="0.75" stroke-linecap="round"/>
+<path d="M80 -60 L 140 280 L 60 520" fill="none" stroke="rgba(18,18,24,.10)" stroke-width="0.75" stroke-linecap="round"/>
+<path d="M520 -40 L 580 280 L 500 520" fill="none" stroke="rgba(18,18,24,.09)" stroke-width="0.75" stroke-linecap="round"/>
+<path d="M720 20 L 780 300 L 700 540" fill="none" stroke="rgba(18,18,24,.09)" stroke-width="0.75" stroke-linecap="round"/>
+</svg></div>
+</template>
+<svg style="display:none"><symbol id="ddcmark" viewBox="0 0 864.06 864.06"><g transform="translate(-97.34,-74.00)"><path d="M407.07 851.09 C410.95 849.87 416.88 846.78 421.57 843.52 C436.07 833.45 435.28 833.66 462.00 832.91 C491.37 832.08 493.99 831.46 539.00 814.71 C610.53 788.08 663.43 764.73 697.31 744.85 C758.40 709.00 802.21 664.33 829.41 610.17 C839.25 590.58 846.44 570.54 852.55 545.65 C866.20 490.06 864.59 421.98 848.35 368.00 C837.94 333.40 822.20 302.56 800.13 273.50 C790.56 260.90 765.46 235.60 753.00 226.00 C719.02 199.81 681.01 181.46 642.39 172.60 C610.62 165.31 604.75 165.04 474.38 165.02 C360.44 165.00 360.27 165.00 357.63 167.07 L355.00 169.15L355.00 193.94 C355.00 217.36 355.11 218.87 357.04 221.32 L359.07 223.91L482.29 224.30 C616.12 224.72 609.33 224.45 633.50 230.40 C686.07 243.33 733.16 276.02 762.55 320.00 C784.70 353.14 797.93 392.11 802.07 436.33 C803.58 452.50 802.73 495.52 800.62 509.50 C793.76 555.03 777.78 592.26 749.95 627.54 C741.32 638.47 722.44 657.08 711.00 665.92 C670.68 697.08 613.70 725.53 533.93 754.35 C496.06 768.03 476.00 773.16 455.00 774.53 L445.50 775.15L441.82 768.76 C436.94 760.30 430.49 753.29 423.63 749.00 L418.03 745.50L418.01 692.93 L418.00 640.36L506.25 640.43 C605.50 640.51 602.59 640.69 626.41 632.89 C646.65 626.27 663.38 616.25 678.84 601.50 C705.28 576.28 720.67 546.34 727.56 506.69 C729.68 494.51 730.61 455.88 729.12 442.17 C725.79 411.61 716.24 384.60 700.24 360.51 C691.26 346.99 672.94 328.68 659.50 319.80 C639.99 306.92 619.12 298.38 596.00 293.83 C584.56 291.58 583.96 291.57 477.24 291.24 C380.03 290.95 369.66 291.07 366.57 292.54 C359.60 295.84 360.00 288.59 360.00 411.76 L360.00 522.73L362.64 525.36 L365.27 528.00L388.53 528.00 C409.93 528.00 411.97 527.85 414.14 526.09 L416.50 524.18L417.00 436.34 L417.50 348.50L490.50 348.21 C566.00 347.91 575.06 348.25 590.84 352.02 C609.89 356.57 627.22 366.14 640.55 379.46 C655.85 394.75 666.02 415.29 670.66 440.24 C673.10 453.40 673.09 483.87 670.63 497.50 C664.82 529.80 649.89 553.69 625.65 569.49 C614.68 576.64 603.65 581.19 590.00 584.19 L579.50 586.50L446.00 586.50 C372.57 586.50 310.93 586.15 309.00 585.71 C305.77 584.99 305.14 584.18 300.85 575.21 C297.41 568.03 294.63 563.90 290.18 559.34 C286.87 555.95 282.10 551.97 279.58 550.50 L275.00 547.81L275.00 397.83 L275.00 247.85L280.40 242.91 C289.55 234.55 293.98 226.13 296.06 213.15 C299.74 190.06 282.75 166.07 259.20 161.11 C242.60 157.62 225.11 162.84 213.98 174.62 C204.07 185.09 199.36 200.79 201.81 215.10 C203.53 225.13 207.23 232.18 215.14 240.51 L222.00 247.73L222.00 398.21 L222.00 548.68L219.75 549.71 C216.19 551.33 209.09 557.62 205.01 562.77 C200.21 568.83 196.38 576.45 194.49 583.69 C192.74 590.41 192.54 604.67 194.09 612.20 C198.03 631.32 215.41 649.49 234.54 654.47 C241.25 656.22 255.34 656.45 262.00 654.92 C269.54 653.19 280.17 647.45 286.56 641.67 L292.62 636.17L322.56 637.65 C339.03 638.47 354.41 639.36 356.75 639.63 L361.00 640.12L361.00 692.53 L361.00 744.94L355.75 748.30 C344.97 755.20 335.81 767.97 332.49 780.70 C330.72 787.49 330.54 801.78 332.14 809.20 C334.95 822.33 344.96 836.80 356.56 844.50 C362.18 848.23 370.07 851.45 377.49 853.05 C383.94 854.44 399.74 853.39 407.07 851.09 Z" fill="currentColor" fill-rule="evenodd"/></g></symbol></svg>
+
+<header class="head" id="head">
+  <div class="wrap">
+    <div class="topbar">
+      <div class="lock"><svg class="ic" style="color:var(--ink)"><use href="#ddcmark"/></svg>
+        <span class="tx"><b>DATA DRIVEN</b><span>CONSULTING</span></span></div>
+      <div class="meta">Documento confidencial</div>
+    </div>
+    <div class="masthead">
+      <div>
+        <div class="kk">Reporte de operación · Junio 2026</div>
+        <h1>Núcleo<span class="sub">Pilates Studio</span></h1>
+      </div>
+      <div class="rightmeta">Periodo del reporte<br><b>1 al 28 de junio, 2026</b></div>
+    </div>
+    <div class="caplead">Acumulado de los últimos doce meses</div>
+    <div class="chips" id="chips"></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="section">
+    <div class="shead"><span class="code">01</span><h2>Pulso del mes</h2><span class="ln"></span><span class="note">Variación vs. mes anterior</span></div>
+    <div class="kpis" id="kpis"></div>
+  </section>
+
+  <section class="section">
+    <div class="shead"><span class="code">02</span><h2>Operación a doce meses</h2><span class="ln"></span><span class="note">Los últimos doce meses</span></div>
+    <div class="card"><h3>Ingresos del mes y miembros activos</h3>
+      <div class="hint"><span class="sw" style="background:var(--brand)"></span>Ingresos<span class="sw" style="background:var(--accent)"></span>Miembros activos</div>
+      <div class="chart h330"><canvas id="cTrend"></canvas></div></div>
+  </section>
+
+  <section class="section">
+    <div class="shead"><span class="code">03</span><h2>Retención y membresía</h2><span class="ln"></span><span class="note">Altas, bajas y rotación mensual</span></div>
+    <div class="grid g32">
+      <div class="card"><h3>Altas y bajas por mes</h3>
+        <div class="hint"><span class="sw" style="background:var(--brand)"></span>Altas<span class="sw" style="background:var(--accent)"></span>Bajas</div>
+        <div class="chart h300"><canvas id="cAltasBajas"></canvas></div></div>
+      <div class="card"><h3>Rotación mensual</h3><div class="hint">Bajas sobre la base de inicio de mes</div>
+        <div class="chart h300"><canvas id="cChurn"></canvas></div></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shead"><span class="code">04</span><h2>Mezcla de planes</h2><span class="ln"></span><span class="note">Los reformer concentran la base</span></div>
+    <div class="grid g2">
+      <div class="card"><h3>Ingreso por plan · año</h3><div class="hint">Acumulado del año</div>
+        <div class="chart h300"><canvas id="cPlanIng"></canvas></div></div>
+      <div class="card"><h3>Miembros activos por plan</h3><div class="hint">Base actual</div>
+        <div class="chart h300"><canvas id="cPlanMem"></canvas></div></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shead"><span class="code">05</span><h2>Ocupación de clases</h2><span class="ln"></span><span class="note">Cuándo se llenan las clases</span></div>
+    <div class="grid g2">
+      <div class="card"><h3>Ocupación por franja horaria · año</h3><div class="hint">Asistencia sobre capacidad</div>
+        <div class="chart h300"><canvas id="cHora"></canvas></div></div>
+      <div class="card"><h3>Asistencia por día de la semana · año</h3><div class="hint">El domingo el estudio cierra</div>
+        <div class="chart h300"><canvas id="cDow"></canvas></div></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shead"><span class="code">06</span><h2>De clase muestra a membresía</h2><span class="ln"></span><span class="note">Embudo de adquisición del año</span></div>
+    <div class="grid g32">
+      <div class="card"><h3>Embudo de conversión</h3><div class="hint">De 616 leads, 220 se hicieron miembros</div>
+        <div class="funnel" id="funnel"></div></div>
+      <div class="card"><h3>Conversión por canal</h3><div class="hint">Miembros sobre leads recibidos</div>
+        <div class="chart h300"><canvas id="cCanal"></canvas></div></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shead"><span class="code">07</span><h2>Instructores y tipos de clase</h2><span class="ln"></span></div>
+    <div class="grid g2">
+      <div class="card"><h3>Carga por instructor · año</h3><div class="hint">Clases impartidas, asistencias y ocupación</div>
+        <table class="tbl" id="tInst"></table></div>
+      <div class="card"><h3>Asistencia por tipo de clase · año</h3><div class="hint">Total de asistencias</div>
+        <div class="chart h300"><canvas id="cTipo"></canvas></div></div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot" id="foot">
+  <div class="wrap">
+    <div class="l"><svg class="ic" style="color:var(--ink)"><use href="#ddcmark"/></svg>
+      <span class="t"><b>Data Driven Consulting</b> · <a href="https://www.datadriven.com.mx" target="_blank" rel="noopener">datadriven.com.mx</a><br>Transformamos datos en decisiones.</span></div>
+    <div class="dis">Demo de producto. Núcleo Estudio de Pilates es una marca ficticia con datos sintéticos, creada para ilustrar el formato de reporte mensual. © 2026 Data Driven Consulting.</div>
+  </div>
+</footer>
+
+<script>
+const DATA={"marca": "Núcleo", "mesActual": "Junio 2026", "meses": ["Jul 25", "Ago 25", "Sep 25", "Oct 25", "Nov 25", "Dic 25", "Ene 26", "Feb 26", "Mar 26", "Abr 26", "May 26", "Jun 26"], "ingresosMes": [269260, 296390, 317390, 342410, 336180, 344000, 381810, 415810, 426210, 456380, 445750, 465960], "mrrMes": [224950, 250400, 271850, 287000, 289900, 288300, 322800, 358750, 369000, 390550, 394400, 401900], "miembrosMes": [128, 135, 150, 156, 161, 156, 177, 198, 199, 208, 222, 224], "altasMes": [11, 17, 23, 16, 13, 8, 28, 28, 13, 26, 22, 15], "bajasMes": [3, 10, 8, 10, 8, 13, 7, 7, 12, 17, 8, 13], "churnMes": [2.5, 7.8, 5.9, 6.7, 5.1, 8.1, 4.5, 4.0, 6.1, 8.5, 3.8, 5.9], "clasesMes": [236, 213, 222, 232, 215, 225, 224, 201, 220, 223, 221, 205], "asistenciasMes": [1519, 1377, 1453, 1502, 1392, 1473, 1431, 1322, 1448, 1540, 1437, 1275], "ocupacionMes": [70.3, 69.4, 71.8, 71.1, 70.0, 71.6, 71.1, 69.1, 71.4, 70.5, 69.8, 71.5], "ticketMes": [2104, 2195, 2116, 2195, 2088, 2205, 2157, 2100, 2142, 2194, 2008, 2080], "kpi": {"ingresos": {"val": 465960, "prev": 445750, "delta": 4.5, "inv": false}, "miembros": {"val": 224, "prev": 222, "delta": 0.9, "inv": false}, "altas": {"val": 15, "prev": 22, "delta": -31.8, "inv": false}, "churn": {"val": 5.9, "prev": 3.8, "delta": 2.1, "pts": true, "inv": true}, "ocupacion": {"val": 71.5, "prev": 69.8, "delta": 1.7, "pts": true, "inv": false}, "ticket": {"val": 2080, "prev": 2008, "delta": 3.6, "inv": false}}, "embudoAdq": {"labels": ["Leads recibidos", "Tomaron clase muestra", "Se hicieron miembros"], "valores": [616, 463, 220]}, "porPlan": [{"plan": "Reformer Ilimitado", "miembros": 45, "ingreso": 1387060, "precio": 2600}, {"plan": "Reformer 8 clases", "miembros": 63, "ingreso": 1332370, "precio": 1900}, {"plan": "Reformer 4 clases", "miembros": 58, "ingreso": 756240, "precio": 1200}, {"plan": "Mat Ilimitado", "miembros": 28, "ingreso": 392140, "precio": 1050}, {"plan": "Privados", "miembros": 13, "ingreso": 430640, "precio": 3400}, {"plan": "Flexible", "miembros": 17, "ingreso": 199100, "precio": 0}], "porCanal": [{"canal": "Instagram", "leads": 213, "muestras": 157, "conversiones": 49, "conversion": 23.0}, {"canal": "Referido", "leads": 129, "muestras": 96, "conversiones": 65, "conversion": 50.4}, {"canal": "Google", "leads": 100, "muestras": 76, "conversiones": 36, "conversion": 36.0}, {"canal": "Paso", "leads": 77, "muestras": 60, "conversiones": 34, "conversion": 44.2}, {"canal": "Facebook", "leads": 47, "muestras": 35, "conversiones": 13, "conversion": 27.7}, {"canal": "Convenio", "leads": 50, "muestras": 39, "conversiones": 23, "conversion": 46.0}], "porInstructor": [{"instructor": "Valeria", "clases": 492, "asistencias": 3274, "ocupacion": 70.2}, {"instructor": "Daniela", "clases": 435, "asistencias": 2925, "ocupacion": 73.1}, {"instructor": "Ana Paula", "clases": 456, "asistencias": 2887, "ocupacion": 70.3}, {"instructor": "Sofía", "clases": 415, "asistencias": 2777, "ocupacion": 70.9}, {"instructor": "Mariana", "clases": 430, "asistencias": 2740, "ocupacion": 70.9}, {"instructor": "Regina", "clases": 409, "asistencias": 2566, "ocupacion": 68.3}], "ocupHora": [{"hora": "06:00", "ocupacion": 69.3, "asistencias": 1559}, {"hora": "07:00", "ocupacion": 80.4, "asistencias": 1816}, {"hora": "08:00", "ocupacion": 80.2, "asistencias": 2132}, {"hora": "09:00", "ocupacion": 75.9, "asistencias": 2027}, {"hora": "10:00", "ocupacion": 54.4, "asistencias": 1474}, {"hora": "11:00", "ocupacion": 48.1, "asistencias": 1302}, {"hora": "12:00", "ocupacion": 38.7, "asistencias": 191}, {"hora": "17:00", "ocupacion": 73.2, "asistencias": 1564}, {"hora": "18:00", "ocupacion": 83.0, "asistencias": 1768}, {"hora": "19:00", "ocupacion": 84.6, "asistencias": 1752}, {"hora": "20:00", "ocupacion": 71.4, "asistencias": 1584}], "asistDow": [{"dia": "Lun", "asistencias": 3286}, {"dia": "Mar", "asistencias": 3184}, {"dia": "Mié", "asistencias": 3332}, {"dia": "Jue", "asistencias": 3260}, {"dia": "Vie", "asistencias": 2930}, {"dia": "Sáb", "asistencias": 1177}], "tipoClase": [{"tipo": "Reformer", "asistencias": 10604}, {"tipo": "Mat", "asistencias": 5120}, {"tipo": "Tower", "asistencias": 1017}, {"tipo": "Privado", "asistencias": 225}, {"tipo": "Dúo", "asistencias": 203}], "totales": {"ingresos": 4497550, "miembrosActivos": 224, "miembrosHist": 340, "leads": 616, "clases": 2637, "asistencias": 17169, "ocupacion": 70.6, "conversion": 35.7}};
+const C={ink:'#0B0B0B',body:'#1D1D1F',muted:'#6E6E73',faint:'#8E8E93',hair:'#E5E5EA',
+  brand:'#3A7D5C',brandD:'#2C5E45',brandL:'#5E9E7B',accent:'#BE6E4E',accentL:'#D49170',sand:'#C9A87C',graph:'#5E6670'};
+const GREENRAMP=[C.brandD,C.brand,C.brandL,'#86B6A0','#A9C9B8','#C9A87C'];
+const SANS="600 12px 'Geist','IBM Plex Sans',sans-serif";
+const fmtM=n=>'$'+Math.round(n).toLocaleString('es-MX');
+const fmtK=n=>n>=1e6?'$'+(n/1e6).toFixed(2)+'M':n>=1000?'$'+Math.round(n/1000)+'K':'$'+n;
+
+Chart.defaults.font.family="'JetBrains Mono',monospace";
+Chart.defaults.font.size=10.5; Chart.defaults.color=C.faint;
+Chart.defaults.plugins.legend.display=false;
+Object.assign(Chart.defaults.plugins.tooltip,{backgroundColor:C.ink,borderWidth:0,cornerRadius:7,padding:10,
+  displayColors:false,titleColor:'#fff',bodyColor:'#D9D9DE',
+  titleFont:{family:"'Geist',sans-serif",weight:'600',size:12.5},bodyFont:{family:"'JetBrains Mono',monospace",size:11}});
+const noGrid={grid:{display:false},border:{display:false}};
+const xA={grid:{display:false},border:{color:C.hair},ticks:{color:C.muted,font:{size:9.5}}};
+const vlab=(o={})=>({id:'vl'+(o.axis||'x')+(o.ds||0),afterDatasetsDraw(c){const{ctx}=c;const ds=o.ds??0;const f=o.fmt||(v=>v);
+  c.getDatasetMeta(ds).data.forEach((el,i)=>{const v=c.data.datasets[ds].data[i];if(v==null)return;ctx.save();
+  ctx.fillStyle=o.color||C.body;ctx.font=o.font||SANS;
+  if(o.axis==='y'){ctx.textAlign='left';ctx.textBaseline='middle';ctx.fillText(f(v),el.x+8,el.y);}
+  else{ctx.textAlign='center';ctx.textBaseline='bottom';ctx.fillText(f(v),el.x,el.y-7);}ctx.restore();});}});
+const endLab=(o={})=>({id:'end',afterDatasetsDraw(c){const m=c.getDatasetMeta(o.ds);const el=m.data[m.data.length-1];if(!el)return;
+  const v=c.data.datasets[o.ds].data[m.data.length-1];const{ctx}=c;ctx.save();ctx.fillStyle=o.color||C.brand;
+  ctx.font="600 12.5px 'Geist',sans-serif";ctx.textAlign='right';ctx.textBaseline='bottom';ctx.fillText((o.fmt||(x=>x))(v),el.x-2,el.y-9);ctx.restore();}});
+function inject(id){document.getElementById(id).prepend(document.getElementById('ddclines').content.cloneNode(true));}
+
+function build(){
+  inject('head');inject('foot');
+  const T=DATA.totales;
+  document.getElementById('chips').innerHTML=[
+    T.miembrosActivos+' miembros activos', T.clases.toLocaleString('es-MX')+' clases impartidas',
+    fmtK(T.ingresos)+' en ingresos', T.ocupacion+'% de ocupación', T.conversion+'% de conversión'
+  ].map(t=>`<span class="chip"><i></i>${t}</span>`).join('');
+
+  const K=DATA.kpi;
+  const dl=(o)=>{const d=o.delta;if(d==null)return `<span class="d nu">Sin variación</span>`;
+    const good=o.inv?d<0:d>0;const cls=d===0?'nu':(good?'up':'dn');
+    return `<span class="d ${cls}"><span class="ar">${d>0?'▲':'▼'}</span> ${Math.abs(d)}${o.pts?' pts':'%'}</span>`;};
+  const defs=[
+    {l:'Ingresos del mes',v:fmtM(K.ingresos.val),sm:1,d:dl(K.ingresos)},
+    {l:'Miembros activos',v:K.miembros.val,d:dl(K.miembros)},
+    {l:'Altas del mes',v:K.altas.val,d:dl(K.altas)},
+    {l:'Rotación mensual',v:K.churn.val+'%',d:dl(K.churn)},
+    {l:'Ocupación promedio',v:K.ocupacion.val+'%',d:dl(K.ocupacion)},
+    {l:'Ingreso por miembro',v:fmtM(K.ticket.val),sm:1,d:dl(K.ticket)},
+  ];
+  document.getElementById('kpis').innerHTML=defs.map(k=>
+    `<div class="kpi"><div class="l">${k.l}</div><div class="v ${k.sm?'sm':''} tnum">${k.v}</div>${k.d}</div>`).join('');
+
+  // trend ingresos + miembros
+  new Chart(cTrend,{data:{labels:DATA.meses,datasets:[
+    {type:'bar',label:'Miembros',data:DATA.miembrosMes,yAxisID:'y1',backgroundColor:'rgba(190,110,78,.26)',
+     hoverBackgroundColor:'rgba(190,110,78,.5)',borderRadius:3,barPercentage:.6,categoryPercentage:.7,order:3},
+    {type:'line',label:'Ingresos',data:DATA.ingresosMes,yAxisID:'y',borderColor:C.brand,backgroundColor:C.brand,
+     borderWidth:2,tension:.34,pointRadius:0,pointHoverRadius:4,fill:false,order:1}
+  ]},options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},layout:{padding:{top:22,right:10}},
+    plugins:{tooltip:{callbacks:{label:c=>c.dataset.label==='Ingresos'?'Ingresos  '+fmtM(c.parsed.y):'Miembros  '+c.parsed.y}}},
+    scales:{y:{beginAtZero:true,ticks:{color:C.muted,callback:v=>fmtK(v)},...noGrid},
+      y1:{position:'right',beginAtZero:true,grace:'12%',ticks:{color:C.faint},...noGrid},x:xA}},
+    plugins:[endLab({ds:1,fmt:fmtK})]});
+
+  // altas vs bajas
+  new Chart(cAltasBajas,{type:'bar',data:{labels:DATA.meses,datasets:[
+    {label:'Altas',data:DATA.altasMes,backgroundColor:C.brand,borderRadius:3,barPercentage:.8,categoryPercentage:.66},
+    {label:'Bajas',data:DATA.bajasMes,backgroundColor:C.accent,borderRadius:3,barPercentage:.8,categoryPercentage:.66}
+  ]},options:{responsive:true,maintainAspectRatio:false,
+    plugins:{tooltip:{callbacks:{label:c=>c.dataset.label+'  '+c.parsed.y}}},
+    scales:{y:{beginAtZero:true,ticks:{color:C.muted},...noGrid},x:xA}}});
+
+  // churn line
+  new Chart(cChurn,{type:'line',data:{labels:DATA.meses,datasets:[
+    {data:DATA.churnMes,borderColor:C.accent,backgroundColor:'rgba(190,110,78,.08)',borderWidth:2,tension:.34,
+     pointRadius:0,pointHoverRadius:4,fill:true}]},
+    options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:8}},
+    plugins:{tooltip:{callbacks:{label:c=>'Rotación  '+c.parsed.y+'%'}}},
+    scales:{y:{beginAtZero:true,ticks:{color:C.muted,callback:v=>v+'%'},...noGrid},x:xA}}});
+
+  // ingreso por plan (horizontal)
+  const PP=DATA.porPlan;
+  new Chart(cPlanIng,{type:'bar',data:{labels:PP.map(p=>p.plan),datasets:[
+    {data:PP.map(p=>p.ingreso),backgroundColor:GREENRAMP,borderRadius:4,barPercentage:.74}]},
+    options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,layout:{padding:{right:58}},
+    plugins:{tooltip:{callbacks:{label:c=>fmtM(c.parsed.x)}}},
+    scales:{x:{beginAtZero:true,ticks:{display:false},...noGrid},y:{ticks:{color:C.ink,font:{family:"'Geist',sans-serif",size:12}},...noGrid}}},
+    plugins:[vlab({axis:'y',fmt:fmtK,color:C.muted})]});
+
+  // miembros por plan (horizontal, terracota)
+  new Chart(cPlanMem,{type:'bar',data:{labels:PP.map(p=>p.plan),datasets:[
+    {data:PP.map(p=>p.miembros),backgroundColor:[C.accent,C.accentL,C.sand,'#D9C2A2','#B79C84','#9E8B73'],borderRadius:4,barPercentage:.74}]},
+    options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,layout:{padding:{right:42}},
+    plugins:{tooltip:{callbacks:{label:c=>c.parsed.x+' miembros · '+fmtM(PP[c.dataIndex].precio)+'/mes'}}},
+    scales:{x:{beginAtZero:true,ticks:{display:false},...noGrid},y:{ticks:{color:C.ink,font:{family:"'Geist',sans-serif",size:12}},...noGrid}}},
+    plugins:[vlab({axis:'y',color:C.muted})]});
+
+  // ocupación por hora
+  const OH=DATA.ocupHora;
+  new Chart(cHora,{type:'bar',data:{labels:OH.map(o=>o.hora),datasets:[
+    {data:OH.map(o=>o.ocupacion),borderRadius:4,barPercentage:.78,
+     backgroundColor:OH.map(o=>o.ocupacion>=80?C.brandD:o.ocupacion>=65?C.brand:o.ocupacion>=50?C.brandL:C.sand)}]},
+    options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:20}},
+    plugins:{tooltip:{callbacks:{label:c=>'Ocupación  '+c.parsed.y+'%  ·  '+OH[c.dataIndex].asistencias+' asistencias'}}},
+    scales:{y:{beginAtZero:true,max:100,ticks:{color:C.muted,callback:v=>v+'%'},...noGrid},
+      x:{ticks:{color:C.body,font:{family:"'JetBrains Mono'",size:9},maxRotation:0,autoSkipPadding:4},grid:{display:false},border:{color:C.hair}}},
+    },plugins:[vlab({fmt:v=>v+'%',color:C.muted,font:"600 10px 'Geist',sans-serif"})]});
+
+  // asistencia por día
+  const AD=DATA.asistDow;
+  new Chart(cDow,{type:'bar',data:{labels:AD.map(d=>d.dia),datasets:[
+    {data:AD.map(d=>d.asistencias),backgroundColor:C.brand,borderRadius:4,barPercentage:.66}]},
+    options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:20}},
+    plugins:{tooltip:{callbacks:{label:c=>c.parsed.y.toLocaleString('es-MX')+' asistencias'}}},
+    scales:{y:{beginAtZero:true,ticks:{color:C.muted},...noGrid},x:{ticks:{color:C.ink,font:{family:"'Geist',sans-serif",size:12}},grid:{display:false},border:{color:C.hair}}},
+    },plugins:[vlab({fmt:v=>v.toLocaleString('es-MX'),color:C.muted})]});
+
+  // embudo
+  const F=DATA.embudoAdq,fmax=F.valores[0];
+  document.getElementById('funnel').innerHTML=F.labels.map((l,i)=>{const v=F.valores[i];
+    const pct=i===0?'100%':Math.round(v/fmax*100)+'%';const step=i>0?Math.round(v/F.valores[i-1]*100)+'% del paso':'del total';
+    return `<div class="frow"><div class="fn"><span class="lab">${l}</span><span class="big tnum">${v.toLocaleString('es-MX')}</span></div>
+      <div class="fbar"><i style="width:${v/fmax*100}%"></i></div><div class="fpct"><b>${pct}</b>${step}</div></div>`;}).join('');
+
+  // conversión por canal
+  const PC=DATA.porCanal;
+  new Chart(cCanal,{type:'bar',data:{labels:PC.map(c=>c.canal),datasets:[
+    {data:PC.map(c=>c.conversion),borderRadius:4,barPercentage:.72,
+     backgroundColor:PC.map(c=>c.conversion>=45?C.brand:c.conversion>=35?C.brandL:C.sand)}]},
+    options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,layout:{padding:{right:46}},
+    plugins:{tooltip:{callbacks:{label:c=>'Conversión  '+c.parsed.x+'%  ·  '+PC[c.dataIndex].conversiones+' miembros'}}},
+    scales:{x:{beginAtZero:true,ticks:{display:false},...noGrid},y:{ticks:{color:C.ink,font:{family:"'Geist',sans-serif",size:12}},...noGrid}}},
+    plugins:[vlab({axis:'y',fmt:v=>v+'%',color:C.muted})]});
+
+  // tabla instructores
+  document.getElementById('tInst').innerHTML=
+    '<thead><tr><th>Instructor</th><th class="r">Clases</th><th class="r">Asistencias</th><th class="r">Ocupación</th></tr></thead><tbody>'+
+    DATA.porInstructor.map(i=>`<tr><td class="nm">${i.instructor}</td><td class="r">${i.clases}</td>
+      <td class="r">${i.asistencias.toLocaleString('es-MX')}</td><td class="r">${i.ocupacion}%</td></tr>`).join('')+'</tbody>';
+
+  // tipo de clase
+  const TC=DATA.tipoClase;
+  new Chart(cTipo,{type:'bar',data:{labels:TC.map(t=>t.tipo),datasets:[
+    {data:TC.map(t=>t.asistencias),backgroundColor:GREENRAMP,borderRadius:4,barPercentage:.74}]},
+    options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,layout:{padding:{right:54}},
+    plugins:{tooltip:{callbacks:{label:c=>c.parsed.x.toLocaleString('es-MX')+' asistencias'}}},
+    scales:{x:{beginAtZero:true,ticks:{display:false},...noGrid},y:{ticks:{color:C.ink,font:{family:"'Geist',sans-serif",size:12}},...noGrid}}},
+    plugins:[vlab({axis:'y',fmt:v=>v.toLocaleString('es-MX'),color:C.muted})]});
+}
+if(document.fonts&&document.fonts.ready){document.fonts.ready.then(build);}else{build();}
+</script>
+</body>
+</html>
