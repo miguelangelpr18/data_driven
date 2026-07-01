@@ -8,6 +8,7 @@ import ContactForm from '@/components/ContactForm';
 import DemosSection from '@/components/DemosSection';
 import Hero from '@/components/Hero';
 import SiteFooter from '@/components/SiteFooter';
+import { SHOW_PLANS } from '@/lib/flags';
 import { cn } from '@/lib/utils';
 
 const planSteps = [
@@ -712,7 +713,8 @@ export default function Home() {
         {/* DEMOS POR INDUSTRIA - Fondo Negro */}
         <DemosSection />
 
-        {/* PLANES DATA DRIVEN - 4 cards consistentes */}
+        {/* PLANES DATA DRIVEN - En pausa (draft): se controla con SHOW_PLANS en @/lib/flags */}
+        {SHOW_PLANS && (
         <section
           id="planes-data-driven"
           data-theme="light"
@@ -756,6 +758,7 @@ export default function Home() {
             </div>
           </div>
         </section>
+        )}
 
         {/* QUIÉNES SOMOS */}
         <section id="quienes-somos" data-theme="dark" className="relative overflow-hidden bg-black text-white">

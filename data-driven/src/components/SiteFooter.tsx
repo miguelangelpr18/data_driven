@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Instagram, Linkedin, Mail, Phone } from 'lucide-react';
 
 import BackgroundLines from '@/components/BackgroundLines';
+import { SHOW_PLANS } from '@/lib/flags';
 
 const navigationLinks = [
   { label: 'Servicios',   href: '#servicios' },
@@ -11,6 +12,11 @@ const navigationLinks = [
   { label: 'Nosotros',    href: '#quienes-somos' },
   { label: 'Contacto',    href: '#contacto' },
 ] as const;
+
+// Oculta "Planes" del footer mientras la sección está en pausa (draft) — ver @/lib/flags
+const visibleNavigationLinks = SHOW_PLANS
+  ? navigationLinks
+  : navigationLinks.filter((link) => link.href !== '#planes-data-driven');
 
 const serviceItems = [
   'Limpieza y optimización de bases de datos',
@@ -63,7 +69,7 @@ export default function SiteFooter() {
             <div>
               <h3 className="text-sm font-semibold tracking-wide text-neutral-800">Navegación</h3>
               <ul className="mt-4 space-y-2">
-                {navigationLinks.map(({ href, label }) => (
+                {visibleNavigationLinks.map(({ href, label }) => (
                   <li key={href}>
                     <a
                       href={href}

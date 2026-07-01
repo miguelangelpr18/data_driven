@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useMemo, useRef, useState } from 'react';
 
+import { SHOW_PLANS } from '@/lib/flags';
 import { cn } from '@/lib/utils';
 
 const NAV = [
@@ -14,6 +15,9 @@ const NAV = [
   { label: 'Nosotros',    href: '/#quienes-somos',       id: 'quienes-somos' },
   { label: 'Contacto',    href: '/#contacto',            id: 'contacto' },
 ] as const;
+
+// Oculta "Planes" del nav mientras la sección está en pausa (draft) — ver @/lib/flags
+const VISIBLE_NAV = SHOW_PLANS ? NAV : NAV.filter((item) => item.id !== 'planes-data-driven');
 
 type NavItem = (typeof NAV)[number];
 type ThemeMode = 'light' | 'dark';
@@ -127,7 +131,7 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [logoError, setLogoError] = useState(false);
   const [theme, setTheme] = useState<ThemeMode>('light');
-  const activeSection = useActiveSection(NAV);
+  const activeSection = useActiveSection(VISIBLE_NAV);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const drawerCloseRef = useRef<HTMLButtonElement>(null);
 
@@ -231,7 +235,7 @@ export default function Header() {
               width={916}
               height={1341}
               priority
-              className={cn('h-10 w-auto shrink-0 object-contain transition duration-300 sm:h-11', isDark ? 'drop-shadow-[0_6px_18px_rgba(0,0,0,0.45)]' : '')}
+              className={cn('h-10 w-auto shrink-0 object-contain transition duration-300 sm:h-11', isDark ? '[filter:brightness(0)_invert(1)]' : '')}
               onError={() => setLogoError(true)}
             />
           ) : (
@@ -247,7 +251,7 @@ export default function Header() {
         </Link>
 
         <nav className="hidden items-center gap-2 lg:flex xl:gap-3" aria-label="Navegación principal">
-          {NAV.map((item) => (
+          {VISIBLE_NAV.map((item) => (
             <NavLink key={item.id} item={item} theme={theme} isActive={activeSection === item.id} />
           ))}
         </nav>
@@ -306,7 +310,7 @@ export default function Header() {
             </div>
 
             <nav id="mobile-nav" className="flex flex-col gap-2" aria-label="Navegación principal móvil">
-              {NAV.map((item) => (
+              {VISIBLE_NAV.map((item) => (
                 <NavLink
                   key={item.id}
                   item={item}
